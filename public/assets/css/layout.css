@@ -1,0 +1,48 @@
+main {
+  clear: both;
+  width: 100%;
+  padding: 1em 0;
+}
+section,
+aside {
+  float: left;
+}
+section.content,
+section.content-left,
+section.content-right,
+aside.content,
+aside.content-left,
+aside.content-right {
+  min-height: ;
+  display: inline-block;
+}
+section.content-left,
+aside.content-left {
+  clear: left;
+}
+section.content-right,
+aside.content-right {
+  clear: right;
+}
+section.content {
+  clear: none;
+  width: ;
+}
+section.content-full,
+section.content-top,
+section.content-bottom {
+  width: 100%;
+  clear: both;
+}
+section.content-left {
+  width: 100% - ;
+}
+section.content-right {
+  width: 100% - ;
+}
+aside.content-left {
+  width: ;
+}
+aside.content-right {
+  width: ;
+}

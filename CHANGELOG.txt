@@ -1,0 +1,77 @@
+Version 0.4.1
+ - Added more flexible manifest.json support for packages, thanks to @WooDzu.
+ - Fixed #30, thanks to @WooDzu.
+ - Cache clearing optimizations, added "Clear cache" button to dashboard, thanks to @WooDzu.
+ - Fixed minor problems with cache path detection.
+ - Added method "php" to view. Allows to use php code inside volt.
+ - Header widget: do not display logo if empty.
+ - Fixed escaping in CkEditor form element.
+ - Helper "Security" renamed to "Acl".
+ - Console commands: fixed command description output.
+ - Removed ACL wrapper, for performance reason.
+ - Helpers implementation was reworked.
+ - Added languages cache location to config.
+ - Removed call_user_func_array where it is possible.
+ - Fixed bug with cacheDir that can be missing in config.
+ - Reworked cache adapters creation.
+ - Added strtolower method to dispatcher for action (this is for Phalcon 1.3.2).
+ - Fixed possible error with form validation message (Phalcon 1.3.2).
+ - Added caching mechanism for assets generation tool.
+ - Fixed bugs: #64, #49, #67, #26.
+ - Implemented: #55.
+
+Version 0.4.0
+ - Implemented isCached, getCacheKey, getCacheLifeTime, clearCache methods for widgets caching.
+ - Implemented modules system.
+ - Implemented filters in forms.
+ - Implemented packages system.
+ - Implemented external Plugins.
+ - Implemented external Widgets.
+ - Implemented console commands.
+ - Implemented migrations system for engine and modules.
+ - Implemented form partials: added 'default' and 'text'.
+ - Implemented form conditions.
+ - Implemented form fieldsets.
+ - Implemented form multiple entities support.
+ - Added CkEditor element.
+ - Added Button element.
+ - Added ButtonLink element.
+ - Added Heading element.
+ - Added FileForm.
+ - Added EntityForm (this will allow to created forms from entity on the fly).
+ - Added Image validator (size validation).
+ - Added File MimeType validation.
+ - Added Phalcon 1.3.0 support (Required version).
+ - Added Less compiler.
+ - Added Phalcon assets manager.
+ - Added Profiler.
+ - Fixed form validation and form getValues before isValid method.
+ - Fixed widgets saving with empty parameters.
+ - Fixed #11.
+ - Fixed Exception trace logging.
+ - JS refactored.
+ - New default theme.
+ - Code styling via phpcs and phpmd.
+ - Most system code has been refactored.
+ - Form class rewritten from scratch.
+ - Grid system has been implemented.
+ - A lot of code refactoring was made...
+
+Version 0.3.0
+ - Some menu improvements: onclick action, icon, tooltip, language selector.
+ - Form class fully rewritten.
+ - Implemented session db handler.
+ - AjaXplorer added for file management.
+ - New style for admin panel.
+
+Version 0.2.0
+ - Views cache cleaning from admin.
+ - Routing annotations system.
+ - Acl management implemented.
+ - Added 'Class not found' log message.
+ - Page access management implemented.
+ - Menu items access management implemented.
+ - Added is_acl_controlled option for widget and implemented access management for widgets.
+ - is_paginated and is_acl_controlled now will be added for all kind of widgets admin form if option is enabled.
+ - Search text in languages management.
+ - Tested with Phalcon 1.0.0 Beta.

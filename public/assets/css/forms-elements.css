@@ -1,0 +1,77 @@
+input[type=text],
+input[type=email],
+input[type=password],
+input.text,
+textarea,
+select {
+  color: ;
+  background-color: ;
+  border: 1px solid ;
+  padding: 0.5em;
+  font-size: ;
+  resize: none;
+  font-family: ;
+}
+button,
+input[type=button],
+input[type=file],
+.btn {
+  padding: 0.5em;
+  border: 2px solid transparent;
+  border-left: none;
+  border-right: none;
+  background-color: ;
+  color: ;
+  cursor: pointer;
+  font-size: ;
+  text-decoration: none;
+  display: inline-block;
+  vertical-align: middle;
+}
+button:active,
+button:focus,
+button.active,
+input[type=button]:active,
+input[type=button]:focus,
+input[type=button].active,
+input[type=file]:active,
+input[type=file]:focus,
+input[type=file].active,
+.btn:active,
+.btn:focus,
+.btn.active {
+  outline: 0;
+}
+button:hover,
+input[type=button]:hover,
+input[type=file]:hover,
+.btn:hover {
+  color: ;
+  border-bottom-color: ;
+}
+button.btn-primary,
+input[type=button].btn-primary,
+input[type=file].btn-primary,
+.btn.btn-primary {
+  color: ;
+  background-color: ;
+}
+button.btn-success,
+input[type=button].btn-success,
+input[type=file].btn-success,
+.btn.btn-success {
+  color: ;
+  background-color: ;
+}
+button.btn-danger,
+input[type=button].btn-danger,
+input[type=file].btn-danger,
+.btn.btn-danger {
+  color: ;
+  background-color: ;
+}
+.btn-primary:hover,
+.btn-success:hover,
+.btn-danger:hover {
+  border-bottom-color: ;
+}

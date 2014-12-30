@@ -1,0 +1,66 @@
+footer {
+  color: ;
+}
+footer section {
+  background: ;
+}
+footer .social-icons {
+  margin: 0;
+  padding: 0;
+}
+footer .social-icons li {
+  float: left;
+  list-style: none outside none;
+  border: none;
+}
+footer .social-icons li a {
+  background-color: transparent;
+  background-image: url("/files/mini-social-icons.png");
+  background-repeat: no-repeat;
+  background-size: auto 96px;
+  border: 0 none;
+  color: white;
+  display: block;
+  height: 32px;
+  overflow: hidden;
+  text-align: left;
+  text-decoration: none;
+  text-indent: -999em;
+  width: 32px;
+}
+footer .social-icons li.facebook a {
+  background-position: 0 -1px;
+}
+footer .social-icons li.facebook a:hover {
+  background-position: 0 -32px;
+}
+footer .social-icons li.gplus    a {
+  background-position: -96px -1px;
+}
+footer .social-icons li.gplus    a:hover {
+  background-position: -96px -32px;
+}
+footer .social-icons li.rss      a {
+  background-position: -192px -1px;
+}
+footer .social-icons li.rss      a:hover {
+  background-position: -192px -32px;
+}
+footer .social-icons li.twitter  a {
+  background-position: -256px -1px;
+}
+footer .social-icons li.twitter  a:hover {
+  background-position: -256px -32px;
+}
+footer .social-icons li.youtube  a {
+  background-position: -320px -1px;
+}
+footer .social-icons li.youtube  a:hover {
+  background-position: -320px -32px;
+}
+footer .social-icons li.skype    a {
+  background-position: -224px -1px;
+}
+footer .social-icons li.skype    a:hover {
+  background-position: -224px -32px;
+}
