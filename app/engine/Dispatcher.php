@@ -45,11 +45,25 @@ class Dispatcher extends PhalconDispatcher
             $parts = explode('_', $this->_handlerName);
             $finalHandlerName = '';
 
-            foreach ($parts as $part) {
-                $finalHandlerName .= ucfirst($part);
-            }
-            $this->_handlerName = $finalHandlerName;
-            $this->_actionName = strtolower($this->_actionName);
+
+
+            $module=$this->getModuleName();
+            $this->setNamespaceName(ucfirst($module)."\Controller\\");
+            $controller=$this->getControllerName();
+            $action=$this->getActionName();
+            $params=$this->getParams();
+
+            $this->setModuleName(ucfirst($module));
+            $this->setControllerName($controller);
+            $this->setActionName($action);
+            $this->setParams($params);
+
+
+//             foreach ($parts as $part) {
+//                 $finalHandlerName .= ucfirst($part);
+//             }
+//             $this->_handlerName = $finalHandlerName;
+//             $this->_actionName = strtolower($this->_actionName);
 
             return parent::dispatch();
         } catch (\Exception $e) {

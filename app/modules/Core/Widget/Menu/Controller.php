@@ -157,11 +157,11 @@ class Controller extends WidgetController
     {
         $key = self::CACHE_PREFIX;
 
-        $role = User::getViewer()->getRole();
-        if ($role) {
-            $key .= $role->type;
+        $group = User::getViewer()->getGroup();
+        if ($group) {
+            $key .= "group".$group->id;
         } else {
-            $key .= Role::getRoleByType(Acl::DEFAULT_ROLE_GUEST)->type;
+            $key .= 'group0';
         }
 
         $key .= '_' . $this->getDI()->getSession()->get('language');

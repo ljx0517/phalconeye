@@ -15,7 +15,7 @@
   | Author: Ivan Vorontsov <ivan.vorontsov@phalconeye.com>                 |
   +------------------------------------------------------------------------+
 */
-
+$t1=microtime(true);
 /**
  * Stages.
  */
@@ -69,3 +69,4 @@ if (php_sapi_name() !== 'cli') {
 $application->run();
 echo $application->getOutput();
 
+echo microtime(true)-$t1;

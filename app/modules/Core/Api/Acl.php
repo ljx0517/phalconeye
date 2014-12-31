@@ -29,9 +29,10 @@ use Phalcon\DI;
 use Phalcon\Events\Event as PhalconEvent;
 use Phalcon\Mvc\Dispatcher;
 use Phalcon\Text;
-use User\Model\Role;
+//use User\Model\Role;
 use User\Model\User;
-
+use User\Model\User_group;
+use User\Model\Group;
 /**
  * Core API Acl.
  *
@@ -54,7 +55,7 @@ class Acl extends AbstractApi
         /**
          * Role - ADMIN.
          */
-        DEFAULT_ROLE_ADMIN = 'admin',
+        DEFAULT_ROLE_ADMIN = 'SuperAdministrator',
 
         /**
          * Role - USER.
@@ -94,38 +95,28 @@ class Acl extends AbstractApi
                 $acl->setDefaultAction(PhalconAcl::DENY);
 
                 // Prepare Roles.
-                $roles = Role::find();
+                //$roles = Role::find();
+                $groups=Group::find();
                 $roleNames = [];
-                foreach ($roles as $role) {
-                    $roleNames[$role->id] = $role->name;
-                    $acl->addRole($role->name);
-                }
+                foreach ($groups as $group) {
+                    $roleNames[$group->id] = $group->name;
+                    $acl->addRole($group->name);
 
-                // Defining admin area.
-                $adminArea = new AclResource(self::ACL_ADMIN_AREA);
-                $roleAdmin = Role::getRoleByType(self::DEFAULT_ROLE_ADMIN);
-
-                // Add "admin area" resource.
-                $acl->addResource($adminArea, "access");
-                $acl->allow($roleAdmin->name, self::ACL_ADMIN_AREA, 'access');
-
-
-                // Getting objects that is in acl.
-                // Looking for all models in modelsDir and check @Acl annotation.
-                $objects = $this->_addResources($acl, [self::ACL_ADMIN_AREA => ['actions' => ['access']]]);
-
-                // Load from database.
-                $access = Access::find();
-                foreach ($access as $item) {
-                    $value = $item->value;
-
-                    if (
-                        array_key_exists($item->object, $objects) &&
-                        in_array($item->action, $objects[$item->object]['actions']) &&
-                        ($value == "allow" || $value == "deny")
-                    ) {
-                        $acl->$value($roleNames[$item->role_id], $item->object, $item->action);
+                    $resources=$group->permissions;
+                    if($resources!="*"){
+                    	$resources=unserialize($resources);
+                    	//TODO get all resource from menu table
+                    	//foreach ($resources as $controller=>$actions){
+                    	//	$acl->addResource(new Phalcon\Acl\Resource($controller), $actions);
+                    	//}
+                    	//
+                    	foreach ($resources as $controller=>$actions){
+                    		$acl->allow($group->name, $controller, $actions);
+                    	}
+                    }else{
+                    	$acl->allow($group->name, "*", '*');
                     }
+
                 }
                 $cacheData->save(self::CACHE_KEY_ACL, $acl, 2592000); // 30 days cache.
             }
@@ -257,7 +248,7 @@ class Acl extends AbstractApi
         // Check admin area.
         if (
             Text::startsWith($controller, 'Admin', true) &&
-            $acl->isAllowed($viewer->getRole()->name, self::ACL_ADMIN_AREA, 'access') != PhalconAcl::ALLOW
+            $acl->isAllowed($viewer->getGroup()->name, self::ACL_ADMIN_AREA, 'access') != PhalconAcl::ALLOW
         ) {
             $this->getDI()->getEventsManager()->fire(
                 'dispatch:beforeException',

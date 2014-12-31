@@ -265,8 +265,8 @@ form .form_elements .validation_failed select {
 }
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url('../../../external/bootstrap/fonts/glyphicons-halflings-regular.eot');
-  src: url('../../../external/bootstrap/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../../../external/bootstrap/fonts/glyphicons-halflings-regular.woff') format('woff'), url('../../../external/bootstrap/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../../../external/bootstrap/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+  src: url('../../../external/bootstrap/3.3.1/fonts/glyphicons-halflings-regular.eot');
+  src: url('../../../external/bootstrap/3.3.1/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../../../external/bootstrap/3.3.1/fonts/glyphicons-halflings-regular.woff') format('woff'), url('../../../external/bootstrap/3.3.1/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../../../external/bootstrap/3.3.1/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
 .glyphicon {
   position: relative;

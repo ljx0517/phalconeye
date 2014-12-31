@@ -40,7 +40,7 @@ class Database extends CoreForm
     public function initialize()
     {
         $this->setTitle('Database settings');
-
+        $dbcfg = \Phalcon\DI::getDefault()->get('config')->database;
         $this->addContentFieldSet()
             ->addSelect(
                 'adapter',
@@ -52,13 +52,14 @@ class Database extends CoreForm
                     'Postgresql' => 'PostgreSQL',
                     'Sqlite' => 'SQLite'
                 ],
-                'Mysql'
+                ucfirst($dbcfg->adapter)
             )
-            ->addText('host', 'Database host', null, 'localhost')
-            ->addText('port', 'Database port', null, '3306')
-            ->addText('username', 'Username', null, 'root')
+            ->addText('host', 'Database host', null, $dbcfg->host)
+            ->addText('port', 'Database port', null, $dbcfg->port)
+            ->addText('username', 'Username', null, $dbcfg->username)
             ->addPassword('password')
-            ->addText('dbname', 'Database name', null, 'phalconeye');
+            ->addText('dbname', 'Database name', null, $dbcfg->dbname)
+            ->addText('prefix', 'Database prefix', null, $dbcfg->prefix);
 
         $this->addFooterFieldSet()->addButton('next');
     }

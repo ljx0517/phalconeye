@@ -133,6 +133,7 @@ class Application extends PhalconApplication
      */
     public function run($mode = 'normal')
     {
+
         if (empty($this->_loaders[$mode])) {
             $mode = 'normal';
         }
@@ -143,11 +144,16 @@ class Application extends PhalconApplication
         $config = $this->_config;
         $eventsManager = new EventsManager();
         $this->setEventsManager($eventsManager);
+//         $eventsManager->attach('application:beforeStartModule', function($event, $component, $data){
+//         	print_r($data);
+//         	print_r($event->getData());
+//         	$component->_modules[$data];
+//         });
+
 
         // Init base systems first.
         $this->_initLogger($di, $config);
         $this->_initLoader($di, $config, $eventsManager);
-
         $this->_attachEngineEvents($eventsManager, $config);
 
         // Init services and engine system.
@@ -159,6 +165,9 @@ class Application extends PhalconApplication
         }
 
         $di->setShared('eventsManager', $eventsManager);
+
+
+
     }
 
     /**
@@ -173,19 +182,28 @@ class Application extends PhalconApplication
     {
         $bootstraps = [];
         $di = $this->getDI();
-        foreach ($modules as $moduleName => $moduleClass) {
+        foreach ($modules as $moduleName => $moduleClass ) {
+        	//$moduleClass=$cfg['className'];
             if (isset($this->_modules[$moduleName])) {
                 continue;
             }
 
             $bootstrap = new $moduleClass($di, $this->getEventsManager());
             $bootstraps[$moduleName] = function () use ($bootstrap, $di) {
+            	$bootstrap->registerAutoloaders();
                 $bootstrap->registerServices();
-
+                $a=$di->get("router")->getModuleName();
                 return $bootstrap;
             };
-        }
 
+//             $bootstraps[$moduleName] = array(
+//             	'className' => $moduleClass,
+//             	'path'      =>  ROOT_PATH . '/app/modules/'.$moduleClass.'.php',
+//             );
+        }
+//         $a=$this->getModules();
+//         parent::registerModules($bootstraps, $merge);
+//         $b=$this->getModules();
         return parent::registerModules($bootstraps, $merge);
     }
 

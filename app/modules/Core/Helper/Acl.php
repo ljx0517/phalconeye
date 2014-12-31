@@ -51,7 +51,7 @@ class Acl extends Helper
         return $this->getDI()
             ->get('core')
             ->acl()
-            ->isAllowed($viewer->getRole()->name, $resource, $action) == PhalconAcl::ALLOW;
+            ->isAllowed($viewer->getGroup()->name, $resource, $action) == PhalconAcl::ALLOW;
     }
 
     /**

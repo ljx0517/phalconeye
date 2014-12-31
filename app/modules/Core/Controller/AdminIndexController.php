@@ -17,7 +17,7 @@
 */
 
 namespace Core\Controller;
-
+use Phalcon\Mvc\View;
 /**
  * Admin Index controller.
  *
@@ -30,6 +30,7 @@ namespace Core\Controller;
  */
 class AdminIndexController extends AbstractAdminController
 {
+
     /**
      * Index action.
      *
@@ -39,7 +40,7 @@ class AdminIndexController extends AbstractAdminController
      */
     public function indexAction()
     {
-        $this->view->setRenderLevel(1); // render only action
+        $this->view->setRenderLevel(View::LEVEL_ACTION_VIEW); // render only action
         $this->view->debug = $this->config->application->debug;
     }
 

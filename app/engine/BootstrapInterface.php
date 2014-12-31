@@ -40,8 +40,9 @@ interface BootstrapInterface
      * @param DiInterface $di Dependency injection.
      * @param Manager     $em Events manager.
      */
-    public function __construct($di, $em);
-
+    //public function __construct($di, $em);
+    public function __construct($di=null,$em=null);
+	public function registerAutoloaders();
     /**
      * Register module services.
      *

@@ -59,9 +59,15 @@ class Bootstrap extends EngineBootstrap
      * @param DiInterface $di Dependency injection.
      * @param Manager     $em Events manager object.
      */
-    public function __construct($di, $em)
+    public function __construct($di=null,$em=null)
     {
-        parent::__construct($di, $em);
+    	if(!$di){
+    		$di=\Phalcon\DI::getDefault();
+    	}
+    	if(!$em){
+    		$em=$di->getEventsManager();
+    	}
+        parent::__construct($di);
 
         /**
          * Attach this bootstrap for all application initialization events.

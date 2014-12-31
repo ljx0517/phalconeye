@@ -34,7 +34,9 @@ use Phalcon\Mvc\Model\Manager as ModelManager;
 use Phalcon\Mvc\View;
 use User\Model\Role;
 use User\Model\User;
-
+use User\Model\User_group;
+use User\Model\Group;
+use Core\Api\Acl;
 /**
  * Installation.
  *
@@ -113,6 +115,7 @@ class InstallController extends AbstractController
      */
     public function indexAction()
     {
+    	$a=$this->router->getRewriteUri();
         if ($_SERVER['REQUEST_URI'] != $this->config->application->baseUrl && $_SERVER['REQUEST_URI'] != '/install') {
             echo "
             System must be installed.<br/>
@@ -234,6 +237,7 @@ class InstallController extends AbstractController
                     "username" => $data['username'],
                     "password" => $data['password'],
                     "dbname" => $data['dbname'],
+                    "prefix" => $data['prefix'],
                 ];
 
                 $this->_setupDatabase($connectionSettings);
@@ -299,17 +303,50 @@ class InstallController extends AbstractController
             // Setup database.
             $this->_setupDatabase();
 
-            $user = new User();
             $data = $form->getValues();
-            $user->role_id = Role::getRoleByType('admin')->id;
+            $user = new User();
             if (!$user->save($data)) {
-                foreach ($user->getMessages() as $message) {
-                    $form->addError($message);
-                }
-                $this->view->form = $form;
+				foreach ($user->getMessages() as $message) {
+            		$form->addError($message);
+				}
+				$this->view->form = $form;
 
-                return;
+				return;
+			}
+
+            $user_id=$user->id;
+            $group = Group::findFirst(
+            		[
+            		"name = '".Acl::DEFAULT_ROLE_ADMIN."'",
+            		"description = 'super administrator can do any thing.'",
+            		"permissions = '*'"
+            		]
+            );
+            if (!$group) {
+            	$group = new Group();
+            	$group->name = ucfirst(Acl::DEFAULT_ROLE_ADMIN);
+            	$group->description='super administrator can not be deleted.';
+            	$group->permissions = "*";
+            	$group->undeletable = 1;
+            	$group->save();
             }
+            $group_id=$group->id;
+            $user_group=new User_group();
+            $user_group->save(array("user_id"=>$user_id,"group_id"=>$group_id));
+
+//             $data = $form->getValues();
+//             $user->role_id = Role::getRoleByType('admin')->id;
+//             if (!$user->save($data)) {
+//                 foreach ($user->getMessages() as $message) {
+//                     $form->addError($message);
+//                 }
+//                 $this->view->form = $form;
+
+//                 return;
+//             }
+
+
+
 
             $this->_setPassed(__FUNCTION__, true);
 

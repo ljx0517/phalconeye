@@ -112,7 +112,7 @@ class Schema
                 }
             }
         }
-
+		//exit();
         return $executedStatements;
     }
 
@@ -190,6 +190,9 @@ class Schema
      */
     public function getModelMetadata($modelClass)
     {
+    	if(strpos($modelClass,ucfirst("language"))){
+			$a=1;
+    	}
         /** @var \Phalcon\Annotations\Reflection $reflector */
         $reflector = $this->getDI()->get('annotations')->get($modelClass);
         $metadata = [
@@ -206,7 +209,7 @@ class Schema
         $indexes = [];
         $primary = [];
         $references = [];
-
+		$db_prefix=$this->getDI()->get('config')->database->prefix;
         // Get table name and references data.
         $annotations = $reflector->getClassAnnotations();
         if ($annotations) {
@@ -214,7 +217,7 @@ class Schema
             foreach ($annotations as $annotation) {
                 if ($annotation->getName() == 'Source') {
                     $arguments = $annotation->getArguments();
-                    $metadata['name'] = $arguments[0];
+                    $metadata['name'] = $db_prefix.$arguments[0];
                 } elseif ($annotation->getName() == 'BelongsTo') {
                     $references[] = $annotation->getArguments();
                 }
@@ -243,7 +246,13 @@ class Schema
                  */
                 if ($collection->has('Index')) {
                     $arguments = $collection->get('Index')->getArguments();
-                    $indexes[$arguments[0]][] = $columnName;
+                    $indexes[$arguments[0]]['fields'][] = $columnName;
+					if(!(isset($indexes[$arguments[0]]['key'])&& $indexes[$arguments[0]]['key']!=null)){
+						$indexes[$arguments[0]]['key']=null;
+					}
+                    if(isset($arguments[1])){
+                    	$indexes[$arguments[0]]['key'] = strtoupper($arguments[1]);
+                    }
                 }
 
                 $metadata['columns'][] = new Column($columnName, $columnData);
@@ -254,8 +263,10 @@ class Schema
          * Setup indexes objects.
          */
         $metadata['indexes'][] = new Index('PRIMARY', $primary);
-        foreach ($indexes as $indexName => $fields) {
-            $metadata['indexes'][implode('_', $fields)] = new Index($indexName, $fields);
+        foreach ($indexes as $indexName => $arr) {
+        	$fields=$arr['fields'];
+        	$key=$arr['key'];
+            $metadata['indexes'][implode('_', $fields)] = new Index($indexName, $fields,$key);
         }
 
         /**
@@ -263,10 +274,10 @@ class Schema
          */
         foreach ($references as $reference) {
             if (empty($reference[0]) || empty($reference[1]) || empty($reference[2]) || !class_exists($reference[1])) {
-                throw new EngineException("Bad reference for model {$modelClass}: (" . implode(', ', $reference) . ')');
+                throw new EngineException("Bad reference for model {$modelClass}: (" . EngineException::array_implode(', ',"=>", $reference) . ')');
                 continue;
             }
-
+			//$prefix=$this->getDI()->get('config')->database->prefix;
             $uniqName = $modelClass::getTableName() . '-' .
                 $reference[1]::getTableName() . '-' .
                 $reference[0] . '-' .
@@ -323,6 +334,12 @@ class Schema
                 case 'integer':
                     $columnData['type'] = Column::TYPE_INTEGER;
                     $columnData['isNumeric'] = true;
+                    /**
+                     * Check if the integer attribute is unsigned .
+                     */
+                    if(isset($arguments['unsigned'])&&$arguments['unsigned']){
+                    	$columnData['unsigned'] = true;
+                    }
                     break;
                 case 'string':
                     $columnData['type'] = Column::TYPE_VARCHAR;
@@ -366,6 +383,7 @@ class Schema
                 $columnData['autoIncrement'] = true;
             }
         }
+
 
         return $columnData;
     }

@@ -48,7 +48,7 @@ class Initializer extends Plugin
     {
         //Reflector
         $reflector = $this->annotations->get($model);
-
+		$clsname=get_class($model);
         /**
          * Read the annotations in the class' docblock
          */
@@ -58,7 +58,8 @@ class Initializer extends Plugin
              * Traverse the annotations
              */
             foreach ($annotations as $annotation) {
-                switch ($annotation->getName()) {
+            	$annotation_name=$annotation->getName();
+                switch ($annotation_name) {
                     /**
                      * Initializes the model's source
                      */
@@ -90,6 +91,22 @@ class Initializer extends Plugin
                             $manager->addBelongsTo($model, $arguments[0], $arguments[1], $arguments[2]);
                         }
                         break;
+                    case 'HasOne':
+                    	$arguments = $annotation->getArguments();
+                    	if (isset($arguments[3])){
+                    		$manager->addHasOne($model, $arguments[0], $arguments[1], $arguments[2], $arguments[3]);
+                    	}else{
+                    		$manager->addHasOne($model, $arguments[0], $arguments[1], $arguments[2]);
+                    	}
+                    	break;
+                    case 'HasManyToMany':
+                    	$arguments = $annotation->getArguments();
+                    	if (isset($arguments[6])){
+                    		$manager->addHasManyToMany($model, $arguments[0], $arguments[1], $arguments[2], $arguments[3], $arguments[4], $arguments[5], $arguments[6]);
+                    	}else{
+                    		$manager->addHasManyToMany($model, $arguments[0], $arguments[1], $arguments[2], $arguments[3], $arguments[4], $arguments[5]);
+                    	}
+                    	break;
                 }
             }
         }

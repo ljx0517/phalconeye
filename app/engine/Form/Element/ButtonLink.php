@@ -94,6 +94,12 @@ class ButtonLink extends AbstractElement implements ElementInterface
     public function render()
     {
         $href = $this->getValue();
+//         $url=$this->getDI()->get('url');
+//         $a=$url->getBaseUri();
+//         $b=$url->getBasePath();
+//         $router=$this->getDI()->get('router');
+//         $c=$router->getRewriteUri();
+
         if ($href) {
             $href = $this->getDI()->get('url')->get($href);
         } else {

@@ -18,13 +18,12 @@
 
 namespace User\Model;
 
-use Core\Api\Acl;
 use Engine\Db\AbstractModel;
 use Engine\Db\Model\Behavior\Timestampable;
-use Phalcon\DI;
 use Phalcon\Mvc\Model\Validator\Email;
 use Phalcon\Mvc\Model\Validator\StringLength;
 use Phalcon\Mvc\Model\Validator\Uniqueness;
+use Phalcon\DI ;
 
 /**
  * User.
@@ -37,8 +36,9 @@ use Phalcon\Mvc\Model\Validator\Uniqueness;
  * @link      http://phalconeye.com/
  *
  * @Source("users")
- * @BelongsTo("role_id", '\User\Model\Role', "id", {
- *  "alias": "Role"
+ * @useDynamicUpdate(true);
+ * @HasOne("id" ,'\User\Model\User_group', "user_id",{
+ * 	"alias": "user_id"
  * })
  */
 class User extends AbstractModel
@@ -55,20 +55,15 @@ class User extends AbstractModel
     /**
      * @Primary
      * @Identity
-     * @Column(type="integer", nullable=false, column="id", size="11")
+     * @Column(type="integer", unsigned=true,nullable=false, column="id", size="11")
      */
     public $id;
 
     /**
-     * @Column(type="integer", nullable=false, column="role_id", size="11")
+     * @Index("email",'unique')
+     * @Column(type="string", nullable=false, column="email", size="255")
      */
-    public $role_id;
-
-    /**
-     * @Index("ix_username")
-     * @Column(type="string", nullable=false, column="username", size="255")
-     */
-    public $username;
+    public $email;
 
     /**
      * @Column(type="string", nullable=false, column="password", size="255")
@@ -76,10 +71,66 @@ class User extends AbstractModel
     public $password;
 
     /**
-     * @Index("ix_email")
-     * @Column(type="string", nullable=false, column="email", size="150")
+     * @Column(type="text", column="permissions")
      */
-    public $email;
+    public $permissions;
+
+    /**
+     * @Column(type="boolean", column="activated")
+     */
+    public $activated;
+
+    /**
+     * @Index("activation_code")
+     * @Column(type="string", nullable=true, column="activation_code", size="255")
+     */
+    public $activation_code;
+
+    /**
+     * @Column(type="datetime", column="activated_at")
+     */
+    public $activated_at;
+
+    /**
+     * @Column(type="datetime",column="last_login")
+     */
+    public $last_login;
+
+    /**
+     * @Column(type="string", nullable=true, size="255",column="persist_code")
+     */
+    public $persist_code;
+
+    /**
+     * @Index("reset_password_code")
+     * @Column(type="string", nullable=true, size="255",column="reset_password_code")
+     */
+    public $reset_password_code;
+
+    /**
+     * @Column(type="string", nullable=true, size="255",column="first_name")
+     */
+    public $first_name;
+
+    /**
+     * @Column(type="string", nullable=true, size="255",column="last_name")
+     */
+    public $last_name;
+
+
+
+
+
+
+    /**
+     * @Index("idx_username")
+     * @Column(type="string", nullable=false, column="username", size="255")
+     */
+    public $username;
+
+
+
+
 
     /**
      * Current viewer.
@@ -109,24 +160,39 @@ class User extends AbstractModel
      *
      * @return Role
      */
-    public function getRole($arguments = [])
+    public function getGroup($arguments = [],$usecache=true)
     {
-        $arguments = array_merge(
-            $arguments,
-            [
-                'cache' => [
-                    'key' => self::CACHE_PREFIX . $this->role_id
-                ]
-            ]
-        );
-        $role = $this->getRelated('Role', $arguments);
-        if (!$role) {
-            $role = new Role();
-            $role->id = 0;
-            $role->name = '';
-        }
+    	$cache=array();
+    	if($usecache){
+    		$cache['cache'] = array(
+    				'key' => self::CACHE_PREFIX . $this->id
+    		);
+    	}
+    	$arguments = array_merge(
+    		$arguments,$cache
+    	);
+//     	$group = $this->getRelated('user_id', $arguments)->getRelated("group",$arguments);
+    	$builder = $this->getModelsManager()->createBuilder()
+    		->columns('User\Model\Group.id,User\Model\Group.name')
+	    	->from('User\Model\User')
+	    	->leftJoin('User\Model\User_group', 'User\Model\User.id = User\Model\User_group.user_id ')
+    		->leftJoin('User\Model\Group', 'User\Model\User_group.group_id = User\Model\Group.id ')
+    		->where('User\Model\User.id = :user_id:', array('user_id' => $this->id))
+    		->getQuery();
+    		//->execute();
+    		//->getSingleResult();
 
-        return $role;
+//     	$parsed  = $builder->parse();
+//     	$sql     = \Phalcon\DI::getDefault()->getShared('db')->getDialect()->select($parsed);
+//     	var_dump($sql);exit();
+    	$group=$builder->getSingleResult();
+		//
+    	if (!$group) {
+    		$group = new Group();
+    		$group->id = 0;
+    		$group->name = '';
+    	}
+    	return $group;
     }
 
     /**
@@ -136,7 +202,7 @@ class User extends AbstractModel
      */
     public function isAdmin()
     {
-        return $this->getRole()->type == Acl::DEFAULT_ROLE_ADMIN;
+        return $this->getGroup()->name == \Core\Api\Acl::DEFAULT_ROLE_ADMIN;
     }
 
     /**
@@ -156,7 +222,7 @@ class User extends AbstractModel
             if (!self::$_viewer) {
                 self::$_viewer = new User();
                 self::$_viewer->id = 0;
-                self::$_viewer->role_id = Role::getRoleByType(Acl::DEFAULT_ROLE_GUEST)->id;
+                //self::$_viewer->role_id = Role::getRoleByType(Acl::DEFAULT_ROLE_GUEST)->id;
             }
         }
 
@@ -181,4 +247,5 @@ class User extends AbstractModel
 
         return $this->validationHasFailed() !== true;
     }
+
 }

@@ -71,12 +71,34 @@ abstract class Bootstrap implements BootstrapInterface
      * @param DiInterface $di Dependency injection.
      * @param Manager     $em Events manager.
      */
-    public function __construct($di, $em)
+    //public function __construct($di, $em=null)
+    public function __construct($di=null,$em=null)
     {
         $this->__DIConstruct($di);
-        $this->_em = $em;
+        if($em){
+        	$this->_em = $em;
+        }else{
+        	$this->_em=$di->getEventsManager();
+        }
         $this->_config = $this->getDI()->get('config');
     }
+
+    /**
+     * Register a specific autoloader for the module
+     */
+    public function registerAutoloaders()
+    {
+//     	$loader = new \Phalcon\Loader();
+//     	$loader->registerNamespaces(
+//     		array(
+//     			'Core\Widget\Header' => ROOT_PATH."/app/modules/".ucfirst($this->_moduleName)."/Widget/Header",//.'../apps/web/controllers/',
+//     			'Core\Widget\HtmlBlock' => ROOT_PATH."/app/modules/".ucfirst($this->_moduleName)."/Widget/HtmlBlock",//'../apps/web/controllers/',
+//     			'Core\Widget\Menu' => ROOT_PATH."/app/modules/".ucfirst($this->_moduleName)."/Widget/Menu",//'../apps/web/controllers/',
+//     		)
+//     	);
+//     	$loader->register();
+    }
+
 
     /**
      * Register the services.
@@ -116,6 +138,7 @@ abstract class Bootstrap implements BootstrapInterface
 
         // Create dispatcher.
         $dispatcher = new Dispatcher();
+        //$dispatcher->setDefaultNamespace(ucfirst($this->_moduleName));
         $dispatcher->setEventsManager($eventsManager);
         $di->set('dispatcher', $dispatcher);
     }

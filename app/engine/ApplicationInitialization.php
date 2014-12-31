@@ -105,6 +105,14 @@ trait ApplicationInitialization
             $moduleName = ucfirst($module);
             $namespaces[$moduleName] = $registry->directories->modules . $moduleName;
             $bootstraps[$module] = $moduleName . '\Bootstrap';
+//             $namespaces[$moduleName]=array(
+//             		$moduleName.'\Controllers' => ROOT_PATH.DS.'app/modules/'.$moduleName.'/Controller/',
+//             		$moduleName.'\Models' => ROOT_PATH.DS.'app/modules/'.$moduleName.'/Model/',
+//             );
+//             $bootstraps[$module] = array(
+//             	'className' => $moduleName. '\Bootstrap',
+// 				'path' => $registry->directories->modules . $moduleName."/Bootstrap.php"
+//             );
         }
 
         $namespaces['Engine'] = $registry->directories->engine;
@@ -237,6 +245,39 @@ trait ApplicationInitialization
      *
      * @return Router
      */
+    protected function _initRouter_($di, $config){
+    	$defaultModuleName = ucfirst(Application::SYSTEM_DEFAULT_MODULE);
+    	// Check installation.
+    	if (!$config->installed) {
+    		$router = new RouterAnnotations(false);
+    		$router->setDefaultModule(Application::SYSTEM_DEFAULT_MODULE);
+    		$router->setDefaultNamespace($defaultModuleName . '\Controller');
+    		$router->setDefaultController("Install");
+    		$router->setDefaultAction("index");
+    		$router->addModuleResource(Application::SYSTEM_DEFAULT_MODULE, $defaultModuleName . '\Controller\Install');
+    		$di->set('installationRequired', true);
+    		$di->set('router', $router);
+
+    		return;
+    	}
+    	$router = new \Phalcon\Mvc\Router();
+    	//$router->setUriSource(\Phalcon\Mvc\Router::URI_SOURCE_SERVER_REQUEST_URI);
+    	$router->removeExtraSlashes(true);//
+    	$router->setDefaultModule(Application::SYSTEM_DEFAULT_MODULE);
+    	$router->setDefaultNamespace(ucfirst(Application::SYSTEM_DEFAULT_MODULE) . '\Controller');
+    	$router->setDefaultController("Index");
+    	$router->setDefaultAction("index");
+    	$router->add("/:module/:controller/:action/:params",array(
+    			"module"=>1,
+    			"controller" => 2,
+    			"action"     => 3,
+    			"params"     => 4,
+    	));
+
+    	$di->set('router', $router);
+    	return $router;
+
+    }
     protected function _initRouter($di, $config)
     {
         $defaultModuleName = ucfirst(Application::SYSTEM_DEFAULT_MODULE);
@@ -244,7 +285,6 @@ trait ApplicationInitialization
         // Check installation.
         if (!$config->installed) {
             $router = new RouterAnnotations(false);
-            $router->removeExtraSlashes(true);//
             $router->setDefaultModule(Application::SYSTEM_DEFAULT_MODULE);
             $router->setDefaultNamespace($defaultModuleName . '\Controller');
             $router->setDefaultController("Install");
@@ -267,6 +307,7 @@ trait ApplicationInitialization
 
             // Use the annotations router.
             $router = new RouterAnnotations(true);
+            $router->removeExtraSlashes(true);//
             $router->setDefaultModule(Application::SYSTEM_DEFAULT_MODULE);
             $router->setDefaultNamespace(ucfirst(Application::SYSTEM_DEFAULT_MODULE) . '\Controller');
             $router->setDefaultController("Index");
@@ -288,11 +329,28 @@ trait ApplicationInitialization
                     $controller = $moduleName . '\Controller\\' . str_replace('Controller.php', '', $file);
                     $router->addModuleResource(strtolower($module), $controller);
                 }
+//                 $router->add('/'.$module.'/:controller/:action/:params', array(
+//                 		'module' => $module,
+//                 		'controller' => 1,
+//                 		'action' => 2,
+//                 		'params' => 3 )
+//                 	)//->setName('front-full')
+//             		;
+
             }
+
             if ($saveToCache) {
                 $cacheData->save(System::CACHE_KEY_ROUTER_DATA, $router, 2592000); // 30 days cache
             }
         }
+        $router->add('/:module/:controller/:action/:params', array(
+        	'module' => 1,
+        	'controller' => 2,
+        	'action' => 3,
+        	'params' => 4
+        	)
+        );
+
 
         $di->set('router', $router);
         return $router;
@@ -344,8 +402,22 @@ trait ApplicationInitialization
                 function ($event, $connection) use ($logger, $profiler) {
                     if ($event->getType() == 'beforeQuery') {
                         $statement = $connection->getSQLStatement();
+                        $statement.="|".json_encode($connection->getSQLVariables ());
+                        //$statement = $connection->getRealSQLStatement();
                         if ($logger) {
-                            $logger->log($statement, Logger::INFO);
+                        	$trace=debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS);
+                        	//var_dump($trace);exit();
+                        	$newtrace=array_filter($trace, function($var){
+								return isset($var["file"])&&isset($var["function"])&&isset($var["line"]);
+                        	});
+                        	$caller=current($newtrace);
+                        	$msgstr =$caller['file'].":".$caller['function']."(".$caller['line'].")";
+//                         	$msg=[];
+//                         	foreach($newtrace as $caller){
+//                         		$msg[]= $caller['file'].":".$caller['function']."(".$caller['line'].")";
+//                         	}
+//                         	$msgstr=implode(PHP_EOL,$msg);
+                            $logger->log($statement.$msgstr, Logger::INFO);
                         }
                         if ($profiler) {
                             $profiler->startProfile($statement);
@@ -386,8 +458,9 @@ trait ApplicationInitialization
          */
         $di->set(
             'modelsMetadata',
-            function () use ($config) {
-                if (!$config->application->debug && isset($config->application->metadata)) {
+            function () use ($di,$config) {
+            	//$di->get("logger")->log("use file save model meta modelsMetadata", \Phalcon\Logger::ERROR);
+                if (true){//(!$config->application->debug && isset($config->application->metadata)) {
                     $metaDataConfig = $config->application->metadata;
                     $metadataAdapter = '\Phalcon\Mvc\Model\Metadata\\' . $metaDataConfig->adapter;
                     $metaData = new $metadataAdapter($config->application->metadata->toArray());

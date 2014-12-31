@@ -1,0 +1,105 @@
+<?php return array (
+ 0 => 
+ array (
+   0 => 'id',
+   1 => 'title',
+   2 => 'menu_id',
+   3 => 'parent_id',
+   4 => 'page_id',
+   5 => 'url',
+   6 => 'onclick',
+   7 => 'target',
+   8 => 'tooltip',
+   9 => 'tooltip_position',
+   10 => 'icon',
+   11 => 'icon_position',
+   12 => 'languages',
+   13 => 'roles',
+   14 => 'is_enabled',
+   15 => 'item_order',
+ ),
+ 1 => 
+ array (
+   0 => 'id',
+ ),
+ 2 => 
+ array (
+   0 => 'title',
+   1 => 'menu_id',
+   2 => 'parent_id',
+   3 => 'page_id',
+   4 => 'url',
+   5 => 'onclick',
+   6 => 'target',
+   7 => 'tooltip',
+   8 => 'tooltip_position',
+   9 => 'icon',
+   10 => 'icon_position',
+   11 => 'languages',
+   12 => 'roles',
+   13 => 'is_enabled',
+   14 => 'item_order',
+ ),
+ 3 => 
+ array (
+   0 => 'id',
+   1 => 'title',
+   2 => 'menu_id',
+   3 => 'icon_position',
+   4 => 'is_enabled',
+   5 => 'item_order',
+ ),
+ 4 => 
+ array (
+   'id' => 0,
+   'title' => 2,
+   'menu_id' => 0,
+   'parent_id' => 0,
+   'page_id' => 0,
+   'url' => 2,
+   'onclick' => 2,
+   'target' => 2,
+   'tooltip' => 2,
+   'tooltip_position' => 2,
+   'icon' => 2,
+   'icon_position' => 2,
+   'languages' => 2,
+   'roles' => 2,
+   'is_enabled' => 8,
+   'item_order' => 0,
+ ),
+ 5 => 
+ array (
+   'id' => true,
+   'menu_id' => true,
+   'parent_id' => true,
+   'page_id' => true,
+   'item_order' => true,
+ ),
+ 8 => 'id',
+ 9 => 
+ array (
+   'id' => 1,
+   'title' => 2,
+   'menu_id' => 1,
+   'parent_id' => 1,
+   'page_id' => 1,
+   'url' => 2,
+   'onclick' => 2,
+   'target' => 2,
+   'tooltip' => 2,
+   'tooltip_position' => 2,
+   'icon' => 2,
+   'icon_position' => 2,
+   'languages' => 2,
+   'roles' => 2,
+   'is_enabled' => 5,
+   'item_order' => 1,
+ ),
+ 10 => 
+ array (
+ ),
+ 11 => 
+ array (
+ ),
+);

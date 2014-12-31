@@ -52,7 +52,18 @@ abstract class AbstractModel extends PhalconModel
         $reflector = $reader->get(get_called_class());
         $annotations = $reflector->getClassAnnotations();
 
-        return $annotations->get('Source')->getArgument(0);
+        $prefix = DI::getDefault()->get('config')->database->prefix;
+        return $prefix.$annotations->get('Source')->getArgument(0);
+    }
+    public function getSource()
+    {
+    	return self::getTableName();
+//     	$prefix = DI::getDefault()->get('config')->database->prefix;
+//     	$classname=get_class($this);
+//     	if (preg_match('@\\\\([\w]+)$@', $classname, $matches)) {
+//     		$classname = $matches[1];
+//     	}
+//     	return $prefix.strtolower($classname);
     }
 
     /**

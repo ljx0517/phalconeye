@@ -71,7 +71,7 @@ abstract class Installer
         if (file_exists($filePath)) {
             $connection = $this->getDI()->get('db');
             $connection->begin();
-            $connection->query(file_get_contents($filePath));
+            $connection->query(str_replace('{prefix}',$this->getDI()->get('config')->database->prefix,file_get_contents($filePath)));
             $connection->commit();
         } else {
             throw new Exception(sprintf('Sql file "%s" does not exists', $filePath));

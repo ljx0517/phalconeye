@@ -93,6 +93,15 @@ class Metadata
                             $dataTypes[$columnName] = Column::TYPE_DATETIME;
                             $dataTypesBind[$columnName] = Column::BIND_PARAM_STR;
                             break;
+                        //add
+                        case 'decimal':
+                        	$dataTypes[$columnName] = Column::TYPE_DECIMAL;
+                            $dataTypesBind[$columnName] = Column::BIND_PARAM_DECIMAL;
+                            break;
+                        case 'enum':
+                            $dataTypes[$columnName] = Column::TYPE_VARCHAR;
+                            $dataTypesBind[$columnName] = Column::BIND_PARAM_STR;
+                            break;
                     }
                 } else {
                     $dataTypes[$columnName] = Column::TYPE_VARCHAR;
@@ -121,6 +130,7 @@ class Metadata
                 if ($collection->has('Identity')) {
                     $identity = $columnName;
                 }
+
             }
         }
 
@@ -281,6 +291,13 @@ class Metadata
                         break;
                     case 'datetime':
                         $modelInfo['columns'][$columnName]['type'] = Column::TYPE_DATETIME;
+                        break;
+                    // add
+                    case 'decimal':
+                        $modelInfo['columns'][$columnName]['type'] = Column::TYPE_DECIMAL;
+                        break;
+                    case 'enum':
+                        $modelInfo['columns'][$columnName]['type'] = Column::TYPE_VARCHAR;
                         break;
                 }
             }

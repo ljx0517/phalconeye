@@ -1,0 +1,12 @@
+<div class="widget_wrapper">
+    
+    <div class="widget_container">
+        
+    <div class="navbar">
+        <div class="navbar-inner">
+            <ul class='nav'><li><a class="system-tooltip"    href="/"><img class="nav-icon nav-icon-left" alt="Home" src="/files/PE_logo.png"/>Home</a></li><li><a class="system-tooltip" title="<p><b><span style='color:#FF0000;'>G</span>it<span style='color:#FF0000;'>H</span>ub Page</b></p>
+" data-tooltip-position="right" target="_blank"  href="https://github.com/lantian/PhalconEye"><img class="nav-icon nav-icon-left" alt="Github" src="/files/github.gif"/>Github</a></li></ul>        </div>
+    </div>
+
+    </div>
+</div>

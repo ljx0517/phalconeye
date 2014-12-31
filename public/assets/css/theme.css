@@ -374,6 +374,7 @@ form .form_elements select {
   background-color: #fff;
   box-shadow: 0 0 5px #ddd;
   border: 1px solid rgba(0,0,0,0.12);
+  max-width: 100%;
   float: right;
   padding: 10px;
   margin-top: -10px;
