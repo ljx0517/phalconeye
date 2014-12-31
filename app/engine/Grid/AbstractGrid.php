@@ -123,9 +123,9 @@ abstract class AbstractGrid implements GridInterface
         /**
          * Prepare source data.
          */
+
         $paginator = $this->getSourceResolver()->resolve($this->getSource());
         $this->_paginator = $paginator->getPaginate();
-
         /**
          * Ajax call, we need to render only partials.
          */

@@ -8,6 +8,7 @@
   height: 25px;
   border-top: 1px solid #cdcdcd;
   box-shadow: 0 5px 21px black;
+  z-index: 99999999;
 }
 .profiler .item {
   float: left;
@@ -78,11 +79,13 @@
   border-bottom: 1px solid #cdcdcd;
   padding: 10px;
   text-shadow: 1px 1px 1px grey;
+  box-sizing: content-box;
 }
 .profiler_window_body {
   padding: 10px;
   overflow-y: auto;
   height: 340px;
+  box-sizing: content-box;
 }
 .profiler_window_close {
   background: url('/assets/img/core/profiler/close.png') no-repeat left center;

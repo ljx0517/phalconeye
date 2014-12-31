@@ -68,7 +68,7 @@ return array (
     'annotationsDir' => ROOT_PATH . '/app/var/cache/annotations/',
   ),
   'languages' =>
-  array(
+  array (
     'cacheDir' => ROOT_PATH . '/app/var/cache/languages/',
   ),
 );

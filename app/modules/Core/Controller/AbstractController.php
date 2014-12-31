@@ -207,7 +207,7 @@ abstract class AbstractController extends PhalconController
         $this->assets->set(
             AssetManager::DEFAULT_COLLECTION_CSS,
             $this->assets->getEmptyCssCollection()
-                ->addCss('external/jquery/jquery-ui.css')
+                ->addCss('external/jquery-ui/1.10.4/jquery-ui.css',false)
                 ->addCss('assets/css/constants.css')
                 ->addCss('assets/css/theme.css')
         );
@@ -215,9 +215,9 @@ abstract class AbstractController extends PhalconController
         $this->assets->set(
             AssetManager::DEFAULT_COLLECTION_JS,
             $this->assets->getEmptyJsCollection()
-                ->addJs('external/jquery/jquery-2.1.0.js')
-                ->addJs('external/jquery/jquery-ui-1.10.4.js')
-                ->addJs('external/jquery/jquery.cookie.js')
+                ->addJs('external/jquery/2.1.0/jquery-2.1.0.js')
+                ->addJs('external/jquery-ui/1.10.4/jquery-ui-1.10.4.js')
+                ->addJs('external/jquery/plugins/jquery.cookie.js')
                 ->addJs('assets/js/core/core.js')
                 ->addJs('assets/js/core/i18n.js')
                 ->addJs('assets/js/core/form.js')
@@ -237,7 +237,6 @@ abstract class AbstractController extends PhalconController
                 ->collection(AssetManager::DEFAULT_COLLECTION_JS)
                 ->addCss('assets/js/core/profiler.js');
         }
-
         $this->addDefaultJsTranslations();
     }
 }

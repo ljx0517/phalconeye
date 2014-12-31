@@ -66,9 +66,10 @@ class Profiler extends Helper
             return '';
         }
 
+        //TODO why not admin area
         // check admin area
         if (substr($di->get('dispatcher')->getControllerName(), 0, 5) == 'Admin') {
-            return '';
+            //return '';
         }
 
         $viewer = User::getViewer();
@@ -85,7 +86,7 @@ class Profiler extends Helper
         //////////////////////////////////////
         /// Router.
         //////////////////////////////////////
-        $handlerValues['router'] = ucfirst($router->getControllerName()) .
+        $handlerValues['router'] = ucfirst($router->getModuleName()) ."::".ucfirst($router->getControllerName()) .
             'Controller::' .
             ucfirst($router->getActionName()) . 'Action';
 

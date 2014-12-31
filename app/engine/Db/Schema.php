@@ -75,7 +75,7 @@ class Schema
         $db = $this->getDI()->get('db');
         $defaultSchema = $this->getDI()->get('config')->database->dbname;
 
-        foreach ($this->getAllModels() as $model) {
+        foreach ((array)$this->getAllModels() as $model) { //echo($model["class"]."<br>");
             $definition = $this->getModelMetadata($model['class']);
             $tableName = $definition['name'];
             $processedTables[] = $tableName;

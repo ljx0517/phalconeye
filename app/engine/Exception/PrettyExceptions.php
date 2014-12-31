@@ -190,7 +190,7 @@ class PrettyExceptions
     public function getJsSources()
     {
         return '
-		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script type="text/javascript" src="' . $this->getBaseUri() . 'js/jquery.1.8.3.min.js"></script>
 		<script type="text/javascript" src="' . $this->getBaseUri() . 'prettify/prettify.js"></script>
 		<script type="text/javascript" src="' . $this->getBaseUri() . 'js/pretty.js"></script>
 		<script type="text/javascript" src="' . $this->getBaseUri() . 'js/jquery.scrollTo-min.js"></script>';

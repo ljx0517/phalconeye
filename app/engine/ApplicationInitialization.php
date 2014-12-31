@@ -244,6 +244,7 @@ trait ApplicationInitialization
         // Check installation.
         if (!$config->installed) {
             $router = new RouterAnnotations(false);
+            $router->removeExtraSlashes(true);//
             $router->setDefaultModule(Application::SYSTEM_DEFAULT_MODULE);
             $router->setDefaultNamespace($defaultModuleName . '\Controller');
             $router->setDefaultController("Install");
@@ -472,9 +473,13 @@ trait ApplicationInitialization
     protected function _initFlash($di)
     {
         $flashData = [
-            'error' => 'alert alert-danger',
-            'success' => 'alert alert-success',
-            'notice' => 'alert alert-info',
+//             'error' => 'alert alert-danger',
+//             'success' => 'alert alert-success',
+//             'notice' => 'alert alert-info',
+	        'success' => 'alert alert-success fade in',
+	        'notice' => 'alert alert-info fade in',
+	        'warning' => 'alert alert-warning fade in',
+	        'error' => 'alert alert-danger fade in'
         ];
 
         $di->set(

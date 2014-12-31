@@ -44,7 +44,6 @@ abstract class AbstractAdminController extends AbstractController
     public function initialize()
     {
         parent::initialize();
-
         if ($this->request->isAjax()) {
             return;
         }
@@ -72,61 +71,61 @@ abstract class AbstractAdminController extends AbstractController
         $menuItems = [
             'admin' => [
                 'href' => 'admin',
-                'title' => 'Dashboard',
-                'prepend' => '<i class="glyphicon glyphicon-home"></i>'
+                'title' => '<span class="menu-text">Dashboard</span>',
+                'prepend' => '<i class="menu-icon glyphicon glyphicon-home"></i>'
             ],
             'users' => [
-                'title' => 'Manage',
+                'title' => '<span class="menu-text">Manage</span>',
                 'items' => [ // type - dropdown
                     'admin/users' => [
-                        'title' => 'Users and Roles',
+                        'title' => '<span class="menu-text">Users and Roles</span>',
                         'href' => 'admin/users',
-                        'prepend' => '<i class="glyphicon glyphicon-user"></i>'
+                        'prepend' => '<i class="menu-icon glyphicon glyphicon-user"></i>'
                     ],
                     'admin/pages' => [
-                        'title' => 'Pages',
+                        'title' => '<span class="menu-text">Pages</span>',
                         'href' => 'admin/pages',
-                        'prepend' => '<i class="glyphicon glyphicon-list-alt"></i>'
+                        'prepend' => '<i class="menu-icon glyphicon glyphicon-list-alt"></i>'
                     ],
                     'admin/menus' => [
-                        'title' => 'Menus',
+                        'title' => '<span class="menu-text">Menus</span>',
                         'href' => 'admin/menus',
-                        'prepend' => '<i class="glyphicon glyphicon-th-list"></i>'
+                        'prepend' => '<i class="menu-icon glyphicon glyphicon-th-list"></i>'
                     ],
                     'admin/languages' => [
-                        'title' => 'Languages',
+                        'title' => '<span class="menu-text">Languages</span>',
                         'href' => 'admin/languages',
-                        'prepend' => '<i class="glyphicon glyphicon-globe"></i>'
+                        'prepend' => '<i class="menu-icon glyphicon glyphicon-globe"></i>'
                     ],
                     'admin/files' => [
-                        'title' => 'Files',
+                        'title' => '<span class="menu-text">Files</span>',
                         'href' => 'admin/files',
-                        'prepend' => '<i class="glyphicon glyphicon-file"></i>'
+                        'prepend' => '<i class="menu-icon glyphicon glyphicon-file"></i>'
                     ],
                     'admin/packages' => [
-                        'title' => 'Packages',
+                        'title' => '<span class="menu-text">Packages</span>',
                         'href' => 'admin/packages',
-                        'prepend' => '<i class="glyphicon glyphicon-th"></i>'
+                        'prepend' => '<i class="menu-icon glyphicon glyphicon-th"></i>'
                     ]
                 ]
             ],
             'settings' => [ // type - dropdown
-                'title' => 'Settings',
+                'title' => '<span class="menu-text">Settings</span>',
                 'items' => [
                     'admin/settings' => [
-                        'title' => 'System',
+                        'title' => '<span class="menu-text">System</span>',
                         'href' => 'admin/settings',
-                        'prepend' => '<i class="glyphicon glyphicon-cog"></i>'
+                        'prepend' => '<i class="menu-icon glyphicon glyphicon-cog"></i>'
                     ],
                     'admin/settings/performance' => [
-                        'title' => 'Performance',
+                        'title' => '<span class="menu-text">Performance</span>',
                         'href' => 'admin/performance',
-                        'prepend' => '<i class="glyphicon glyphicon-signal"></i>'
+                        'prepend' => '<i class="menu-icon glyphicon glyphicon-signal"></i>'
                     ],
                     'admin/access' => [
-                        'title' => 'Access Rights',
+                        'title' => '<span class="menu-text">Access Rights</span>',
                         'href' => 'admin/access',
-                        'prepend' => '<i class="glyphicon glyphicon-lock"></i>'
+                        'prepend' => '<i class="menu-icon glyphicon glyphicon-lock"></i>'
                     ]
                 ]
             ]
@@ -141,15 +140,15 @@ abstract class AbstractAdminController extends AbstractController
                 }
                 $href = 'admin/module/' . $module->name;
                 $modulesMenuItems[$href] = [
-                    'title' => $module->title,
+                    'title' => '<span class="menu-text">'.$module->title.'</span>',
                     'href' => $href,
-                    'prepend' => '<i class="glyphicon glyphicon-th-large"></i>'
+                    'prepend' => '<i class="menu-icon glyphicon glyphicon-th-large"></i>'
                 ];
             }
 
             if (!empty($modulesMenuItems)) {
                 $menuItems['modules'] = [
-                    'title' => 'Modules',
+                    'title' => '<span class="menu-text">Modules</span>',
                     'items' => $modulesMenuItems
                 ];
             }
@@ -159,11 +158,14 @@ abstract class AbstractAdminController extends AbstractController
         $navigation
             ->setItems($menuItems)
             ->setActiveItem($activeItem)
-            ->setListClass('nav nav-categories')
-            ->setDropDownItemClass('nav-category')
-            ->setDropDownItemMenuClass('nav')
-            ->setDropDownIcon('')
-            ->setEnabledDropDownHighlight(false);
+            //->setListClass('nav nav-categories')
+        	->setListClass('nav sidebar-menu')
+            //->setDropDownItemClass('nav-category')
+        	->setDropDownItemClass('')
+            //->setDropDownItemMenuClass('nav')
+       		->setDropDownItemMenuClass('submenu')
+            ->setDropDownIcon('<i class="menu-expand"></i>')
+            ->setEnabledDropDownHighlight(true);
 
         $this->view->headerNavigation = $navigation;
     }
@@ -181,17 +183,39 @@ abstract class AbstractAdminController extends AbstractController
         $this->assets->set(
             AssetManager::DEFAULT_COLLECTION_CSS,
             $this->assets->getEmptyCssCollection()
-                ->addCss('external/bootstrap/css/bootstrap.min.css')
-                ->addCss('external/bootstrap/css/bootstrap-switch.min.css')
-                ->addCss('external/jquery/jquery-ui.css')
-                ->addCss('assets/css/core/admin/main.css')
+        		//
+        		->addCss('external/pace/1.0.0/themes/white/pace-theme-flash.css')
+        		->addCss('external/font-awesome/4.2.0/css/font-awesome.min.css')
+        		//
+                ->addCss('external/bootstrap/3.3.1/css/bootstrap.min.css')
+                ->addCss('external/bootstrap/plugins/bootstrap-switch/3.3.0/css/bootstrap3/bootstrap-switch.min.css')
+                ->addCss('external/jquery-ui/1.10.4/jquery-ui.css')
+                //->addCss('assets/css/core/admin/main.css')
+        		->addCss('assets/css/core/admin/beyond.min.css')
+        		->addCss('assets/css/core/admin/admin.css')
                 ->join(false)
         );
 
         $this->assets->get(AssetManager::DEFAULT_COLLECTION_JS)
-            ->addJs('external/bootstrap/js/bootstrap.min.js')
-            ->addJs('external/bootstrap/js/bootstrap-switch.min.js')
-            ->addJs('external/ckeditor/ckeditor.js');
+        	//
+        	->addJs('external/pace/1.0.0/pace.min.js')
+        	->addJs('assets/js/core/admin/beyond.js')
+        	->addJs('assets/js/core/admin/skins.min.js')
+        	->addJs('external/jquery/plugins/slimscroll/1.3.3/jquery.slimscroll.min.js')
+        	//
+            ->addJs('external/bootstrap/3.3.1/js/bootstrap.min.js')
+            ->addJs('external/bootstrap/plugins/bootstrap-switch/3.3.0/js/bootstrap-switch.min.js')
+            ->addJs('external/ckeditor/4.3.2/ckeditor.js');
+
+        if ($this->di->has('profiler')) {
+        	$this->di->get('assets')
+        	->collection(AssetManager::DEFAULT_COLLECTION_CSS)
+        	->addCss('assets/css/core/profiler.css');
+
+        	$this->di->get('assets')
+        	->collection(AssetManager::DEFAULT_COLLECTION_JS)
+        	->addCss('assets/js/core/profiler.js');
+        }
     }
 
     /**

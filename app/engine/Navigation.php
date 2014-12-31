@@ -98,7 +98,7 @@ class Navigation
      *
      * @var string
      */
-    protected $_dropDownItemToggleClass = "dropdown-toggle";
+    protected $_dropDownItemToggleClass = "menu-dropdown";
 
     /**
      * Class of dropdown header item.
@@ -362,11 +362,18 @@ class Navigation
         $ddimc = $this->_dropDownItemMenuClass;
         $dditc = $this->_dropDownItemToggleClass;
 
+//         $active = ($name == $this->_activeItem ||
+//         ($this->_highlightActiveDropDownItem && array_key_exists($this->_activeItem, $item['items'])) ?
+//             'active' :
+//             ''
+//         );
+
         $active = ($name == $this->_activeItem ||
-        ($this->_highlightActiveDropDownItem && array_key_exists($this->_activeItem, $item['items'])) ?
-            ' active' :
-            ''
+        		($this->_highlightActiveDropDownItem && array_key_exists($this->_activeItem, $item['items'])) ?
+        		'active open' :
+        		''
         );
+
         $linkOnclick = (!empty($item['onclick']) ? 'onclick="' . $item['onclick'] . '"' : '');
         $linkTooltip = (!empty($item['tooltip']) ?
             'title="' . $item['tooltip'] . '" data-tooltip-position="' . $item['tooltip_position'] . '"' : '');
@@ -375,7 +382,8 @@ class Navigation
         $prependHTML = (!empty($item['prepend']) ? $item['prepend'] : '');
         $appendHTML = (!empty($item['append']) ? $item['append'] : '');
         $content .= sprintf(
-            '<a %s %s href="javascript:;" class="%s system-tooltip" data-toggle="dropdown">%s%s%s%s%s%s</a>',
+            //'<a %s %s href="javascript:;" class="%s system-tooltip" data-toggle="dropdown">%s%s%s%s%s%s</a>',
+        	'<a %s %s href="javascript:;" class="%s">%s%s%s%s%s%s</a>',
             $linkOnclick,
             $linkTooltip,
             $dditc,

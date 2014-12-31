@@ -66,6 +66,7 @@ class Manager extends AssetManager
          */
         DEFAULT_COLLECTION_CSS = 'css';
 
+
     const
 
         /**
@@ -98,6 +99,10 @@ class Manager extends AssetManager
      * @var array
      */
     protected $_inline = [];
+
+
+//     protected static $COLLECTION_CSS;
+//     protected static $COLLECTION_JS;
 
     /**
      * Initialize assets manager.
@@ -133,7 +138,7 @@ class Manager extends AssetManager
         // Check generated directory.
         ///////////////////////////////////
         if (!is_dir($location . self::GENERATED_STORAGE_PATH)) {
-            mkdir($location . self::GENERATED_STORAGE_PATH);
+            mkdir($location . self::GENERATED_STORAGE_PATH,0755,true);
         }
 
         ///////////////////////////////////
@@ -228,7 +233,7 @@ class Manager extends AssetManager
         }
 
         return $collection
-            ->addFilter(new Jsmin())
+            //->addFilter(new Jsmin())
             ->join(!$this->_config->application->debug);
     }
 
@@ -239,17 +244,19 @@ class Manager extends AssetManager
      */
     public function getEmptyCssCollection()
     {
-        $collection = new Collection();
-        $remote = $this->_config->application->assets->get('remote');
-        if ($remote) {
-            $collection
-                ->setPrefix($remote)
-                ->setLocal(false);
-        }
+    		$collection = new Collection();
+    		$remote = $this->_config->application->assets->get('remote');
+    		if ($remote) {
+    			$collection
+    			->setPrefix($remote)
+    			->setLocal(false);
+    		}
+    		return $collection
+    		//TODO
+    		//->addFilter(new Cssmin())
+    		->join(!$this->_config->application->debug);
 
-        return $collection
-            ->addFilter(new Cssmin())
-            ->join(!$this->_config->application->debug);
+
     }
 
     /**
@@ -300,6 +307,14 @@ class Manager extends AssetManager
     {
         $remote = $this->_config->application->assets->get('remote');
         $collection = $this->collection($collectionName);
+
+        $local = $this->_config->application->assets->get('local');
+        $filepath=PUBLIC_PATH.DS.$local . self::FILENAME_PATTERN_JS;
+        $collection ->setTargetPath($filepath)
+			        ->setTargetUri($filepath)
+			        ->setSourcePath(PUBLIC_PATH.DS);
+
+
         if (!$remote && $collection->getJoin()) {
 
             $local = $this->_config->application->assets->get('local');
@@ -333,6 +348,16 @@ class Manager extends AssetManager
     {
         $remote = $this->_config->application->assets->get('remote');
         $collection = $this->collection($collectionName);
+
+        $local = $this->_config->application->assets->get('local');
+        $filepath=PUBLIC_PATH.DS.$local . self::DEFAULT_COLLECTION_CSS;
+        $collection ->setTargetPath($filepath)
+        			->setTargetUri($filepath)
+        			->setSourcePath(PUBLIC_PATH.DS);
+
+        //$a=$collection->getTargetPath() ;
+        //$b=$collection->getSourcePath();
+
         if (!$remote && $collection->getJoin()) {
 
             $local = $this->_config->application->assets->get('local');
