@@ -1,0 +1,26 @@
+<div data-role="appviewpage" data-title="Ajax">
+    <div data-role="content">
+            <!-- Begin demo markup -->
+            <ul class="ui-helper-reset ui-widget-header ui-corner-all" style="padding: 1em;">
+                <li class="tooltip"><a data-role="wijtooltip" data-options="{triggers: 'click', closeBehavior: 'sticky'}" href="#">Anchor1</a></li>
+                <li class="tooltip"><a data-role="wijtooltip" data-options="{triggers: 'click', closeBehavior: 'sticky'}" href="#">Anchor2</a></li>
+                <li class="tooltip"><a data-role="wijtooltip" data-options="{triggers: 'click', closeBehavior: 'sticky'}" href="#">Anchor3</a></li>
+                <li class="tooltip"><a data-role="wijtooltip" data-options="{triggers: 'click', closeBehavior: 'sticky'}" href="#">Anchor4</a></li>
+            </ul>
+            <!-- End demo markup -->
+        <script id="scriptInit" type="text/javascript">
+            $(document).one('wijappviewpageinit', function () {
+                $(".tooltip>a").wijtooltip("option", {
+                    showcallout: true,
+                    calloutFilled: false,
+                    position: { my: 'left bottom', at: 'right top' },
+                    height: 300, width: 400,
+                    ajaxCallback: function () {
+                        var ele = this;
+                        ele.wijtooltip("option", "content", "This is a tooltip for " + ele.html());
+                    }
+                });
+            });
+        </script>
+    </div>
+</div>

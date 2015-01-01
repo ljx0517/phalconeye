@@ -1,0 +1,207 @@
+<div data-role="appviewpage" data-title="Donut Pie">
+	<div data-role="content">
+		<div id="wijcompositechart" data-role="wijcompositechart" style="width: 100%; height: 100%">
+		</div>		
+		<script type="text/javascript">
+			$(document).one("wijappviewpageinit", function () {
+				var height = $("#wijcompositechart").height(),
+					width = $("#wijcompositechart").width(),
+					radius = Math.min(height, width) * 0.6;
+				$("#wijcompositechart").wijcompositechart("beginUpdate").wijcompositechart({
+					axis: {
+						y: {
+							gridMajor: {
+								visible: false
+							},
+							textVisible: false
+						},
+						x: {
+							visible: false,
+							textVisible: false
+						}
+					},
+					legend: {
+						visible: false
+					},
+					showChartLabels: true,
+					chartLabelStyle: { fill: "#fff" },
+					stacked: false,
+					hint: {
+						content: function () {
+							return this.label + ' ' + this.y + '';
+						}
+					},
+					header: {
+						text: "Browsers"
+					},
+					seriesList: [{
+						type: "pie",
+						legendEntry: true,
+						radius: radius,
+						data: [{
+							label: "Chrome",
+							legendEntry: true,
+							data: 38,
+							offset: 0
+						}, {
+							label: "Firefox",
+							legendEntry: true,
+							data: 36,
+							offset: 0
+						}, {
+							label: "IE",
+							legendEntry: true,
+							data: 13,
+							offset: 0
+						}, {
+							label: "Safari",
+							legendEntry: true,
+							data: 8,
+							offset: 0
+						}, {
+							label: "Other",
+							legendEntry: true,
+							data: 5,
+							offset: 0
+						}]
+					}, {
+						type: "pie",
+						legendEntry: true,
+						radius: radius * 0.45,
+						data: [{
+							label: "15", //Chrome
+							legendEntry: false,
+							data: 26,
+							offset: 0
+						}, {
+							label: "14", //Chrome
+							legendEntry: false,
+							data: 8,
+							offset: 0
+						}, {
+							label: "", //Chrome
+							legendEntry: false,
+							data: 4,
+							offset: 0
+						}, {
+							label: "7", //Firefox
+							legendEntry: false,
+							data: 20,
+							offset: 0
+						}, {
+							label: "8", //Firefox
+							legendEntry: false,
+							data: 10,
+							offset: 0
+						}, {
+							label: "", //Firefox
+							legendEntry: false,
+							data: 6,
+							offset: 0
+						}, {
+							label: "9", //IE
+							legendEntry: false,
+							data: 6,
+							offset: 0
+						}, {
+							label: "8", //IE
+							legendEntry: false,
+							data: 5,
+							offset: 0
+						}, {
+							label: "", //IE
+							legendEntry: false,
+							data: 2,
+							offset: 0
+						}, {
+							label: "5", //Safari
+							legendEntry: false,
+							data: 5,
+							offset: 0
+						}, {
+							label: "", //Safari
+							legendEntry: false,
+							data: 3,
+							offset: 0
+						}, {
+							label: "",
+							legendEntry: false,
+							data: 5,
+							offset: 0
+						}]
+					}],
+					seriesStyles: [{
+						fill: "180-#00cc00-#28aa28", stroke: "#28aa28", "stroke-width": 1.5, opacity: 1
+					}, {
+						fill: "180-#ff6600-#cb6928", stroke: "#cb6928", "stroke-width": 1.5, opacity: 1
+					}, {
+						fill: "180-#0099cc-#2889aa", stroke: "#2889aa", "stroke-width": 1.5, opacity: 1
+					}, {
+						fill: "180-#2200cc-#3e28aa", stroke: "#3e28aa", "stroke-width": 1.5, opacity: 1
+					}, {
+						fill: "180-#cccccc-#dddddd", stroke: "#dddddd", "stroke-width": 1.5, opacity: 1
+					}, {
+						fill: "#000", stroke: "none", opacity: 0.6
+					}, {
+						fill: "#000", stroke: "none", opacity: 0.4
+					}, {
+						fill: "#000", stroke: "none", opacity: 0.2
+					}, {
+						fill: "#000", stroke: "none", opacity: 0.6
+					}, {
+						fill: "#000", stroke: "none", opacity: 0.4
+					}, {
+						fill: "#000", stroke: "none", opacity: 0.2
+					}, {
+						fill: "#000", stroke: "none", opacity: 0.6
+					}, {
+						fill: "#000", stroke: "none", opacity: 0.4
+					}, {
+						fill: "#000", stroke: "none", opacity: 0.2
+					}, {
+						fill: "#000", stroke: "none", opacity: 0.6
+					}, {
+						fill: "#000", stroke: "none", opacity: 0.4
+					}, {
+						fill: "#000", stroke: "none", opacity: 0
+					}],
+					seriesHoverStyles: [{
+						fill: "180-#00cc00-#28aa28", stroke: "#28aa28", "stroke-width": 2, opacity: 1
+					}, {
+						fill: "180-#ff6600-#cb6928", stroke: "#cb6928", "stroke-width": 2, opacity: 1
+					}, {
+						fill: "180-#0099cc-#2889aa", stroke: "#2889aa", "stroke-width": 2, opacity: 1
+					}, {
+						fill: "180-#2200cc-#3e28aa", stroke: "#3e28aa", "stroke-width": 2, opacity: 1
+					}, {
+						fill: "180-#cccccc-#dddddd", stroke: "#dddddd", "stroke-width": 2, opacity: 1
+					}, {
+						fill: "#000", stroke: "none", opacity: 0.6
+					}, {
+						fill: "#000", stroke: "none", opacity: 0.4
+					}, {
+						fill: "#000", stroke: "none", opacity: 0.2
+					}, {
+						fill: "#000", stroke: "none", opacity: 0.6
+					}, {
+						fill: "#000", stroke: "none", opacity: 0.4
+					}, {
+						fill: "#000", stroke: "none", opacity: 0.2
+					}, {
+						fill: "#000", stroke: "none", opacity: 0.6
+					}, {
+						fill: "#000", stroke: "none", opacity: 0.4
+					}, {
+						fill: "#000", stroke: "none", opacity: 0.2
+					}, {
+						fill: "#000", stroke: "none", opacity: 0.6
+					}, {
+						fill: "#000", stroke: "none", opacity: 0.4
+					}, {
+						fill: "#000", stroke: "none", opacity: 0
+					}]
+				}).wijcompositechart("endUpdate");
+			});
+		</script>
+	</div>
+</div>

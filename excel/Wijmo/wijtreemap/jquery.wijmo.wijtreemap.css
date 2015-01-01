@@ -1,0 +1,69 @@
+.wijmo-wijtreemap {
+}
+
+.wijmo-wijtreemap .wijmo-wijtreemap-buttons {
+	position: absolute;
+	right: 0;
+}
+
+.wijmo-wijtreemap .wijmo-wijtreemap-back,
+.wijmo-wijtreemap .wijmo-wijtreemap-home {
+	cursor: pointer;
+	display: inline-block;
+}
+
+.wijmo-wijtreemap .wijmo-wijtreemap-back:after {
+	left: 0;
+	margin-left: 0;
+}
+.wijmo-wijtreemap .wijmo-wijtreemap-home:after {
+	left: 50%;
+	margin-left: 0;
+}
+
+.wijmo-wijtreemap .wijmo-wijtreemap-item {
+	position: absolute;
+	box-sizing: border-box;
+	border-left: 0;
+	border-top: 0;
+	border-right: solid 1px #c0c0c0;
+	border-bottom: solid 1px #c0c0c0;
+	padding: 0;
+	margin: 0;
+}
+
+.wijmo-wijtreemap .wijmo-wijtreemap-item.wijstate-default {
+	background: none;
+	overflow: hidden;
+}
+
+.wijmo-wijtreemap .wijmo-wijtreemap-item.wijstate-hover {
+	border: solid 2px #ffffff;
+}
+
+.wijmo-wijtreemap .wijmo-wijtreemap-itemcontainer {
+	position: absolute;
+	border: 0;
+}
+.wijmo-wijtreemap .wijmo-wijtreemap-container {
+	position: relative;
+	box-sizing: border-box;
+	border-left: solid 1px #c0c0c0;
+	border-top: solid 1px #c0c0c0;
+	border-right: 0;
+	border-bottom: 0;
+	overflow: hidden;
+}
+
+.wijmo-wijtreemap .wijmo-wijtreemap-title {
+	position: absolute;
+	box-sizing: border-box;
+	border-left: 0;
+	border-top: 0;
+	border-right: solid 1px #c0c0c0;
+	border-bottom: solid 1px #c0c0c0;
+	overflow: hidden;
+	cursor: pointer;
+	padding: 0;
+	margin: 0;
+}

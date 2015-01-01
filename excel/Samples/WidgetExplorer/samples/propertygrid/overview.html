@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>PropertyGrid - Overview</title>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="description" content="Provide a simple, familiar way for end-users to choose a value in a predefined range." />
+	<meta name="keywords" content="" />
+	<meta name="author" content="ComponentOne" />
+	
+    <link href="../../../../Themes/rocket/jquery-wijmo.css" rel="stylesheet" type="text/css" />
+    <link href="../../../../css/jquery.wijmo-pro.all.3.20143.59.min.css" rel="stylesheet" type="text/css" />
+    <script src="../../js/require.js" type="text/javascript"></script>
+    <script src="../../js/require.wijmo.config.js" type="text/javascript"></script>
+
+	<script id="scriptInit" type="text/javascript">
+
+		var chartValue = {
+			width: 18,
+			orientation: "vertical",
+			stacked: false,
+			testString: "testring",
+			testArray: [],
+			testObject: {stroke:false,opacity:18},
+			testEvent: "aaa",
+			testDateTime: new Date(),
+			testCollection: []
+		};
+
+		var chartOption = {};
+		chartOption.enums = {};
+		chartOption.enums.orientation = ["horizontal", "vertical"];
+		chartOption.seriesStyle = {
+			stroke: { defaultValue: false, type: "boolean"},
+			opacity: { defaultValue: 18, type: "number" }
+		};
+
+		var optionsDescriptor = {
+			width: { defaultValue: 18, type: "number", category: "Appearance" },
+			orientation: { defaultValue: "vertical", type: "enum", enumOptions: chartOption.enums.orientation, category: "Appearance" },
+			stacked: { defaultValue: false, type: "booleanean", category: "Appearance" },
+			testString: { defaultValue: "", type: "string", category: "Appearance" },
+			testArray: { defaultValue: [], type: "array[string]", category: "Appearance" },
+			testObject: { defaultValue: null, type: chartOption.seriesStyle, category: "Appearance" },
+			testEvent: { defaultValue: null, type: "string", category: "Events" },
+			testDateTime: { defaultValue: new Date(), type: "datetime", category: "Appearance" },
+			testCollection: { defaultValue: null, type: "collection", itemType :chartOption.seriesStyle , category: "Appearance" }
+		};
+
+        require(["wijmo.wijproprtygrid"], function () {
+
+		$(document).ready(function () {
+			$("#uiwidget").wijpropertygrid({ 
+				optionsDesc: optionsDescriptor,
+				optionsValue: chartValue,
+				valueChanged: function (event, data) { var value = data; }
+			});
+		});
+        });
+	</script>
+	<style type="text/css">
+	.layout
+	{
+		margin: 10px 0;
+	}
+	</style>
+</head>
+<body class="demo-single">
+	<div class="container">
+		<div class="header">
+			<h2>
+				Overview</h2>
+		</div>
+		<div class="main demo">
+			<!-- Begin demo markup -->
+			<div id="uiwidget" class="layout ui-helper-clearfix">
+			</div>
+			<!-- End demo markup -->
+			<div class="demo-options">
+				<!-- Begin options markup -->
+				<!-- End options markup -->
+			</div>
+		</div>
+	</div>
+</body>
+</html>

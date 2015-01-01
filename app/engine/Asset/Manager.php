@@ -244,6 +244,10 @@ class Manager extends AssetManager
      */
     public function getEmptyCssCollection()
     {
+//     	static $collection=null;
+//     	if(!$collection){
+
+
     		$collection = new Collection();
     		$remote = $this->_config->application->assets->get('remote');
     		if ($remote) {
@@ -255,7 +259,8 @@ class Manager extends AssetManager
     		//TODO
     		//->addFilter(new Cssmin())
     		->join(!$this->_config->application->debug);
-
+//     	}
+//     	return $collection;
 
     }
 
@@ -354,6 +359,11 @@ class Manager extends AssetManager
         $collection ->setTargetPath($filepath)
         			->setTargetUri($filepath)
         			->setSourcePath(PUBLIC_PATH.DS);
+
+//         $csses=[];
+//         foreach ($collection->getResources()  as $css){
+//         	$csses[]=$css->getPath();
+//         }
 
         //$a=$collection->getTargetPath() ;
         //$b=$collection->getSourcePath();

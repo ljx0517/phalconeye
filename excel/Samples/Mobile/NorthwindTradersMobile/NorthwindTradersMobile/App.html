@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Explore</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!--jQuery References-->
+    <script src="http://code.jquery.com/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script src="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.js" type="text/javascript"></script>
+    <script src="http://cdn.wijmo.com/wijmo/external/knockout-2.2.0.js" type="text/javascript"></script>
+
+    <!--Theme-->
+    <link href="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.css" rel="stylesheet" type="text/css" title="rocket-jqueryui" />
+
+    <!--Wijmo Widgets CSS-->
+    <link href="http://cdn.wijmo.com/jquery.wijmo-pro.all.3.20143.59.min.css" rel="stylesheet" type="text/css" />
+
+    <!--Wijmo Widgets JavaScript-->
+    <script src="http://cdn.wijmo.com/jquery.wijmo-open.all.3.20143.59.min.js" type="text/javascript"></script>
+    <script src="http://cdn.wijmo.com/jquery.wijmo-pro.all.3.20143.59.min.js" type="text/javascript"></script>
+    
+    <!--Wijmo Knockout Integration-->
+    <script src="http://cdn.wijmo.com/interop/knockout.wijmo.3.20143.59.min.js"></script>
+    
+    <!--Wijmo Data API-->
+    <script src="http://cdn.wijmo.com/external/q.js"></script>
+    <script src="http://cdn.wijmo.com/external/breeze.min.js"></script>
+    <script src="http://cdn.wijmo.com/interop/wijmo.data.ajax.3.20143.59.js" type="text/javascript"></script>
+    <script src="http://cdn.wijmo.com/interop/wijmo.data.breeze.3.20143.59.js" type="text/javascript"></script>
+</head>
+<body>
+    <div data-role="page" data-theme="b">
+        <div data-role="wijappview">
+            <div data-role="appviewpage">
+                <div data-role="header">
+                    <h2>Northwind Traders</h2>
+                </div>
+                <div data-role="content">
+                    Welcome to Northwind Traders
+                </div>
+            </div>
+            <div data-role="menu" class="ui-body-a">
+                <ul data-role="wijlistview" data-theme="a">
+                    <li><a href="Partials/Company/Index.html">Company</a></li>
+                    <li><a href="Partials/Products/Index.html">Products</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

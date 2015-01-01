@@ -1,0 +1,348 @@
+<div data-role="appviewpage" data-title="Array Source">
+	<div data-role="content">
+         <div id="wijcandlestickchartDefault" class="ui-widget ui-widget-content ui-corner-all" style="width: 756px; height: 475px;">
+            </div>
+        <script id="scriptInit" type="text/javascript">
+            $(document).one("wijappviewpageinit", function () {
+                var data = [{
+                    x: new Date("12/1/2011"),
+                    high: 10,
+                    low: 7.5,
+                    open: 8,
+                    close: 8.6
+                }, {
+                    x: new Date("12/2/2011"),
+                    high: 12,
+                    low: 8.6,
+                    open: 8.6,
+                    close: 11
+                }, {
+                    x: new Date("12/5/2011"),
+                    high: 11,
+                    low: 4.4,
+                    open: 11,
+                    close: 6.2
+                }, {
+                    x: new Date("12/6/2011"),
+                    high: 14,
+                    low: 4.2,
+                    open: 6.2,
+                    close: 13.8
+                }, {
+                    x: new Date("12/7/2011"),
+                    high: 16,
+                    low: 8,
+                    open: 13.8,
+                    close: 15
+                }, {
+                    x: new Date("12/8/2011"),
+                    high: 20,
+                    low: 9,
+                    open: 15,
+                    close: 14
+                }, {
+                    x: new Date("12/9/2011"),
+                    high: 18,
+                    low: 11,
+                    open: 14,
+                    close: 12
+                }, {
+                    x: new Date("12/12/2011"),
+                    high: 17,
+                    low: 10,
+                    open: 12,
+                    close: 16
+                }, {
+                    x: new Date("12/13/2011"),
+                    high: 17.5,
+                    low: 12.2,
+                    open: 16,
+                    close: 15
+                }, {
+                    x: new Date("12/14/2011"),
+                    high: 20,
+                    low: 12,
+                    open: 15,
+                    close: 17
+                }, {
+                    x: new Date("12/15/2011"),
+                    high: 22,
+                    low: 16,
+                    open: 17,
+                    close: 18
+                }, {
+                    x: new Date("12/16/2011"),
+                    high: 21,
+                    low: 15.5,
+                    open: 18,
+                    close: 17.2
+                }, {
+                    x: new Date("12/19/2011"),
+                    high: 22.5,
+                    low: 16,
+                    open: 17.2,
+                    close: 18.5
+                }, {
+                    x: new Date("12/20/2011"),
+                    high: 20,
+                    low: 15,
+                    open: 18.5,
+                    close: 17.8
+                }, {
+                    x: new Date("12/21/2011"),
+                    high: 21,
+                    low: 16,
+                    open: 17.8,
+                    close: 18.6
+                }, {
+                    x: new Date("12/22/2011"),
+                    high: 20.8,
+                    low: 16.5,
+                    open: 18.6,
+                    close: 19.8
+                }, {
+                    x: new Date("12/23/2011"),
+                    high: 20,
+                    low: 16,
+                    open: 19.8,
+                    close: 18
+                }, {
+                    x: new Date("12/26/2011"),
+                    high: 19,
+                    low: 16,
+                    open: 18,
+                    close: 16.9
+                }, {
+                    x: new Date("12/27/2011"),
+                    high: 18,
+                    low: 15,
+                    open: 16.9,
+                    close: 15.6
+                }, {
+                    x: new Date("12/28/2011"),
+                    high: 17,
+                    low: 14.5,
+                    open: 15.6,
+                    close: 14.7
+                }, {
+                    x: new Date("12/29/2011"),
+                    high: 16,
+                    low: 14,
+                    open: 14.7,
+                    close: 14.2
+                }, {
+                    x: new Date("12/30/2011"),
+                    high: 15,
+                    low: 13.5,
+                    open: 14.2,
+                    close: 13.9
+                }, {
+                    x: new Date("1/2/2012"),
+                    high: 15,
+                    low: 13,
+                    open: 13.9,
+                    close: 13.2
+                }, {
+                    x: new Date("1/3/2012"),
+                    high: 14,
+                    low: 12,
+                    open: 13.2,
+                    close: 12.8
+                }, {
+                    x: new Date("1/4/2012"),
+                    high: 13,
+                    low: 11,
+                    open: 12.8,
+                    close: 11.7
+                }, {
+                    x: new Date("1/5/2012"),
+                    high: 12,
+                    low: 11,
+                    open: 11.7,
+                    close: 11.2
+                }, {
+                    x: new Date("1/6/2012"),
+                    high: 11.5,
+                    low: 10,
+                    open: 11.2,
+                    close: 10.5
+                }, {
+                    x: new Date("1/9/2012"),
+                    high: 10.9,
+                    low: 9,
+                    open: 10.5,
+                    close: 9.4
+                }, {
+                    x: new Date("1/10/2012"),
+                    high: 10,
+                    low: 8,
+                    open: 9.4,
+                    close: 8.9
+                }, {
+                    x: new Date("1/11/2012"),
+                    high: 9,
+                    low: 7.5,
+                    open: 8.9,
+                    close: 8.4
+                }, {
+                    x: new Date("1/12/2012"),
+                    high: 9.5,
+                    low: 7.9,
+                    open: 8.4,
+                    close: 8
+                }, {
+                    x: new Date("1/13/2012"),
+                    high: 10,
+                    low: 7.5,
+                    open: 8,
+                    close: 8.6
+                }, {
+                    x: new Date("1/16/2012"),
+                    high: 12,
+                    low: 8.6,
+                    open: 8.6,
+                    close: 11
+                }, {
+                    x: new Date("1/17/2012"),
+                    high: 11,
+                    low: 4.4,
+                    open: 11,
+                    close: 6.2
+                }, {
+                    x: new Date("1/18/2012"),
+                    high: 14,
+                    low: 4.2,
+                    open: 6.2,
+                    close: 13.8
+                }, {
+                    x: new Date("1/19/2012"),
+                    high: 16,
+                    low: 8,
+                    open: 13.8,
+                    close: 15
+                }, {
+                    x: new Date("1/20/2012"),
+                    high: 20,
+                    low: 9,
+                    open: 15,
+                    close: 14
+                }, {
+                    x: new Date("1/23/2012"),
+                    high: 18,
+                    low: 11,
+                    open: 14,
+                    close: 12
+                }, {
+                    x: new Date("1/24/2012"),
+                    high: 17,
+                    low: 10,
+                    open: 12,
+                    close: 16
+                }, {
+                    x: new Date("1/25/2012"),
+                    high: 17.5,
+                    low: 12.2,
+                    open: 16,
+                    close: 15
+                }, {
+                    x: new Date("1/26/2012"),
+                    high: 20,
+                    low: 12,
+                    open: 15,
+                    close: 17
+                }, {
+                    x: new Date("1/27/2012"),
+                    high: 22,
+                    low: 16,
+                    open: 17,
+                    close: 18
+                }, {
+                    x: new Date("1/30/2012"),
+                    high: 21,
+                    low: 15.5,
+                    open: 18,
+                    close: 17.2
+                }, {
+                    x: new Date("1/31/2012"),
+                    high: 22.5,
+                    low: 16,
+                    open: 17.2,
+                    close: 18.5
+                }];
+
+                $("#wijcandlestickchartDefault").wijcandlestickchart({
+                	type: "ohlc",
+                	textStyle: {
+                		"font-size": "13px",
+                		"font-family": '"Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif'
+                	},
+                	header: {
+                		text: "Stock History"
+                	},
+                	legend: {
+                		visible: true,
+                		compass: "north",
+                		orientation: "horizontal"
+                	},
+                	hint: {
+                		content: function () {
+                			return this.label + ' - ' +
+							Globalize.format(this.x, "d") +
+							'\n High:' + this.high +
+							'\n Low:' + this.low +
+							'\n Open:' + this.open +
+							'\n Close:' + this.close;
+                		},
+                		contentStyle: {
+                			"font-size": "12px",
+                			"font-family": '"Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif'
+                		},
+                		style: {
+                			fill: "#444444",
+                			stroke: "none"
+                		}
+                	},
+                	axis: {
+                		x: {
+                			textStyle: {
+                				"font-weight": "normal"
+                			},
+                			tickMajor: {
+                				position: "outside",//Position tick marks outside of the axis line
+                				style: {
+                					stroke: "#999999"//Make the tick marks match axis line color
+                				}
+                			}
+                		},
+                		y: {
+                			text: "Stock Price",
+                			textStyle: {
+                				"font-weight": "normal"
+                			},
+                			alignment: "far"//axis text aligned away from xy intersection
+                		},
+                	},
+                	dataSource: data,
+                	seriesList: [{
+                		label: "MSFT",
+                		legendEntry: true,
+                		data: {
+                			x: { bind: "x" },
+                			high: { bind: "high" },
+                			low: { bind: "low" },
+                			open: { bind: "open" },
+                			close: { bind: "close" }
+                		}
+                	}],
+                	seriesStyles: [
+						{
+							highLow: { fill: "#ff9900", width: 6 },
+							open: { fill: "#ff9900", height: 2 },
+							close: { fill: "#ff9900", height: 2 }
+						}
+                	]
+                });
+            });
+        </script>
+    </div>
+</div>

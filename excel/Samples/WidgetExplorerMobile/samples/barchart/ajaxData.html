@@ -1,0 +1,60 @@
+<div data-role="appviewpage" data-title="External Datasource">
+    <div data-role="content">
+        <div id="wijbarchart" data-role="wijbarchart" style="width: 100%; height: 400px">
+        </div>
+		<script type="text/javascript">
+			$.support.cors = true;
+			$(document).one("wijappviewpageinit", function () {
+				var products = "http://demo.componentone.com/aspnet/NorthwindAPI/api/read/Product?$top=10&$orderby=Unit_Price%20desc";
+
+				$.ajax({
+					url: products,
+					crossOrigin: true,
+					success: callback
+				});
+			});
+
+			function callback(result) {
+				// unwrap result
+				var names = [];
+				var prices = [];
+
+				for (var i = 0; i < result.length; i++) {
+					names.push(result[i].Product_Name);
+					prices.push(result[i].Unit_Price);
+				}
+
+				$("#wijbarchart").wijbarchart("beginUpdate");
+				$("#wijbarchart").wijbarchart({
+					axis: {
+						y: {
+							text: "Prices"
+						},
+						x: {
+							text: "Products"
+						}
+					},
+					hint: {
+						content: function () {
+							return this.data.label + '\n ' + this.y + '';
+						}
+					},
+					header: {
+						text: "Top 10 Products by Unit Price - Northwind OData"
+					},
+					seriesList: [
+						{
+							label: "Prices",
+							legendEntry: true,
+							data: {
+								x: names,
+								y: prices
+							}
+						}
+					]
+				});
+				$("#wijbarchart").wijbarchart("endUpdate");
+			}
+	</script>
+    </div>
+</div>

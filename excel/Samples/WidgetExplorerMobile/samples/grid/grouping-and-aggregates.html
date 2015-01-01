@@ -1,0 +1,73 @@
+<div data-role="appviewpage" data-title="Grouping and aggregates">
+
+	<div data-role="content">
+		<table id="demo" style="height:100%; width:100%">
+			<thead>
+				<tr>
+					<th>OrderID</th><th>ProductID</th><th>UnitPrice</th><th>Quantity</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>10248</td><td>11</td><td>14</td><td>12</td>
+				</tr><tr>
+					<td>10248</td><td>42</td><td>9.8</td><td>10</td>
+				</tr><tr>
+					<td>10248</td><td>72</td><td>34.8</td><td>5</td>
+				</tr><tr>
+					<td>10249</td><td>14</td><td>18.6</td><td>9</td>
+				</tr><tr>
+					<td>10249</td><td>51</td><td>42.4</td><td>40</td>
+				</tr><tr>
+					<td>10250</td><td>41</td><td>7.7</td><td>10</td>
+				</tr><tr>
+					<td>10250</td><td>51</td><td>42.4</td><td>35</td>
+				</tr><tr>
+					<td>10250</td><td>65</td><td>16.8</td><td>15</td>
+				</tr><tr>
+					<td>10251</td><td>22</td><td>16.8</td><td>6</td>
+				</tr><tr>
+					<td>10251</td><td>57</td><td>15.6</td><td>15</td>
+				</tr><tr>
+					<td>10251</td><td>65</td><td>16.8</td><td>20</td>
+				</tr><tr>
+					<td>10252</td><td>20</td><td>64.8</td><td>40</td>
+				</tr><tr>
+					<td>10252</td><td>33</td><td>2</td><td>25</td>
+				</tr><tr>
+					<td>10252</td><td>60</td><td>27.2</td><td>40</td>
+				</tr><tr>
+					<td>10253</td><td>31</td><td>10</td><td>20</td>
+				</tr><tr>
+					<td>10253</td><td>39</td><td>14.4</td><td>42</td>
+				</tr><tr>
+					<td>10253</td><td>49</td><td>16</td><td>40</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<script type="text/javascript">
+		$(document).one("wijappviewpageinit", function() {
+			$("#demo").wijgrid({
+				allowSorting: true,
+				groupIndent: 50,
+				scrollMode: "auto",
+				columns: [
+					{
+						sortDirection: "ascending",
+						aggregate: "count",
+						groupInfo: {
+							position: "header",
+							outlineMode: "startCollapsed",
+							headerText: "{1}:{0}, Count={2}"
+						}
+					},
+					{},
+					{ dataType: "currency", aggregate: "sum", groupInfo: { position: "header" } },
+					{ dataType: "number", dataFormatString: "n0", aggregate: "sum" }
+				]
+			});
+		});
+	</script>
+</div>

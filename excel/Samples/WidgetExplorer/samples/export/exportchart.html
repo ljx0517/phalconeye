@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>BarChart - Export</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="%description%" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="ComponentOne" />
+    <style type="text/css">
+      /* Setting pane style */
+        .settingcontainer
+        {
+            width:400px;
+	        margin-left:10px;
+        }
+
+        .settingcontainer .settingcontent
+        {
+	        padding:5px;
+	        overflow:visible;
+        }
+
+        .settingcontent>ul
+        {
+            padding-left:0px;
+	        margin: 5px;
+        }
+
+        .settingcontent>ul>li
+        {
+            list-style: none;
+            margin: 5px;
+            width:100%;
+        }
+
+        .settingcontent>ul>li>label
+        {
+            display:inline-block;
+            width: 40%;
+	        font-size:0.8em;
+        }
+
+        .settingcontent>ul>li
+        {
+	        font-size:0.9em;
+        }
+
+        .subtitle
+        {
+	        font-weight:bold;
+	        width:100%;
+        }
+
+        .settingcontent li input[type='checkbox']+label,
+        .settingcontent li .wijmo-checkbox+label,
+        .settingcontent li .widelabel
+        {
+            width: 80%;
+        }
+
+        .settingcontent li input[type='text'],
+        .settingcontent li input[type='password'],
+        .settingcontent li select,
+        .wijmo-wijdropdown
+        {
+            width: 50%;
+        }
+    </style>
+    <link href="../../../../Themes/rocket/jquery-wijmo.css" rel="stylesheet" type="text/css" />
+    <link href="../../../../css/jquery.wijmo-pro.all.3.20143.59.min.css" rel="stylesheet" type="text/css" />
+    <script src="../../js/require.js" type="text/javascript"></script>
+    <script src="../../js/require.wijmo.config.js" type="text/javascript"></script>
+    <script src="../../js/exportutils.js"></script>
+    <script src="../../js/FileSaver.js"></script>
+    <script id="scriptInit" type="text/javascript">
+        require(["wijmo.wijcompositechart", "wijmo.wijaccordion", "wijmo.wijtextbox", "wijmo.wijcheckbox", "wijmo.wijdropdown", "chartexport"], function () {
+
+            $(document).ready(function () {
+                $("#wijcompositechart").wijcompositechart({
+                    axis: {
+                        y: {
+                            text: "Total Hardware"
+                        }
+                    },
+                    stacked: false,
+                    hint: {
+                        content: function () {
+                            return this.label + '\n ' + this.y + '';
+                        }
+                    },
+                    header: {
+                        text: "Hardware Distribution"
+                    },
+                    seriesList: [{
+                        type: "column",
+                        label: "West",
+                        legendEntry: true,
+                        data: { x: ['Desktops', 'Notebooks', 'AIO', 'Tablets', 'Phones'], y: [5, 3, 4, 7, 2] }
+                    }, {
+                        type: "column",
+                        label: "Central",
+                        legendEntry: true,
+                        data: { x: ['Desktops', 'Notebooks', 'AIO', 'Tablets', 'Phones'], y: [2, 2, 3, 2, 1] }
+                    }, {
+                        type: "column",
+                        label: "East",
+                        legendEntry: true,
+                        data: { x: ['Desktops', 'Notebooks', 'AIO', 'Tablets', 'Phones'], y: [3, 4, 4, 2, 5] }
+                    }, {
+                        type: "pie",
+                        label: "asdfdsfdsf",
+                        legendEntry: true,
+                        center: { x: 150, y: 150 },
+                        radius: 60,
+                        data: [{
+                            label: "MacBook Pro",
+                            legendEntry: true,
+                            data: 46.78,
+                            offset: 15
+                        }, {
+                            label: "iMac",
+                            legendEntry: true,
+                            data: 23.18,
+                            offset: 0
+                        }, {
+                            label: "MacBook",
+                            legendEntry: true,
+                            data: 20.25,
+                            offset: 0
+                        }]
+                    }, {
+                        type: "line",
+                        label: "Steam1",
+                        legendEntry: true,
+                        data: {
+                            x: ['Desktops', 'Notebooks', 'AIO', 'Tablets', 'Phones'],
+                            y: [3, 6, 2, 9, 5]
+                        },
+                        markers: {
+                            visible: true,
+                            type: "circle"
+                        }
+                    }, {
+                        type: "line",
+                        label: "Steam2",
+                        legendEntry: true,
+                        data: {
+                            x: ['Desktops', 'Notebooks', 'AIO', 'Tablets', 'Phones'],
+                            y: [1, 3, 4, 7, 2]
+                        },
+                        markers: {
+                            visible: true,
+                            type: "tri"
+                        }
+                    }]
+                });
+    	        $("#accordion").wijaccordion({
+    	            header: "h3"
+    	        });
+    	        $(".settingcontainer input[type='text'],.settingcontainer input[type='password']").wijtextbox();
+    	        $(".settingcontainer select").wijdropdown();
+    	        $(".settingcontainer input[type='checkbox']").wijcheckbox();
+    	        $("#exportImage").button().click(function () {
+    	            var type = $("#exporttype").val();
+    	            wijmo.exporter.exportChart({
+    	                serviceUrl: getServiceUrl(),
+    	                chart: $("#wijcompositechart").data("wijmo-wijcompositechart"),
+    	                exportFileType: wijmo.exporter.ExportFileType[type],
+    	                fileName: $("#fileName").val(),
+    	                receiver: saveFile
+    	            });    	        
+    	        });
+    	        $("#exportPdf").button().click(function () {
+    	            wijmo.exporter.exportChart({
+    	                fileName: $("#fileName").val(),
+    	                serviceUrl: "http://demos.componentone.com/ASPNET/ExportService/exportapi/chart",
+    	                chart: $("#wijcompositechart").data("wijmo-wijcompositechart"),
+    	                exportFileType: wijmo.exporter.ExportFileType.Pdf, 
+    	                receiver: saveFile,
+    	                pdf: {
+    	                    imageQuality: wijmo.exporter.ImageQuality[$("#imageQuality option:selected").val()],
+    	                    compression: wijmo.exporter.CompressionType[$("#compression option:selected").val()],
+    	                    fontType: wijmo.exporter.FontType[$("#fontType option:selected").val()],
+    	                    author: $("#pdfAuthor").val(),
+    	                    creator: $("#pdfCreator").val(),
+    	                    subject: $("#pdfSubject").val(),
+    	                    title: $("#pdfTitle").val(),
+    	                    producer: $("#pdfProducer").val(),
+    	                    keywords: $("#pdfKeywords").val(),
+    	                    encryption: wijmo.exporter.PdfEncryptionType[$("#encryption option:selected").val()],
+    	                    ownerPassword: $("#ownerPassword").val(),
+    	                    userPassword: $("#userPassword").val(),
+    	                    allowCopyContent: $("#allowCopyContent").prop('checked'),
+    	                    allowEditAnnotations: $("#allowEditAnnotations").prop('checked'),
+    	                    allowEditContent: $("#allowEditContent").prop('checked'),
+    	                    allowPrint: $("#allowPrint").prop('checked')
+    	                }
+    	            });
+    	        });
+            });
+            function getServiceUrl() {
+                return ($("#serverUrl").val() === "") ? "http://demos.componentone.com/ASPNET/ExportService/exportapi/chart" : $("#serverUrl").val() + "/exportapi/chart";
+            }
+    	});
+    </script>
+</head>
+<body class="demo-single">
+    <div class="container">
+        <div class="header">
+            <h2>Export</h2>
+        </div>
+        <div class="main demo">
+            <!-- Begin demo markup -->
+             <div id="accordion" class="settingcontainer">
+                <div>
+                    <h3><a href="#">Image Export</a></h3>
+                    <div class="settingcontent">
+                    <div style="vertical-align:middle; display:inline-block">
+                       <select id="exporttype">
+							<option selected="selected" value="Jpg">Export To Jpg</option>
+							<option value="Png">Export To Png</option>
+							<option value="Gif">Export To Gif</option>
+							<option value="Bmp">Export To Bmp</option>
+                            <option value="Tiff">Export To Tiff</option>
+                            <option value="Pdf">Export To Pdf</option>
+						</select>
+                      </div>
+                        <input type="button" value="Export to Image" id="exportImage"/>
+					</div>
+                </div>
+                <div>
+                    <h3><a href="#">Pdf Export</a></h3>
+					<div class="settingcontent">
+						<ul>
+							<li><input type="button" value="Export to Pdf" id="exportPdf"/></li>
+							<li>
+								<label class="subtitle">File Content:</label>
+							</li>
+							<li>
+								<label>Image Quality:</label>
+								<select id="imageQuality">
+									<option selected="selected" value="Default">Default</option>
+									<option value="Low">Low</option>
+									<option value="Medium">Medium</option>
+									<option value="High">High</option>
+								</select> 
+							</li>
+							<li>
+								<label>Compression:</label>
+								<select id="compression">
+									<option selected="selected" value="Default">Default</option>
+									<option value="None">None</option>
+									<option value="BestSpeed">BestSpeed</option>
+									<option value="BestCompression">BestCompression</option>
+								</select> 
+							</li>
+							<li>
+								<label>Font Type:</label>
+								<select id="fontType">
+									<option value="Standard">Standard</option>
+									<option value="TrueType" selected="selected">TrueType</option>
+									<option value="Embedded">Embedded</option>
+								</select> 
+							</li>
+							<li>
+								<label class="subtitle">Dcoument Info.:</label>
+							</li>
+							<li>
+								<label>Author:</label><input type="text" value="GrapeCity" id="pdfAuthor"/>
+							</li>
+							<li>
+								<label>Creator:</label><input type="text" value="GrapeCity" id="pdfCreator"/>
+							</li>
+							<li>
+								<label>Subject:</label><input type="text" id="pdfSubject"/>
+							</li>
+							<li>
+								<label>Title:</label><input type="text" value="Export Chart" id="pdfTitle"/>
+							</li>
+							<li>
+								<label>Producer:</label><input type="text" value="GrapeCity" id="pdfProducer"/>
+							</li>
+							<li>
+								<label>Keywords:</label><input type="text" id="pdfKeywords"/>
+							</li>
+							<li>
+								<label class="subtitle">Dcoument Security:</label>
+							</li>
+							<li>
+								<label>Encryption Type:</label>
+								<select id="encryption">
+									<option selected="selected" value="NotPermit">NotPermit</option>
+									<option value="Standard40">Standard40</option>
+									<option value="Standard128">Standard128</option>
+									<option value="Aes128">Aes128</option>
+								</select> 
+							</li>
+							<li>
+								<label>Owner Password:</label><input type="password" id="ownerPassword"/>
+							</li>
+							<li>
+								<label>User Password:</label><input type="password" id="userPassword"/>
+							</li>
+							<li><input type="checkbox" checked="checked" id="allowCopyContent"/><label class="widelabel">Allow Copy Content</label></li>
+							<li><input type="checkbox" checked="checked" id="allowEditAnnotations"/><label class="widelabel">Allow Edit Annotations</label></li>
+							<li><input type="checkbox" checked="checked" id="allowEditContent"/><label class="widelabel">Allow Edit Content</label></li>
+							<li><input type="checkbox" checked="checked" id="allowPrint"/><label class="widelabel">Allow Print</label></li>
+						</ul>
+					</div>
+                </div>
+                <div>
+                    <h3><a href="#">Configuration</a></h3>
+                    <div class="settingcontent">
+						<ul>
+							<li>
+								<label>Server Url:</label>
+								<input type="text" id="serverUrl" value="">
+							</li>
+							<li>
+								<label>File Name:</label>
+								<input type="text" id="fileName" value="export">
+							</li>
+							<li>
+								<label class="widelabel">Request Content Type:</label>
+							</li>
+							<li>
+								<select id="requestContentType">
+									<option selected="selected" value="application/x-www-form-urlencoded">x-www-form-urlencoded</option>
+									<option value="application/json">json</option>
+								</select> 
+							</li>
+							<li>
+								<p>Note: when choose application/json as request content type, we need customize the receiver to handle the response data. To save the file, using Blob object (which supported from IE10, and other modem browsers) and fileSaver library.</p>
+							</li>
+						</ul>
+					</div>
+                </div>
+            </div>
+            <div>
+                <div id="wijcompositechart" style="height: 400px"/>
+            </div>            
+            </div>
+           
+            <!-- End demo markup -->
+            <div class="demo-options">
+                <!-- Begin options markup -->
+                <!-- End options markup -->
+            </div>
+        </div>
+        <div class="footer demo-description">
+            <p>
+                 This sample demonstrates how to export the chart to image simply.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<div data-role="appviewpage">
+    <div data-role="header">
+        <a href="index.html" data-icon="back">Back</a>
+        <h2>
+            Overview</h2>
+    </div>
+    <div data-role="content">
+        <div id="treemap" data-role="wijtreemap" style="width:100%;height: 600px;"></div>
+        <script type="text/javascript">
+            $(document).one("wijappviewpageinit", function () { 
+                $("#treemap").wijtreemap({
+                    showBackButtons: true,
+                    labelFormatter: function() {
+                        return "Country: " + this.label + "<br/> GDP: " + this.value + " $BN";
+                    },
+                    data: [{
+                        label: "North America",
+                        value: 18625,
+                        items: [{
+                            label: "United States",
+                            value: 16800
+                        },{
+                            label: "Canada",
+                            value: 1825
+                        }]
+                    }, {
+                        label: "Asia",
+                        value: 18934,
+                        items: [{
+                            label: "China",
+                            value: 9240
+                        },{
+                            label: "Japan",
+                            value: 4901
+                        },{
+                            label: "India",
+                            value: 1876
+                        },{
+                            label: "South Korea",
+                            value: 1304
+                        },{
+                            label: "Indonesia",
+                            value: 868
+                        },{
+                            label: "Saudi Arabia",
+                            value: 745
+                        }]
+                    }, {
+                        label: "Europe",
+                        value: 16685,
+                        items: [{
+                            label: "Germany",
+                            value: 3634
+                        },{
+                            label: "France",
+                            value: 2734
+                        },{
+                            label: "United Kingdom",
+                            value: 2522
+                        },{
+                            label: "Russia",
+                            value: 2096
+                        },{
+                            label: "Italy",
+                            value: 2071
+                        },{
+                            label: "Spain",
+                            value: 1358
+                        },{
+                            label: "Turkey",
+                            value: 820
+                        },{
+                            label: "Netherlands",
+                            value: 800
+                        },{
+                            label: "Switzerland",
+                            value: 650
+                        }]
+                    }, {
+                        label: "South America",
+                        value: 4554,
+                        items: [{
+                            label: "Brazil",
+                            value: 2245
+                        },{
+                            label: "Mexico",
+                            value: 1260
+                        },{
+                            label: "Argentina",
+                            value: 611
+                        },{
+                            label: "Venezuela",
+                            value: 438
+                        }]
+                    }, {
+                        label: "Australasia & Oceania",
+                        value: 1742,
+                        items: [{
+                            label: "Australia",
+                            value: 1560
+                        },{
+                            label: "New Zealand",
+                            value: 182
+                        }]
+                    }, {
+                        label: "Africa",
+                        value: 872,
+                        items: [{
+                            label: "Nigeria",
+                            value: 522
+                        },{
+                            label: "South Africa",
+                            value: 350
+                        }]
+                    }]
+                });
+            });
+        </script>
+    </div>
+</div>

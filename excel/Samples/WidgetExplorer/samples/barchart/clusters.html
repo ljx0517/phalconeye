@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>BarChart - Clusters</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="%description%" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="ComponentOne" />
+
+    <link href="../../../../Themes/rocket/jquery-wijmo.css" rel="stylesheet" type="text/css" />
+    <link href="../../../../css/jquery.wijmo-pro.all.3.20143.59.min.css" rel="stylesheet" type="text/css" />
+    <script src="../../js/require.js" type="text/javascript"></script>
+    <script src="../../js/require.wijmo.config.js" type="text/javascript"></script>
+
+    <script id="scriptInit" type="text/javascript">
+        require(["wijmo.wijbarchart"], function () {
+            $(document).ready(function () {
+                $("#wijbarchart").wijbarchart({
+                    // legend setup
+                    legend: {
+                        text: "Month", // legend title
+                        visible: true, // allow legend to diplay
+                        compass: "north", // setting legend position relative to the chart
+                        orientation: "horizontal", // setting legend element orientation
+                        // legend element size in pixels
+                        size: {
+                            width: 75,
+                            height: 10
+                        }
+                    },
+                    // setup chart data series
+                    seriesList: [{
+                        label: "May", // series name
+                        legendEntry: true, // toggle series visibility in the legend
+                        data: { x: ['Mobile Intel 4 Series Express', 'NVIDIA GeForce 8600', 'NVIDIA GeForce GTS 150', 'NVIDIA GeForce 9600', 'NVIDIA GeForce GTX 260', 'NVIDIA GeForce 9800', 'NVIDIA GeForce 8800', 'ATI Radeon HD 4800', 'ATI Radeon HD 5700', 'ATI Radeon HD 5800'], y: [1.91, 1.90, 1.61, 2.23, 2.85, 3.64, 4.46, 5.89, 4.22, 4.66] }
+                    }, {
+                        label: "Jun",
+                        legendEntry: true,
+                        data: { x: ['Mobile Intel 4 Series Express', 'NVIDIA GeForce 8600', 'NVIDIA GeForce GTS 150', 'NVIDIA GeForce 9600', 'NVIDIA GeForce GTX 260', 'NVIDIA GeForce 9800', 'NVIDIA GeForce 8800', 'ATI Radeon HD 4800', 'ATI Radeon HD 5700', 'ATI Radeon HD 5800'], y: [1.82, 1.88, 1.77, 2.33, 2.97, 3.70, 4.42, 5.93, 4.92, 5.20] }
+                    }, {
+                        label: "Jul",
+                        legendEntry: true,
+                        data: { x: ['Mobile Intel 4 Series Express', 'NVIDIA GeForce 8600', 'NVIDIA GeForce GTS 150', 'NVIDIA GeForce 9600', 'NVIDIA GeForce GTX 260', 'NVIDIA GeForce 9800', 'NVIDIA GeForce 8800', 'ATI Radeon HD 4800', 'ATI Radeon HD 5700', 'ATI Radeon HD 5800'], y: [1.94, 1.80, 1.81, 2.23, 2.83, 3.57, 4.23, 5.90, 5.46, 5.62] }
+                    }, {
+                        label: "Aug",
+                        legendEntry: true,
+                        data: { x: ['Mobile Intel 4 Series Express', 'NVIDIA GeForce 8600', 'NVIDIA GeForce GTS 150', 'NVIDIA GeForce 9600', 'NVIDIA GeForce GTX 260', 'NVIDIA GeForce 9800', 'NVIDIA GeForce 8800', 'ATI Radeon HD 4800', 'ATI Radeon HD 5700', 'ATI Radeon HD 5800'], y: [1.89, 1.84, 1.96, 2.29, 2.93, 3.79, 4.11, 5.79, 5.84, 6.02] }
+                    }, {
+                        label: "Sep",
+                        legendEntry: true,
+                        data: { x: ['Mobile Intel 4 Series Express', 'NVIDIA GeForce 8600', 'NVIDIA GeForce GTS 150', 'NVIDIA GeForce 9600', 'NVIDIA GeForce GTX 260', 'NVIDIA GeForce 9800', 'NVIDIA GeForce 8800', 'ATI Radeon HD 4800', 'ATI Radeon HD 5700', 'ATI Radeon HD 5800'], y: [1.72, 1.80, 2.17, 2.40, 3.30, 3.97, 4.40, 6.59, 6.82, 7.04] }
+                    }],
+                    axis: {
+                        y: {
+                            text: "Percentage (%)"
+                        },
+                        x: {
+                            text: "Graphics Card"
+                        }
+                    },
+                    header: {
+                        text: "Steam Top 10 Video Cards - Hardware Survey"
+                    },
+                });
+            });
+        });
+
+        function changeProperties() {
+            var legend = {
+                compass: $("#selCompass").val(),
+                orientation: $("#selOrientation").val(),
+                text: "Years",
+                visible: $("#chkEnabled").is(":checked")
+            };
+            $("#wijbarchart").wijbarchart("option", "legend", legend);
+        }
+
+        function reload() {
+            $("#wijbarchart").wijbarchart("option", "seriesList", [createRandomSeriesList("2010"),
+                                                                    createRandomSeriesList("2011"),
+                                                                    createRandomSeriesList("2012")]);
+        }
+
+        function createRandomSeriesList(label) {
+            var data = [],
+                randomDataValuesCount = 4,
+                labels = ["PC", "Notebooks", "Tablets", "Smartphones"],
+                idx;
+            for (idx = 0; idx < randomDataValuesCount; idx++) {
+                data.push(createRandomValue());
+            }
+            return {
+                label: label,
+                legendEntry: true,
+                data: { x: labels, y: data }
+            };
+        }
+
+        function createRandomValue() {
+            var val = Math.round(Math.random() * 100);
+            return val;
+        }
+    </script>
+</head>
+<body class="demo-single">
+    <div class="container">
+        <div class="header">
+            <h2>Overview</h2>
+        </div>
+        <div class="main demo">
+            <!-- Begin demo markup -->
+            <div id="wijbarchart" class="ui-widget ui-widget-content ui-corner-all" style="width: 756px; height: 475px">
+            </div>
+            <!-- End demo markup -->
+            <div class="demo-options">
+                <!-- Begin options markup -->
+                <!-- End options markup -->
+            </div>
+            <div class="demo-options">
+                <!-- Begin options markup -->
+                <div>
+                    <p>
+                        <label for="chkEnabled">
+                            Legend enabled 
+                        </label>
+                        <input type="checkbox" id="chkEnabled" checked="checked" />
+                    </p>
+                    <p>
+                        Legend position:
+					<label for="selCompass">
+                        Compass
+                    </label>
+                        <select id="selCompass">
+                            <option value="north">north</option>
+                            <option value="east">east</option>
+                            <option value="south">south</option>
+                            <option value="west">west</option>
+                        </select>
+                        <label for="selOrientation">
+                            Orientation
+                        </label>
+                        <select id="selOrientation">
+                            <option value="horizontal">horizontal</option>
+                            <option value="easeInCubicvertical">vertical</option>
+                        </select>
+                        <input type="button" value="Apply" onclick="changeProperties()" />
+                    </p>
+                </div>
+                <!-- End options markup -->
+            </div>
+        </div>
+        <div class="footer demo-description">
+            <p>
+                This sample illustrates how to create a clustered bar chart using the wijbarchart widget.
+            </p>
+            <h3>Test the features</h3>
+            <ul>
+                <li>Hover over a bar point to see the tooltip.</li>
+                <li>Note the legend at the top of the chart.</li>
+                <li>Click series items in the legend to toggle their visibility on the chart surface.</li>
+                <li>Play with legend options in the panel below to see it features.</li>
+                <li>Note the chart adjusts to the free space chnages.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

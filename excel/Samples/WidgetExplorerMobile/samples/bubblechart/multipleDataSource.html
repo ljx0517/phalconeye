@@ -1,0 +1,112 @@
+<div data-role="appviewpage" data-title="Multiple DataSource">
+	<div data-role="content">
+		<div id="wijbubblechart" data-role="wijbubblechart" style="width: 100%; height: 400px">
+		</div>
+		<script type="text/javascript">
+			$(document).one("wijappviewpageinit", function () {
+				var data = [{
+					Income: 2972,
+					Population: 1150,
+					Expectency: 65
+				}, {
+					Income: 7931,
+					Population: 1340,
+					Expectency: 73
+				}, {
+					Income: 14318,
+					Population: 140,
+					Expectency: 69
+				}, {
+					Income: 42066,
+					Population: 309,
+					Expectency: 78
+				}, {
+					Income: 30866,
+					Population: 126,
+					Expectency: 83
+				}],
+				data1 = [{
+					Income: 12100,
+					Population: 950,
+					Expectency: 85
+				}, {
+					Income: 17931,
+					Population: 340,
+					Expectency: 77
+				}, {
+					Income: 12318,
+					Population: 40,
+					Expectency: 89
+				}, {
+					Income: 22066,
+					Population: 39,
+					Expectency: 68
+				}, {
+					Income: 866,
+					Population: 26,
+					Expectency: 53
+				}];
+				$("#wijbubblechart").wijbubblechart("beginUpdate").wijbubblechart({
+					legend: {
+						size: {
+							width: 20,
+							height: 14
+						}
+					},
+					axis: {
+						y: {
+							text: "Life Expectancy",
+							labels: {
+								textAlign: "far"
+							}
+						},
+						x: {
+							text: "Income",
+							tickMajor: {
+								position: "inside"
+							},
+							labels: {
+								textAlign: "near"
+								//,
+								//width: 60
+							}
+						}
+					},
+					hint: {
+						content: function () {
+							return "" + this.data.label + " \nLife Expectency: " + this.y + " \nIncome: " + Globalize.format(this.x, "n") + " \nPopulation: " + this.data.y1 + "M";
+						},
+						style: {
+							stroke: "#000",
+							"stroke-width": 10
+						}
+					},
+					header: {
+						text: "Wealth & Health of Nations - 2010"
+					},
+					dataSource: data,
+					seriesList: [{
+						legendEntry: true,
+						label: "east",
+						data: {
+							x: { bind: "Income" },
+							y: { bind: "Expectency" },
+							y1: { bind: "Population" }
+						}
+					},
+					{
+						dataSource: data1,
+						legendEntry: true,
+						label: "west",
+						data: {
+							x: { bind: "Income" },
+							y: { bind: "Expectency" },
+							y1: { bind: "Population" }
+						}
+					}]
+
+				}).wijbubblechart("endUpdate");
+			});
+		</script>
+	</div>
+</div>

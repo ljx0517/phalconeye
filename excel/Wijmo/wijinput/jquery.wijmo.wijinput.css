@@ -1,0 +1,245 @@
+
+.wijmo-wijinput {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    width: 150px;
+    /*Fixed the issue for IE7, if the input is inside the table cell with long text*/
+    *overflow:hidden;
+    _zoom:1;
+    *display:inline;
+}
+
+.wijmo-wijinput-wrapper {
+    margin-right: 0;
+    display: block;
+    padding: 5px;
+    overflow: hidden;
+}
+
+.wijmo-wijinput-input {
+    background: none;
+    border: 0 none;
+    color: inherit;
+    outline: none;
+    margin: 0 !important;
+    line-height: normal;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    resize: none;
+    padding-right: 2px;
+}
+
+/*.wijmo-wijinput-input::-ms-clear {
+    display: none;
+}*/
+
+.wijmo-wijinput .wijmo-wijinput-trigger {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 16px;
+    cursor: pointer;
+    padding: 0 0;
+    height: 100%;
+}
+
+.wijmo-wijinput .wijmo-wijinput-trigger .ui-icon {
+    top: 50%;
+    position: absolute;
+    margin-top: -8px;
+}
+
+.ui-input-trigger-left .wijmo-wijinput-wrapper, .ui-input-spinner-left .wijmo-wijinput-wrapper {
+    padding-left: 25px;
+}
+
+.ui-input-trigger-right .wijmo-wijinput-wrapper, .ui-input-spinner-right .wijmo-wijinput-wrapper {
+    padding-right: 20px;
+}
+
+.ui-input-spinner-trigger-left .wijmo-wijinput-wrapper {
+    padding-left: 37px;
+}
+
+.ui-input-spinner-trigger-right .wijmo-wijinput-wrapper {
+    padding-right: 37px;
+}
+
+
+.ui-input-trigger-right .wijmo-wijinput-trigger {
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-right: none;
+    border-top: none;
+    border-bottom: none;
+}
+
+.ui-input-trigger-left .wijmo-wijinput-trigger {
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-left: none;
+    border-top: none;
+    border-bottom: none;
+}
+
+.ui-input-spinner-trigger-left .wijmo-wijinput-trigger {
+    left: 0;
+}
+
+.wijmo-wijinput .wijmo-wijinput-spinner-left {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 18px;
+    cursor: pointer;
+    height: 100%;
+    overflow: hidden;
+}
+
+.wijmo-wijinput .wijmo-wijinput-spinner-right {
+    position: absolute;
+    right: -1px;
+    top: 0px;
+    width: 18px;
+    cursor: pointer;
+    height: 100%;
+    overflow: hidden;
+}
+
+.ui-input-spinner-trigger-left .wijmo-wijinput-spinner-left {
+    left: 17px;
+}
+
+.ui-input-spinner-trigger-right .wijmo-wijinput-spinner-left {
+    left: 0px;
+}
+
+.ui-input-spinner-trigger-left .wijmo-wijinput-spinner-right {
+    right: 0;
+}
+
+.ui-input-spinner-trigger-right .wijmo-wijinput-spinner-right {
+    right: 16px;
+}
+
+.wijmo-wijinput .wijmo-wijinput-spinner-left .ui-icon {
+    position: absolute;
+    top: 50%;
+    margin-top: -8px;
+}
+
+.wijmo-wijinput .wijmo-wijinput-spinner-right .ui-icon {
+    position: absolute;
+    top: 50%;
+    margin-top: -8px;
+}
+
+.wijmo-wijinput-spin {
+    border-bottom: none;
+    display: block;
+    height: 100%;
+    width: 16px;
+    position: relative;
+}
+
+.wijmo-wijinput-spinup {
+    border-bottom: none;
+    display: block;
+    height: 50%;
+    width: 16px;
+    position: relative;
+}
+
+.wijmo-wijinput-spindown {
+    border-top: none;
+    display: block;
+    height: 50%;
+    width: 16px;
+    position: relative;
+}
+
+.ui-input-spinner-right .wijmo-wijinput-spin {
+    border-right: none;
+    border-top: none;
+}
+
+.ui-input-spinner-right .wijmo-wijinput-spinup {
+    border-right: none;
+    border-top: none;
+}
+
+.ui-input-spinner-right .wijmo-wijinput-spindown {
+    border-right: none;
+    border-bottom: none;
+}
+
+.ui-input-spinner-left .wijmo-wijinput-spin {
+    border-left: none;
+    border-top: none;
+}
+
+.ui-input-spinner-left .wijmo-wijinput-spinup {
+    border-left: none;
+    border-top: none;
+}
+
+.ui-input-spinner-left .wijmo-wijinput-spindown {
+    border-left: none;
+    border-bottom: none;
+}
+
+.wijmo-wijinput-numeric {
+    text-align: right;
+}
+
+.wijmo-wijinput-date, .wijmo-wijinput-mask {
+}
+
+.wijmo-wijinput .ui-state-negative {
+    color: red;
+}
+
+.ui-input-spinner-trigger-right .wijmo-wijinput-spinup, .ui-input-spinner-trigger-right .wijmo-wijinput-spindown, .ui-input-spinner-trigger-right .wijmo-wijinput-trigger {
+    border-top: none;
+    border-right: none;
+}
+
+.ui-input-spinner-trigger-left .wijmo-wijinput-spinup, .ui-input-spinner-trigger-left .wijmo-wijinput-spindown, .ui-input-spinner-trigger-left .wijmo-wijinput-trigger {
+    border-top: none;
+    border-left: none;
+}
+
+input.wijmo-wijinput-input::-webkit-outer-spin-button, input.wijmo-wijinput-input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    /* <-- Apparently some margin are still there even though it's hidden */
+    margin: 0; 
+}
+
+.ui-mobile .wijmo-wijinput.ui-btn {
+    padding: 0px;
+	margin: 0px;
+}
+
+.ui-mobile .wijmo-wijinput .wijmo-wijinput-trigger {
+    width: 22px;
+}
+
+.ui-mobile .wijmo-wijinput .wijmo-wijinput-trigger span.ui-icon {
+    display: block;
+}
+
+.ui-mobile .wijmo-wijinput .wijmo-wijinput-trigger.ui-btn {
+    margin: 0px;
+}
+
+.ui-mobile .wijmo-wijinput .wijmo-wijinput-trigger .ui-icon.ui-btn-icon-notext {
+    width: 22px;
+	height: 22px;
+	position: relative;
+	margin-top: -11px;
+}

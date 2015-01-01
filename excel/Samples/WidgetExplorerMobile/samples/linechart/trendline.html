@@ -1,0 +1,138 @@
+<div data-role="appviewpage" data-title="Trendline">
+    <div data-role="content">
+        <div id="wijlinechart" data-role="wijlinechart" class="ui-widget ui-widget-content ui-corner-all" style="width: 100%; height: 475px">
+		</div>
+		<div class="demo-options">
+				<!-- Begin options markup -->
+				<div>
+                    <select id="selFitType">
+                        <option value="polynom">polynom</option>
+                        <option value="exponent">exponent</option>
+                        <option value="logarithmic">logarithmic</option>
+                        <option value="power">power</option>
+                        <option value="fourier">fourier</option>
+                        <option value="minX">minX</option>
+                        <option value="minY">minY</option>
+                        <option value="maxX">maxX</option>
+                        <option value="maxY">maxY</option>
+                        <option value="averageX">averageX</option>
+                        <option value="averageY">averageY</option>
+                    </select>
+                    <label for="inpOrder">
+                        Order
+                    </label>
+                    <input id="inpOrder" type="text" value="4" />
+                    <label for="inpSampleCount">
+                        SampleCount
+                    </label>
+                    <input id="inpSampleCount" type="text" value="100" />					
+					<input type="button" value="Apply" onclick="changeProperties()" />
+				</div>
+				<!-- End options markup -->
+			</div>
+
+		<script type="text/javascript">
+		    var data = [{
+		        Year: 1999,
+		        ThoudUnits: 39.758
+		    }, {
+		        Year: 2000,
+		        ThoudUnits: 41.215
+		    }, {
+		        Year: 2001,
+		        ThoudUnits: 39.855
+		    }, {
+		        Year: 2002,
+		        ThoudUnits: 41.358
+		    }, {
+		        Year: 2003,
+		        ThoudUnits: 41.968
+		    }, {
+		        Year: 2004,
+		        ThoudUnits: 44.554
+		    }, {
+		        Year: 2005,
+		        ThoudUnits: 46.862
+		    }, {
+		        Year: 2006,
+		        ThoudUnits: 49.918
+		    }, {
+		        Year: 2007,
+		        ThoudUnits: 53.201
+		    }, {
+		        Year: 2008,
+		        ThoudUnits: 52.726
+		    }, {
+		        Year: 2009,
+		        ThoudUnits: 47.772
+		    }, {
+		        Year: 2010,
+		        ThoudUnits: 58.264
+		    }, {
+		        Year: 2011,
+		        ThoudUnits: 59.929
+		    }];
+		    $(document).one("wijappviewpageinit", function () {
+		        $("#wijlinechart").wijlinechart("beginUpdate");
+		        $("#wijlinechart").wijlinechart({
+		            dataSource: data,
+		            header: {
+		                text: "Cars produced in the world"
+		            },
+		            axis: {
+		                y: {
+		                    text: "Thousands of units",
+		                },
+		                x: {
+		                    text: "Years"
+		                }
+		            },
+		            seriesList: [{
+		                label: "Trendline",
+		                legendEntry: true,
+		                isTrendline: true,// when adding a trendline, its value should be set to true. Otherwise, it would be considered as other charts.
+		                order: 4,//it defines the number of terms in polynom equation
+		                data: {
+		                    x: { bind: "Year" },// binding 'x' axis to the 'Year' property
+		                    y: { bind: "ThoudUnits" }// binding 'y' axis to the 'ThoudUnits' property
+		                }
+		            }, {
+		                label: "Cars produced in the world",
+		                legendEntry: true,
+		                data: {
+		                    x: { bind: "Year" },
+		                    y: { bind: "ThoudUnits" }
+		                }
+		            }],
+		        });
+		        $("#wijlinechart").wijlinechart("endUpdate");
+		    });
+
+		    function changeProperties() {
+		        var fitType = $("#selFitType").val(),
+                    sampleCount = parseInt($("#inpSampleCount").val()),
+                    order = parseInt($("#inpOrder").val());
+
+		        $("#wijlinechart").wijlinechart("option", "seriesList", [{
+		            label: "Cars produced in the world",
+		            legendEntry: true,
+		            data: {
+		                x: { bind: "Year" },
+		                y: { bind: "ThoudUnits" }
+		            }
+		        }, {
+		            label: "Trendline",
+		            legendEntry: true,
+		            isTrendline: true,// when adding a trendline, its value should be set to true. Otherwise, it would be considered as other charts.
+		            fitType: fitType,//it specifies the fit type of the trendline. There are 11 kinds. Its default value is "polynom".
+		            sampleCount: sampleCount,// it specifies the sample count for function calculation
+		            order: order,//it defines the number of terms in polynom equation
+		            data: {
+		                x: { bind: "Year" },// binding 'x' axis to the 'Year' property
+		                y: { bind: "ThoudUnits" }// binding 'y' axis to the 'ThoudUnits' property
+		            }
+		        }]);
+		    }
+	</script>
+    </div>
+</div>

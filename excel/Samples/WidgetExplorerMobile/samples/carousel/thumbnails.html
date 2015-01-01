@@ -1,0 +1,54 @@
+<div data-role="appviewpage">
+    <div data-role="header">
+        <a href="index.html" data-icon="back">Back</a>
+        <h2>
+            Thumbnails</h2>
+    </div>
+    <div data-role="content">
+        <style type="text/css">
+        #wijcarousel
+        {
+            width: 756px;
+            height: 300px;
+        }
+        </style>
+        <div id="wijcarousel" data-role="wijcarousel"  data-options="{showPager: true, showTimer: true, loop: true,  pagerPosition: {my: 'left bottom',at: 'left bottom',offset: '0 50'}, pagerType: 'thumbnails', thumbnails:{mouseover:thumb_mouseover,mouseout:thumb_mouseout,click:thumb_click,imageWidth: 58,imageHeight: 74,images: ['http://www.componentone.com/newimages/walls/StudioEnterprise2011v2/secharts2011_thumb.png','http://www.componentone.com/newimages/walls/WindowsPhone2011/wp72011_thumb.png','http://www.componentone.com/newimages/Walls/SilverlightWPF2011v2/slwpf_thumb.png']}}">
+            <ul>
+                <li>
+                    <img src="http://www.componentone.com/newimages/Walls/StudioEnterprise2011v2/productheaderse2011.png"
+                        alt="Studio Enterprise 2011" />
+                </li>
+                <li>
+                    <img src="http://www.componentone.com/newimages/Walls/WindowsPhone2011/productheader_windowsphone7.png"
+                        alt="Olap" /></li>
+                <li>
+                    <img src="http://www.componentone.com/newimages/Walls/SilverlightWPF2011v2/productheader_slwpf_2011v2.png"
+                        alt="Winforms" />
+                </li>
+            </ul>
+        </div>
+        <script type="text/javascript">
+            var thumb_mouseover = function (event) {
+                var li = $(this);
+                if (!li.hasClass("ui-state-active")) {
+                    li.stop(true).animate({ "margin-top": 10 }, 500);
+                }
+            },
+            thumb_mouseout = function (event) {
+                var li = $(this);
+                if (!li.hasClass("ui-state-active")) {
+                    li.stop(true).animate({ "margin-top": 0 }, 500, function () {
+                        li.css("margin-top", "")
+                    });
+                }
+            },
+            thumb_click = function (event) {
+                var li = $(this);
+                li.css({ "margin-top": "" });
+                li.siblings("li").removeClass("ui-state-active")
+            .css({ "margin-top": "" });
+            };
+//     
+    </script>
+    </div>
+</div>

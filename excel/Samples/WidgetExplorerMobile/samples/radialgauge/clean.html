@@ -1,0 +1,97 @@
+<div data-role="appviewpage" data-title="Clean Style">
+	<div data-role="content">
+		<div id="gauge" data-role="wijradialgauge" style="width: 100%; height: 400px">
+		</div>
+		<script type="text/javascript">
+			$(document).one("wijappviewpageinit", function () {
+				$("#gauge").wijradialgauge({
+					radius: 200,
+					height: 400,
+					width: 400,
+					value: 70,
+					max: 90,
+					min: 0,
+					startAngle: 300,
+					sweepAngle: 300,
+					labels: {
+						visible: false
+					},
+					pointer: {
+						length: 0.75,
+						width: 12,
+						shape: "rect",
+						style: { fill: "90-#CFD0D0-#CECECE:50-#F0F0F0:51", stroke: "none" }
+					},
+					cap: {
+						style: {
+						},
+						template: function (ui) {
+							var set = ui.canvas.set();
+							var circle = ui.canvas.circle(ui.origin.x, ui.origin.y, 24);
+							circle.attr({
+								fill: "90-#2A292D-#4F4D50",
+								stroke: "#9899A0"
+							});
+							set.push(circle);
+
+							var circle2 = ui.canvas.circle(ui.origin.x, ui.origin.y, 19);
+							circle2.attr({
+								fill: "90-#4F4D50:1-#2A292D-#2A292D-#4F4D50:99",
+								stroke: "#9899A0"
+							});
+							set.push(circle2);
+
+							return set;
+						}
+					},
+					tickMajor: {
+						factor: 10,
+						interval: 15,
+						offset: 60,
+						position: "inside",
+						style: { fill: "0-#008EFE-#00C0FF", stroke: "none", height: 8 }
+					},
+					tickMinor: {
+						visible: true,
+						factor: 6,
+						interval: 5,
+						offset: 70,
+						position: "inside",
+						style: { fill: "0-#008EFE-#00C0FF", stroke: "none", height: 4 }
+					},
+					face: {
+						style: {},
+						template: function (ui) {
+							var set = ui.canvas.set();
+							var circle = ui.canvas.circle(ui.origin.x, ui.origin.y, ui.r);
+							circle.attr({ "stroke": "none", fill: "90-#8E8E8F-#FBFBFB" });
+							set.push(circle);
+
+							var circle2 = ui.canvas.circle(ui.origin.x, ui.origin.y, ui.r - 34);
+							circle2.attr({ "stroke": "#C8C8C9", "stroke-width": 0, fill: "270-#32353F-#7C8491" });
+							set.push(circle2);
+
+							var circle3 = ui.canvas.circle(ui.origin.x, ui.origin.y, ui.r - 52);
+							circle3.attr({ "stroke": "#000513", "stroke-width": 6, fill: "90-#010A44-#002369" });
+							set.push(circle3);
+
+
+							return set;
+						}
+					},
+					ranges: [{
+						startWidth: 80,
+						endWidth: 80,
+						startValue: 60,
+						endValue: 90,
+						startDistance: 0.3,
+						endDistance: 0.3,
+						style: {
+							fill: "300-#065AFE-#00C0FF", stroke: "none"
+						}
+					}]
+				});
+			});
+		</script>
+	</div>
+</div>

@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>FlipCard - Style Setting</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="%description%" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="ComponentOne" />
+    <style type="text/css">
+        .cardcontainer
+        {
+            padding:  0 80px 40px 80px;
+            float: left;
+        }
+
+        .cardcontainer img
+         {
+            vertical-align:middle;
+            display: block; 
+            margin:auto; 
+            text-align:center;
+         }
+
+        #clickhflipcardcustomizecss .backface 
+        {
+            background: url("images/ui-bg_glass_55_b3c4d8_500x100.png")  repeat scroll 50% 50% #cb842e;
+            border: 1px solid #d49768;
+            color: #ffffff;
+        }
+
+        #clickhflipcardcustomizecss .frontface
+        {
+            background: url("images/ui-bg_glass_75_fef1bd_1x400.png") repeat scroll 50% 50% #4ca20b;
+            border: 1px solid #45930b;
+            color: #ffffff;
+            font-weight: normal;
+        }
+    </style>
+    <link href="../../../../Themes/rocket/jquery-wijmo.css" rel="stylesheet" type="text/css" />
+    <link href="../../../../css/jquery.wijmo-pro.all.3.20143.59.min.css" rel="stylesheet" type="text/css" />
+    <script src="../../js/require.js" type="text/javascript"></script>
+    <script src="../../js/require.wijmo.config.js" type="text/javascript"></script>
+
+    <script id="scriptInit" type="text/javascript">
+        require(["wijmo.wijflipcard"], function () {
+            $(document).ready(function () {
+                $("#clickhflipcardcustomizecss").wijflipcard();
+                $("#clickhflipcardoverrideclass").wijflipcard({wijCSS: {
+                    wijFlipCardFrontPanelClass: "ui-state-highlight",
+                    wijFlipCardBackPanelClass: "ui-state-focus"
+                }})
+            });
+        });
+    </script>
+
+</head>
+<body class="demo-single">
+    <div class="container">
+        <div class="header">
+            <h2>
+                Overview</h2>
+        </div>
+        <div class="main demo">
+            <!-- Begin demo markup -->      
+		<div class="cardcontainer" style="padding:  0 80px 40px 80px;float: left;">
+			<div id="clickhflipcardcustomizecss">
+				<div class="frontface"><img src="http://wijmo.com/img/wijmo.png"></div>
+				<div class="backface">
+                    <br /><br />
+                        Wijmo is a complete kit of over 40 UI widgets to element. 
+                    <br /><br />
+                    <a href="http://www.wijmo.com/">http://www.wijmo.com/ </a>
+				</div>
+			</div>
+            Add customized class to front and back panel.
+		</div>	
+
+		<div class="cardcontainer" style="padding:  0 80px 40px 80px;float: left;">
+			<div id="clickhflipcardoverrideclass">
+				<div ><img src="http://wijmo.com/img/wijmo.png"></div>
+				<div >
+                    <br /><br />
+                        Wijmo is a complete kit of over 40 UI widgets. 
+                    <br /><br />
+                    <a href="http://www.wijmo.com/">http://www.wijmo.com/ </a>
+				</div>
+			</div>
+             Add customized class to front and back panel using wijCss option.
+		</div>	           
+	              
+            <!-- End demo markup -->
+            <div class="demo-options">
+                <!-- Begin options markup -->
+                <!-- End options markup -->
+            </div>
+        </div>
+        <div class="footer demo-description" style="clear:both" >
+            User can customize the front and back face.
+         </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<div data-role="appviewpage" data-title="Basics">
+    <div data-role="content">
+        <div data-role="fieldcontain">
+            <label for="foo">Text Input:</label>
+            <input type="text" name="name" id="foo" value="" />
+        </div>
+
+        <div data-role="fieldcontain">
+            <fieldset data-role="controlgroup">
+                <legend>Gender:</legend>
+                <input type="radio" name="gender" id="radio-female" value="f" />
+                <label for="radio-female">Female</label>
+
+                <input type="radio" name="gender" id="radio-male" value="m" />
+                <label for="radio-male">Male</label>
+            </fieldset>
+        </div>
+
+
+        <div data-role="fieldcontain">
+            <label for="flip-s">Server status:</label>
+            <select name="flip-s" id="flip-s" data-role="slider" disabled>
+                <option value="off">Off</option>
+                <option value="on">On</option>
+            </select>
+        </div>
+
+        <div data-role="fieldcontain">
+            <label for="slider">Max bandwidth:</label>
+            <input type="range" name="slider" id="slider" value="0" min="0" max="100" disabled />
+        </div>
+
+        <div data-role="fieldcontain">
+            <label for="select-choice-x" class="select">Shipping:</label>
+            <select name="select-shipper" id="select-choice-x" disabled>
+                <option></option>
+                <option value="standard">Standard</option>
+                <option value="rush">Rush</option>
+                <option value="express">Express</option>
+                <option value="overnight">Overnight</option>
+            </select>
+        </div>
+
+    </div>
+</div>

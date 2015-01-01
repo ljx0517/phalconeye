@@ -1,0 +1,22 @@
+<div data-role="appviewpage">
+    <div data-role="header">
+        <a href="index.html" data-icon="back">Back</a>
+        <h2>
+            Quicktime</h2>
+    </div>
+    <div data-role="content">
+        <!-- Begin demo markup -->
+        <div id="lightbox" data-role="wijlightbox">
+           <a title="Despicable Me" rel="wijlightbox;player=qt" href="http://trailers.apple.com/movies/universal/despicableme/despicableme-tlr1_r640s.mov?width=640&height=360">
+					<img src="http://cdn.wijmo.com/images/quicktime.png" alt="Despicable Me" /></a>
+        </div>
+        <script type="text/javascript">
+            $(document).one('wijappviewpageinit', function () {
+                $("#lightbox").wijlightbox({
+                    controlsPosition: 'outside',
+                    textPosition: 'outside'
+                });
+            });
+    </script>
+    </div>
+</div>

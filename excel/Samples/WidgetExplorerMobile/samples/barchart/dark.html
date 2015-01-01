@@ -1,0 +1,97 @@
+<div data-role="appviewpage" data-title="Themed Bar Chart">
+	<div data-role="content">
+		<div id="wijbarchart" data-role="wijbarchart" style="width: 100%; height: 400px; background: #242529;">
+		</div>
+		<script type="text/javascript">
+		    $(document).one("wijappviewpageinit",function () {
+				//$("#wijbarchart").wijbarchart("beginUpdate");
+				//return;
+				
+			    $("#wijbarchart").wijbarchart({
+					legend: { visible: true },
+					shadow: false,
+					textStyle: {
+				        fill: "#b2b2b2",
+				        "font-weight": "bold",
+				        "font-size": 15
+			        },
+					axis: {
+						y: {
+							labels: {
+
+								style: {
+									fill: "#242529",
+									"font-size": 11
+								}
+							},
+							gridMajor: {
+								style: { stroke: "#353539", "stroke-dasharray": "- " }
+							}
+						},
+						x: {
+							labels: {
+								style: {
+									fill: "#7f7f7f",
+									"font-size": 11
+								}
+							}
+						}
+					},
+					hint: {
+						enable: false,
+						content: function () {
+							return this.data.label + '\n ' + this.y + '';
+						}
+					},
+					header: {
+						text: "Concurrent Steam Users (most recent 48 hours)"
+					},
+					seriesList: [{
+						label: "US",
+						legendEntry: true,
+						data: {
+							x: ['10/27/2010 11:48:00',
+							    '10/27/2010 13:47:00',
+							    '10/27/2010 15:46:00',
+							    '10/27/2010 17:45:00',
+							    '10/27/2010 19:44:00',
+								'10/27/2010 21:43:00',
+								    '10/27/2010 23:41:00',
+								    '10/28/2010 1:40:00',
+								    '10/28/2010 3:39:00',
+									'10/28/2010 5:38:00',
+									    '10/28/2010 7:37:00',
+									    '10/28/2010 9:36:00',
+									    '10/28/2010 11:35:00',
+										'10/28/2010 13:34:00',
+										    '10/28/2010 15:33:00'],
+							y: [2665513,
+							    2300921,
+							    1663229,
+							    1622528,
+								1472847,
+								    1354026,
+								    1348909,
+								    1514946,
+									1746392,
+									    2020481,
+									    2312976,
+									    2539210,
+										2657505,
+										    2369938,
+										    1869805]
+						}
+					}]
+					,
+					seriesStyles: [{
+						fill: "180-#ff9900-#ff6600", stroke: "#ff7800", opacity: 0.8
+					}]
+					,
+					seriesHoverStyles: [{
+						"stroke-width": 1.5, opacity: 1, fill: "180-#ff9900-#ff6600"
+					}]
+				});
+			});
+		</script>
+	</div>
+</div>

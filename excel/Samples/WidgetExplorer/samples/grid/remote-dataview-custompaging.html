@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Grid - Remote custom paging</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="wijgrid provides scrolling" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="ComponentOne" />
+
+    <style type="text/css">
+        .wijmo-wijgrid
+        {
+            min-height: 100px;
+        }
+    </style>
+
+    <link href="../../../../Themes/rocket/jquery-wijmo.css" rel="stylesheet" type="text/css" />
+    <link href="../../../../css/jquery.wijmo-pro.all.3.20143.59.min.css" rel="stylesheet" type="text/css" />
+    <script src="../../js/require.js" type="text/javascript"></script>
+    <script src="../../js/require.wijmo.config.js" type="text/javascript"></script>
+
+    <script id="scriptInit" type="text/javascript">
+        require(["wijmo.wijgrid", "wijmo.data.ajax", "knockout.wijmo"], function () {
+            $(document).ready(function () {
+                $.support.cors = true;
+
+                $("#demo").wijgrid({
+                    allowPaging: true,
+                    data: new wijmo.data.AjaxDataView("http://ws.geonames.org/searchJSON", {
+                        ajax: {
+                            dataType: "jsonp",
+                            data: {
+                                username: "demo",
+                                style: "SHORT"
+                            }
+                        },
+                        pageSize: 10,
+                        onRequest: function (settings, shape) {
+                            settings.data.startRow = shape.pageSize * shape.pageIndex;
+                            settings.data.maxRows = shape.pageSize;
+                        },
+                        onResponse: function (response) {
+                            return {
+                                totalItemCount: response.totalResultsCount,
+                                results: response.geonames
+                            };
+                        }
+                    })
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Remote custom paging</h2>
+        </div>
+
+        <div class="main demo">
+            <!-- Begin demo markup -->
+            <table id="demo">
+            </table>
+            <!-- End demo markup -->
+
+            <div class="demo-options">
+                <!-- Begin options markup -->
+                <!-- End options markup -->
+            </div>
+        </div>
+        <div class="footer demo-description">
+            <p>
+                The sample shows to to load data from a remote service which API is not natively supported by wijmo.data.
+                In this sample we manually implement remote paing. In the <b>AjaxDataView.onRequest</b> event handler we construct paging parameters to be sent to the service,
+                obtained data are handled in the <b>AjaxDataView.onResponse</b> event handler.
+            </p>
+            <p>
+                To use ODataView or AjaxDataView you need to add the wijmo.data.ajax.js dependency. This is not included in our combined file and must be added separately. Read our <a href="http://wijmo.com/docs/wijmo/#DataQuickStart.html">Data Quick Start</a> to see the references to use.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

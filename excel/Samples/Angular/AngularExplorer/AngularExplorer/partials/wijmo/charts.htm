@@ -1,0 +1,79 @@
+﻿<h3>Wijmo Charts</h3>
+
+<p class="text-info">
+    Wijmo provides efficient, attractive, and interactive charts. This sample shows how you can create
+    a single directive that renders different chart types. Simply change the value of the 'type' 
+    attribute and the directive will re-generate the chart using a different widget.
+</p>
+
+<p class="text-info">
+    Main USA airports and their passenger volumes (in millions).
+    From <a href="http://en.wikipedia.org/wiki/List_of_the_busiest_airports_in_the_United_States">Wikipedia</a>.
+</p>
+
+<div class="row-fluid">
+
+    <!-- the chart -->
+    <wij-barchart class="span10" datasource="airports | limitTo:10" horizontal="true" show-chart-labels="false" height="400">
+        <axis>
+            <x text="Airports"></x>
+            <y text="Passengers" anno-format-string="n0"></y>
+        </axis>
+        <data>
+            <x bind="code"></x>
+        </data>
+        <series-list>
+            <series label="2011">
+                <data>
+                    <y bind="vol2011"></y>
+                </data>
+            </series>
+            <series label="2010">
+                <data>
+                    <y bind="vol2010"></y>
+                </data>
+            </series>
+            <series label="2009">
+                <data>
+                    <y bind="vol2009"></y>
+                </data>
+            </series>
+        </series-list>
+    </wij-barchart>
+    <wij-linechart class="span10" datasource="airports | limitTo:10" show-chart-labels="false" height="300">
+        <axis>
+            <x text="Airports"></x>
+            <y text="Passengers" anno-format-string="n0"></y>
+        </axis>
+        <data>
+            <x bind="code"></x>
+        </data>
+        <series-list>
+            <series label="2011">
+                <data>
+                    <y bind="vol2011"></y>
+                </data>
+            </series>
+            <series label="2010">
+                <data>
+                    <y bind="vol2010"></y>
+                </data>
+            </series>
+            <series label="2009">
+                <data>
+                    <y bind="vol2009"></y>
+                </data>
+            </series>
+        </series-list>
+    </wij-linechart>
+    <wij-piechart class="span10" datasource="airports | limitTo:10" show-chart-labels="true" height="400">
+        <axis>
+            <x text="Airports"></x>
+            <y text="Passengers" anno-format-string="n0"></y>
+        </axis>
+        <data>
+            <label bind="code"></label>
+            <value bind="vol2011"></value>
+        </data>
+    </wij-piechart>
+</div>

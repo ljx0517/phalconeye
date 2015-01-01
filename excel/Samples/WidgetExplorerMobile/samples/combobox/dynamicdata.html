@@ -1,0 +1,75 @@
+<div data-role="appviewpage" data-title="Dynamic Data">
+	<div data-role="content">
+		<div>
+			<label> HTML input element</label>
+			<div class="demo-options">
+				<!-- Begin options markup -->
+				<input type="button" value="Set Dynamic Data " onclick="setData()" />
+				<!-- End options markup -->
+			</div>
+			<!-- Begin demo markup -->
+			<input id="tags" style="width: 300px" data-role="wijcombobox" />
+			<!-- End demo markup -->
+		</div>
+		<script type="text/javascript">
+			$(document).one('wijappviewpageinit', function() {
+				// put all your jQuery goodness in here.
+				$("#tags").wijcombobox({
+					data : [ {
+						label : 'c++',
+						value : 'c++'
+					}, {
+						label : 'java',
+						value : 'java'
+					}, {
+						label : 'php',
+						value : 'php'
+					}, {
+						label : 'coldfusion',
+						value : 'coldfusion'
+					}, {
+						label : 'javascript',
+						value : 'javascript'
+					}, {
+						label : 'asp',
+						value : 'asp'
+					}, {
+						label : 'ruby',
+						value : 'ruby'
+					}, {
+						label : 'python',
+						value : 'python'
+					}, {
+						label : 'c',
+						value : 'c'
+					}, {
+						label : 'scala',
+						value : 'scala'
+					}, {
+						label : 'groovy',
+						value : 'groovy'
+					}, {
+						label : 'haskell',
+						value : 'haskell'
+					}, {
+						label : 'perl',
+						value : 'perl'
+					} ]
+				});
+			});
+
+			function setData() {
+				$("#tags").wijcombobox("option", "data", [ {
+					label : 'delphi',
+					value : 'delphi'
+				}, {
+					label : 'visual studio',
+					value : 'visual studio'
+				}, {
+					label : 'flash',
+					value : 'flash'
+				} ]);
+			}
+		</script>
+	</div>
+</div>

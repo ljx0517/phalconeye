@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>BarChart - Extreme values</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="%description%" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="ComponentOne" />
+
+    <link href="../../../../Themes/rocket/jquery-wijmo.css" rel="stylesheet" type="text/css" />
+    <link href="../../../../css/jquery.wijmo-pro.all.3.20143.59.min.css" rel="stylesheet" type="text/css" />
+    <script src="../../js/require.js" type="text/javascript"></script>
+    <script src="../../js/require.wijmo.config.js" type="text/javascript"></script>
+
+    <script id="scriptInit" type="text/javascript">
+        require(["wijmo.wijlinechart"], function () {
+            $(document).ready(function () {
+                $("#wijlinechart").wijlinechart({
+                    axis: {
+                        y: {
+                            autoMin: true, //default value
+                            // min: -1, // custom value
+                            autoMax: true, // default value
+                            // max: 25 // custom value
+                        },
+                        x: {
+                            autoMin: true, //default value
+                            // min: -5, // custom value
+                            autoMax: true, // default value
+                            // max: 5 // custom value
+                        }
+                    },
+                    legend:
+                    {
+                        visible: false
+                    },
+                    // hide chart labels
+                    showChartLabels: false,
+                    // tooltip
+                    hint: {
+                        content: function () {
+                            return this.x + ' * ' + this.x + ' = ' + this.y;
+                        }
+                    },
+                    // chart header
+                    header: {
+                        text: "Parabola"
+                    },
+                    seriesList: [{
+                        label: 'Parabola',
+                        fitType: "spline",
+                        data: {
+                            x: [-10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                            y: [100, 81, 64, 49, 36, 25, 16, 9, 4, 1, 0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+                        }
+                    }],
+                });
+            });
+        });
+
+        function changeProperties() {
+            var axis = $("#wijlinechart").wijlinechart("option", "axis");
+            var xAxis = axis.x;
+            var yAxis = axis.y;
+
+            var xAutoMin = $("#chkXAutoMinEnabled").is(":checked");
+            xAxis.autoMin = xAutoMin;
+            if (!xAutoMin) {
+                var xMin = $("#xNumMin").val();
+                if (xMin && xMin.length)
+                    xAxis.min = parseFloat(xMin);
+            }
+
+            var xAutoMax = $("#chkXAutoMaxEnabled").is(":checked");
+            xAxis.autoMax = xAutoMax;
+            if (!xAutoMax) {
+                var xMax = $("#xNumMax").val();
+                if (xMax && xMax.length)
+                    xAxis.max = parseFloat(xMax);
+            }
+
+            var yAutoMin = $("#chkYAutoMinEnabled").is(":checked");
+            yAxis.autoMin = yAutoMin;
+            if (!yAutoMin) {
+                var yMin = $("#yNumMin").val();
+                if (yMin && yMin.length)
+                    yAxis.min = parseFloat(yMin);
+            }
+
+            var yAutoMax = $("#chkYAutoMaxEnabled").is(":checked");
+            yAxis.autoMax = yAutoMax;
+            if (!yAutoMax) {
+                var yMax = $("#yNumMax").val();
+                if (yMax && yMax.length)
+                    yAxis.max = parseFloat(yMax);
+            }
+
+            axis.x = xAxis;
+            axis.y = yAxis;
+            $("#wijlinechart").wijlinechart("option", "axis", axis);
+        }
+    </script>
+    <style>
+        .demoColumn {
+            display: inline-block;
+            width: 300px;
+        }
+    </style>
+</head>
+<body class="demo-single">
+    <div class="container">
+        <div class="header">
+            <h2>Simple Bar Chart</h2>
+        </div>
+        <div class="main demo">
+            <!-- Begin demo markup -->
+            <div id="wijlinechart">
+            </div>
+            <!-- End demo markup -->
+            <div class="demo-options">
+                <!-- Begin options markup -->
+                <!-- End options markup -->
+            </div>
+            <div class="demo-options">
+                <!-- Begin options markup -->
+                <div>
+                    <h3>X axis</h3>
+                    <div>
+                        <div class="demoColumn">
+                            <label for="chkXAutoMinEnabled">
+                                AutoMin enabled 
+                            </label>
+                            <input type="checkbox" id="chkXAutoMinEnabled" checked="checked" />
+                        </div>
+                        <div class="demoColumn">
+                            <label for="xNumMin">
+                                Min value:
+                            </label>
+                            <input type="text" id="xNumMin" value="-5" />
+                        </div>
+                    </div>
+                    <div>
+                        <div class="demoColumn">
+                            <label for="chkXAutoMaxEnabled">
+                                AutoMax enabled 
+                            </label>
+                            <input type="checkbox" id="chkXAutoMaxEnabled" checked="checked" />
+                        </div>
+                        <div class="demoColumn">
+                            <label for="xNumMax">
+                                Max value:
+                            </label>
+                            <input type="text" id="xNumMax" value="5" />
+                        </div>
+                    </div>
+                    <h3>Y axis</h3>
+                    <div>
+                        <div class="demoColumn">
+                            <label for="chkYAutoMinEnabled">
+                                AutoMin enabled 
+                            </label>
+                            <input type="checkbox" id="chkYAutoMinEnabled" checked="checked" />
+                        </div>
+                        <div class="demoColumn">
+                            <label for="yNumMin">
+                                Min value:
+                            </label>
+                            <input type="text" id="yNumMin" value="-5" />
+                        </div>
+                    </div>
+                    <div>
+                        <div class="demoColumn">
+                            <label for="chkYAutoMaxEnabled">
+                                AutoMax enabled 
+                            </label>
+                            <input type="checkbox" id="chkYAutoMaxEnabled" checked="checked" />
+                        </div>
+                        <div class="demoColumn">
+                            <label for="yNumMax">
+                                Max value:
+                            </label>
+                            <input type="text" id="yNumMax" value="25" />
+                        </div>
+                    </div>
+                </div>
+                <input type="button" value="Apply" onclick="changeProperties()" />
+                <!-- End options markup -->
+            </div>
+        </div>
+        <div class="footer demo-description">
+            <p>
+                This sample illustrates how flexible are Wijmo Line Chart scale options.
+            </p>
+            <h3>Test the features</h3>
+            <ul>
+                <li>Hover over a bar point to see the tooltip.</li>
+                <li>Note the minimum and the maximum values of both charts 'X' and 'Y'.</li>
+                <li>Play with axis options in the panel below to see it features.</li>
+                <li>Note the chart adjusts to the new scale.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

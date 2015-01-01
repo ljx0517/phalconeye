@@ -1,0 +1,24 @@
+<h4 ng-init="benchmarkView('html')">Plain HTML table</h4>
+
+<p>
+    This page displays the data using a standard HTML table created with an
+    <b>ng-repeat</b> directive.</p>
+
+<table class="table table-condensed table-hover">
+    <thead>
+        <th>ID</th>
+        <th>Date</th>
+        <th>Country</th>
+        <th>Product</th>
+        <th>Color</th>
+        <th>Amount</th>
+    </thead>
+    <tr ng-repeat="item in data">
+        <td>{{item.id}}</td>
+        <td>{{item.date | date}}</td>
+        <td>{{item.country}}</td>
+        <td>{{item.product}}</td>
+        <td>{{item.color}}</td>
+        <td>{{item.amount | currency}}</td>
+    </tr>
+</table>

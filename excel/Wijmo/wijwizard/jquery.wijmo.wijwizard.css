@@ -1,0 +1,93 @@
+
+.wijmo-wijwizard
+{
+	position: relative;
+}
+
+.wijmo-wijwizard-steps li
+{
+	float: left;
+	padding: 0.4em;
+	margin: 0 3px 0 0;
+}
+
+.wijmo-wijwizard-steps h1
+{
+	margin: 0;
+	padding: 0;
+	font-size: 24px;
+}
+
+.wijmo-wijwizard-content
+{
+	margin: 3px 0;
+}
+
+.wijmo-wijwizard .wijmo-wijwizard-panel 
+{ 
+	display: block; 
+	border-width: 0; 
+	padding: 1em 1.4em; 
+	background: none; 
+}
+
+.wijmo-wijwizard .wijmo-wijwizard-hide 
+{ 
+	display: none !important; 
+}
+
+.wijmo-wijwizard-buttons
+{
+	float: right;
+}
+.ui-mobile .wijmo-wijwizard-buttons a {
+    padding: 12px 15px;
+    margin-right: 1px;
+    display: inline-block;
+    text-decoration: none;
+}
+.wijmo-wijwizard-next, .wijmo-wijwizard-prev
+{
+	display: block;
+	position: absolute;
+	padding: 3px 0;
+}
+.wijmo-wijwizard-next
+{
+	right: 0;
+	top: 49%;
+}
+
+.wijmo-wijwizard-prev
+{
+	left: 0;
+	top: 49%;
+}
+.wijmo-wijwizard .wijmo-wijsuperpanel {
+    background: none;
+    /*when a wijlist is inside of the wizard, the border of the list's superpanel will set to none. and the override border is defined in theme, 
+        In this case, use border-width:0 to hide the border. */
+    /*border: none;*/
+    border-width:0;
+}
+
+.ui-mobile .wijmo-wijwizard .ui-icon-carat-r,
+.ui-mobile .wijmo-wijwizard .ui-icon-carat-l {
+	display: block;
+}
+.ui-mobile .wijmo-wijwizard .wijmo-wijwizard-next,
+.ui-mobile .wijmo-wijwizard .wijmo-wijwizard-prev
+{
+    padding: 2px 5px;
+	margin: 0px;
+}
+.ui-mobile .wijmo-wijwizard .wijmo-wijwizard-panel {
+    padding: 1em 2em;
+}
+
+.ui-mobile .wijmo-wijwizard .ui-icon.ui-btn-icon-notext
+{
+    position: relative;
+	width: 22px;
+	height: 22px;
+}

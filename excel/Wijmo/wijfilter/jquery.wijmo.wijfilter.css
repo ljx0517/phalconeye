@@ -1,0 +1,134 @@
+.wijmo-wijfilter h3
+{
+    margin: 0.4em 0;
+}
+
+.wijmo-wijfilter .wijmo-wijfilter-headerContainer 
+{
+    padding: 0.4em;
+    padding-left: 1em;
+}
+
+.wijmo-wijfilter .wijmo-wijfilter-headerContainer .wijmo-wijfilter-headerText
+{
+    float: left;
+    margin: 0.4em 0;
+}
+
+.wijmo-wijfilter .wijmo-wijfilter-headerContainer .ui-button
+{
+    float: right;
+    border-radius: 15px;
+}
+
+.wijmo-wijfilter .wijmo-wijfilter-headerContainer .ui-button-text
+{
+    padding: 3px;
+}
+
+.wijmo-wijfilter .wijmo-wijfilter-sortContainer 
+{
+    white-space: nowrap;
+}
+
+.wijmo-wijfilter .wijmo-wijfilter-sortContainer .ui-button
+{
+    width: 49%;
+}
+
+.wijmo-wijfilter .wijmo-wijfilter-text
+{
+    width: 373px;
+    margin-bottom: 0.4em;
+    padding-left: 20px;
+}
+
+.wijmo-wijfilter .wijmo-wijfilter-checkboxContainer
+{
+    padding: 0.4em 0.4em 0 0.4em;
+    margin-bottom: 1em;
+    height: 150px;
+    overflow: scroll;
+}
+
+.wijmo-wijfilter .wijmo-wijfilter-checkboxContainer li
+{
+    display: inline;
+}
+
+.wijmo-wijfilter .wijmo-wijfilter-checkboxContainer ul
+{
+    margin: 0;
+    padding: 0;
+}        
+
+.wijmo-wijfilter .wijmo-wijfilter-checkboxContainer label 
+{
+    white-space: nowrap;
+    /*z-index: 99999;*/
+}
+
+.wijmo-wijfilter .wijmo-checkbox
+{
+    margin-bottom: 0.4em;
+}
+
+.wijmo-wijfilter .wijmo-wijfilter-filterContainer
+{
+    clear: left;
+    height: 30px;
+    padding: 2px 0;
+}
+
+.wijmo-wijfilter .wijmo-wijfilter-radioContainer
+{
+    clear: left;
+}
+
+.wijmo-wijfilter .wijmo-wijradio
+{
+    width: 25%;
+    float: left;
+}
+
+.wijmo-wijfilter .wijmo-wijradio label
+{
+    /*z-index: 9999;*/
+}
+
+.wijmo-wijfilter .wijmo-wijcombobox
+{
+    float: right;
+}
+
+.wijmo-wijfilter .wijmo-wijfilter-filterContainer .wijmo-wijfilter-combobox
+{
+    width: 180px;
+}
+
+.wijmo-wijfilter .wijmo-wijdropdown
+{
+    width: 49% !important;
+}        
+
+.wijmo-wijfilter .wijmo-wijfilter-searchContainer
+{
+    position: relative;
+}
+
+.wijmo-wijfilter .wijmo-wijfilter-searchContainer .ui-icon
+{
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 0.4em;
+}
+
+.wijmo-wijfilter .wijmo-wijfilter-clearButton
+{
+}
+
+.wijmo-wijfilter .wijmo-wijfilter-actionContainer
+{
+    float: right;
+}              

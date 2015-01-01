@@ -1,4 +1,4 @@
-a:7:{i:0;s:268:"
+a:9:{i:0;s:268:"
 
 <!DOCTYPE html>
 <!--
@@ -11,7 +11,7 @@ Purchase: http://wrapbootstrap.com
 <!-- Head -->
 <head>
     <meta charset="utf-8" />
-    <title>";s:5:"title";N;i:1;s:613:"</title>
+    <title>";s:5:"title";N;i:1;s:610:"</title>
 
     <meta name="description" content="Dashboard" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -27,9 +27,9 @@ Purchase: http://wrapbootstrap.com
         <?php echo \Engine\Helper::getInstance('i18n', 'core')->render(); ?>
     </script>
 
-    ";s:4:"head";a:1:{i:0;a:4:{s:4:"type";i:357;s:5:"value";s:6:"
+	";s:4:"head";a:1:{i:0;a:4:{s:4:"type";i:357;s:5:"value";s:3:"
 
-    ";s:4:"file";s:73:"E:\xampp\xampp\htdocs\PhalconEye/app/modules/Core/View/layouts/admin.volt";s:4:"line";i:47;}}i:2;s:24161:"
+	";s:4:"file";s:89:"E:\xampp\xampp\htdocs\PhalconEye/app/modules/User/View/../../Core/View/layouts/admin.volt";s:4:"line";i:47;}}i:2;s:23144:"
 </head>
 <!-- /Head -->
 <!-- Body -->
@@ -395,9 +395,7 @@ Purchase: http://wrapbootstrap.com
                 <!-- Page Header -->
                 <div class="page-header position-relative">
                     <div class="header-title">
-                        <h1>
-                            Dashboard
-                        </h1>
+                        ";s:6:"header";N;i:3;s:945:"
                     </div>
                     <!--Header Buttons-->
                     <div class="header-buttons">
@@ -417,7 +415,7 @@ Purchase: http://wrapbootstrap.com
                 <!-- Page Body -->
                 <div class="page-body">
                 	<?php echo $this->getContent(); ?>
-            		<?php echo $this->flashSession->output(); ?>";s:7:"content";N;i:3;s:245:"
+            		<?php echo $this->flashSession->output(); ?>";s:7:"content";N;i:4;s:245:"
                 </div>
                 <!-- /Page Body -->
             </div>

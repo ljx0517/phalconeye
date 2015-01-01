@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>BubbleChart - Multiple Array Datasource</title>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="description" content="%description%" />
+	<meta name="keywords" content="" />
+	<meta name="author" content="ComponentOne" />
+
+    <link href="../../../../Themes/rocket/jquery-wijmo.css" rel="stylesheet" type="text/css" />
+    <link href="../../../../css/jquery.wijmo-pro.all.3.20143.59.min.css" rel="stylesheet" type="text/css" />
+    <script src="../../js/require.js" type="text/javascript"></script>
+    <script src="../../js/require.wijmo.config.js" type="text/javascript"></script>
+
+    <script id="scriptInit" type="text/javascript">
+        require(["wijmo.wijbubblechart"], function () {
+            $(document).ready(function () {
+
+            // defining multiple arrays as data sources. As in previous sample you can use any names for your properties
+            // Note that this time we are going to use shared 'x' axis for all series. So it is defind below in 'data' property
+            // and not presented in data source arrays
+            var msft = [{
+                stock: 28.09,
+                cap: 223.35
+			}, {
+                stock: 30.39,
+                cap: 225.88
+			}, {
+                stock: 30.38,
+                cap: 268.42
+			}, {
+                stock: 30.65,
+                cap: 255.95
+			}, {
+                stock: 28.13,
+                cap: 258.24
+            }, {
+                stock: 29.48,
+                cap: 242.74
+            }, {
+                stock: 28.40,
+                cap: 249.25
+            }, {
+                stock: 29.90,
+                cap: 255.02
+            }, {
+                stock: 28.87,
+                cap: 257.54
+            }, {
+                stock: 27.68,
+                cap: 244.07
+            }, {
+                stock: 26.03,
+                cap: 242.65
+            }, {
+                stock: 26.12,
+                cap: 226.74
+			}],
+			goog = [{
+			    stock: 580.11,
+			    cap: 202.46
+			}, {
+			    stock: 618.25,
+			    cap: 197.00
+			}, {
+			    stock: 641.24,
+			    cap: 195.16
+			}, {
+			    stock: 604.85,
+			    cap: 203.66
+			}, {
+			    stock: 580.86,
+			    cap: 200.07
+			}, {
+			    stock: 580.07,
+			    cap: 185.35
+			}, {
+			    stock: 632.97,
+			    cap: 186.75
+			}, {
+			    stock: 685.09,
+			    cap: 209.96
+			}, {
+			    stock: 754.50,
+			    cap: 229.18
+			}, {
+			    stock: 680.30,
+			    cap: 244.63
+			}, {
+			    stock: 698.37,
+			    cap: 217.87
+			}, {
+			    stock: 707.38,
+			    cap: 225.23
+			}],
+            aapl = [{
+                stock: 443.95,
+                cap: 394.55
+            }, {
+                stock: 527.55,
+                cap: 460.05
+            }, {
+                stock: 583.09,
+                cap: 508.30
+            }, {
+                stock: 567.95,
+                cap: 587.58
+            }, {
+                stock: 561.87,
+                cap: 533.47
+            }, {
+                stock: 567.97,
+                cap: 534.08
+            }, {
+                stock: 594.00,
+                cap: 570.05
+            }, {
+                stock: 649.76,
+                cap: 582.79
+			}, {
+                stock: 651.58,
+                cap: 621.26
+			}, {
+                stock: 581.47,
+                cap: 601.95
+			}, {
+                stock: 574.27,
+                cap: 514.61
+			}, {
+                stock: 522.16,
+                cap: 498.40
+			}];
+
+       
+			$("#wijbubblechart").wijbubblechart({
+                // defining shared 'x' axis values using 'data.x' proprty
+                data: {
+                    x: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov","Dec"]
+                },
+                // defining series using unique array as data source for each one
+                seriesList: [
+				{
+				    label: "GOOG", // setup series name
+				    dataSource: goog, // defining an arrays as data source for the current series
+				    data: {
+				        y: { bind: "stock" }, // binding the 'stock' property value of the each object in array for the 'y' axis
+				        y1: { bind: "cap" } // binding the 'cap' property value of the each object in array for the 'y1' axis
+				    },
+				    legendEntry: true,
+				},
+				{
+				    label: "AAPL",
+				    dataSource: aapl,
+				    data: {
+				        y: { bind: "stock" },
+				        y1: { bind: "cap" }
+				    },
+				    legendEntry: true,
+				}, {
+				    label: "MSFT",
+				    dataSource: msft,
+				    data: {
+				        y: { bind: "stock" },
+				        y1: { bind: "cap" }
+				    },
+				    legendEntry: true,
+				}],
+				legend: {
+					size: {
+						width: 20,
+						height: 14
+					},
+                    visible: true // toggle legend visibility. 'true' is default value
+				},
+				axis: {
+					y: {
+                        text: "Stock price",
+						labels: {
+							textAlign: "far"
+						}
+					},
+					x: {
+                        text: "2012",
+						tickMajor: {
+							position: "inside"
+						},
+						labels: {
+							textAlign: "near"
+						}
+					}
+				},
+				hint: {
+					content: function () {
+                        return "" + this.data.label + " \n"
+                            + "Stock price: " + Globalize.format(this.y, "c2") + "\n"
+                            + "Capitalization: " + this.data.y1 + "B";
+					},
+					style: {
+						stroke: "#000",
+						"stroke-width": 10
+					}
+				},
+				header: {
+				    text: "Stock prices for 2012"
+				}
+
+
+			});
+            });
+		});
+	</script>
+</head>
+<body class="demo-single">
+	<div class="container">
+		<div class="header">
+            <h2>Multiple Array Datasource</h2>
+		</div>
+		<div class="main demo">
+			<!-- Begin demo markup -->
+			<div id="wijbubblechart" class="ui-widget ui-widget-content ui-corner-all" style="width: 756px; height: 475px;">
+			</div>
+			<!-- End demo markup -->
+			<div class="demo-options">
+				<!-- Begin options markup -->
+				<!-- End options markup -->
+			</div>
+		</div>
+		<div class="footer demo-description">
+            <p>
+                Besides using of shared array Wijmo Bubble Chart API also allows you to use multiple arrays as data source.
+                 Just define several arrays and bind the data easyly using the same 'dataSource' property,
+                but this time inside the 'seriesList' property.
+            </p>
+            <h3>Test the features</h3>
+            <ul>
+                <li>Note all chart bubbles are grouped in series with different colors.</li>
+                <li>Note the 'x' axis is presented as determined string values and the 'y' axis contains numbers and is continuous .</li>
+                <li>Note every chart bubble has it own size according to the third data value.</li>
+                <li>Hover over a bubble to see the tooltip with description.</li>
+                <li>Go to the 'Sources' tab to see how to setup chart data using multiple arrays as data source.</li>
+            </ul>
+		</div>
+	</div>
+</body>
+</html>

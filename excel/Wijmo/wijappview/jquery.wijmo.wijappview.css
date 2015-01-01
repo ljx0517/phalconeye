@@ -1,0 +1,155 @@
+.wijmo-wijappview-menu, .wijmo-wijappview-content {
+    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.wijmo-wijappview-menu
+{
+    position: absolute;
+    top: 42px;
+    bottom: 0;
+
+    width: 25%;
+    margin: 0;
+    padding: 0;
+}
+
+.wijmo-wijappview-menu .ui-content /*Added since wijlistview adds a ui-content panel wrapper.*/ 
+{
+    padding:0;
+}
+
+.wijmo-wijappview-menu .ui-listview
+{
+    margin: 0;
+}
+
+.wijmo-wijappview-menu h2
+{
+    position: absolute;
+    left: -9999px;
+}
+
+.wijmo-wijappview-content
+{
+    margin: 0;
+    padding: 1.5em 1%;
+    width: 73%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.wijmo-wijappview.wijmo-wijappview-with-fixed-header .wijmo-wijappview-content 
+{
+    top: 42px;
+}
+
+.wijmo-wijappview-content ul:first-child
+{
+    margin-top: 0;
+}
+
+.wijmo-wijappview-page
+{
+    display: none;
+}
+
+.wijmo-wijappview-page-active
+{
+    display: block;
+}
+
+@media all and (min-width: 0)
+{
+    .wijmo-wijappview-menu, .wijmo-wijappview-content
+    {
+        overflow: inherit;
+    }
+    .wijmo-wijappview-menu {
+        width: 100%;
+    }
+
+    .wijmo-wijappview-in-page .wijmo-wijappview-menu
+    {
+        display: none;
+    }
+
+    .wijmo-wijappview-content
+    {
+        display: none;
+        padding: .5em;
+        width: auto;
+        left: 0;
+    }
+
+    .wijmo-wijappview-in-page .wijmo-wijappview-content
+    {
+        display: block;
+    }
+}
+
+@media all and (min-width: 650px)
+{
+    .wijmo-wijappview-menu, .wijmo-wijappview-content {
+        overflow: auto;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .wijmo-wijappview-menu
+    {
+        width: 34%;
+        position: absolute;
+    }
+
+    .wijmo-wijappview-in-page .wijmo-wijappview-menu
+    {
+        display: block;
+    }
+
+    .wijmo-wijappview-content
+    {
+        left: auto;
+        float: right;
+        width: 64%;
+        padding: 1.5em 1%;
+        display: block;
+
+    }
+}
+
+@media all and (min-width: 750px)
+{
+    .wijmo-wijappview-menu
+    {
+        width: 30%;
+    }
+
+    .wijmo-wijappview-content
+    {
+        width: 68%;
+    }
+}
+
+@media all and (min-width: 1200px)
+{
+    .wijmo-wijappview-menu
+    {
+        width: 25%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .wijmo-wijappview-content
+    {
+        margin: 0;
+        padding: 1.5em 1%;
+        width: 73%;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+}

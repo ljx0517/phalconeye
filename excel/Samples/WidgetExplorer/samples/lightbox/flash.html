@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Lightbox - Flash Content</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="ComponentOne" />
+
+    <link href="../../../../Themes/rocket/jquery-wijmo.css" rel="stylesheet" type="text/css" />
+    <link href="../../../../css/jquery.wijmo-pro.all.3.20143.59.min.css" rel="stylesheet" type="text/css" />
+    <script src="../../js/require.js" type="text/javascript"></script>
+    <script src="../../js/require.wijmo.config.js" type="text/javascript"></script>
+
+    <script id="scriptInit" type="text/javascript">
+        require(["wijmo.wijlightbox"], function () {
+            $(function () {
+                //Sets "rel" attribute of HTML markup to create a flash-content wijlightbox. 
+                $("#lightbox").wijlightbox({
+                    controlsPosition: 'outside',
+                    textPosition: 'outside',
+                    showCounter: false
+                });
+            });
+        });
+    </script>
+</head>
+<body class="demo-single">
+    <div class="container">
+        <div class="header">
+            <h2>
+                Flash Content</h2>
+        </div>
+        <div class="main demo">
+            <!-- Begin demo markup -->
+            <div id="lightbox">
+                <a href="http://cdn.wijmo.com/movies/skip.swf" rel="wijlightbox[stock];width=400;height=300">
+                    <img src="http://cdn.wijmo.com/images/happygirl.png" title="Happy Girl" alt="Happy Girl" /></a>
+                <a href="http://cdn.wijmo.com/movies/caveman.swf" rel="wijlightbox[stock];width=520;height=390">
+                    <img src="http://cdn.wijmo.com/images/caveman.png" title="Cave Man" alt="Cave Man" /></a>
+                <a href="http://cdn.wijmo.com/movies/old_man.swf" rel="wijlightbox[stock];width=600;height=450">
+                    <img src="http://cdn.wijmo.com/images/oldman.png" title="Old Man" alt="Old Man" /></a>
+            </div>
+            <!-- End demo markup -->
+            <div class="demo-options">
+                <!-- Begin options markup -->
+                <!-- End options markup -->
+            </div>
+        </div>
+        <div class="footer demo-description">
+            <p>This sample demonstrates how to display Flash content in a wijlightbox widget.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<div data-role="appviewpage">
+    <div data-role="header">
+        <a href="Index.html" data-icon="back">Back</a>
+        <h2>Charts</h2>
+    </div>
+    <div data-role="content">
+        <div id="Chart" 
+            data-bind="wijbarchart: {
+                            dataSource: products.toObservableArray(),
+                            seriesList: [{
+                                legendEntry: true,
+                                label: 'Units In Stock',
+    	                        data: { x: { bind: 'Product_Name' }, y: { bind: 'Units_In_Stock'} }
+                            }] } "></div>
+    </div>
+    
+    <script type="text/javascript">
+        $.support.cors = true;
+        var viewModel;
+
+        function ViewModel() {
+            var productView = new wijmo.data.AjaxDataView("http://demo.componentone.com/aspnet/NorthwindAPI/api/read/Product", {
+                pageSize: 10,
+                ajax: { crossOrigin: true }
+            });
+            productView.refresh();
+            this.products = productView;
+        }
+
+        $(document).one("wijappviewpageinit", function () {
+            viewModel = new ViewModel();
+            ko.applyBindings(viewModel);
+        });
+    </script>
+</div>

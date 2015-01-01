@@ -1,0 +1,63 @@
+<div data-role="appviewpage" data-title="Multiple DataSource">
+	<div data-role="content">
+		<div id="wijbarchart" data-role="wijbarchart" style="width: 100%; height: 400px">
+		</div>
+		<script type="text/javascript">
+			$(document).one("wijappviewpageinit", function () {
+				var dataWest = [{
+					Device: 'Desktops',
+					Count: 5
+				}, {
+					Device: 'Notebooks',
+					Count: 3
+				}, {
+					Device: 'Tablets',
+					Count: 7
+				}],
+
+				dataEast = [{
+					Device: 'Desktops',
+					Count: 1
+				}, {
+					Device: 'Notebooks',
+					Count: 6
+				}, {
+					Device: 'Tablets',
+					Count: 8
+				}],
+
+				dataCentral = [{
+					Device: 'Desktops',
+					Count: 2
+				}, {
+					Device: 'Notebooks',
+					Count: 4.5
+				}, {
+					Device: 'Tablets',
+					Count: 2.5
+				}];
+
+				$("#wijbarchart").wijbarchart("beginUpdate");
+				$("#wijbarchart").wijbarchart({
+					seriesList: [{
+						dataSource: dataWest,
+						label: "West",
+						legendEntry: true,
+						data: { x: { bind: "Device" }, y: { bind: "Count"} }
+					}, {
+						dataSource: dataEast,
+						label: "East",
+						legendEntry: true,
+						data: { x: { bind: "Device" }, y: { bind: "Count"} }
+					}, {
+						dataSource: dataCentral,
+						label: "Central",
+						legendEntry: true,
+						data: { x: { bind: "Device" }, y: { bind: "Count"} }
+					}]
+				});
+				$("#wijbarchart").wijbarchart("endUpdate");
+			});
+		</script>
+	</div>
+</div>

@@ -1,0 +1,85 @@
+<div data-role="appviewpage" data-title="Series Transition">
+	<div data-role="content">
+		<div id="wijbubblechart" data-role="wijbubblechart" style="width: 100%; height: 400px">
+		</div>
+		<div class="togbuttons">
+                <button id="BtnChange">
+                    Change data</button>
+            </div>
+		<script type="text/javascript">
+			function getRoundData(n) {
+				var a = Math.random();
+				if (a > 0.9 || a < 0.1) {
+					return getRoundData(n);
+				}
+				else {
+					a *= Math.pow(10, n);
+					return Globalize.parseFloat(Globalize.format(a, "n2"));
+				}
+			}
+
+			function makeSeries() {
+				var series = [],
+                markers = ["circle", "tri", "box", "cross", "diamond"];
+				for (i = 0; i < 5; i++) {
+					series.push({
+						label: "series" + i.toString(),
+						legendEntry: true,
+						data: {
+							x: [].concat(getRoundData(2)),
+							y: [].concat(getRoundData(3)),
+							y1: [].concat(getRoundData(2))
+						},
+						markers: {
+							type: markers[i]
+						}
+					});
+				}
+				return series;
+			}
+			$(document).one("wijappviewpageinit", function () {
+				$("#wijbubblechart").wijbubblechart("beginUpdate").wijbubblechart({
+					minimumSize: 5,
+					//showChartLabels: false,
+					axis: {
+						y: {
+							autoMin: false,
+							autoMax: false,
+							min: 0,
+							max: 1000
+						},
+						x: {
+							autoMin: false,
+							autoMax: false,
+							min: 0,
+							max: 100
+						}
+					},
+					hint: {
+						content: function () {
+							return "" + this.data.label + " \ny: " + this.y + " \nx: " + Globalize.format(this.x, "n") + " \ny1: " + this.data.y1;
+						}
+					},
+					seriesList: makeSeries()
+				}).wijbubblechart("endUpdate");
+
+				$("#BtnChange").click(function () {
+					$("#wijbubblechart").wijbubblechart("option", "seriesList", makeSeries());
+				});
+			});
+
+			function changeProperties() {
+				var seriesTransition = {};
+				enabled = $("#chkEnabled").is(":checked"),
+                duration = $("#inpDuration").val(),
+                easing = $("#selEasing").val();
+				seriesTransition.enabled = enabled;
+				if (duration && duration.length) {
+					seriesTransition.duration = parseFloat(duration);
+				}
+				seriesTransition.easing = easing;
+				$("#wijbubblechart").wijbubblechart("option", "seriesTransition", seriesTransition);
+			}
+		</script>
+	</div>
+</div>

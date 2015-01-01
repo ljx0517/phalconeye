@@ -1,0 +1,46 @@
+<div data-role="appviewpage">
+    <div data-role="header">
+        <a href="index.html" data-icon="back">Back</a>
+        <h2>
+            Data Mapping</h2>
+    </div>
+    <div data-role="content">
+        <input id="combo" style="width: 300px" data-role="wijcombobox" />
+        <script id="scriptInit" type="text/javascript">
+            $(document).one('wijappviewpageinit', function() {
+                var testArray = [{
+                    language: 'c++'
+                }, {
+                    language: 'java'
+                }, {
+                    language: 'php'
+                }, {
+                    language: 'coldfusion'
+                }, {
+                    language: 'javascript'
+                }, {
+                    language: 'asp'
+                }, {
+                    language: 'ruby'
+                }, {
+                    language: 'python'
+                }, {
+                    language: 'c'
+                }, {
+                    language: 'scala'
+                }, {
+                    language: 'groovy'
+                }, {
+                    language: 'haskell'
+                }, {
+                    language: 'perl'
+                }];
+
+                $("#combo").wijcombobox({
+                    dataSource: testArray,
+                    data: { label: { bind: "language" }, value: { bind: "language"} }
+                });
+            });
+        </script>
+    </div>
+</div> 

@@ -1,0 +1,92 @@
+<div data-role="appviewpage" data-title="Datasources">
+	<style type="text/css">
+		.wijmo-wijgrid
+		{
+			min-height: 100px;
+		}
+	</style>
+
+	<div data-role="content">
+		<p>DOM table:</p>
+		<table id="demo-dom" data-role="wijgrid">
+			<thead>
+				<tr>
+					<th>ID</th><th>Company</th><th>Name</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>ANATR</td><td>Ana Trujillo Emparedados y helados</td><td>Ana Trujillo</td>
+				</tr>
+				<tr>
+					<td>ANTON</td><td>Antonio Moreno Taqueria</td><td>Antonio Moreno</td>
+				</tr>
+				<tr>
+					<td>AROUT</td><td>Around the Horn</td><td>Thomas Hardy</td>
+				</tr>
+				<tr>
+					<td>BERGS</td><td>Berglunds snabbkop</td><td>Christina Berglund</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<p>Array:</p>
+		<table id="demo-array"></table>
+
+		<p>Hash:</p>
+		<table id="demo-hash"></table>
+		
+		<p>Remote:</p>
+		<table id="demo-remote"></table>
+	</div>
+
+	<script type="text/javascript">
+		$(document).one("wijappviewpageinit", function() {
+			// array
+			$("#demo-array").wijgrid({
+				data: [
+					["ANATR", "Ana Trujillo Emparedados y helados", "Ana Trujillo"],
+					["ANTON", "Antonio Moreno Taqueria", "Antonio Moreno"],
+					["AROUT", "Around the Horn", "Thomas Hardy"],
+					["BERGS", "Berglunds snabbkop", "Christina Berglund"]
+				],
+				columns: [
+					{ headerText: "ID" }, { headerText: "Company" }, { headerText: "Name" }
+				]
+			});
+
+			// hash
+			$("#demo-hash").wijgrid({
+				data: [
+					{ ID: "ANATR", Company: "Ana Trujillo Emparedados y helados", Name: "Ana Trujillo" },
+					{ ID: "ANTON", Company: "Antonio Moreno Taqueria", Name: "Antonio Moreno" },
+					{ ID: "AROUT", Company: "Around the Horn", Name: "Thomas Hardy" },
+					{ ID: "BERGS", Company: "Berglunds snabbkop", Name: "Christina Berglund" }
+				]
+			});
+
+			// remote
+			$("#demo-remote").wijgrid({
+				data: new wijdatasource({
+					proxy: new wijhttpproxy({
+						url: "http://ws.geonames.org/searchJSON",
+						dataType: "jsonp",
+						data: {
+						    username: "demo",
+						    featureClass: "P",
+							style: "full",
+							maxRows: 5,
+							name_startsWith: "ab"
+						},
+						key: "geonames"
+					}),
+					reader: new wijarrayreader([
+						{ name: "label", mapping: function (item) { return item.name + (item.adminName1 ? ", " + item.adminName1 : "") + ", " + item.countryName } },
+						{ name: "name", mapping: "name" },
+						{ name: "countryCode", mapping: "countryCode" }
+					])
+				})
+			});
+        	});
+	</script>
+</div>

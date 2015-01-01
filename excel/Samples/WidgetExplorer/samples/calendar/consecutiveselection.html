@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Calendar - Consecutive Selection</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="ComponentOne" />
+
+    <link href="../../../../Themes/rocket/jquery-wijmo.css" rel="stylesheet" type="text/css" />
+    <link href="../../../../css/jquery.wijmo-pro.all.3.20143.59.min.css" rel="stylesheet" type="text/css" />
+    <script src="../../js/require.js" type="text/javascript"></script>
+    <script src="../../js/require.wijmo.config.js" type="text/javascript"></script>
+
+    <script id="scriptInit" type="text/javascript">
+        require(["wijmo.wijcalendar"], function () {
+            $(function () {
+                var lastSelectedDates;
+                $("#calendar1").wijcalendar({
+                    beforeSelect: function (e, args) {
+                        //get the last select dates for recovering them
+                        lastSelectedDates = $("#calendar1").wijcalendar("option", "selectedDates");
+                    },
+                    selectedDatesChanged: function (e, args) {
+                        var selection = $("#calendar1").wijcalendar("option", "selectedDates"),
+                            length = selection.length,
+                            firstData,
+                            lastData,
+                            expectedLastData;
+
+                        if (length < 2) {
+                            return;
+                        }
+                        firstDate = selection[0];
+                        lastDate = selection[length - 1];
+                        expectedLastDate = new Date(firstDate.getFullYear(),
+                                firstDate.getMonth(), firstDate.getDate() + length - 1, 0, 0, 0);
+                        // user logic: if the last data don't match our expected, the last
+                        // selected dates will be recovered.
+                        if (expectedLastDate.getFullYear() !== lastDate.getFullYear() ||
+                                expectedLastDate.getMonth() !== lastDate.getMonth() ||
+                                expectedLastDate.getDate() !== lastDate.getDate()) {
+                            window.setTimeout(function () {
+                                //recover the saved selected dates.
+                                $("#calendar1").wijcalendar("option", "selectedDates", lastSelectedDates)
+                            }, 160);
+                        }
+                    }
+                });
+
+            });
+        });
+    </script>
+</head>
+
+<body class="demo-single">
+    <div class="container">
+        <div class="header">
+            <h2>Consecutive Selection</h2>
+        </div>
+        <div class="main demo">
+            <!-- Begin demo markup -->
+            <div id="calendar1"></div>
+            <!-- End demo markup -->
+            <div class="demo-options">
+            <!-- Begin options markup -->
+                
+            <!-- End options markup -->
+            </div>
+        </div>
+        <div class="footer demo-description">
+            <p>
+                This sample shows how to select consecutive dates using "beforeSelect" and "selectedDatesChanged" event.
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -549,10 +549,10 @@ trait ApplicationInitialization
 //             'error' => 'alert alert-danger',
 //             'success' => 'alert alert-success',
 //             'notice' => 'alert alert-info',
-	        'success' => 'alert alert-success fade in',
-	        'notice' => 'alert alert-info fade in',
-	        'warning' => 'alert alert-warning fade in',
-	        'error' => 'alert alert-danger fade in'
+	        'success' => 'alert alert-success fade in alert-shadowed',
+	        'notice' => 'alert alert-info fade in alert-shadowed',
+	        'warning' => 'alert alert-warning fade in alert-shadowed',
+	        'error' => 'alert alert-danger fade in alert-shadowed'
         ];
 
         $di->set(

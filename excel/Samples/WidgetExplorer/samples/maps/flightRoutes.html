@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Maps - Overview</title>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="description" content="%description%" />
+	<meta name="keywords" content="" />
+	<meta name="author" content="ComponentOne" />
+
+	<link href="../../../../Themes/rocket/jquery-wijmo.css" rel="stylesheet" type="text/css" />
+    <link href="../../../../css/jquery.wijmo-pro.all.3.20143.59.min.css" rel="stylesheet" type="text/css" />
+    <script src="../../js/require.js" type="text/javascript"></script>
+    <script src="../../js/require.wijmo.config.js" type="text/javascript"></script>
+	<script id="scriptInit" type="text/javascript">
+
+		var cities = [
+			{
+				image: "samples/maps/images/fromTarget.png",
+				title: "Bern",
+				latitude: 46.9480,
+				longitude: 7.4481
+			},
+			{
+				image: "samples/maps/images/fromTarget.png",
+				title: "Kiev",
+				latitude: 50.4422,
+				longitude: 30.5367
+			},
+			{
+				image: "samples/maps/images/toTarget.png",
+				title: "Beijing",
+				latitude: 39.9,
+				longitude: 116.3,
+			},
+			{
+				image: "samples/maps/images/toTarget.png",
+				title: "Tokyo",
+				latitude: 35.6,
+				longitude: 139.7,
+			},
+			{
+				image: "samples/maps/images/toTarget.png",
+				title: "London",
+				latitude: 51.5002,
+				longitude: -0.1262,
+			},
+			{
+				image: "samples/maps/images/toTarget.png",
+				title: "Vilnius",
+				latitude: 54.6896,
+				longitude: 25.2799,
+			},
+			{
+				image: "samples/maps/images/toTarget.png",
+				title: "Brussels",
+				latitude: 50.8371,
+				longitude: 4.3676
+			},
+			{
+				image: "samples/maps/images/toTarget.png",
+				title: "Prague",
+				latitude: 50.0878,
+				longitude: 14.4205
+			},
+			{
+				image: "samples/maps/images/toTarget.png",
+				title: "Athens",
+				latitude: 37.9792,
+				longitude: 23.7166
+			},
+			{
+				image: "samples/maps/images/toTarget.png",
+				title: "Dublin",
+				latitude: 53.3441,
+				longitude: -6.2675
+			},
+			{
+				image: "samples/maps/images/toTarget.png",
+				title: "Oslo",
+				latitude: 59.9138,
+				longitude: 10.7387
+			},
+			{
+				image: "samples/maps/images/toTarget.png",
+				title: "Lisbon",
+				latitude: 38.7072,
+				longitude: -9.1355
+			},
+			{
+				image: "samples/maps/images/toTarget.png",
+				title: "Moscow",
+				latitude: 55.7558,
+				longitude: 37.6176
+			},
+			{
+				image: "samples/maps/images/toTarget.png",
+				title: "Belgrade",
+				latitude: 44.8048,
+				longitude: 20.4781
+			},
+			{
+				image: "samples/maps/images/toTarget.png",
+				title: "Bratislava",
+				latitude: 48.2116,
+				longitude: 17.1547
+			},
+			{
+				image: "samples/maps/images/toTarget.png",
+				title: "Ljubljana",
+				latitude: 46.0514,
+				longitude: 14.5060
+			},
+			{
+				image: "samples/maps/images/toTarget.png",
+				title: "Madrid",
+				latitude: 40.4167,
+				longitude: -3.7033
+			},
+			{
+				image: "samples/maps/images/toTarget.png",
+				title: "Stockholm",
+				latitude: 59.3328,
+				longitude: 18.0645
+			},
+			{
+				image: "samples/maps/images/toTarget.png",
+				title: "Paris",
+				latitude: 48.8567,
+				longitude: 2.3510
+			}
+		];
+
+		var kievFlightRoutes = [
+			{
+				latitudes: [50.4422, 59.3328],
+				longitudes: [30.5367, 18.0645]
+			},
+			{
+				latitudes: [50.4422, 40.4167],
+				longitudes: [30.5367, -3.7033]
+			},
+			{
+				latitudes: [50.4422, 46.0514],
+				longitudes: [30.5367, 14.5060]
+			},
+			{
+				latitudes: [50.4422, 48.2116],
+				longitudes: [30.5367, 17.1547]
+			},
+			{
+				latitudes: [50.4422, 44.8048],
+				longitudes: [30.5367, 20.4781]
+			},
+			{
+				latitudes: [50.4422, 55.7558],
+				longitudes: [30.5367, 37.6176]
+			},
+			{
+				latitudes: [50.4422, 38.7072],
+				longitudes: [30.5367, -9.1355]
+			},
+			{
+				latitudes: [50.4422, 54.6896],
+				longitudes: [30.5367, 25.2799]
+			},
+			{
+				latitudes: [50.4422, 35.6],
+				longitudes: [30.5367, 139.7]
+			},
+			{
+				latitudes: [50.4422, 39.9],
+				longitudes: [30.5367, 116.3]
+			}
+		];
+
+		var bernFlightRoutes = [
+			{
+				latitudes: [46.9480, 50.8371],
+				longitudes: [7.4481, 4.3676]
+			},
+			{
+				latitudes: [46.9480, 59.9138],
+				longitudes: [7.4481, 10.7387]
+			},
+			{
+				latitudes: [46.9480, 40.4167],
+				longitudes: [7.4481, -3.7033]
+			},
+			{
+				latitudes: [46.9480, 50.0878],
+				longitudes: [7.4481, 14.4205]
+			},
+			{
+				latitudes: [46.9480, 48.2116],
+				longitudes: [7.4481, 17.1547]
+			},
+			{
+				latitudes: [46.9480, 44.8048],
+				longitudes: [7.4481, 20.4781]
+			},
+			{
+				latitudes: [46.9480, 55.7558],
+				longitudes: [7.4481, 37.6176]
+			},
+			{
+				latitudes: [46.9480, 37.9792],
+				longitudes: [7.4481, 23.7166]
+			},
+			{
+				latitudes: [46.9480, 53.3441],
+				longitudes: [7.4481, -6.2675]
+			}
+		];
+
+		var kievFlightRoutesVectors = getVectors(kievFlightRoutes);
+		var bernFlightRoutesVectors = getVectors(bernFlightRoutes);
+
+		var citiesLayer = {
+			"type": "items",
+			"request": requestCities
+		};
+
+		var flightRoutesVectorsLayer = {
+			"type": "vector",
+			"data": {
+				vectors: kievFlightRoutesVectors
+			}
+		};
+
+		var curFlightRoutes = "Bern";
+
+		function getVectors(flightRoutes) {
+			return $.map(flightRoutes, function (n) {
+				return {
+					"type": "polyline",
+					"stroke": "#ff0000",
+					"strokeOpacity": 0.6,
+					"coordinates": [n.longitudes[0], n.latitudes[0], n.longitudes[1], n.latitudes[1]]
+				};
+			});
+		}
+
+		function requestCities(paper) {
+			var result = { items: [] },
+				len = cities.length;
+
+			for (var i = 0; i < len; i++) {
+				var city = cities[i];
+				var size;
+				if (city.title === "Bern" || city.title === "Kiev") {
+					size = { width: 30, height: 30 };
+				}
+				else {
+					size = { width: 20, height: 20 };
+				}
+
+				var item = {
+					"location": { x: city.longitude, y: city.latitude },
+					"size": size, pinpoint: { x: size.width / 2, y: size.height / 2 }
+				};
+
+				paper.setStart();
+				var img = paper.image(city.image, 0, 0, size.width, size.height);
+				$(img.node).wijtooltip({ content: city.title, position: { my: "left center", at: "right+20px top+10px" } });
+				var set = paper.setFinish();
+				item.elements = set;
+
+				result.items.push(item);
+			}
+			return result;
+		}
+
+		function showKievFlightRoutes() {
+			flightRoutesVectorsLayer.data.vectors = kievFlightRoutesVectors;
+
+			var layers = [
+				citiesLayer,
+				flightRoutesVectorsLayer
+			];
+
+			$("#maps").wijmaps({ "targetCenter": { x: 30.5367, y: 50.4422 }, "targetZoom": 2, "layers": layers });
+		}
+
+		function showBernFlightRoutes() {
+			flightRoutesVectorsLayer.data.vectors = bernFlightRoutesVectors;
+
+			var layers = [
+				citiesLayer,
+				flightRoutesVectorsLayer
+			];
+
+			$("#maps").wijmaps({ "targetCenter": { x: 7.4481, y: 46.9480 }, "targetZoom": 3, "layers": layers });
+		}
+
+		function switchFlightRoutes() {
+			if (curFlightRoutes === "Kiev") {
+				curFlightRoutes = "Bern";
+				showBernFlightRoutes();
+				$("#flightsFrom").text("Bern");
+				$("#showFlightsFrom").text("Kiev");
+			}
+			else {
+				curFlightRoutes = "Kiev";
+				showKievFlightRoutes();
+				$("#flightsFrom").text("Kiev");
+				$("#showFlightsFrom").text("Bern");
+			}
+		}
+
+		require(["wijmo.wijmaps"], function () {
+			$(document).ready(function () {
+				$("#maps").wijmaps({
+					center: { x: 7.4481, y: 46.9480 },
+					zoom: 1
+				});
+
+				showBernFlightRoutes();
+			});
+		});
+	</script>
+</head>
+
+<body class="demo-single">
+	<div class="container">
+		<div class="header">
+			<h2>Overview</h2>
+		</div>
+
+		<div class="main demo">
+
+			<!-- Begin demo markup -->
+			<div>
+				<div style="position: relative">
+					<div id="maps" style="width:756px; height: 475px;">
+					</div>
+					<div style="position: absolute; left: 80px; top: 30px">
+						<img src="samples/maps/images/plane.png" style="width: 20px; height: 20px;" />
+						<span style="font-size: 18px; color: #990000;">Flights from <span id="flightsFrom">Bern</span></span><br />
+						<a href="javascript: switchFlightRoutes(); void(0);"><span style="font-size: 11px; margin-left:24px;">show flights from <span id="showFlightsFrom">Kiev</span></span></a>
+					</div>
+				</div>
+			</div>
+			<!-- End demo markup -->
+
+			<div class="demo-options">
+				<!-- Begin options markup -->
+
+				<!-- End options markup -->
+			</div>
+		</div>
+
+		<div class="footer demo-description">
+			<p>This sample demonstrates how to switch different flights information in <b>wijmaps</b> widget.</p>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<div data-role="appviewpage">
+    <div data-role="header">
+        <a href="Index.html" data-icon="back">Back</a>
+        <h2>Grid</h2>
+    </div>
+    <div data-role="content">
+        <table id="Grid" data-bind="wijgrid: { data: products, allowEditing: true, allowSorting: true } "></table>
+    </div>
+    
+    <script type="text/javascript">
+        $.support.cors = true;
+        var viewModel;
+
+        function ViewModel() {
+            var dataService = new breeze.DataService({
+                serviceName: "http://demo.componentone.com/aspnet/NorthwindAPI/api/read",
+                hasServerMetadata: false
+            });
+            var ms = new breeze.MetadataStore();
+            var productType = new breeze.EntityType({ shortName: "Product" });
+            productType.addProperty(new breeze.DataProperty({ name: "Product_ID", isPartOfKey: true }));
+            productType.addProperty(new breeze.DataProperty({ name: "Product_Name" }));
+            productType.addProperty(new breeze.DataProperty({ name: "Category_ID" }));
+            productType.addProperty(new breeze.DataProperty({ name: "Unit_Price" }));
+            ms.addEntityType(productType);
+
+            this.manager = new breeze.EntityManager({
+                dataService: dataService,
+                metadataStore: ms
+            });
+
+            var productView = new wijmo.data.BreezeDataView(new breeze.EntityQuery("Product"), this.manager, {
+                inlineCount: false
+            });
+            productView.refresh();
+
+            this.products = productView;
+        }
+        
+        $(document).one("wijappviewpageinit", function () {
+            viewModel = new ViewModel();
+            ko.applyBindings(viewModel);
+        });
+    </script>
+</div>

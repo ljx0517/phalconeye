@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>ChartDesigner - Overview</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="Overview" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="ComponentOne" />
+        
+    
+    <link href="../../../../Themes/aristo/jquery-wijmo.css" rel="stylesheet" type="text/css" />
+	<link href="../../../../Themes/wijmo/jquery.wijmo-open.2.0.0a.css" rel="stylesheet" type="text/css" />
+	<link href="../../../../Wijmo/wijinput/jquery.wijmo.wijinput.css" rel="stylesheet" type="text/css" />
+	<link href="../../../../Wijmo/wijtree/jquery.wijmo.wijtree.css" rel="stylesheet" type="text/css" />
+	<link href="../../../../Wijmo/wijcombobox/jquery.wijmo.wijcombobox.css" rel="stylesheet" type="text/css" />
+	<link href="../../../../Wijmo/wijpropertygrid/jquery.wijmo.wijpropertygrid.css" rel="stylesheet" type="text/css" />
+	<link href="../../../../Wijmo/wijuieditor/jquery.wijmo.wijuieditor.css" rel="stylesheet" type="text/css" />
+	
+	<script src="../../../../Wijmo/external/jquery-1.11.1.min.js" type="text/javascript"></script>
+	<script src="../../../../Wijmo/external/jquery-ui-1.11.0.custom.min.js" type="text/javascript"></script>
+	<script src="../../../../Wijmo/External/jquery.glob.min.js" type="text/javascript"></script>
+	<script src="../../../../Wijmo/External/jquery.mousewheel.min.js" type="text/javascript"></script>
+	<script src="../../../../Wijmo/External/jquery.wijmo-open.2.0.0a.min.js" type="text/javascript"></script>
+    
+	<script src="../../wijmo/UiEditors/jquery.wijmo.wijuieditor.js" type="text/javascript"></script>
+	<script src="../../wijmo/UiEditors/jquery.wijmo.wijdropdowneditor.js" type="text/javascript"></script>
+	<script src="../../wijmo/UiEditors/jquery.wijmo.wijnumbereditor.js" type="text/javascript"></script>
+	<script src="../../wijmo/UiEditors/jquery.wijmo.wijdatetimeeditor.js" type="text/javascript"></script>
+    <script src="../../wijmo/UiEditors/jquery.wijmo.wijdialogeditor.js" type="text/javascript"></script>
+    <script src="../../wijmo/UiEditors/jquery.wijmo.wijarrayeditor.js" type="text/javascript"></script>
+    <script src="../../wijmo/UiEditors/jquery.wijmo.wijcollectioneditor.js" type="text/javascript"></script>
+
+    <script src="../../../../Wijmo/wijcombobox/jquery.wijmo.wijcombobox.js" type="text/javascript"></script>
+	<script src="../../../../Wijmo/wijinput/jquery.wijmo.wijinputcore.js" type="text/javascript"></script>
+	<script src="../../../../Wijmo/wijinput/jquery.wijmo.wijinputnumber.js" type="text/javascript"></script>
+	<script src="../../../../Wijmo/wijinput/jquery.wijmo.wijinputdate.js" type="text/javascript"></script>
+	<script src="../../../../Wijmo/wijtree/jquery.wijmo.wijtree.js" type="text/javascript"></script>
+	<script src="../../../../Wijmo/wijpropertygrid/jquery.wijmo.wijpropertygrid.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var chartOption = {};
+            chartOption.enums = {};
+            chartOption.enums.orientation = ["horizontal", "vertical"];
+            chartOption.seriesStyle = {
+                stroke: { defaultValue: 18, type: "string" },
+                opacity: { defaultValue: 18, type: "number" }
+            };
+
+            var optionsDescriptor = { defaultValue: [], type: "collection", itemType: chartOption.seriesStyle, category: "Appearance" };
+
+//            var optionsDescriptor = {
+//                width: { defaultValue: 18, type: "number", category: "Appearance" },
+//                orientation: { defaultValue: "vertical", type: "enum", enumOptions: chartOption.enums.orientation, category: "Appearance" },
+//                stacked: { defaultValue: false, type: "bool", category: "Appearance" },
+//                testString: { defaultValue: "", type: "string", category: "Appearance" },
+//                testArray: { defaultValue: [], type: "array[string]", category: "Appearance" },
+//                testObject: { defaultValue: null, type: chartOption.seriesStyle, category: "Appearance" },
+//                testEvent: { defaultValue: null, type: "string", category: "Events" },
+//                testDateTime: { defaultValue: new Date(), type: "datetime", category: "Appearance" }
+//            };
+
+
+            $(".wijmo-wijcollectioneditor-propgrid:eq(0)")
+            .wijpropertygrid({ optionsDesc: optionsDescriptor });
+            $("#dialog").wijdialogeditor();
+
+            //            $("#dialog2").wijcollectioneditor({
+            //                optionsDesc: optionsDescriptor,
+            //                value: [
+            //                    { width: 18, orientation: "vertical" },
+            //                    { width: 20, orientation: "horizontal" }
+            //                ],
+            //                valueChanged: function (event, data) {
+            //                    alert(data);
+            //                }
+            //            });
+
+            $("#dialog2").wijcollectioneditor({
+                optionsDesc: optionsDescriptor,
+                value: [
+                    { stroke: "vertical", opacity: 1 },
+                    { stroke: "horizontal", opacity: 0.8 }
+                ],
+                valueChanged: function (event, data) {
+                    alert(data);
+                }
+            });
+
+            $("#dialog3").wijarrayeditor({
+                optionsDesc: { defaultValue: [], type: "array[number]" },
+                value: [1, 2, 3],
+                valueChanged: function (event, data) {
+                    alert(data);
+                }
+            });
+        });
+    </script>
+</head>
+<body class="demo-single">
+    <div class="container">
+        <div class="header">
+            <h2>
+                Overview</h2>
+        </div>
+        <div class="main demo">
+            <!-- Begin demo markup -->
+            <div>
+                <input id="dialog" type="text" />
+
+                <input id="dialog2" type="text" />
+
+                 <input id="dialog3" type="text" />
+
+                 <textarea></textarea>
+            </div>
+            <!-- End demo markup -->
+            <div class="demo-options">
+                <!-- Begin options markup -->
+                <!-- End options markup -->
+            </div>
+        </div>
+        <div class="footer demo-description">
+        </div>
+    </div>
+</body>
+</html>

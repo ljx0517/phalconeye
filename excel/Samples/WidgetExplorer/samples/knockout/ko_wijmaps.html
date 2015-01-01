@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Knockout - Maps</title>
+    
+    <link href="../../../../Themes/rocket/jquery-wijmo.css" rel="stylesheet" type="text/css" />
+    <link href="../../../../css/jquery.wijmo-pro.all.3.20143.59.min.css" rel="stylesheet" type="text/css" />
+    <script src="../../js/require.js" type="text/javascript"></script>
+    <script src="../../js/require.wijmo.config.js" type="text/javascript"></script>
+
+    <script id="scriptInit" type="text/javascript">
+    	require(["wijmo.wijmaps", "wijmo.wijinputnumber", "knockout.wijmo"], function () {
+        	//Create ViewModel
+        	var viewModel = function () {
+        		var self = this;
+        		self.disabled = ko.observable(false);
+        		self.showTools = ko.observable(true);
+        		self.center = ko.observable({ x: ko.observable(121.4), y: ko.observable(31.2) });
+        		self.zoom = ko.observable(3);
+        		self.source = ko.observable("bingMapsAerialSource");
+        		self.targetCenter = ko.observable({ x: ko.observable(121.4), y: ko.observable(31.2) });
+        		self.targetZoom = ko.observable(3);
+        		self.customMapsource = {
+        			tileWidth: 256,
+        			tileHeight: 256,
+        			minZoom: 1,
+        			maxZoom: 22,
+        			getUrl: function (zoom, x, y) {
+        				var uriFormat = "http://mt{subdomain}.google.cn/vt/lyrs=r&hl=en-us&gl=cn&x={x}&y={y}&z={zoom}";
+        				var subdomains = ["0", "1", "2", "3"];
+        				var subdomain = subdomains[(y * Math.pow(2, zoom) + x) % subdomains.length];
+        				return uriFormat.replace("{subdomain}", subdomain).replace("{x}", x).replace("{y}", y).replace("{zoom}", zoom);
+        			}
+        		}
+        	};
+
+            //Bind ViewModel
+            $(document).ready(function () {
+                var vm = new viewModel();
+                ko.applyBindings(vm, $(".container").get(0));
+            });
+        });
+    </script>
+</head>
+<body class="demo-single">
+    <div class="container">
+        <div class="header">
+            <h2>Maps</h2>
+        </div>
+        <div class="main demo">
+            <!-- Begin demo markup -->
+            
+            <div style="width:680px; height: 400px;" data-bind="wijmaps: {
+	disabled: disabled,
+	showTools: showTools,
+	center: center,
+	zoom: zoom,
+	source: source,
+	targetCenter: targetCenter,
+	targetZoom: targetZoom
+}"></div>
+            <!-- End demo markup -->
+            <div class="demo-options">
+                <!-- Begin options markup -->
+                <ul>
+                    <li><label><span>disabled:</span></label><input type="checkbox" data-bind="checked: disabled" /></li>
+					 <li>
+                        <label><span>source:</span></label>
+							<select data-bind="value: source">
+                                <option value="bingMapsRoadSource">Road</option>
+                                <option value="bingMapsAerialSource">Aerial</option>
+                                <option value="bingMapsHybridSource">Hybrid</option>
+                                <option data-bind="value: customMapsource">Custom</option>
+                                <option value="">None</option>
+                            </select>
+                    </li>
+                    <li><label><span>showTools:</span></label><input type="checkbox" data-bind="checked: showTools" /></li>
+                    <li data-bind="with: center">
+                        <label><span>center:</span></label>
+						x<input data-bind="wijinputnumber: { value: x }" /> 
+						y<input data-bind="wijinputnumber: { value: y }" /> 
+                    </li>
+					<li data-bind="with: targetCenter">
+                        <label><span>targetCenter:</span></label>
+						x<input data-bind="wijinputnumber: { value: x }" /> 
+						y<input data-bind="wijinputnumber: { value: y }" /> 
+                    </li>
+					<li>
+                        <label><span>zoom:</span></label>
+						<input data-bind="wijinputnumber: { value: zoom }" /> 
+                    </li>
+					<li>
+                        <label><span>targetZoom:</span></label>
+						<input data-bind="wijinputnumber: { value: targetZoom }" /> 
+                    </li>
+                </ul>
+                <!-- End options markup -->
+            </div>
+        </div>
+        <div class="footer demo-description">
+            <p>
+                Wijmo provides a Knockout Integration Library so that all jQuery UI and Wijmo widgets
+                can be used with Knockout declarative syntax.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

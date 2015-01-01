@@ -24,7 +24,7 @@ use Engine\Grid\GridItem;
 use Phalcon\Db\Column;
 use Phalcon\Mvc\Model\Query\Builder;
 use Phalcon\Mvc\View;
-use User\Model\Role;
+use User\Model\Group;
 
 /**
  * User grid.

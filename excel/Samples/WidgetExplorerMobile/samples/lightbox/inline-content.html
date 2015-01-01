@@ -1,0 +1,23 @@
+<div data-role="appviewpage">
+    <div data-role="header">
+        <a href="index.html" data-icon="back">Back</a>
+        <h2>
+            Ajax Data</h2>
+    </div>
+    <div data-role="content">
+        <!-- Begin demo markup -->
+        <div id="lightbox" data-role="wijlightbox">
+            <a href="#content-1" rel="wijlightbox[stock]">
+                <img src="http://lorempixel.com/200/150/abstract/1" title="Abstract 1" alt="Abstract 1" /></a>
+            <a href="#content-2" rel="wijlightbox[stock]">
+                <img src="http://lorempixel.com/200/150/abstract/1" title="Abstract 1" alt="Abstract 1" /></a>
+            <a href="#content-3" rel="wijlightbox[stock]">
+                <img src="http://lorempixel.com/200/150/abstract/1" title="Abstract 1" alt="Abstract 1" /></a>
+        </div>
+        <script type="text/javascript">
+            $(document).one('wijappviewpageinit', function () {
+                $("#lightbox").wijlightbox({ textPosition: 'outside', controlsPosition: 'outside' });
+            });
+        </script>
+    </div>
+</div>

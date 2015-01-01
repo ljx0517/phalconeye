@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>BarChart - DataView</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="%description%" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="ComponentOne" />
+    
+    <link href="../../../../Themes/rocket/jquery-wijmo.css" rel="stylesheet" type="text/css" />
+    <link href="../../../../css/jquery.wijmo-pro.all.3.20143.59.min.css" rel="stylesheet" type="text/css" />
+    <script src="../../js/require.js" type="text/javascript"></script>
+    <script src="../../js/require.wijmo.config.js" type="text/javascript"></script>
+    	
+    <script id="scriptInit" type="text/javascript">       
+        var viewModel;
+        var data = [{
+            Device: 'Desktops',
+			Count: 85.8
+        }, {
+            Device: 'Notebooks',
+			Count: 171.9
+        }, {
+            Device: 'Tablets',
+			Count: 456.1
+        }];
+
+        function ViewModel(sessionId) {
+            var productView = new wijmo.data.ArrayDataView(data);
+
+            this.products = productView.toObservableArray();
+        }
+
+        function bind() {
+            $(document).ready(function () {
+                viewModel = new ViewModel();
+                ko.applyBindings(viewModel, $(".container").get(0));
+            });
+        }
+
+        require(["wijmo.wijbarchart", "wijmo.data", "knockout.wijmo"], function () {
+            $.support.cors = true;
+
+            if (ko.dependencyDetection) {
+                ko.dependencyDetection.ignore(bind);
+            } else {
+                bind();
+            }
+        });
+
+    </script>
+</head>
+<body class="demo-single">
+    <div class="container">
+        <div class="header">
+            <h2>
+                DataView</h2>
+        </div>
+        <div class="main demo">
+            <!-- Begin demo markup -->
+           <div id="wijbarchart" class="ui-widget ui-widget-content ui-corner-all" style="width: 756px; height: 475px" data-bind="wijbarchart: { dataSource: products,
+						 seriesList: [{
+    				        legendEntry: true,
+    				        label: 'east',
+    				        data: { x: { bind: 'Device' }, y: { bind: 'Count'} }
+    			        }],
+                        autoLoad:false,
+                         axis: {
+    		                y: {
+								text: 'Millions of units'
+
+    		                },
+    		                x: {
+    		                    text: ''
+    		                }
+    		            },
+    		            hint: {
+    		                content: function () {
+    		                    return this.y;
+    		                }
+    		            },
+    		            header: {
+							text: 'Worldwide total client PC shipments in 2017 forecast'
+						},
+						legend: {
+							visible: false
+    		            }
+                }" >
+            </div>
+            <!-- End demo markup -->
+            <div class="demo-options">
+                <!-- Begin options markup -->
+                <!-- End options markup -->
+            </div>
+        </div>
+        <div class="footer demo-description">
+            <p>This demo shows the chart series bind data using wijdataview widget.</p>
+        </div>
+    </div>
+</body>
+</html>

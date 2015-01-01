@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>CandlestickChart - Overview</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="%description%" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="ComponentOne" />
+    <link href="../../../../Themes/rocket/jquery-wijmo.css" rel="stylesheet" type="text/css" />
+    <link href="../../../../css/jquery.wijmo-pro.all.3.20143.59.min.css" rel="stylesheet" type="text/css" />
+    <script src="../../js/require.js" type="text/javascript"></script>
+    <script src="../../js/require.wijmo.config.js" type="text/javascript"></script>
+    <script id="scriptInit" type="text/javascript">
+        require(["wijmo.wijcandlestickchart"], function () {
+            $(document).ready(function () {
+                var dataMale = {
+                    x: [new Date('3/3/2014'), new Date('3/4/2014'), new Date("3/5/2014"), new Date("3/6/2014"), new Date("3/7/2014")],
+                    high: [26000, 49000, 49000, 69000, 102000],
+                    low: [18000, 24000, 38000, 54000, 84000],
+                    open: [20000, 25000, 40000, 63000, 91000],
+                    close: [25000, 30000, 470000, 68000, 97000]
+                };
+                var dataFemale = {
+                    x: [new Date('3/3/2014'), new Date('3/4/2014'), new Date("3/5/2014"), new Date("3/6/2014"), new Date("3/7/2014")],
+                    high: [21000, 35000, 48000, 62000, 95000],
+                    low: [15000, 26000, 35000, 47000, 70000],
+                    open: [17000, 27000, 37000, 51000, 72000],
+                    close: [20000, 29000, 42000, 60000, 76000]
+                };
+
+                $("#wijcandlestickchartDefault").wijcandlestickchart({
+                    textStyle: {
+                        "font-size": "13px",
+                        "font-family": '"Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif'
+                    },
+                    header: {
+                        text: "Salary Distributions"
+                    },
+                    legend: {
+                        visible: true,
+                        compass: "north",
+                        orientation: "horizontal"
+                    },
+                    hint: {
+                        content: function () {
+                            return this.label + ' - ' +
+							Globalize.format(this.x, "ddd yy MMM dd") +
+							'\n High:' + Globalize.format(this.high, "c0") +
+							'\n Low:' + Globalize.format(this.low, "c0") +
+							'\n Open:' + Globalize.format(this.open, "c0") +
+							'\n Close:' + Globalize.format(this.close, "c0") + '';
+                        },
+                        contentStyle: {
+                            "font-size": "12px",
+                            "font-family": '"Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif'
+                        },
+                        style: {
+                            fill: "#444444",
+                            stroke: "none"
+                        }
+                    },
+                    axis: {
+                        x: {
+                            text: "Pay Grades",
+                            textStyle: {
+                                "font-weight": "normal"
+                            },
+                            tickMajor: {
+                                position: "outside",//Position tick marks outside of the axis line
+                                style: {
+                                    stroke: "#999999"//Make the tick marks match axis line color
+                                }
+                            },
+                            valueLabels: [{ value: new Date('3/3/2014'), text: "1" }, { value: new Date('3/4/2014'), text: "2" }, { value: new Date('3/5/2014'), text: "3" }, { value: new Date('3/6/2014'), text: "4" }, { value: new Date('3/7/2014'), text: "5" }],
+                            annoMethod: "valueLabels"
+                        },
+                        y: {
+                            text: "Salaries (U.S. $)",
+                            textStyle: {
+                                "font-weight": "normal"
+                            },
+                            annoFormatString: "n0",
+                            alignment: "far", //axis text aligned away from xy intersection
+                            min: 0,
+                            max: 110000,
+                            unitMajor: 10000,
+                            autoMin: false,
+                            autoMax: false,
+                            autoMajor: false,
+                        },
+                    },
+                    seriesList: [{
+                        label: "Female",
+                        legendEntry: true,
+                        data: dataFemale
+                    }, {
+                        label: "Male",
+                        legendEntry: true,
+                        data: dataMale
+                    }],
+                    seriesStyles: [
+						{
+						    highLow: { fill: "rgb(246,170,201)", width: 2 },
+						    risingClose: { fill: "rgb(246,170,201)", width: 10 }
+						},
+						{
+						    highLow: { fill: "rgb(136,189,230)", width: 2 },
+						    risingClose: { fill: "rgb(136,189,230)", width: 10 }
+						}
+                    ]
+                });
+            });
+        });
+    </script>
+</head>
+<body class="demo-single">
+    <div class="container">
+        <div class="header">
+            <h2>
+                Overview
+            </h2>
+        </div>
+        <div class="main demo">
+            <!-- Begin demo markup -->
+            <div id="wijcandlestickchartDefault" style="width: 100%; height: 450px;">
+            </div>
+            <!-- End demo markup -->
+            <div class="demo-options">
+                <!-- Begin options markup -->
+                <!-- End options markup -->
+            </div>
+        </div>
+        <div class="footer demo-description">
+            <p>
+                This demo shows how to create simple candlestick chart.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<div data-role="appviewpage" data-title="Interactive Value">
+	<div data-role="content">
+		<div id="gauge" data-role="wijlineargauge">
+		</div>
+		
+		<label for="slider">Drag and release the slider to change the gauge's value</label>
+		<input id="slider" data-role="slider" min="0" max="100" value="70" />
+		<script type="text/javascript">
+			$(document).one("wijappviewpageinit", function () {
+				$("#gauge").wijlineargauge({
+					width: 400,
+					height: 120,
+					value: 70,
+					max: 100,
+					min: 0,
+					animation: {
+						enabled: true,
+						duration: 400,
+						easing: ">"
+					},
+					labels: {
+						style: {
+							fill: "#1E395B",
+							"font-size": 12,
+							"font-weight": "800"
+						}
+					},
+					tickMajor: {
+						position: "inside",
+						offset: -11,
+						interval: 20,
+						factor: 12,
+						style: {
+							fill: "#1E395B",
+							stroke: "none",
+							width: 2
+						}
+					},
+					tickMinor: {
+						position: "inside",
+						offset: -11,
+						visible: true,
+						interval: 4,
+						factor: 10,
+						style: {
+							fill: "#1E395B",
+							stroke: "none",
+							width: 1
+						}
+					},
+					pointer: {
+						shape: "rect",
+						length: 0.6,
+						style: {
+							fill: "#1E395B",
+							stroke: "#7BA0CC",
+							"stroke-width": 1,
+							opacity: 1
+						}
+					},
+					face: {
+						style: {
+							fill: "270-#FFFFFF-#D9E3F0",
+							stroke: "#7BA0CC",
+							"stroke-width": 2
+						}
+					},
+					ranges: [{
+						startValue: 80,
+						endValue: 100,
+						startDistance: 0.85, //A ratio value determine the location of the range at start value.
+						endDistance: 0.85, //A ratio value determine the location of the range at end value.
+						startWidth: 0.5,
+						endWidth: 0.5,
+						style: {
+							fill: "90-#3DA1D8-#3A6CAC",
+							opacity: 1,
+							stroke: "none"
+						}
+					}]
+				});
+
+				$("#slider").change(function () { 
+					$("#gauge").wijlineargauge("option", "value", $("#slider").val());
+				})
+
+			});
+		</script>
+	</div>
+</div>

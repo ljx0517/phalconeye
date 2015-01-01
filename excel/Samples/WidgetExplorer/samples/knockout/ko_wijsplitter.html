@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Knockout - Splitter</title>
+    <style type="text/css">
+        .splitterContainer
+        {
+            height: 210px;
+        }
+        
+        #vsplitter, #hsplitter
+        {
+            width: 200px;
+            height: 200px;
+        }
+        
+        .layout
+        {
+            float: left;
+        }
+    </style>
+    
+    <link href="../../../../Themes/rocket/jquery-wijmo.css" rel="stylesheet" type="text/css" />
+    <link href="../../../../css/jquery.wijmo-pro.all.3.20143.59.min.css" rel="stylesheet" type="text/css" />
+    <script src="../../js/require.js" type="text/javascript"></script>
+    <script src="../../js/require.wijmo.config.js" type="text/javascript"></script>
+
+    <script id="scriptInit" type="text/javascript">
+        require(["wijmo.wijsplitter", "knockout.wijmo"], function () {
+            //Create ViewModel
+            var viewModel = function () {
+                var self = this;
+                self.disabled = ko.observable(false);
+                self.showExpander = ko.observable(true);
+                self.splitterDistance = ko.observable(100);
+            };
+
+            //Bind ViewModel
+            $(document).ready(function () {
+                var vm = new viewModel();
+                ko.applyBindings(vm, $(".container").get(0));
+            });
+        });
+    </script>
+</head>
+<body class="demo-single">
+    <div class="container">
+        <div class="header">
+            <h2>
+                Splitter</h2>
+        </div>
+        <div class="main demo">
+            <!-- Begin demo markup -->
+            <div class="splitterContainer">
+                <div class="layout">
+                    <h3>
+                        Vertical</h3>
+                    <div id="vsplitter" data-bind="wijsplitter: {disabled: disabled, showExpander: showExpander, splitterDistance: splitterDistance }">
+                        <div>
+                            panel1
+                        </div>
+                        <div>
+                            panel2
+                        </div>
+                    </div>
+                </div>
+                <div class="layout" style="width: 100px;">
+                    &nbsp;</div>
+                <div class="layout">
+                    <h3>
+                        Horizontal</h3>
+                    <div id="hsplitter" data-bind="wijsplitter: {orientation: 'horizontal', disabled: disabled, showExpander: showExpander, splitterDistance: splitterDistance }">
+                        <div>
+                            panel1
+                        </div>
+                        <div>
+                            panel2
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="height: 100px;">
+            </div>
+            <!-- End demo markup -->
+            <div class="demo-options">
+                <!-- Begin options markup -->
+                <ul>
+                    <li>
+                        <label>
+                            <span>disabled:</span></label><input type="checkbox" data-bind="checked: disabled" />
+                    </li>
+                    <li>
+                        <label>
+                            <span>showExpander:</span></label><input type="checkbox" data-bind="checked: showExpander" />
+                    </li>
+                    <li>
+                        <label>
+                            <span>splitterDistance:</span></label><input type="text" data-bind="value: splitterDistance" />
+                    </li>
+                </ul>
+                <!-- End options markup -->
+            </div>
+        </div>
+        <div class="footer demo-description">
+            <p>
+                Wijmo provides a Knockout Integration Library so that all jQuery UI and Wijmo widgets
+                can be used with Knockout declarative syntax.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
+<body>
+    <div>
+    </div>
+</body>
+</html> 

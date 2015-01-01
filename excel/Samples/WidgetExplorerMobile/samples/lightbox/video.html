@@ -1,0 +1,22 @@
+<div data-role="appviewpage">
+    <div data-role="header">
+        <a href="index.html" data-icon="back">Back</a>
+        <h2>
+            Video</h2>
+    </div>
+    <div data-role="content">
+        <!-- Begin demo markup -->
+       <a id="lightbox" href="http://wijmo.com/demo/explore/Wijmo-Open/development-bundle/samples/video/overview.html" rel="wijlightbox;width=800;height=600">
+				<img src="http://cdn.wijmo.com/images/quicktime.png" title="HTML5 Video Inside Lightbox" alt="HTML5 Video Inside Lightbox" /></a> 
+
+        <script type="text/javascript">
+            $(document).one('wijappviewpageinit', function () {
+                $("#lightbox").wijlightbox({
+                    controlsPosition: 'outside',
+                    textPosition: 'outside',
+                    player: 'iframe'
+                });
+            });
+        </script>
+    </div>
+</div>

@@ -1,0 +1,210 @@
+@font-face {
+	font-family: 'Museo900';
+	src: url('fonts/wijmo_900-webfont.eot');
+	src: url('fonts/wijmo_900-webfont.eot?#iefix') format('eot'), url('fonts/wijmo_900-webfont.woff') format('woff'), url('fonts/wijmo_900-webfont.ttf') format('truetype'), url('fonts/wijmo_900-webfont.svg#webfontddPJWh5k') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Museo700Italic';
+	src: url('fonts/wijmo_700italic-webfont.eot');
+	src: url('fonts/wijmo_700italic-webfont.eot?#iefix') format('eot'), url('fonts/wijmo_700italic-webfont.woff') format('woff'), url('fonts/wijmo_700italic-webfont.ttf') format('truetype'), url('fonts/wijmo_700italic-webfont.svg#webfontddPJWh5k') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Museo300';
+	src: url('fonts/wijmo_300-webfont.eot');
+	src: url('fonts/wijmo_300-webfont.eot?#iefix') format('eot'), url('fonts/wijmo_300-webfont.woff') format('woff'), url('fonts/wijmo_300-webfont.ttf') format('truetype'), url('fonts/wijmo_300-webfont.svg#webfontddPJWh5k') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+html, body {
+	background: #FFFFFF url(img/background-repeater.png) repeat-y top left;
+	font-size: 18px;
+	margin: 0;
+	padding: 0;
+}
+h1, h2, h3, h4, h5, h6 {
+	color: #000000;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-weight: normal;
+	margin-bottom: 0.4em;
+}
+h1 {
+	font-size: 2.25em;
+}
+h2 {
+	font-size: 1.875em;
+}
+h3 {
+	font-size: 1.5em;
+}
+section, aside, header {
+	display: block;
+}
+header {
+	background: #fff;
+	border-bottom: solid 1px #444;
+}
+header h1 {
+	margin: 0;
+	font-family: "Museo300", Georgia, "Times new Roman", Times, Serif;
+	text-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+}
+section {
+	width: 100%;
+	float: right;
+	margin-left: -430px;
+}
+section .padder {
+	margin-left: 430px;
+}
+aside {
+	width: 215px;
+	float: left;
+	position: absolute;
+	height: 100%;
+	z-index: 99;
+	/*box-shadow: 3px 0 10px rgba(0,0,0,0.15);*/
+
+}
+aside h3 {
+	border-top: 5px solid #000000;
+	font-family: Arial, Helvetica, sans-serif;
+	font-style: normal;
+	font-weight: bold;
+	padding: 0.4em 0 0;
+	margin: 0;
+}
+#serviceContainer {
+	z-index: 100;
+}
+#collectionContainer {
+	left: 215px;
+}
+section {
+}
+section .main {
+	background: #fff;
+	border: solid 1px #ddd;
+	margin: 1em;
+	border-radius: 4px;
+	border-bottom-width: 3px;
+	margin-left: 447px;
+}
+section h3 {
+	background: #733B84;
+	color: #D1C6D6;
+	font-family: "Museo900", Georgia, "Times New Roman", Times, serif;
+	text-align: center;
+	margin: 0;
+	text-transform: uppercase;
+	font-size: 3em;
+	text-shadow: -1px -1px 0 #201F21;
+	font-size: 2em;
+	height: 52px;
+	line-height: 26px;
+}
+.wijmo-wijlist {
+	height: 600px;
+	width: 100%;
+}
+.wijmo-wijlist-ul {
+	padding: 0;
+}
+.grey {
+	background: #333;
+	padding: 0 1em;
+	height: 52px;
+	line-height: 52px;
+		border-right: solid 1px #222;
+}
+.grey button {
+	background: #00A4DB;
+	border-color: #00749B;
+	border-image: none;
+	border-radius: 4px 4px 4px 4px;
+	border-style: solid;
+	border-width: 1px 1px 3px;
+	color: #E8EAED;
+	cursor: pointer;
+	display: inline-block;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 0.85em;
+	font-style: italic;
+	padding: 0.4em 0.4em;
+	text-align: center;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+	width: 56px;
+}
+.grey button:hover {
+	background: #0294c5;
+}
+.grey input[type=text] {
+	background: #fff;
+	border: solid 1px #ddd;
+	border-bottom-width: 3px;
+	border-radius: 4px;
+	display: inline-block;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 0.85em;
+	padding: 0.4em 0.4em;
+	width: 102px;
+}
+.grey input[type=text]:hover, .grey input[type=text]:active, .grey input[type=text]:focus {
+	border-color: #ccc;
+}
+.padder {
+	padding: 0.4em;
+}
+aside .padder {
+	padding: 1em;
+}
+header .padder {
+	padding: 2em 1em;
+}
+input[type=text] {
+}
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight {
+	background: #5B2E7C;
+}
+.wijmo-wijlist-ul .wijmo-wijlist-item {
+	background: none;
+	border-bottom: 1px dotted #CFCFCF;
+	color: #029ED1;
+	padding: 0.4em 0;
+}
+.wijmo-wijlist-ul .wijmo-wijlist-item:hover {
+	color: #007da6;
+}
+.wijmo-wijlist-ul .ui-state-active {
+	color: #404040;
+}
+label {
+	display: block;
+}
+#namecombobox {
+	width: 300px;
+}
+.wijmo-wijcombobox {
+	display: inline-block;
+}
+#dialog-service {
+}
+#gridTemplate
+{
+    width: 100%;
+}
+.wijmo-wijgrid .wijmo-wijgrid-innercell
+{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width:200px;
+}
+

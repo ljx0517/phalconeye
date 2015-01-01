@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>BubbleChart - Trendline</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="%description%" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="ComponentOne" />
+
+    <link href="../../../../Themes/rocket/jquery-wijmo.css" rel="stylesheet" type="text/css" />
+    <link href="../../../../css/jquery.wijmo-pro.all.3.20143.59.min.css" rel="stylesheet" type="text/css" />
+    <script src="../../js/require.js" type="text/javascript"></script>
+    <script src="../../js/require.wijmo.config.js" type="text/javascript"></script>
+
+    <script id="scriptInit" type="text/javascript">
+        var data = [{
+            Income: 7931,
+            LifeExpectancy: 73,
+            Population: 1340
+        }, {
+            Income: 2972,
+            LifeExpectancy: 65,
+            Population: 1150
+        }, {
+            Income: 42066,
+            LifeExpectancy: 78,
+            Population: 309
+        }, {
+            Income: 30866,
+            LifeExpectancy: 83,
+            Population: 126
+        }, {
+            Income: 14318,
+            LifeExpectancy: 69,
+            Population: 140
+        }, {
+            Income: 374,
+            LifeExpectancy: 48,
+            Population: 72
+        }, {
+            Income: 9284,
+            LifeExpectancy: 52,
+            Population: 43
+        }, {
+            Income: 11754,
+            LifeExpectancy: 77,
+            Population: 112
+        }, {
+            Income: 31217,
+            LifeExpectancy: 80,
+            Population: 61
+        }];
+
+        require(["wijmo.wijbubblechart"], function () {
+            $(document).ready(function () {
+                $("#wijbubblechart").wijbubblechart({
+                    dataSource: data,
+                    seriesList: [{
+                        data: {
+                            x: { bind: "Income" },
+                            y: { bind: "LifeExpectancy" },
+                            y1: { bind: "Population" }
+                        }
+                    }, {
+                        isTrendline: true,// when adding a trendline, its value should be set to true. Otherwise, it would be considered as other charts.
+                        order: 4,//it defines the number of terms in polynom equation
+                        data: {
+                            x: { bind: "Income" },// binding 'x' axis to the 'Income' property
+                            y: { bind: "LifeExpectancy" }// binding 'y' axis to the 'LifeExpectancy' property
+                        }
+                    }],
+                    axis: {
+                        y: {
+                            text: "Life Expectancy",
+                            labels: {
+                                textAlign: "far"
+                            }
+                        },
+                        x: {
+                            text: "Income",
+                            tickMajor: {
+                                position: "inside"
+                            },
+                            labels: {
+                                textAlign: "near"
+                            }
+                        }
+                    },
+                    legend: {
+                        visible: false
+                    },
+                    hint: {
+                        content: function () {
+                            return this.data.label + " \n"
+                                + "Life Expectency: " + this.y + "\n"
+                                + "Income: " + Globalize.format(this.x, "n") + "\n"
+                                + "Population: " + this.data.y1 + "M";
+                        },
+                        style: {
+                            stroke: "#000",
+                            "stroke-width": 10
+                        }
+                    },
+                    header: {
+                        text: "Wealth & Health of Nations - 2010"
+                    }
+                });
+            });            
+        });
+
+        function changeProperties() {
+            var fitType = $("#selFitType").val(),
+                sampleCount = parseInt($("#inpSampleCount").val()),
+                order = parseInt($("#inpOrder").val());
+            
+            $("#wijbubblechart").wijbubblechart("option", "seriesList", [{
+                data: {
+                    x: { bind: "Income" },
+                    y: { bind: "LifeExpectancy" },
+                    y1: { bind: "Population" }
+                }
+            }, {
+                isTrendline: true,// when adding a trendline, its value should be set to true. Otherwise, it would be considered as other charts.
+                fitType: fitType,//it specifies the fit type of the trendline. There are 11 kinds. Its default value is "polynom".
+                sampleCount: sampleCount,// it specifies the sample count for function calculation
+                order: order,//it defines the number of terms in polynom equation
+                data: {
+                    x: { bind: "Income" },// binding 'x' axis to the 'Income' property
+                    y: { bind: "LifeExpectancy" }// binding 'y' axis to the 'LifeExpectancy' property
+                }
+            }]);
+        }
+    </script>
+</head>
+<body class="demo-single">
+    <div class="container">
+        <div class="header">
+            <h2>Overview</h2>
+        </div>
+        <div class="main demo">
+            <!-- Begin demo markup -->
+            <div id="wijbubblechart" class="ui-widget ui-widget-content ui-corner-all" style="width: 756px; height: 475px;">
+            </div>
+            <!-- End demo markup -->
+            <div class="demo-options">
+                <!-- Begin options markup -->
+                <label for="selFitType">
+                        FitType
+                    </label>
+                <select id="selFitType">
+                    <option value="polynom">polynom</option>
+                    <option value="exponent">exponent</option>
+                    <option value="logarithmic">logarithmic</option>
+                    <option value="power">power</option>
+                    <option value="fourier">fourier</option>
+                    <option value="minX">minX</option>
+                    <option value="minY">minY</option>
+                    <option value="maxX">maxX</option>
+                    <option value="maxY">maxY</option>
+                    <option value="averageX">averageX</option>
+                    <option value="averageY">averageY</option>
+                </select>
+                <label for="inpOrder">
+                        Order
+                    </label>
+                    <input id="inpOrder" type="text" value="4" />
+                <label for="inpSampleCount">
+                        SampleCount
+                    </label>
+                    <input id="inpSampleCount" type="text" value="100" />
+                <input type="button" value="Apply" onclick="changeProperties()" />
+                <!-- End options markup -->
+            </div>
+        </div>
+        <div class="footer demo-description">
+            <p>
+                This sample shows how to add a trendline in wijbubblechart. <br />It also shows how to use <b>fitType</b>, <b>order</b> and <b>sampleCount</b> options to customize the trendline.
+            </p>
+            <p>
+                <b>fitType</b>: It specifies the type of the trendline. There are 11 kinds. You can choose it from the list box above.
+                </p> 
+            <p><b>sampleCount</b>: It specifies the sample count for function calculation. It works when the fitType is polynom, power, exponent, logarithmic and fourier. It decides the count of the data items for function calculation. It should be set to some integer value greater than 0.</p>
+                
+                <p><b>order</b>: It defines the number of terms in polynom equation. It should be set to some integer value greater than 1. It works when the fitType is polynom, power, exponent, logarithmic and fourier. When the fitType is power, exponent and logarithmic, its value is fixed to 2 no matter what it is set to.</p>
+                
+           
+        </div>
+    </div>
+</body>
+</html>

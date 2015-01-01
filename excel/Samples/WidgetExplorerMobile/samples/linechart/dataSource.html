@@ -1,0 +1,50 @@
+<div data-role="appviewpage" data-title="Data Bind">
+	<div data-role="content">
+		<!-- Begin demo markup -->
+		<div id="wijlinechart" data-role="wijlinechart" class="ui-widget ui-widget-content ui-corner-all" style="width: 100%; height: 475px; ">
+		</div>
+		<!-- End demo markup -->
+		<script type="text/javascript">
+			$(document).one("wijappviewpageinit", function () {
+				var data = [{
+					Date: new Date('10/1/2010 11:48:00'),
+					Count: 5
+				}, {
+					Date: new Date('10/2/2010 11:48:00'),
+					Count: 3
+				}, {
+					Date: new Date('10/3/2010 11:48:00'),
+					Count: 7
+				}];
+
+				$("#wijlinechart").wijlinechart("beginUpdate");
+				$("#wijlinechart").wijlinechart({
+					dataSource: data,
+					axis: {
+						y: {
+							text: "Total Hardware"
+
+						},
+						x: {
+							text: ""
+						}
+					},
+					hint: {
+						content: function () {
+							return this.y;
+						}
+					},
+					header: {
+						text: "Hardware Distribution"
+					},
+					seriesList: [{
+						legendEntry: true,
+						label: "east",
+						data: { x: { bind: "Date" }, y: { bind: "Count"} }
+					}]
+				});
+				$("#wijlinechart").wijlinechart("endUpdate");
+			});
+		</script>
+	</div>
+</div>

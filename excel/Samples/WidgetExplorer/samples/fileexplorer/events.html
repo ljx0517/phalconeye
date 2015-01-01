@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>FileExplorer - Events</title>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="description" content="%description%" />
+	<meta name="keywords" content="" />
+	<meta name="author" content="ComponentOne" />
+
+	<link href="../../../../Themes/rocket/jquery-wijmo.css" rel="stylesheet" type="text/css" />
+    <link href="../../../../css/jquery.wijmo-pro.all.3.20143.59.min.css" rel="stylesheet" type="text/css" />
+    <script src="../../js/require.js" type="text/javascript"></script>
+    <script src="../../js/require.wijmo.config.js" type="text/javascript"></script>
+	<script id="scriptInit" type="text/javascript">
+		require(["wijmo.wijfileexplorer"], function () {
+			$(document).ready(function () {
+				$("#fileexplorer").wijfileexplorer({
+					actionUri: "./fileexplorer.ashx",
+					initPath: "~/samples/widgetexplorer/samples/fileexplorer/Example",
+					searchPatterns: "*.jpg,*.png,*.jpeg,*.gif,*.bmp",
+					fileOpened: fileOpened, 
+                    fileOpening: fileOpening,
+			        itemCopying: itemCopying,
+			        itemCopied: itemCopied,
+			        itemRenaming: itemRenaming,
+			        itemRenamed: itemRenamed,
+			        itemDeleting: itemDeleting,
+			        itemDeleted: itemDeleted,
+			        itemPasting: itemPasting,
+			        itemPasted: itemPasted,
+			        itemMoving: itemMoving,
+			        itemMoved: itemMoved,
+			        newFolderCreating: newFolderCreating,
+			        newFolderCreated: newFolderCreated,
+			        folderChanged: folderChanged,
+			        folderLoaded: folderLoaded,
+			        errorOccurred: errorOccurred,
+			        itemSelected: itemSelected,
+			        filtering: filtering,
+			        filtered: filtered
+				});
+			});
+		});
+
+		function printMessage(type, data) {
+		    var membersInfo = "";
+		    if (data) {
+		        for (var key in data) {
+		            membersInfo = membersInfo ? membersInfo + "; " : " - ";
+		            membersInfo += key + ": " + data[key];
+		        }
+		    }
+
+		    $("#sampleLog").html("[" + new Date().toLocaleTimeString() + "]<b>" + type + "</b>" + membersInfo + "<br/>" + $("#sampleLog").html());
+		}
+
+		function fileOpened(event, data) {
+		    printMessage("fileOpened", data);
+		}
+
+		function fileOpening(event, data) {
+		    printMessage("fileOpening", data);
+		}
+
+		function itemCopying(event, data) {
+		    printMessage("itemCopying", data);
+		}
+
+		function itemCopied(event, data) {
+		    printMessage("itemCopied", data);
+		}
+
+		function itemRenaming(event, data) {
+		    printMessage("itemRenaming", data);
+		}
+
+		function itemRenamed(event, data) {
+		    printMessage("itemRenamed", data);
+		}
+
+		function itemDeleting(event, data) {
+		    printMessage("itemDeleting", data);
+		}
+
+		function itemDeleted(event, data) {
+		    printMessage("itemDeleted", data);
+		}
+
+		function itemPasting(event, data) {
+		    printMessage("itemPasting", data);
+		}
+
+		function itemPasted(event, data) {
+		    printMessage("itemPasted", data);
+		}
+
+		function itemMoving(event, data) {
+		    printMessage("itemMoving", data);
+		}
+
+		function itemMoved(event, data) {
+		    printMessage("itemMoved", data);
+		}
+
+		function newFolderCreating(event, data) {
+		    printMessage("newFolderCreating", data);
+		}
+
+		function newFolderCreated(event, data) {
+		    printMessage("newFolderCreated", data);
+		}
+
+		function folderChanged(event, data) {
+		    printMessage("folderChanged", data);
+		}
+
+		function folderLoaded(event, data) {
+		    printMessage("folderLoaded", data);
+		}
+
+		function errorOccurred(event, data) {
+		    printMessage("errorOccurred", data);
+		}
+
+		function itemSelected(event, data) {
+		    printMessage("itemSelected", data);
+		}
+
+		function filtering(event, data) {
+		    printMessage("filtering", data);
+		}
+
+		function filtered(event, data) {
+		    printMessage("filtered", data);
+		}
+	</script>
+</head>
+
+<body class="demo-single">
+	<div class="container">
+		<div class="header">
+			<h2>Events</h2>
+		</div>
+
+		<div class="main demo">
+
+			<!-- Begin demo markup -->
+			<div>
+				<div id="fileexplorer">
+				</div>
+				<br />
+
+				<!--<textarea id="output" rows="6" style="width: 100%;" wrap="off" readonly="readonly"></textarea>-->
+                <div id="sampleLog"></div>
+			</div>
+			<!-- End demo markup -->
+
+			<div class="demo-options">
+				<!-- Begin options markup -->
+				<!-- End options markup -->
+			</div>
+		</div>
+
+		<div class="footer demo-description">
+			<p>
+				Wijmo <strong>FileExplorer</strong> widget provides following events:
+			</p>
+
+			<ul>
+				<li>errorOccurred - fired when an error occurs.</li>
+				<li>fileOpened - fired after a file is opened.</li>
+				<li>fileOpening - fired before a file is opened.</li>
+				<li>filtered - fired after filtering.</li>
+				<li>filtering - fired before filtering.</li>
+				<li>folderChanged - fired after current active folder is changed.</li>
+				<li>folderLoaded - fired after a folder content is loaded.</li>
+				<li>itemCopied - fired after an item is copied.</li>
+				<li>itemCopying - fired before an item is copied.</li>
+				<li>itemDeleted - fired after an item is deleted.</li>
+				<li>itemDeleting - fired before an item is deleted.</li>
+				<li>itemMoved - fired after an item is moved.</li>
+				<li>itemMoving - fired before an item is moved.</li>
+				<li>itemPasted - fired after an item is pasted.</li>
+				<li>itemPasting - fired before an item is pasted.</li>
+				<li>itemRenamed - fired after an item is renamed.</li>
+				<li>itemRenaming - fired after an item is renamed.</li>
+				<li>itemSelected - fired after the node is selected.</li>
+				<li>newFolderCreated - fired after a new folder is created.</li>
+				<li>newFolderCreating - fired before a new folder is created.</li>
+			</ul>
+			<p></p>
+			<p>
+				In this demo, when performing different actions, the log will list the wijfileexplorer events and target folder/file.
+			</p>
+		</div>
+	</div>
+</body>
+</html>

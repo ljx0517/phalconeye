@@ -26,3 +26,309 @@
 #1 E:\xampp\xampp\htdocs\PhalconEye\public\index.php(70): Engine\Application->getOutput()
 #2 {main}
 
+[Wed, 31 Dec 14 11:07:16 +0100][ERROR] <W6NhtfH> [Exception] Syntax error, unexpected token {% in E:\xampp\xampp\htdocs\PhalconEye/app/modules/Core/View/AdminIndex/index.volt on line 26 (File: E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php Line: [217])#0 [internal function]: Phalcon\Mvc\View\Engine\Volt\Compiler->_compileSource('{#\n  +---------...', false)
+#1 [internal function]: Phalcon\Mvc\View\Engine\Volt\Compiler->compileFile('E:\\xampp\\xampp\\...', 'E:\\xampp\\xampp\\...', false)
+#2 [internal function]: Phalcon\Mvc\View\Engine\Volt\Compiler->compile('E:\\xampp\\xampp\\...')
+#3 [internal function]: Phalcon\Mvc\View\Engine\Volt->render('E:\\xampp\\xampp\\...', Array, true)
+#4 [internal function]: Phalcon\Mvc\View->_engineRender(Array, 'AdminIndex/inde...', true, true, NULL)
+#5 [internal function]: Phalcon\Mvc\View->render('AdminIndex', 'index', Array)
+#6 E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php(217): Phalcon\Mvc\Application->handle()
+#7 E:\xampp\xampp\htdocs\PhalconEye\public\index.php(70): Engine\Application->getOutput()
+#8 {main}
+
+[Wed, 31 Dec 14 11:07:19 +0100][ERROR] <SvJBGpX> [Exception] Syntax error, unexpected token {% in E:\xampp\xampp\htdocs\PhalconEye/app/modules/Core/View/AdminIndex/index.volt on line 26 (File: E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php Line: [217])#0 [internal function]: Phalcon\Mvc\View\Engine\Volt\Compiler->_compileSource('{#\n  +---------...', false)
+#1 [internal function]: Phalcon\Mvc\View\Engine\Volt\Compiler->compileFile('E:\\xampp\\xampp\\...', 'E:\\xampp\\xampp\\...', false)
+#2 [internal function]: Phalcon\Mvc\View\Engine\Volt\Compiler->compile('E:\\xampp\\xampp\\...')
+#3 [internal function]: Phalcon\Mvc\View\Engine\Volt->render('E:\\xampp\\xampp\\...', Array, true)
+#4 [internal function]: Phalcon\Mvc\View->_engineRender(Array, 'AdminIndex/inde...', true, true, NULL)
+#5 [internal function]: Phalcon\Mvc\View->render('AdminIndex', 'index', Array)
+#6 E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php(217): Phalcon\Mvc\Application->handle()
+#7 E:\xampp\xampp\htdocs\PhalconEye\public\index.php(70): Engine\Application->getOutput()
+#8 {main}
+
+[Wed, 31 Dec 14 11:18:30 +0100][ERROR] <SjPfLr8> [Exception] Extends statement must be placed at the first line in the template in E:\xampp\xampp\htdocs\PhalconEye/app/modules/Core/View/AdminIndex/index.volt on line 20 (File: E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php Line: [217])#0 [internal function]: Phalcon\Mvc\View\Engine\Volt\Compiler->_compileSource('{#\n  +---------...', false)
+#1 [internal function]: Phalcon\Mvc\View\Engine\Volt\Compiler->compileFile('E:\\xampp\\xampp\\...', 'E:\\xampp\\xampp\\...', false)
+#2 [internal function]: Phalcon\Mvc\View\Engine\Volt\Compiler->compile('E:\\xampp\\xampp\\...')
+#3 [internal function]: Phalcon\Mvc\View\Engine\Volt->render('E:\\xampp\\xampp\\...', Array, true)
+#4 [internal function]: Phalcon\Mvc\View->_engineRender(Array, 'AdminIndex/inde...', true, true, NULL)
+#5 [internal function]: Phalcon\Mvc\View->render('AdminIndex', 'index', Array)
+#6 E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php(217): Phalcon\Mvc\Application->handle()
+#7 E:\xampp\xampp\htdocs\PhalconEye\public\index.php(70): Engine\Application->getOutput()
+#8 {main}
+
+[Wed, 31 Dec 14 11:22:48 +0100][ERROR] <G9mdO2z> [Exception] Scanning error before ' }}
+{% endblock ...' in E:\xampp\xampp\htdocs\PhalconEye/app/modules/Core/View/AdminIndex/index.volt on line 23 (File: E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php Line: [217])#0 [internal function]: Phalcon\Mvc\View\Engine\Volt\Compiler->_compileSource('{#\n  +---------...', false)
+#1 [internal function]: Phalcon\Mvc\View\Engine\Volt\Compiler->compileFile('E:\\xampp\\xampp\\...', 'E:\\xampp\\xampp\\...', false)
+#2 [internal function]: Phalcon\Mvc\View\Engine\Volt\Compiler->compile('E:\\xampp\\xampp\\...')
+#3 [internal function]: Phalcon\Mvc\View\Engine\Volt->render('E:\\xampp\\xampp\\...', Array, true)
+#4 [internal function]: Phalcon\Mvc\View->_engineRender(Array, 'AdminIndex/inde...', true, true, NULL)
+#5 [internal function]: Phalcon\Mvc\View->render('AdminIndex', 'index', Array)
+#6 E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php(217): Phalcon\Mvc\Application->handle()
+#7 E:\xampp\xampp\htdocs\PhalconEye\public\index.php(70): Engine\Application->getOutput()
+#8 {main}
+
+[Wed, 31 Dec 14 11:22:55 +0100][ERROR] <EoYcCzB> [Exception] Scanning error before ' }}
+{% endblock ...' in E:\xampp\xampp\htdocs\PhalconEye/app/modules/Core/View/AdminIndex/index.volt on line 23 (File: E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php Line: [217])#0 [internal function]: Phalcon\Mvc\View\Engine\Volt\Compiler->_compileSource('{#\n  +---------...', false)
+#1 [internal function]: Phalcon\Mvc\View\Engine\Volt\Compiler->compileFile('E:\\xampp\\xampp\\...', 'E:\\xampp\\xampp\\...', false)
+#2 [internal function]: Phalcon\Mvc\View\Engine\Volt\Compiler->compile('E:\\xampp\\xampp\\...')
+#3 [internal function]: Phalcon\Mvc\View\Engine\Volt->render('E:\\xampp\\xampp\\...', Array, true)
+#4 [internal function]: Phalcon\Mvc\View->_engineRender(Array, 'AdminIndex/inde...', true, true, NULL)
+#5 [internal function]: Phalcon\Mvc\View->render('AdminIndex', 'index', Array)
+#6 E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php(217): Phalcon\Mvc\Application->handle()
+#7 E:\xampp\xampp\htdocs\PhalconEye\public\index.php(70): Engine\Application->getOutput()
+#8 {main}
+
+[Wed, 31 Dec 14 12:13:16 +0100][ERROR] <LQBRwoi> [Exception] Undefined variable: headerNavigation (File: E:\xampp\xampp\htdocs\PhalconEye\app\var\cache\view\e__xampp_xampp_htdocs_phalconeye_app_modules_core_view_adminindex_index.volt.php Line: [375])#0 E:\xampp\xampp\htdocs\PhalconEye\app\var\cache\view\e__xampp_xampp_htdocs_phalconeye_app_modules_core_view_adminindex_index.volt.php(375): Engine\Application->Engine\{closure}(8, 'Undefined varia...', 'E:\\xampp\\xampp\\...', 375, Array)
+#1 [internal function]: Phalcon\Mvc\View\Engine\Volt->render('E:\\xampp\\xampp\\...', Array, true)
+#2 [internal function]: Phalcon\Mvc\View->_engineRender(Array, 'AdminIndex/inde...', true, true, NULL)
+#3 [internal function]: Phalcon\Mvc\View->render('AdminIndex', 'index', Array)
+#4 E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php(217): Phalcon\Mvc\Application->handle()
+#5 E:\xampp\xampp\htdocs\PhalconEye\public\index.php(70): Engine\Application->getOutput()
+#6 {main}
+
+[Wed, 31 Dec 14 12:13:24 +0100][ERROR] <AXId8jZ> [Exception] Undefined variable: headerNavigation (File: E:\xampp\xampp\htdocs\PhalconEye\app\var\cache\view\e__xampp_xampp_htdocs_phalconeye_app_modules_core_view_adminindex_index.volt.php Line: [375])#0 E:\xampp\xampp\htdocs\PhalconEye\app\var\cache\view\e__xampp_xampp_htdocs_phalconeye_app_modules_core_view_adminindex_index.volt.php(375): Engine\Application->Engine\{closure}(8, 'Undefined varia...', 'E:\\xampp\\xampp\\...', 375, Array)
+#1 [internal function]: Phalcon\Mvc\View\Engine\Volt->render('E:\\xampp\\xampp\\...', Array, true)
+#2 [internal function]: Phalcon\Mvc\View->_engineRender(Array, 'AdminIndex/inde...', true, true, NULL)
+#3 [internal function]: Phalcon\Mvc\View->render('AdminIndex', 'index', Array)
+#4 E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php(217): Phalcon\Mvc\Application->handle()
+#5 E:\xampp\xampp\htdocs\PhalconEye\public\index.php(70): Engine\Application->getOutput()
+#6 {main}
+
+[Wed, 31 Dec 14 12:13:26 +0100][ERROR] <Ow0pb1j> [Exception] Undefined variable: headerNavigation (File: E:\xampp\xampp\htdocs\PhalconEye\app\var\cache\view\e__xampp_xampp_htdocs_phalconeye_app_modules_core_view_adminindex_index.volt.php Line: [375])#0 E:\xampp\xampp\htdocs\PhalconEye\app\var\cache\view\e__xampp_xampp_htdocs_phalconeye_app_modules_core_view_adminindex_index.volt.php(375): Engine\Application->Engine\{closure}(8, 'Undefined varia...', 'E:\\xampp\\xampp\\...', 375, Array)
+#1 [internal function]: Phalcon\Mvc\View\Engine\Volt->render('E:\\xampp\\xampp\\...', Array, true)
+#2 [internal function]: Phalcon\Mvc\View->_engineRender(Array, 'AdminIndex/inde...', true, true, NULL)
+#3 [internal function]: Phalcon\Mvc\View->render('AdminIndex', 'index', Array)
+#4 E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php(217): Phalcon\Mvc\Application->handle()
+#5 E:\xampp\xampp\htdocs\PhalconEye\public\index.php(70): Engine\Application->getOutput()
+#6 {main}
+
+[Wed, 31 Dec 14 12:13:28 +0100][ERROR] <ixkT3v9> [Exception] Undefined variable: headerNavigation (File: E:\xampp\xampp\htdocs\PhalconEye\app\var\cache\view\e__xampp_xampp_htdocs_phalconeye_app_modules_core_view_adminindex_index.volt.php Line: [375])#0 E:\xampp\xampp\htdocs\PhalconEye\app\var\cache\view\e__xampp_xampp_htdocs_phalconeye_app_modules_core_view_adminindex_index.volt.php(375): Engine\Application->Engine\{closure}(8, 'Undefined varia...', 'E:\\xampp\\xampp\\...', 375, Array)
+#1 [internal function]: Phalcon\Mvc\View\Engine\Volt->render('E:\\xampp\\xampp\\...', Array, true)
+#2 [internal function]: Phalcon\Mvc\View->_engineRender(Array, 'AdminIndex/inde...', true, true, NULL)
+#3 [internal function]: Phalcon\Mvc\View->render('AdminIndex', 'index', Array)
+#4 E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php(217): Phalcon\Mvc\Application->handle()
+#5 E:\xampp\xampp\htdocs\PhalconEye\public\index.php(70): Engine\Application->getOutput()
+#6 {main}
+
+[Wed, 31 Dec 14 12:13:30 +0100][ERROR] <1Hub7P5> [Exception] Undefined variable: headerNavigation (File: E:\xampp\xampp\htdocs\PhalconEye\app\var\cache\view\e__xampp_xampp_htdocs_phalconeye_app_modules_core_view_adminindex_index.volt.php Line: [375])#0 E:\xampp\xampp\htdocs\PhalconEye\app\var\cache\view\e__xampp_xampp_htdocs_phalconeye_app_modules_core_view_adminindex_index.volt.php(375): Engine\Application->Engine\{closure}(8, 'Undefined varia...', 'E:\\xampp\\xampp\\...', 375, Array)
+#1 [internal function]: Phalcon\Mvc\View\Engine\Volt->render('E:\\xampp\\xampp\\...', Array, true)
+#2 [internal function]: Phalcon\Mvc\View->_engineRender(Array, 'AdminIndex/inde...', true, true, NULL)
+#3 [internal function]: Phalcon\Mvc\View->render('AdminIndex', 'index', Array)
+#4 E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php(217): Phalcon\Mvc\Application->handle()
+#5 E:\xampp\xampp\htdocs\PhalconEye\public\index.php(70): Engine\Application->getOutput()
+#6 {main}
+
+[Wed, 31 Dec 14 12:15:12 +0100][ERROR] <E7YvKx0> [Exception] Undefined variable: headerNavigation (File: E:\xampp\xampp\htdocs\PhalconEye\app\var\cache\view\e__xampp_xampp_htdocs_phalconeye_app_modules_core_view_adminindex_index.volt.php Line: [375])#0 E:\xampp\xampp\htdocs\PhalconEye\app\var\cache\view\e__xampp_xampp_htdocs_phalconeye_app_modules_core_view_adminindex_index.volt.php(375): Engine\Application->Engine\{closure}(8, 'Undefined varia...', 'E:\\xampp\\xampp\\...', 375, Array)
+#1 [internal function]: Phalcon\Mvc\View\Engine\Volt->render('E:\\xampp\\xampp\\...', Array, true)
+#2 [internal function]: Phalcon\Mvc\View->_engineRender(Array, 'AdminIndex/inde...', true, true, NULL)
+#3 [internal function]: Phalcon\Mvc\View->render('AdminIndex', 'index', Array)
+#4 E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php(217): Phalcon\Mvc\Application->handle()
+#5 E:\xampp\xampp\htdocs\PhalconEye\public\index.php(70): Engine\Application->getOutput()
+#6 {main}
+
+[Wed, 31 Dec 14 12:15:59 +0100][ERROR] <Cwlf4Fz> [Exception] Undefined variable: headerNavigation (File: E:\xampp\xampp\htdocs\PhalconEye\app\var\cache\view\e__xampp_xampp_htdocs_phalconeye_app_modules_core_view_adminindex_index.volt.php Line: [375])#0 E:\xampp\xampp\htdocs\PhalconEye\app\var\cache\view\e__xampp_xampp_htdocs_phalconeye_app_modules_core_view_adminindex_index.volt.php(375): Engine\Application->Engine\{closure}(8, 'Undefined varia...', 'E:\\xampp\\xampp\\...', 375, Array)
+#1 [internal function]: Phalcon\Mvc\View\Engine\Volt->render('E:\\xampp\\xampp\\...', Array, true)
+#2 [internal function]: Phalcon\Mvc\View->_engineRender(Array, 'AdminIndex/inde...', true, true, NULL)
+#3 [internal function]: Phalcon\Mvc\View->render('AdminIndex', 'index', Array)
+#4 E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php(217): Phalcon\Mvc\Application->handle()
+#5 E:\xampp\xampp\htdocs\PhalconEye\public\index.php(70): Engine\Application->getOutput()
+#6 {main}
+
+[Wed, 31 Dec 14 12:28:19 +0100][ERROR] <9VkhgRw> [Exception] Invalid argument supplied for foreach() (File: E:\xampp\xampp\htdocs\PhalconEye\app\engine\Grid\Source\BuilderResolver.php Line: [81])#0 E:\xampp\xampp\htdocs\PhalconEye\app\engine\Grid\Source\BuilderResolver.php(81): Engine\Application->Engine\{closure}(2, 'Invalid argumen...', 'E:\\xampp\\xampp\\...', 81, Array)
+#1 E:\xampp\xampp\htdocs\PhalconEye\app\engine\Grid\Source\BuilderResolver.php(56): Engine\Grid\Source\BuilderResolver->_applyFilter(Object(Phalcon\Mvc\Model\Query\Builder))
+#2 E:\xampp\xampp\htdocs\PhalconEye\app\engine\Grid\AbstractGrid.php(127): Engine\Grid\Source\BuilderResolver->resolve(Object(Phalcon\Mvc\Model\Query\Builder))
+#3 E:\xampp\xampp\htdocs\PhalconEye\app\modules\User\Controller\AdminUsersController.php(99): Engine\Grid\AbstractGrid->__construct(Object(Engine\View))
+#4 [internal function]: User\Controller\AdminUsersController->indexAction()
+#5 E:\xampp\xampp\htdocs\PhalconEye\app\engine\Dispatcher.php(68): Phalcon\Dispatcher->dispatch()
+#6 [internal function]: Engine\Dispatcher->dispatch()
+#7 E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php(217): Phalcon\Mvc\Application->handle()
+#8 E:\xampp\xampp\htdocs\PhalconEye\public\index.php(70): Engine\Application->getOutput()
+#9 {main}
+
+[Wed, 31 Dec 14 12:28:40 +0100][ERROR] <I6NqYO0> [Exception] Undefined variable: grid (File: E:\xampp\xampp\htdocs\PhalconEye\app\var\cache\view\e__xampp_xampp_htdocs_phalconeye_app_modules_user_view_adminusers_index.volt.php Line: [421])#0 E:\xampp\xampp\htdocs\PhalconEye\app\var\cache\view\e__xampp_xampp_htdocs_phalconeye_app_modules_user_view_adminusers_index.volt.php(421): Engine\Application->Engine\{closure}(8, 'Undefined varia...', 'E:\\xampp\\xampp\\...', 421, Array)
+#1 [internal function]: Phalcon\Mvc\View\Engine\Volt->render('E:\\xampp\\xampp\\...', Array, true)
+#2 [internal function]: Phalcon\Mvc\View->_engineRender(Array, 'AdminUsers/inde...', true, true, NULL)
+#3 [internal function]: Phalcon\Mvc\View->render('AdminUsers', 'index', Array)
+#4 E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php(217): Phalcon\Mvc\Application->handle()
+#5 E:\xampp\xampp\htdocs\PhalconEye\public\index.php(70): Engine\Application->getOutput()
+#6 {main}
+
+[Wed, 31 Dec 14 12:29:41 +0100][ERROR] <27rBu3Q> [Exception] Undefined variable: grid (File: E:\xampp\xampp\htdocs\PhalconEye\app\var\cache\view\e__xampp_xampp_htdocs_phalconeye_app_modules_user_view_adminusers_index.volt.php Line: [421])#0 E:\xampp\xampp\htdocs\PhalconEye\app\var\cache\view\e__xampp_xampp_htdocs_phalconeye_app_modules_user_view_adminusers_index.volt.php(421): Engine\Application->Engine\{closure}(8, 'Undefined varia...', 'E:\\xampp\\xampp\\...', 421, Array)
+#1 [internal function]: Phalcon\Mvc\View\Engine\Volt->render('E:\\xampp\\xampp\\...', Array, true)
+#2 [internal function]: Phalcon\Mvc\View->_engineRender(Array, 'AdminUsers/inde...', true, true, NULL)
+#3 [internal function]: Phalcon\Mvc\View->render('AdminUsers', 'index', Array)
+#4 E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php(217): Phalcon\Mvc\Application->handle()
+#5 E:\xampp\xampp\htdocs\PhalconEye\public\index.php(70): Engine\Application->getOutput()
+#6 {main}
+
+[Wed, 31 Dec 14 12:30:12 +0100][ERROR] <OioVY7L> [Exception] Undefined variable: aaa (File: E:\xampp\xampp\htdocs\PhalconEye\app\var\cache\view\e__xampp_xampp_htdocs_phalconeye_app_modules_user_view_adminusers_index.volt.php Line: [422])#0 E:\xampp\xampp\htdocs\PhalconEye\app\var\cache\view\e__xampp_xampp_htdocs_phalconeye_app_modules_user_view_adminusers_index.volt.php(422): Engine\Application->Engine\{closure}(8, 'Undefined varia...', 'E:\\xampp\\xampp\\...', 422, Array)
+#1 [internal function]: Phalcon\Mvc\View\Engine\Volt->render('E:\\xampp\\xampp\\...', Array, true)
+#2 [internal function]: Phalcon\Mvc\View->_engineRender(Array, 'AdminUsers/inde...', true, true, NULL)
+#3 [internal function]: Phalcon\Mvc\View->render('AdminUsers', 'index', Array)
+#4 E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php(217): Phalcon\Mvc\Application->handle()
+#5 E:\xampp\xampp\htdocs\PhalconEye\public\index.php(70): Engine\Application->getOutput()
+#6 {main}
+
+[Wed, 31 Dec 14 12:30:13 +0100][ERROR] <ICrgwH6> [Exception] Undefined variable: aaa (File: E:\xampp\xampp\htdocs\PhalconEye\app\var\cache\view\e__xampp_xampp_htdocs_phalconeye_app_modules_user_view_adminusers_index.volt.php Line: [422])#0 E:\xampp\xampp\htdocs\PhalconEye\app\var\cache\view\e__xampp_xampp_htdocs_phalconeye_app_modules_user_view_adminusers_index.volt.php(422): Engine\Application->Engine\{closure}(8, 'Undefined varia...', 'E:\\xampp\\xampp\\...', 422, Array)
+#1 [internal function]: Phalcon\Mvc\View\Engine\Volt->render('E:\\xampp\\xampp\\...', Array, true)
+#2 [internal function]: Phalcon\Mvc\View->_engineRender(Array, 'AdminUsers/inde...', true, true, NULL)
+#3 [internal function]: Phalcon\Mvc\View->render('AdminUsers', 'index', Array)
+#4 E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php(217): Phalcon\Mvc\Application->handle()
+#5 E:\xampp\xampp\htdocs\PhalconEye\public\index.php(70): Engine\Application->getOutput()
+#6 {main}
+
+[Wed, 31 Dec 14 12:30:14 +0100][ERROR] <Emu2gcM> [Exception] Undefined variable: aaa (File: E:\xampp\xampp\htdocs\PhalconEye\app\var\cache\view\e__xampp_xampp_htdocs_phalconeye_app_modules_user_view_adminusers_index.volt.php Line: [422])#0 E:\xampp\xampp\htdocs\PhalconEye\app\var\cache\view\e__xampp_xampp_htdocs_phalconeye_app_modules_user_view_adminusers_index.volt.php(422): Engine\Application->Engine\{closure}(8, 'Undefined varia...', 'E:\\xampp\\xampp\\...', 422, Array)
+#1 [internal function]: Phalcon\Mvc\View\Engine\Volt->render('E:\\xampp\\xampp\\...', Array, true)
+#2 [internal function]: Phalcon\Mvc\View->_engineRender(Array, 'AdminUsers/inde...', true, true, NULL)
+#3 [internal function]: Phalcon\Mvc\View->render('AdminUsers', 'index', Array)
+#4 E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php(217): Phalcon\Mvc\Application->handle()
+#5 E:\xampp\xampp\htdocs\PhalconEye\public\index.php(70): Engine\Application->getOutput()
+#6 {main}
+
+[Wed, 31 Dec 14 12:30:28 +0100][ERROR] <l23Jv6A> [Exception] Undefined variable: aaa (File: E:\xampp\xampp\htdocs\PhalconEye\app\var\cache\view\e__xampp_xampp_htdocs_phalconeye_app_modules_user_view_adminusers_index.volt.php Line: [422])#0 E:\xampp\xampp\htdocs\PhalconEye\app\var\cache\view\e__xampp_xampp_htdocs_phalconeye_app_modules_user_view_adminusers_index.volt.php(422): Engine\Application->Engine\{closure}(8, 'Undefined varia...', 'E:\\xampp\\xampp\\...', 422, Array)
+#1 [internal function]: Phalcon\Mvc\View\Engine\Volt->render('E:\\xampp\\xampp\\...', Array, true)
+#2 [internal function]: Phalcon\Mvc\View->_engineRender(Array, 'AdminUsers/inde...', true, true, NULL)
+#3 [internal function]: Phalcon\Mvc\View->render('AdminUsers', 'index', Array)
+#4 E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php(217): Phalcon\Mvc\Application->handle()
+#5 E:\xampp\xampp\htdocs\PhalconEye\public\index.php(70): Engine\Application->getOutput()
+#6 {main}
+
+[Wed, 31 Dec 14 12:41:48 +0100][ERROR] <xQyaBZD> [Exception] Non-free jsminifier not available (File: E:\xampp\xampp\htdocs\PhalconEye\app\engine\Asset\Manager.php Line: [336])#0 [internal function]: Phalcon\Assets\Filters\Jsmin->filter('/*!\n * jQuery J...')
+#1 [internal function]: Phalcon\Assets\Manager->output(Object(Phalcon\Assets\Collection), Array, 'js')
+#2 E:\xampp\xampp\htdocs\PhalconEye\app\engine\Asset\Manager.php(336): Phalcon\Assets\Manager->outputJs('js')
+#3 E:\xampp\xampp\htdocs\PhalconEye\app\var\cache\view\e__xampp_xampp_htdocs_phalconeye_app_modules_user_view_adminusers_index.volt.php(22): Engine\Asset\Manager->outputJs()
+#4 [internal function]: Phalcon\Mvc\View\Engine\Volt->render('E:\\xampp\\xampp\\...', Array, true)
+#5 [internal function]: Phalcon\Mvc\View->_engineRender(Array, 'AdminUsers/inde...', true, true, NULL)
+#6 [internal function]: Phalcon\Mvc\View->render('AdminUsers', 'index', Array)
+#7 E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php(217): Phalcon\Mvc\Application->handle()
+#8 E:\xampp\xampp\htdocs\PhalconEye\public\index.php(70): Engine\Application->getOutput()
+#9 {main}
+
+[Wed, 31 Dec 14 12:43:38 +0100][ERROR] <fpgLQtG> [Exception] Syntax error, unexpected token COLON in E:\xampp\xampp\htdocs\PhalconEye/app/modules/Core/View/AdminIndex/index.volt on line 26 (File: E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php Line: [217])#0 [internal function]: Phalcon\Mvc\View\Engine\Volt\Compiler->_compileSource('{#\n  +---------...', false)
+#1 [internal function]: Phalcon\Mvc\View\Engine\Volt\Compiler->compileFile('E:\\xampp\\xampp\\...', 'E:\\xampp\\xampp\\...', false)
+#2 [internal function]: Phalcon\Mvc\View\Engine\Volt\Compiler->compile('E:\\xampp\\xampp\\...')
+#3 [internal function]: Phalcon\Mvc\View\Engine\Volt->render('E:\\xampp\\xampp\\...', Array, true)
+#4 [internal function]: Phalcon\Mvc\View->_engineRender(Array, 'AdminIndex/inde...', true, true, NULL)
+#5 [internal function]: Phalcon\Mvc\View->render('AdminIndex', 'index', Array)
+#6 E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php(217): Phalcon\Mvc\Application->handle()
+#7 E:\xampp\xampp\htdocs\PhalconEye\public\index.php(70): Engine\Application->getOutput()
+#8 {main}
+
+[Wed, 31 Dec 14 12:44:14 +0100][ERROR] <z9VUo2r> [Exception] Child templates only may contain blocks in E:\xampp\xampp\htdocs\PhalconEye/app/modules/Core/View/AdminIndex/index.volt on line 31 (File: E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php Line: [217])#0 [internal function]: Phalcon\Mvc\View\Engine\Volt\Compiler->_compileSource('{#\n  +---------...', false)
+#1 [internal function]: Phalcon\Mvc\View\Engine\Volt\Compiler->compileFile('E:\\xampp\\xampp\\...', 'E:\\xampp\\xampp\\...', false)
+#2 [internal function]: Phalcon\Mvc\View\Engine\Volt\Compiler->compile('E:\\xampp\\xampp\\...')
+#3 [internal function]: Phalcon\Mvc\View\Engine\Volt->render('E:\\xampp\\xampp\\...', Array, true)
+#4 [internal function]: Phalcon\Mvc\View->_engineRender(Array, 'AdminIndex/inde...', true, true, NULL)
+#5 [internal function]: Phalcon\Mvc\View->render('AdminIndex', 'index', Array)
+#6 E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php(217): Phalcon\Mvc\Application->handle()
+#7 E:\xampp\xampp\htdocs\PhalconEye\public\index.php(70): Engine\Application->getOutput()
+#8 {main}
+
+[Wed, 31 Dec 14 13:00:11 +0100][ERROR] <CADWiVz> [Exception] Collection-Id must be a string (File: E:\xampp\xampp\htdocs\PhalconEye\app\modules\Core\Controller\AbstractAdminController.php Line: [196])#0 E:\xampp\xampp\htdocs\PhalconEye\app\modules\Core\Controller\AbstractAdminController.php(196): Phalcon\Assets\Manager->get(Object(Phalcon\Assets\Collection))
+#1 E:\xampp\xampp\htdocs\PhalconEye\app\modules\Core\Controller\AbstractController.php(71): Core\Controller\AbstractAdminController->_setupAssets()
+#2 E:\xampp\xampp\htdocs\PhalconEye\app\modules\Core\Controller\AbstractAdminController.php(46): Core\Controller\AbstractController->initialize()
+#3 [internal function]: Core\Controller\AbstractAdminController->initialize()
+#4 E:\xampp\xampp\htdocs\PhalconEye\app\engine\Dispatcher.php(68): Phalcon\Dispatcher->dispatch()
+#5 [internal function]: Engine\Dispatcher->dispatch()
+#6 E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php(217): Phalcon\Mvc\Application->handle()
+#7 E:\xampp\xampp\htdocs\PhalconEye\public\index.php(70): Engine\Application->getOutput()
+#8 {main}
+
+[Wed, 31 Dec 14 13:00:18 +0100][ERROR] <9iwX4zr> [Exception] Collection-Id must be a string (File: E:\xampp\xampp\htdocs\PhalconEye\app\modules\Core\Controller\AbstractAdminController.php Line: [196])#0 E:\xampp\xampp\htdocs\PhalconEye\app\modules\Core\Controller\AbstractAdminController.php(196): Phalcon\Assets\Manager->get(Object(Phalcon\Assets\Collection))
+#1 E:\xampp\xampp\htdocs\PhalconEye\app\modules\Core\Controller\AbstractController.php(71): Core\Controller\AbstractAdminController->_setupAssets()
+#2 E:\xampp\xampp\htdocs\PhalconEye\app\modules\Core\Controller\AbstractAdminController.php(46): Core\Controller\AbstractController->initialize()
+#3 [internal function]: Core\Controller\AbstractAdminController->initialize()
+#4 E:\xampp\xampp\htdocs\PhalconEye\app\engine\Dispatcher.php(68): Phalcon\Dispatcher->dispatch()
+#5 [internal function]: Engine\Dispatcher->dispatch()
+#6 E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php(217): Phalcon\Mvc\Application->handle()
+#7 E:\xampp\xampp\htdocs\PhalconEye\public\index.php(70): Engine\Application->getOutput()
+#8 {main}
+
+[Wed, 31 Dec 14 13:00:59 +0100][ERROR] <xsClASd> [Exception] Module admin is not registered in the application container (File: E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php Line: [217])#0 E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php(217): Phalcon\Mvc\Application->handle()
+#1 E:\xampp\xampp\htdocs\PhalconEye\public\index.php(70): Engine\Application->getOutput()
+#2 {main}
+
+[Wed, 31 Dec 14 13:01:00 +0100][ERROR] <a8XxKmn> [Exception] Module themes is not registered in the application container (File: E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php Line: [217])#0 E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php(217): Phalcon\Mvc\Application->handle()
+#1 E:\xampp\xampp\htdocs\PhalconEye\public\index.php(70): Engine\Application->getOutput()
+#2 {main}
+
+[Wed, 31 Dec 14 13:42:09 +0100][ERROR] <Nfr2HY5> [Exception] Module admin is not registered in the application container (File: E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php Line: [217])#0 E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php(217): Phalcon\Mvc\Application->handle()
+#1 E:\xampp\xampp\htdocs\PhalconEye\public\index.php(70): Engine\Application->getOutput()
+#2 {main}
+
+[Wed, 31 Dec 14 13:42:11 +0100][ERROR] <xZ0kQg5> [Exception] Module themes is not registered in the application container (File: E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php Line: [217])#0 E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php(217): Phalcon\Mvc\Application->handle()
+#1 E:\xampp\xampp\htdocs\PhalconEye\public\index.php(70): Engine\Application->getOutput()
+#2 {main}
+
+[Wed, 31 Dec 14 14:12:16 +0100][ERROR] <SlOF6a2> [Exception] Module themes is not registered in the application container (File: E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php Line: [217])#0 E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php(217): Phalcon\Mvc\Application->handle()
+#1 E:\xampp\xampp\htdocs\PhalconEye\public\index.php(70): Engine\Application->getOutput()
+#2 {main}
+
+[Wed, 31 Dec 14 14:12:49 +0100][ERROR] <UpZBx15> [Exception] Module themes is not registered in the application container (File: E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php Line: [217])#0 E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php(217): Phalcon\Mvc\Application->handle()
+#1 E:\xampp\xampp\htdocs\PhalconEye\public\index.php(70): Engine\Application->getOutput()
+#2 {main}
+
+[Wed, 31 Dec 14 14:14:48 +0100][ERROR] <LZ9FhfX> [Exception] Module themes is not registered in the application container (File: E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php Line: [217])#0 E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php(217): Phalcon\Mvc\Application->handle()
+#1 E:\xampp\xampp\htdocs\PhalconEye\public\index.php(70): Engine\Application->getOutput()
+#2 {main}
+
+[Wed, 31 Dec 14 14:15:52 +0100][ERROR] <ZfMAXmB> [Exception] Module themes is not registered in the application container (File: E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php Line: [217])#0 E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php(217): Phalcon\Mvc\Application->handle()
+#1 E:\xampp\xampp\htdocs\PhalconEye\public\index.php(70): Engine\Application->getOutput()
+#2 {main}
+
+[Wed, 31 Dec 14 14:16:05 +0100][ERROR] <A1TujQq> [Exception] Module themes is not registered in the application container (File: E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php Line: [217])#0 E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php(217): Phalcon\Mvc\Application->handle()
+#1 E:\xampp\xampp\htdocs\PhalconEye\public\index.php(70): Engine\Application->getOutput()
+#2 {main}
+
+[Wed, 31 Dec 14 14:16:08 +0100][ERROR] <EFNOADy> [Exception] Module admin is not registered in the application container (File: E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php Line: [217])#0 E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php(217): Phalcon\Mvc\Application->handle()
+#1 E:\xampp\xampp\htdocs\PhalconEye\public\index.php(70): Engine\Application->getOutput()
+#2 {main}
+
+[Wed, 31 Dec 14 14:16:09 +0100][ERROR] <KTijGk0> [Exception] Module themes is not registered in the application container (File: E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php Line: [217])#0 E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php(217): Phalcon\Mvc\Application->handle()
+#1 E:\xampp\xampp\htdocs\PhalconEye\public\index.php(70): Engine\Application->getOutput()
+#2 {main}
+
+[Wed, 31 Dec 14 14:16:47 +0100][ERROR] <tvz4sC0> [Exception] Module themes is not registered in the application container (File: E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php Line: [217])#0 E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php(217): Phalcon\Mvc\Application->handle()
+#1 E:\xampp\xampp\htdocs\PhalconEye\public\index.php(70): Engine\Application->getOutput()
+#2 {main}
+
+[Wed, 31 Dec 14 14:20:31 +0100][ERROR] <ZUITeuk> [Exception] Module themes is not registered in the application container (File: E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php Line: [217])#0 E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php(217): Phalcon\Mvc\Application->handle()
+#1 E:\xampp\xampp\htdocs\PhalconEye\public\index.php(70): Engine\Application->getOutput()
+#2 {main}
+
+[Wed, 31 Dec 14 14:21:21 +0100][ERROR] <BadlV1R> [Exception] Module themes is not registered in the application container (File: E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php Line: [217])#0 E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php(217): Phalcon\Mvc\Application->handle()
+#1 E:\xampp\xampp\htdocs\PhalconEye\public\index.php(70): Engine\Application->getOutput()
+#2 {main}
+
+[Wed, 31 Dec 14 14:23:29 +0100][ERROR] <W9NgMmY> [Exception] Module themes is not registered in the application container (File: E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php Line: [217])#0 E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php(217): Phalcon\Mvc\Application->handle()
+#1 E:\xampp\xampp\htdocs\PhalconEye\public\index.php(70): Engine\Application->getOutput()
+#2 {main}
+
+[Wed, 31 Dec 14 14:24:11 +0100][ERROR] <YAj0oCq> [Exception] Module themes is not registered in the application container (File: E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php Line: [217])#0 E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php(217): Phalcon\Mvc\Application->handle()
+#1 E:\xampp\xampp\htdocs\PhalconEye\public\index.php(70): Engine\Application->getOutput()
+#2 {main}
+
+[Wed, 31 Dec 14 14:24:26 +0100][ERROR] <Gtaz6VC> [Exception] Module themes is not registered in the application container (File: E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php Line: [217])#0 E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php(217): Phalcon\Mvc\Application->handle()
+#1 E:\xampp\xampp\htdocs\PhalconEye\public\index.php(70): Engine\Application->getOutput()
+#2 {main}
+
+[Wed, 31 Dec 14 14:28:37 +0100][ERROR] <pUQurka> [Exception] Module themes is not registered in the application container (File: E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php Line: [217])#0 E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php(217): Phalcon\Mvc\Application->handle()
+#1 E:\xampp\xampp\htdocs\PhalconEye\public\index.php(70): Engine\Application->getOutput()
+#2 {main}
+
+[Wed, 31 Dec 14 14:29:02 +0100][ERROR] <8kH32TB> [Exception] Module themes is not registered in the application container (File: E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php Line: [217])#0 E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php(217): Phalcon\Mvc\Application->handle()
+#1 E:\xampp\xampp\htdocs\PhalconEye\public\index.php(70): Engine\Application->getOutput()
+#2 {main}
+
+[Wed, 31 Dec 14 14:30:05 +0100][ERROR] <86gNIUm> [Exception] Module themes is not registered in the application container (File: E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php Line: [217])#0 E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php(217): Phalcon\Mvc\Application->handle()
+#1 E:\xampp\xampp\htdocs\PhalconEye\public\index.php(70): Engine\Application->getOutput()
+#2 {main}
+
+[Wed, 31 Dec 14 14:30:42 +0100][ERROR] <Av8MCYs> [Exception] Module themes is not registered in the application container (File: E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php Line: [217])#0 E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php(217): Phalcon\Mvc\Application->handle()
+#1 E:\xampp\xampp\htdocs\PhalconEye\public\index.php(70): Engine\Application->getOutput()
+#2 {main}
+
+[Wed, 31 Dec 14 14:31:18 +0100][ERROR] <F1MCNWp> [Exception] Module themes is not registered in the application container (File: E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php Line: [217])#0 E:\xampp\xampp\htdocs\PhalconEye\app\engine\Application.php(217): Phalcon\Mvc\Application->handle()
+#1 E:\xampp\xampp\htdocs\PhalconEye\public\index.php(70): Engine\Application->getOutput()
+#2 {main}
+

@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>AreaChart - Markers and symbols</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="%description%" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="ComponentOne" />
+
+    <link href="../../../../Themes/rocket/jquery-wijmo.css" rel="stylesheet" type="text/css" />
+    <link href="../../../../css/jquery.wijmo-pro.all.3.20143.59.min.css" rel="stylesheet" type="text/css" />
+    <script src="../../js/require.js" type="text/javascript"></script>
+    <script src="../../js/require.wijmo.config.js" type="text/javascript"></script>
+
+    <script id="scriptInit" type="text/javascript">
+        require(["wijmo.wijlinechart"], function () {
+            $(document).ready(function () {
+                $("#wijlinechart").wijlinechart({
+                    width: 756, height: 475,
+                    axis: {
+                        y: {
+                            text: "Average price (USD)"
+                        },
+                        x: {
+                            text: "Month"
+                        }
+                    },
+                    header: {
+                        text: "Amazon.com Inc. stocks 2012"
+                    },
+                    showChartLabels: false,
+                    hint: {
+                        content: function () {
+                            return this.label + '\n' + Globalize.format(this.x, "MMMM yyyy") + " : " + Globalize.format(this.y, "c2");
+                        },
+                    },
+                    seriesList: [{
+                        label: "Amazon",
+                        data: {
+                            x: [new Date('1/1/2012'), new Date('2/1/2012'), new Date('3/1/2012'), new Date('4/1/2012'), new Date('5/1/2012'), new Date('6/1/2012'), new Date('7/1/2012'), new Date('8/1/2012'), new Date('9/1/2012'), new Date('10/1/2012'), new Date('11/1/2012'), new Date('12/1/2012')],
+                            y: [194.44, 179, 202.51, 231.90, 212.91, 228.35, 233.30, 248.27, 254.32, 232.89, 252.05, 250.87]
+                        },
+                        markers: { // setup series markers
+                            visible: true, // show markers
+                            type: 'circle', // marker type
+                            symbol: [{ // display additional symbols in custom point
+                                index: 1,
+                                url: "http://cdn.wijmo.com/images/hatemo.png",
+                                width: 30,
+                                height: 30
+                            },
+                                {
+                                    index: 8, // zero-based point index (in 'data.y' array)
+                                    url: "http://cdn.wijmo.com/images/wijmo.png", // symbol image URL
+                                    width: 30, // image width
+                                    height: 30 // image height
+                                }]
+                        },
+                    }],
+                    seriesStyles: [{
+                        stroke: "#FFA41C", "stroke-width": 1, "stroke-opacity": 0.7
+                    }]
+                });
+            });
+        });
+
+        function changeProperties() {
+            var markerType = $("#selMarkerType").val(); // stroke pattern value
+
+            var seriesList = $("#wijlinechart").wijlinechart("option", "seriesList");
+
+            for (var i = seriesList.length - 1; i >= 0; i--) {
+                var series = seriesList[i];
+                series.markers.type = markerType;
+            };
+
+            $("#wijlinechart").wijlinechart("option", "seriesList", seriesList);
+        }
+    </script>
+</head>
+<body class="demo-single">
+    <div class="container">
+        <div class="header">
+            <h2>Table as DataSource</h2>
+        </div>
+        <div class="main demo">
+            <!-- Begin demo markup -->
+            <div id="wijlinechart">
+            </div>
+            <!-- End demo markup -->
+            <div class="demo-options">
+                <!-- Begin options markup -->
+                <label for="selMarkerType">
+                    Marker type:
+                </label>
+                <select id="selMarkerType">
+                    <option value="circle" selected="selected">circle</option>
+                    <option value="cross">cross</option>
+                    <option value="diamond">diamond</option>
+                    <option value="box">box</option>
+                    <option value="tri">tri</option>
+                    <option value="invertedTri">invertedTri</option>
+                </select>
+                <!--  Apply button -->
+                <input type="button" value="Apply" onclick="changeProperties()" />
+                <!-- End options markup -->
+            </div>
+        </div>
+        <div class="footer demo-description">
+            <p>
+                This sample demonstrates how easyly you can add additional distinctive features to graph lines using Wijmo Line Chart.
+            </p>
+            <h3>Test the features</h3>
+            <ul>
+                <li>Note the graph line has markers in each base point.</li>
+                <li>Note each line has red Wijmo logo in its lowest point and green one in the highest.</li>
+                <li>Play with 'marker type' option below to change base points visalization</li>
+                <li>Note the legend elements updating according to selected marker type option.</li>
+                <li>Go to the 'Sources' tab to see how to setup grid lines on your chart </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

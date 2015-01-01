@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Maps - Virtual Layer</title>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="description" content="%description%" />
+	<meta name="keywords" content="" />
+	<meta name="author" content="ComponentOne" />
+
+	<link href="../../../../Themes/rocket/jquery-wijmo.css" rel="stylesheet" type="text/css" />
+    <link href="../../../../css/jquery.wijmo-pro.all.3.20143.59.min.css" rel="stylesheet" type="text/css" />
+    <script src="../../js/require.js" type="text/javascript"></script>
+    <script src="../../js/require.wijmo.config.js" type="text/javascript"></script>
+	<script id="scriptInit" type="text/javascript">
+		require(["wijmo.wijmaps"], function () {
+			$(document).ready(function () {
+				$("#maps").wijmaps({
+					zoom: 2
+				});
+				
+				showVirtualLayer();
+			});
+		});
+
+		var factoriesDataBase,
+			minStoreZoom = 10,
+			storeSlices = Math.floor(Math.pow(2, minStoreZoom));
+
+		function showVirtualLayer() {
+			$.ajax({
+				url: "samples/maps/data/factories.json",
+				success: function (result) {
+					factoriesDataBase = result;
+					
+					$("#maps").wijmaps("option", {
+						layers: [
+							{
+								type: "virtual",
+								slices: [
+									{ latitudeSlices: 1, longitudeSlices: 1, zoom: 0 }
+								],
+								request: requestFactories
+							},
+        					{
+        						type: "items",
+      							request: requestOffices
+        					}
+        					,
+							{
+								type: "virtual",
+								slices: [
+									{ latitudeSlices: 1, longitudeSlices: 1, zoom: 0 },
+									{ latitudeSlices: storeSlices, longitudeSlices: storeSlices, zoom: minStoreZoom }
+								],
+								request: requestStores
+							}]
+					}).off(".layer");
+				},
+				dataType: "json"
+			});
+		}
+
+		// virtual layer for factories
+		function requestFactories(paper, zoom, maxZoom, lowerLeft, upperRight) {
+			var result = { items: [] },
+				factories = factoriesDataBase.factories,
+				len = factories.length;
+			for (var i = 0; i < len; i++) {
+				var factory = factories[i];
+				if (factory.longitude <= lowerLeft.x ||
+        			factory.longitude > upperRight.x ||
+        			factory.latitude <= lowerLeft.y ||
+        			factory.latitude > upperRight.y) {
+					continue;
+				}
+
+				var item = {
+					location: { x: factory.longitude, y: factory.latitude },
+					size: { width: 60, height: 60 }, pinpoint: { x: 30, y: 30 }
+				};
+
+				paper.setStart();
+				var img = paper.image("samples/maps/images/factory.png", 0, 0, 60, 60);
+				$(img.node).wijtooltip({ content: factory.name, position: { my: "left center", at: "right+30px top+30px" } });
+				
+				var set = paper.setFinish();
+				set.data("name", factory.name);
+				item.elements = set;
+
+				result.items.push(item);
+			}
+
+			return result;
+
+		}
+
+		// items layer for offices
+		function requestOffices(paper) {
+			var result = { items: [] },
+				offices = factoriesDataBase.offices,
+				len = offices.length;
+			
+			for (var i = 0; i < len; i++) {
+				var office = offices[i];
+
+				var item = {
+					location: { x: office.longitude, y: office.latitude },
+					size: { width: 60, height: 60 }, pinpoint: { x: 30, y: 30 }
+				};
+
+				paper.setStart();
+				var img = paper.image("samples/maps/images/office.png", 0, 0, 60, 60);
+				$(img.node).wijtooltip({ content: office.name, position: { my: "left center", at: "right+30px top+30px"} });
+				
+				paper.circle(50, 10, 10).attr("fill", "#222222");
+				paper.text(50, 10, office.stores).attr("fill", "white");
+				var set = paper.setFinish();
+				item.elements = set;
+				
+				result.items.push(item);
+			}
+
+			return result;
+		}
+
+		// virtual layer for stores
+		function requestStores(paper, minZoom, maxZoom, lowerLeft, upperRight) {
+			if (minZoom < minStoreZoom)
+				return null;
+
+			var result = { items: [] },
+				stores = factoriesDataBase.stores,
+				len = stores.length;
+			
+			for (var i = 0; i < len; i++) {
+				var store = stores[i];
+				if (store.longitude <= lowerLeft.x ||
+        			store.longitude > upperRight.x ||
+        			store.latitude <= lowerLeft.y ||
+        			store.latitude > upperRight.y) {
+					continue;
+				}
+
+				var item = {
+					location: { x: store.longitude, y: store.latitude },
+					size: { width: 60, height: 60 }, pinpoint: { x: 30, y: 30 }
+				};
+				
+				paper.setStart();
+				var img = paper.image("samples/maps/images/store.png", 0, 0, 60, 60);
+				$(img.node).wijtooltip({ content: store.name, position: { my: "left center", at: "right+30px top+30px" } });
+				
+				var set = paper.setFinish();
+				item.elements = set;
+				
+				result.items.push(item);
+			}
+
+			return result;
+		}
+		
+	</script>
+</head>
+
+<body class="demo-single">
+	<div class="container">
+		<div class="header">
+			<h2>Overview</h2>
+		</div>
+
+		<div class="main demo">
+
+			<!-- Begin demo markup -->
+			<div>
+				<div id="maps" style="width:756px; height: 475px;">
+				</div>
+			</div>
+			<!-- End demo markup -->
+
+			<div class="demo-options">
+				<!-- Begin options markup -->
+
+				<!-- End options markup -->
+			</div>
+		</div>
+
+		<div class="footer demo-description">
+			<p>
+				The sample shows how to use the virtual layer to show the factories/offices/stores.
+				At first, all factories and offices are shown on the map.  When you zoom in to 10, then all the stores will be shown on the map.
+			</p>
+		</div>
+	</div>
+</body>
+</html>

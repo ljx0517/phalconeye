@@ -1,0 +1,21 @@
+<div data-role="appviewpage">
+    <div data-role="header">
+        <a href="index.html" data-icon="back">Back</a>
+        <h2>
+            Windows Mediaplayer</h2>
+    </div>
+    <div data-role="content">
+        <!-- Begin demo markup -->
+       <a id="lightbox" data-role="wijlightbox" href="http://cdn.wijmo.com/movies/sample.mpeg" rel="wijlightbox;player=wmp"   width="600" height="450">
+				<img src="http://cdn.wijmo.com/images/mediaplayer.png" title="Movie" alt="Movie played by Windows Media Player" /></a> 
+
+         <script type="text/javascript">
+             $(document).one('wijappviewpageinit', function () {
+                 $("#lightbox").wijlightbox({
+                     controlsPosition: 'outside',
+                     textPosition: 'outside'
+                 });
+             });
+    </script>
+    </div>
+</div>

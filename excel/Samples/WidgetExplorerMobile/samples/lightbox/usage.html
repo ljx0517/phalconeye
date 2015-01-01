@@ -1,0 +1,68 @@
+<div data-role="appviewpage">
+    <div data-role="header">
+        <a href="index.html" data-icon="back">Back</a>
+        <h2>
+            Simple Links</h2>
+    </div>
+    <div data-role="content">
+        <!-- Begin demo markup -->
+        <h3>
+				Links + Images</h3>
+			<div id="lightbox" data-role="wijlightbox">
+				<a href="http://lorempixel.com/600/400/sports/1" rel="wijlightbox;player=img">
+					<img src="http://lorempixel.com/150/125/sports/1" title="Sports 1" alt="Sports 1" /></a>
+				<a href="http://lorempixel.com/600/400/sports/2" rel="wijlightbox;player=img">
+					<img src="http://lorempixel.com/150/125/sports/2" title="Sports 2" alt="Sports 2" /></a>
+				<a href="http://lorempixel.com/600/400/sports/3" rel="wijlightbox;player=img">
+					<img src="http://lorempixel.com/150/125/sports/3" title="Sports 3" alt="Sports 3" /></a>
+				<a href="http://lorempixel.com/600/400/sports/4" rel="wijlightbox;player=img">
+					<img src="http://lorempixel.com/150/125/sports/4" title="Sports 4" alt="Sports 4" /></a>
+			</div>
+			<h3>
+				Links + Images UL</h3>
+			<div id="lightbox2" data-role="wijlightbox">
+				<ul class="ui-helper-reset ui-helper-clearfix">
+					<li><a href="http://lorempixel.com/600/400/city/1" rel="wijlightbox;player=img">
+						<img src="http://lorempixel.com/150/125/city/1" title="Sports 1" alt="Sports 1" /></a></li>
+					<li><a href="http://lorempixel.com/600/400/city/2" rel="wijlightbox;player=img">
+						<img src="http://lorempixel.com/150/125/city/2" title="Sports 2" alt="Sports 2" /></a></li>
+					<li><a href="http://lorempixel.com/600/400/city/3" rel="wijlightbox;player=img">
+						<img src="http://lorempixel.com/150/125/city/3" title="Sports 3" alt="Sports 3" /></a></li>
+					<li><a href="http://lorempixel.com/600/400/city/4" rel="wijlightbox;player=img">
+						<img src="http://lorempixel.com/150/125/city/4" title="Sports 4" alt="Sports 4" /></a></li>
+				</ul>
+			</div>
+			<h3>
+				Links + Images Gallery</h3>
+			<div id="lightbox3" data-role="wijlightbox">
+				<a href="http://lorempixel.com/600/400/abstract/1" rel="wijlightbox[stock];player=img">
+					<img src="http://lorempixel.com/150/125/abstract/1" title="abstract 1" alt="abstract 1" /></a>
+				<a href="http://lorempixel.com/600/400/abstract/2" rel="wijlightbox[stock];player=img">
+					<img src="http://lorempixel.com/150/125/abstract/2" title="abstract 2" alt="abstract 2" /></a>
+				<a href="http://lorempixel.com/600/400/abstract/3" rel="wijlightbox[stock];player=img">
+					<img src="http://lorempixel.com/150/125/abstract/3" title="abstract 3" alt="abstract 3" /></a>
+				<a href="http://lorempixel.com/600/400/abstract/4" rel="wijlightbox[stock];player=img">
+					<img src="http://lorempixel.com/150/125/abstract/4" title="abstract 4" alt="abstract 4" /></a>
+			</div>
+			<h3>
+				No Wrapper</h3>
+			<a id="nowrap1" data-role="wijlightbox" href="http://lorempixel.com/600/400/nightlife/1" rel="wijlightbox;player=img">
+				<img src="http://lorempixel.com/150/125/nightlife/1" title="Night life" alt="Night life" /></a>
+			<h3>
+				No Wrapper with Lightbox compatibility</h3>
+			<a id="nowrap2"  data-role="wijlightbox" href="http://lorempixel.com/600/400/animals/1" rel="lightbox;player=img">
+				<img src="http://lorempixel.com/150/125/animals/1" title="Animals" alt="Animals" /></a>
+          <script type="text/javascript">
+              $(document).one('wijappviewpageinit', function () {
+                  $("#lightbox").wijlightbox();
+
+                  $("#lightbox2").wijlightbox();
+
+                  $("#lightbox3").wijlightbox();
+
+                  $("#nowrap1").wijlightbox();
+                  $("#nowrap2").wijlightbox();
+              });
+    </script>
+    </div>
+</div>

@@ -42,9 +42,9 @@ Purchase: http://wrapbootstrap.com
         {{ helper('i18n', 'core').render() }}
     </script>
 
-    {% block head %}
+	{% block head %}
 
-    {% endblock %}
+	{% endblock %}
 </head>
 <!-- /Head -->
 <!-- Body -->
@@ -857,9 +857,8 @@ Purchase: http://wrapbootstrap.com
                 <!-- Page Header -->
                 <div class="page-header position-relative">
                     <div class="header-title">
-                        <h1>
-                            Dashboard
-                        </h1>
+                        {% block header -%}
+    					{%- endblock %}
                     </div>
                     <!--Header Buttons-->
                     <div class="header-buttons">

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>BubbleChart - Symbols</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="%description%" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="ComponentOne" />
+
+    <link href="../../../../Themes/rocket/jquery-wijmo.css" rel="stylesheet" type="text/css" />
+    <link href="../../../../css/jquery.wijmo-pro.all.3.20143.59.min.css" rel="stylesheet" type="text/css" />
+    <script src="../../js/require.js" type="text/javascript"></script>
+    <script src="../../js/require.wijmo.config.js" type="text/javascript"></script>
+
+    <script id="scriptInit" type="text/javascript">
+        require(["wijmo.wijbubblechart"], function () {
+        $(document).ready(function () {
+            $("#wijbubblechart").wijbubblechart({
+                seriesList: [{
+                    label: "Market Share",
+                    data: {
+                        x: [1, 2, 3, 4, 5],
+                        y: [22.9, 39.7, 30.5, 4.0, 2.2],
+                        y1: [22.9, 39.7, 30.5, 4.0, 2.2]
+                    },
+                    markers: {
+                        symbol: [
+                                {
+                                    index: 0, // series element index
+                                    url: "http://cdn.wijmo.com/images/chrome.png" // symbol URL
+                                },
+                                {
+                                    index: 1,
+                                    url: "http://cdn.wijmo.com/images/firefox.png"
+                                },
+                                {
+                                    index: 2,
+                                    url: "http://cdn.wijmo.com/images/ie.png"
+                                },
+                                {
+                                    index: 3,
+                                    url: "http://cdn.wijmo.com/images/opera.png"
+                                },
+                                {
+                                    index: 4,
+                                    url: "http://cdn.wijmo.com/images/safari.png"
+                                }
+                        ]
+                    }
+                }],
+                legend: {
+                    visible: false
+                },
+                minimumSize: 12,
+                maximumSize: 24,
+                axis: {
+                    y: {
+                        autoMin: false,
+                        text: "Percent"
+                    },
+                    x: {
+                            autoMin: false
+                    }
+                },
+                hint: {
+                    content: function () {
+                        return this.data.y1 + "%";
+                    }
+                },
+                header: {
+                    text: "Browser Wars"
+                },
+                    seriesStyles: [{
+                        opacity: 0.5
+                    }],
+                chartLabel: {
+                    position: "outside"
+                    }
+            });
+        });
+        });
+    </script>
+</head>
+<body class="demo-single">
+    <div class="container">
+        <div class="header">
+            <h2>Symbols</h2>
+        </div>
+        <div class="main demo">
+            <!-- Begin demo markup -->
+            <div id="wijbubblechart" class="ui-widget ui-widget-content ui-corner-all" style="width: 756px; height: 475px;">
+            </div>
+            <!-- End demo markup -->
+            <div class="demo-options">
+                <!-- Begin options markup -->
+                <!-- End options markup -->
+            </div>
+        </div>
+        <div class="footer demo-description">
+            <p>
+                Whant to use custom marker for your bubble chart? Wijmo allows you to use any image for this!
+                Just use <b>markers</b> to customize the gauge background image.
+            </p>
+            <h3>Test the features</h3>
+            <ul>
+                <li>Note buubles have different icons according to the presenting information</li>
+                <li>Go to the 'Sources' tab to see how to setup custom markers for your series</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

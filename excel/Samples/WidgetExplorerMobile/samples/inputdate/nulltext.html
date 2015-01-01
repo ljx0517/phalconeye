@@ -1,0 +1,36 @@
+<div data-role="appviewpage" data-title="Input Date - Null text">
+
+	<style type="text/css">
+		#textbox2
+		{
+			width: 200px;
+		}
+		#textbox3
+		{
+			width: 240px;
+		}
+	</style>
+
+    <div data-role="content">
+
+		<ul class="ui-helper-reset">
+			<li>
+				<input type="text" id="textbox1" data-role="wijputdate" data-options="{ dateFormat: 'd', showNullText: true, nullText: 'Birth date' }"/>
+			</li>
+			<li>
+				<input type="text" id="textbox2" data-role="wijputdate" data-options="{ dateFormat: 'g', showNullText: true, nullText: 'Flight time' }"/>
+			</li>
+			<li>
+				<input type="text" id="textbox3" data-role="wijputdate" data-options="{ dateFormat: 'U', showNullText: true, nullText: 'Type date here...' }"/>
+			</li>
+		</ul>
+
+	    <!-- End demo markup -->
+		<div class="footer demo-description">
+			<p>
+				wijinputdate displays inputting tips when blank date value is applied and 'showNullText' option is true.<p>
+			<p>
+				Tips text is determined by the 'nullText' option.</p>
+		</div>
+    </div>
+</div>

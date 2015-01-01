@@ -1,0 +1,88 @@
+<div data-role="appviewpage" data-title="HTML5 Colors">
+	<div data-role="content">
+		<div id="gauge" data-role="wijradialgauge" style="width: 100%; height: 400px">
+		</div>
+		<script type="text/javascript">
+			$(document).one("wijappviewpageinit", function () {
+				$("#gauge").wijradialgauge({
+					radius: 200,
+					height: 400,
+					width: 400,
+					value: 70,
+					max: 90,
+					min: 0,
+					startAngle: 300,
+					sweepAngle: 300,
+					labels: {
+						visible: false
+					},
+					pointer: {
+						length: 0.75,
+						width: 12,
+						shape: "rect",
+						style: { fill: "90-#CFD0D0-#CECECE:50-#F0F0F0:51", stroke: "none" }
+					},
+					cap: {
+						style: { fill: "#0092BF", stroke: "none" }
+					},
+					tickMajor: {
+						factor: 10,
+						interval: 15,
+						offset: 35,
+						position: "inside",
+						style: { fill: "0-#0092BF-#0092BF", stroke: "none", height: 8 }
+					},
+					tickMinor: {
+						visible: true,
+						factor: 6,
+						interval: 5,
+						offset: 45,
+						position: "inside",
+						style: { fill: "0-#0092BF-#0092BF", stroke: "none", height: 4 }
+					},
+					face: {
+						style: {},
+						template: function (ui) {
+							var set = ui.canvas.set();
+							var circle = ui.canvas.circle(ui.origin.x, ui.origin.y, ui.r);
+							circle.attr({ "stroke": "none", fill: "#D9D9D9" });
+							set.push(circle);
+
+							var circle2 = ui.canvas.circle(ui.origin.x, ui.origin.y, ui.r - 20);
+							circle2.attr({ "stroke": "#C8C8C9", "stroke-width": 0, fill: "270-#B8B8B8-#B8B8B8" });
+							set.push(circle2);
+
+							var circle3 = ui.canvas.circle(ui.origin.x, ui.origin.y, ui.r - 30);
+							circle3.attr({ "stroke": "none", fill: "90-#D9D9D9-#ffffff" });
+							set.push(circle3);
+
+
+							return set;
+						}
+					},
+					ranges: [{
+						startWidth: 50,
+						endWidth: 50,
+						startValue: 45,
+						endValue: 90,
+						startDistance: 0.3,
+						endDistance: 0.3,
+						style: {
+							fill: "300-#F06529", stroke: "none"
+						}
+					}, {
+						startWidth: 50,
+						endWidth: 50,
+						startValue: 0,
+						endValue: 45,
+						startDistance: 0.3,
+						endDistance: 0.3,
+						style: {
+							fill: "300-#F14A29", stroke: "none"
+						}
+					}]
+				});
+			});
+		</script>
+	</div>
+</div>

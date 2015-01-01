@@ -1,0 +1,199 @@
+﻿<h3>Wijmo Layout</h3>
+
+<p class="text-info">
+    Wijmo supports styled tabs, accordions, and splitters, making it easy to organize content 
+into panes and create attractive user interfaces.
+</p>
+<style type="text/css">
+    .ui-tabs-left .ui-tabs-nav li.ui-state-default {
+    overflow: hidden;
+}
+</style>
+<wij-tabs>
+    <ul>
+        <li><a href="#tab">Tab</a></li>
+        <li><a href="#accordion">Accordion</a></li>
+        <li><a href="#splitter">Splitter</a></li>
+        <li><a href="#progressbar">Progressbar</a></li>
+        <!--<li><a href="#tooltip">Tooltip</a></li>-->
+    </ul>
+    <div id="tab">
+        <p class="text-info">
+            Wijmo tabs are easy to use and flexible. The tabs below show how you can 
+            nest tabs, use HTML in the tab headers, align the tabs to the left of the 
+            content (instead of above), and make the tabs collapsible 
+            (click any tab twice):</p>
+
+        <wij-tabs alignment="left" collapsible="true">
+            <ul>
+                <li><a href="#atl"><b>ATL</b></a></li>
+                <li><a href="#ord"><b>ORD</b></a></li>
+                <li><a href="#lax"><b>LAX</b></a></li>
+            </ul>
+            <div id="atl">
+                <div><b>Hartsfield–Jackson Atlanta International Airport</b>, known locally as Atlanta Airport, Hartsfield, 
+                and Hartsfield–Jackson, is located seven miles (11 km) south of the central business district of Atlanta, 
+                Georgia, United States. It has been the world's busiest airport by passenger traffic since 1998, and by 
+                number of landings and take-offs since 2005.Hartsfield–Jackson held its ranking as the world's busiest 
+                airport in 2011, both in passengers and number of flights. The airport has 207 domestic and international 
+                gates.</div>
+            </div>
+            <div id="ord">
+                <div><b>Chicago O'Hare International Airport</b>, also known as O'Hare Airport, O'Hare Field, Chicago 
+                International Airport, or simply O'Hare, is a major airport located in the northwestern-most corner 
+                of Chicago, Illinois, United States, 17 miles (27 km) northwest of the Chicago Loop (the CBD.) It is 
+                the primary airport serving the Chicago area, with Chicago Midway International Airport, about 10 
+                miles (16 km) closer to the Loop, serving as a secondary airport for intracontinental flights.</div>
+            </div>
+            <div id="lax">
+                <div><b>Los Angeles International Airport</b> is the primary airport serving the Greater Los Angeles 
+                Area, the second-most populated metropolitan area in the United States. It is most often referred to by 
+                its IATA airport code LAX, with the letters pronounced individually. LAX is located in southwestern 
+                Los Angeles along the Pacific coast in the neighborhood of Westchester, 16 miles (26 km) from the 
+                downtown core and is the primary airport of Los Angeles World Airports (LAWA), an agency of the 
+                Los Angeles city government formerly known as the Department of Airports.</div>
+            </div>
+        </wij-tabs>
+    </div>
+
+    <div id="accordion">
+        <p class="text-info">
+            <b>Accordions</b> are groups of collapsible panels which normally show one panel expanded.
+            Like tabs, they make it easy to organize content into panes. The <b>wij-accordion</b>
+            directive is demonstrated below:</p>
+
+        <wij-accordion>
+            <h3><b>ATL</b> Atlanta, GA</h3>
+            <div>
+                <div><b>Hartsfield–Jackson Atlanta International Airport</b>, known locally as Atlanta Airport, Hartsfield, 
+                and Hartsfield–Jackson, is located seven miles (11 km) south of the central business district of Atlanta, 
+                Georgia, United States. It has been the world's busiest airport by passenger traffic since 1998, and by 
+                number of landings and take-offs since 2005.Hartsfield–Jackson held its ranking as the world's busiest 
+                airport in 2011, both in passengers and number of flights. The airport has 207 domestic and international 
+                gates.</div>
+                <p />
+            </div>
+            <h3><b>ORD</b> Chicago, IL</h3>
+            <div>
+                <div><b>Chicago O'Hare International Airport</b>, also known as O'Hare Airport, O'Hare Field, Chicago 
+                International Airport, or simply O'Hare, is a major airport located in the northwestern-most corner 
+                of Chicago, Illinois, United States, 17 miles (27 km) northwest of the Chicago Loop (the CBD.) It is 
+                the primary airport serving the Chicago area, with Chicago Midway International Airport, about 10 
+                miles (16 km) closer to the Loop, serving as a secondary airport for intracontinental flights.</div>
+                <p />
+            </div>
+            <h3><b>LAX</b> Los Angeles, CA</h3>
+            <div>
+                <div><b>Los Angeles International Airport</b> is the primary airport serving the Greater Los Angeles 
+                Area, the second-most populated metropolitan area in the United States. It is most often referred to by 
+                its IATA airport code LAX, with the letters pronounced individually. LAX is located in southwestern 
+                Los Angeles along the Pacific coast in the neighborhood of Westchester, 16 miles (26 km) from the 
+                downtown core and is the primary airport of Los Angeles World Airports (LAWA), an agency of the 
+                Los Angeles city government formerly known as the Department of Airports.</div>
+                <p />
+            </div>
+        </wij-accordion>
+    </div>
+
+    <div id="splitter" >
+        <p class="text-info">
+            <b>Splitters</b> divide an element into two panels separated by a movable bar. When 
+            the mouse pointer is over the bar, the pointer changes shape to show that the
+            bar is movable.</p>
+        <p class="text-info">
+            <b>Splitters</b> can be nested to create rich interfaces, but the most common 
+            configuration is one vertical division where the left panel shows a list or
+            a tree, and the right panel shows information about the item selected on the
+            left pane.</p>
+        <wij-splitter splitter-distance="250" style="height:300px;border:2px solid grey" >
+            <div>
+                This panel usually contains a list, a tree, or a grid. Users can select
+                items from this view.
+            </div>
+            <div>
+                <wij-splitter orientation="horizontal" style="height:295px">
+                    <div>
+                        This panel usually displays detail information about the item selected
+                        on the left pane.
+                    </div>
+                    <div>
+                        Of course, you can also nest splitters with the same or different 
+                        orientations.
+                    </div>
+                </wij-splitter>
+            </div>
+        </wij-splitter>
+    </div>
+
+    <div id="progressbar">
+        <p class="text-info">
+            <b>Progressbars</b> indicators are used to show that an activity is going on (typically 
+            waiting for data to arrive from the server). The <b>wij-progressbar</b> directive 
+            has two main attributes:</p>
+        <ul>
+            <li>
+                <b>indeterminate:</b> set this attribute to true to create a bar that is animated
+                but does not show a specific value.</li>
+            <li>
+                <b>value:</b> a value between 0 and 100 that indicates how close the process is
+                to being complete (the default value is 100).</li>
+        </ul>
+
+        <p class="text-info">
+            For example:</p>
+
+        <table>
+<!--            <tr>
+                <td>indeterminate = true&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td><wij-progressbar indeterminate="true"></wij-progressbar></td>
+            </tr>-->
+            <tr>
+                <td>value = 50  </td>
+                <td><wij-progressbar value="50"></wij-progressbar></td>
+            </tr>
+            <tr>
+                <td>value = 75  </td>
+                <td><wij-progressbar value="75"></wij-progressbar></td>
+            </tr>
+        </table>
+    </div>
+
+<!--    <div id="tooltip" >
+        <p class="text-info">
+            <b>Tooltips</b> enhance the standard "title" attribute to provide tooltips that can contain
+            HTML. They are displayed in attractive and easy-to-read balloons.</p>
+        <p>
+            This paragraph contains a few
+            <b wij-tooltip="Tooltip content (<b>HTML</b> is allowed here).">
+                tooltips
+            </b>.
+            They are 
+            <b wij-tooltip="I am a <b>multi-line tooltip</b>,<br/>created using a <b>&amp;lt;br /&amp;gt;</b> tag.">
+                positioned 
+            </b>
+            automatically to follow the mouse, so when you add tooltips to large elements, they will still
+            be visible and near the mouse when they appear.</p>
+        <p>
+            Tooltips can also show the content of <b wij-tooltip="#fineprint">elements</b> in the document.
+            To do this, set the <b wij-tooltip="#fineprint">wij-tooltip</b> attribute to the name of the 
+            <b wij-tooltip="#fineprint">element</b> that contains the tooltip content prefixed with a pound sign ("#").
+            This technique can simplify your markup and also allows you to attach the same 
+            <b wij-tooltip="#fineprint">tooltip content</b> to multiple elements.</p>
+    </div>-->
+</wij-tabs>
+
+<div id="fineprint" style="display: none;">
+    <div style="width: 150px;">
+        <p><b>Notes:</b></p>
+        <p>
+            Data for the current quarter is estimated by pro-rating the current 
+            data. The estimates grow more accurate as the end of each quarter
+            approaches.
+        </p>
+        <p>
+            Estimates for the months of <b>January</b>, <b>April</b>, <b>July</b>, 
+            and <b>October</b> are not as good as those for the months of <b>March</b>,
+            <b>June</b>, <b>September</b>, and <b>December</b>.
+        </p>
+    </div>
+</div>

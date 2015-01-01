@@ -1,0 +1,32 @@
+<div data-role="appviewpage" data-title="Object Array Data">
+	<div data-role="content">
+		 <div id="wijsparklineDefault" style="height:50px;width:200px">
+         </div>
+		<p>
+            This sample demonstrates the how to customize the content of tooltip.
+        </p>
+		<p>
+            Example code:
+            <pre>
+			tooltipContent: function () {
+				return this.name + ' ' + this.score;
+			}
+            </pre>
+        </p>
+		<script type="text/javascript">
+			$(document).one("wijappviewpageinit", function () {
+				var data = [{ name: "Januray", score: 73 }, { name: "February", score: 95 }, { name: "March", score: 89 },
+					{ name: "April", score: 66 }, { name: "May", score: 50 }, { name: "June", score: 65 },
+					{ name: "July", score: 70 }, { name: "August", score: 43 }, { name: "September", score: 65 },
+    				{ name: "October", score: 27 }, { name: "November", score: 77 }, { name: "December", score: 58 }];
+				$("#wijsparklineDefault").wijsparkline({
+					data: data,
+					bind: "score",
+					tooltipContent: function () {
+						return this.name + ' ' + this.score;
+					}
+				});
+			});
+		</script>
+	</div>
+</div>

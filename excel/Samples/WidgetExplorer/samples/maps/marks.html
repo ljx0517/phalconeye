@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Maps - Marks</title>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="description" content="%description%" />
+	<meta name="keywords" content="" />
+	<meta name="author" content="ComponentOne" />
+
+	<link href="../../../../Themes/rocket/jquery-wijmo.css" rel="stylesheet" type="text/css" />
+    <link href="../../../../css/jquery.wijmo-pro.all.3.20143.59.min.css" rel="stylesheet" type="text/css" />
+    <script src="../../js/require.js" type="text/javascript"></script>
+    <script src="../../js/require.wijmo.config.js" type="text/javascript"></script>
+	<script id="scriptInit" type="text/javascript">
+
+		require(["wijmo.wijmaps"], function () {
+			$(document).ready(function () {
+				$("#maps").wijmaps({
+					zoom: 2,
+					layers: [
+					{
+						type: "vector",
+						data: { vectors: [] }
+					},
+					{
+						type: "vector",
+						data: { vectors: [] },
+						placemark: {
+							labelVisibility: "hidden",
+							image: "samples/maps/images/google_placemarker.png",
+							size: { width: 50, height: 35 },
+							pinPoint: { x: 24, y: 32 },
+							render: function (d) {
+								return $("<div style='width:50px;height:35px;cursor:pointer;'><img style='position:absolute;left:0px;top:0px;' src='samples/maps/images/google_placemarker.png' /><div style='color:white;font-size:10pt;position:absolute;top:5px;width:100%;height:100%;text-align:center;'>" + d.vector.data.name + "</div></div>")
+								.on("click", function (e) {
+									markclicked(e, d.vector.data);
+								});
+							}
+						}
+					}],
+					centerChanged:function() {
+						window.centerChanged = true;
+					}
+				}).off(".layer")
+				.on("click.layer", function (e) {
+					if (window.centerChanged || e.button !== 0) return;
+					var offset = $("#maps").offset();
+					var point = { x: e.pageX - offset.left, y: e.pageY - offset.top };
+					var geoPoint = $("#maps").wijmaps("viewToGeographic", point);
+					var layers = $("#maps").wijmaps("option", "layers");
+
+					var layerMark = layers[1];
+					var vector = {
+						type: "placemark",
+						coordinates: [geoPoint.x, geoPoint.y],
+						name: layerMark.data.vectors.length + 1 + ""
+					};
+					layerMark.data.vectors.push(vector);
+
+					var layerLine = layers[0];
+					var coords = [];
+					var vectors = layerMark.data.vectors;
+					for (var i = 0; i < vectors.length; i++) {
+						var mark = vectors[i];
+						coords.push(mark.coordinates[0]);
+						coords.push(mark.coordinates[1]);
+					}
+					var line = {
+						type: "polyline",
+						coordinates: coords,
+						stroke: "gray",
+						strokeWidth: "2",
+						strokeDashArray: "- "
+					};
+					layerLine.data.vectors[0] = line;
+
+					$("#maps").wijmaps("refreshLayers");
+				})
+				.on("mousedown.layer", function (e) {
+					window.centerChanged = false;
+				});
+			});
+		});
+
+		function markclicked(e, d) {
+			e.stopPropagation();
+
+			var layers = $("#maps").wijmaps("option", "layers");
+			var layerMark = layers[1];
+			var vectors = layerMark.data.vectors;
+			var index = $.inArray(d, vectors);
+			vectors.splice(index, 1);
+			for (var i = 0; i < vectors.length; i++) {
+				vectors[i].name = i + 1 + "";
+			}
+
+			var layerLine = layers[0];
+			var coords = [];
+			for (var i = 0; i < vectors.length; i++) {
+				var mark = vectors[i];
+				coords.push(mark.coordinates[0]);
+				coords.push(mark.coordinates[1]);
+			}
+			var line = {
+				type: "polyline",
+				coordinates: coords,
+				stroke: "gray",
+				strokeWidth: "2",
+				strokeDashArray: "- "
+			};
+			layerLine.data.vectors[0] = line;
+
+			$("#maps").wijmaps("refreshLayers");
+
+			return false;
+		}
+	</script>
+</head>
+
+<body class="demo-single">
+	<div class="container">
+		<div class="header">
+			<h2>Overview</h2>
+		</div>
+
+		<div class="main demo">
+
+			<!-- Begin demo markup -->
+			<div>
+				<div id="maps" style="width:756px; height: 475px;">
+				</div>
+			</div>
+			<!-- End demo markup -->
+
+			<div class="demo-options">
+				<!-- Begin options markup -->
+
+				<!-- End options markup -->
+			</div>
+		</div>
+
+		<div class="footer demo-description">
+			<p>
+				The sample shows how you can add marks to the map control.  You can click the mouse to add a new mark and once a new mark is added,
+				it will connect to the previous mark.  When you click the existing mark, the mark will be removed from maps.
+			</p>
+		</div>
+	</div>
+</body>
+</html>

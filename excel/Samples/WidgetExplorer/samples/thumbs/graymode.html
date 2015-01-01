@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Thumbs - Gray Mode</title>
+	<meta charset="utf-8" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<meta name="author" content="ComponentOne" />
+	
+	<link href="../../../../Themes/Aristo/jquery-ui-1.8.4.custom.css" rel="stylesheet" type="text/css" />
+	
+    <script src="../../../../Wijmo/external/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script src="../../../../Wijmo/external/jquery-ui-1.11.0.custom.min.js" type="text/javascript"></script>
+    <link href="../../../../Themes/wijmo/jquery.wijmo-open.2.0.0a.css" rel="stylesheet" type="text/css" />
+	<script src="../../../../Wijmo/External/jquery.wijmo-open.2.0.0a.min.js" type="text/javascript"></script>
+	<link href="../../../../Wijmo/wijthumbs/jquery.wijmo.wijthumbs.css" rel="stylesheet" type="text/css"/>	
+	<script src="../../../../Wijmo/wijthumbs/jquery.wijmo.wijthumbs.js" type="text/javascript"></script>
+	
+	<script type="text/javascript">
+        $(document).ready(function () {
+		
+			var items = [
+					{
+						url: 'images/1.jpg',
+						title: 'Some text of picture 1',
+						detail: 'This is the description of the text'
+					},
+					{
+						url: 'images/2.jpg',
+						title: 'Some text 2',
+						detail: 'This is the description of the text'
+					},
+					{
+						url: 'images/3.jpg',
+						title: 'Some text 3',
+						detail: 'This is the description of the text'
+					},
+					{
+						url: 'images/4.jpg',
+						title: 'Some text 4',
+						detail: 'This is the description of the text'
+					},
+					{
+						url: 'images/5.jpg',
+						title: 'Some text 5',
+						detail: 'This is the description of the text'
+					},
+					{
+						url: 'images/6.jpg',
+						title: 'Some text 6',
+						detail: 'This is the description of the text'
+					},
+					{
+						url: 'images/7.jpg',
+						title: 'Some text 7',
+						detail: 'This is the description of the text'
+					},
+					{
+						url: 'images/8.jpg',
+						title: 'Some text 8',
+						detail: 'This is the description of the text'
+					},
+					{
+						url: 'images/9.jpg',
+						title: 'Some text 4',
+						detail: 'This is the description of the text'
+					},
+					{
+						url: 'images/10.jpg',
+						title: 'Some text 5',
+						detail: 'This is the description of the text'
+					},
+					{
+						url: 'images/11.jpg',
+						title: 'Some text 6',
+						detail: 'This is the description of the text'
+					}
+				];
+		
+			$("#thumbs").wijthumbs({
+				items: items,
+				grayMode: true
+			});
+        });    
+    </script>
+
+	</script>
+</head>
+
+<body class="demo-single">
+	<div class="container">
+		<div class="header">
+			<h2>Overview</h2>
+		</div>
+		<div class="main demo">
+			<!-- Begin demo markup -->
+			
+				Scroll Bar & Gray Mode
+				<div id="thumbs" style="width: 470px;"></div>
+				
+			<!-- End demo markup -->
+			<div class="demo-options">
+			<!-- Begin options markup -->
+				
+			<!-- End options markup -->
+			</div>
+		</div>
+		<div class="footer demo-description">
+			<p></p>
+		</div>
+	</div>
+</body>
+
+</html>

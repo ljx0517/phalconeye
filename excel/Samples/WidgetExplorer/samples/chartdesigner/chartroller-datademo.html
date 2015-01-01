@@ -1,0 +1,1267 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title></title>
+    <link href="../../../../Themes/aristo/jquery-wijmo.css" rel="stylesheet" type="text/css" />
+    <link href="../../../../Themes/wijmo/jquery.wijmo-open.2.0.0a.css" rel="stylesheet" type="text/css" />
+    <link href="../../../../Wijmo/wijinput/jquery.wijmo.wijinput.css" rel="stylesheet" type="text/css" />
+    <link href="../../../../Wijmo/wijtree/jquery.wijmo.wijtree.css" rel="stylesheet" type="text/css" />
+    <link href="../../../../Wijmo/wijcombobox/jquery.wijmo.wijcombobox.css" rel="stylesheet" type="text/css" />
+    <link href="../../../../Wijmo/wijpropertygrid/jquery.wijmo.wijpropertygrid.css" rel="stylesheet" type="text/css" />
+    <link href="../../../../Wijmo/wijuieditor/jquery.wijmo.wijuieditor.css" rel="stylesheet" type="text/css" />
+    <script src="../../../../Wijmo/external/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script src="../../../../Wijmo/external/jquery-ui-1.11.0.custom.min.js" type="text/javascript"></script>
+    <script src="../../../../Wijmo/External/jquery.glob.min.js" type="text/javascript"></script>
+    <script src="../../../../Wijmo/External/jquery.mousewheel.min.js" type="text/javascript"></script>
+    <script src="../../../../Wijmo/External/jquery.wijmo-open.2.0.0a.min.js" type="text/javascript"></script>
+    <script src="../../../../Wijmo/wijcombobox/jquery.wijmo.wijcombobox.js" type="text/javascript"></script>
+    <script src="../../../../Wijmo/wijinput/jquery.wijmo.wijinputcore.js" type="text/javascript"></script>
+    <script src="../../../../Wijmo/wijinput/jquery.wijmo.wijinputnumber.js" type="text/javascript"></script>
+    <script src="../../../../Wijmo/wijinput/jquery.wijmo.wijinputdate.js" type="text/javascript"></script>
+    <script src="../../../../Wijmo/wijtree/jquery.wijmo.wijtree.js" type="text/javascript"></script>
+    <script src="../../../../Wijmo/wijpropertygrid/jquery.wijmo.wijpropertygrid.js" type="text/javascript"></script>
+    <script src="../chartdesigner/optionconfig.js" type="text/javascript"></script>
+    <script src="../../../../Wijmo/External/raphael-min.js" type="text/javascript"></script>
+    <script src="../../../../Wijmo/wijchart/jquery.wijmo.wijchartcore.js" type="text/javascript"></script>
+    <script src="../../../../Wijmo/wijpiechart/jquery.wijmo.wijpiechart.js" type="text/javascript"></script>
+    <script src="../../../../Wijmo/wijbarchart/jquery.wijmo.wijbarchart.js" type="text/javascript"></script>
+    <script src="../../../../Wijmo/wijlinechart/jquery.wijmo.wijlinechart.js" type="text/javascript"></script>
+    <script src="../../../../Wijmo/wijgrid/jquery.wijmo.wijgrid.js" type="text/javascript"></script>
+    <script src="../../../../Wijmo/External/raphael.js" type="text/javascript"></script>
+    <script src="../../../../Wijmo/wijpager/jquery.wijmo.wijpager.js" type="text/javascript"></script>
+    <script src="../../../../Wijmo/wijdatasource/jquery.wijmo.wijdatasource.js" type="text/javascript"></script>
+    <script src="../../../../Wijmo/wijgrid/jquery.wijmo.wijgrid.js" type="text/javascript"></script>
+    <script src="colorwheel.js" type="text/javascript"></script>
+    <script src="../chartdesigner/optionconfig.js" type="text/javascript"></script>
+    <style type="text/css">
+        .chartSelector a
+        {
+            border: 2px solid #CCCCCC;
+            border-radius: 6px 6px 6px 6px;
+            box-shadow: 0 0 3px #AAAAAA;
+            display: block;
+            float: left;
+            height: 125px;
+            line-height: 125px;
+            margin: 0 8px 8px 0;
+            padding: 6px;
+            width: 200px;
+        }
+        
+        .chartSelector a:hover
+        {
+            border: 2px solid #D54E21;
+        }
+        
+        .chartSelector h4
+        {
+            clear: both;
+            margin: 2px 0 6px;
+        }
+        
+        .sizeSelector button
+        {
+            width: 10em;
+            height: 4em;
+        }
+        
+        .displayOption .wijmo-checkbox
+        {
+            margin: 10px 0;
+        }
+        
+        .finished #code
+        {
+            height: 10em;
+            width: 60%;
+        }
+        
+        .chartname
+        {
+            color: #000;
+            font-style: italic;
+        }
+        
+        /* color picker */
+        #colorval
+        {
+            width: 20px;
+            height: 20px;
+            float: left;
+            cursor: pointer;
+        }
+        
+        #colorwheel
+        {
+            width: 600px;
+        }
+        
+        #colorcontainer
+        {
+            position: relative;
+        }
+        
+        .colorPickerContainer
+        {
+            position: absolute;
+            width: 12.5em;
+            height: 12.5em;
+        }
+        
+        
+        h2
+        {
+            font-size: 14pt;
+        }
+        
+        #monochrome, #analogous, #complementary, #splitcomplementary, #triadic
+        {
+            position: relative;
+            height: 255px;
+            text-align: center;
+        }
+        
+        #complementary
+        {
+            width: 182px;
+        }
+        #splitcomplementary
+        {
+            width: 274px;
+        }
+        #triadic
+        {
+            width: 274px;
+        }
+        #analogous
+        {
+            width: 274px;
+        }
+        
+        .swatch
+        {
+            position: absolute;
+            height: 42px;
+            width: 90px;
+            font-size: 7pt;
+            text-align: center;
+            background: black;
+            color: #666;
+            cursor: pointer;
+        }
+        
+        .sa
+        {
+            top: 30px;
+        }
+        .sb
+        {
+            top: 74px;
+        }
+        .sc
+        {
+            top: 118px;
+        }
+        .sd
+        {
+            top: 162px;
+        }
+        .se
+        {
+            top: 206px;
+        }
+        
+        .s1
+        {
+            left: 0px;
+        }
+        .s2
+        {
+            left: 92px;
+        }
+        .s3
+        {
+            left: 184px;
+        }
+        
+        .buttons
+        {
+            text-align: center;
+        }
+        
+        /* color picker*/
+        .colorspan
+        {
+            float: left;
+            width: 2em;
+            height: 1.8em;
+            background: #000000;
+        }
+        .colorlabel
+        {
+            float: left;
+            width: 5em;
+        }
+        /*data css*/
+        .data-header
+        {
+            margin-bottom: 2em;
+            position: relative;
+        }
+        .data-header-colorbutton
+        {
+            margin-left: 2em;
+        }
+        span
+        {
+            float: left;
+            width: 5em;
+        }
+        .importdatadialog-header
+        {
+            margin-bottom: 2em;
+        }
+        .dataeditor
+        {
+            width: 15em;
+        }
+        .dataeditorcontainer
+        {
+            margin-bottom: 2em;
+        }
+        #importdatadialog.header radio
+        {
+            margin-right: 1em;
+        }
+        .data-dialog
+        {
+            display: none;
+        }
+    </style>
+    <script type="text/javascript">
+
+        var collapseAccordion = function (ele, idx) {
+            var panel = ele.children("h3").eq(idx);
+            if (panel.length &&
+                panel.hasClass("ui-state-active")) {
+                ele.wijaccordion("activate", idx);
+            }
+        };
+
+        var captionBtnOption = {
+            pin: { visible: false },
+            refresh: { visible: false },
+            toggle: { visible: false },
+            minimize: { visible: false },
+            maximize: { visible: false }
+        };
+
+        var expandAccordion = function (ele, idx) {
+            var panel = ele.children("h3").eq(idx);
+            if (panel.length &&
+                !panel.hasClass("ui-state-active")) {
+                ele.wijaccordion("activate", idx);
+            }
+        };
+
+        var getChangedValue = function (oldValue, defaultValue) {
+            var newValue = {};
+            if ($.isPlainObject(oldValue)) {
+                $.each(oldValue, function (key, value) {
+                    var def = defaultValue[key], arrChanged = false, val;
+                    if ($.isPlainObject(value)) {
+                        if (def) {
+                            val = getChangedValue(value, def);
+                            if (!$.isEmptyObject(value) &&
+                                $.isEmptyObject(def)) {
+                                newValue[key] = val;
+                            }
+                            else if (!$.isEmptyObject(val)) {
+                                newValue[key] = val;
+                            }
+                        }
+                        else {
+                            newValue[key] = value;
+                        }
+                    }
+                    else if ($.isArray(value)) {
+                        if (def && value.length === def.length) {
+                            $.each(value, function (i, n) {
+                                var item;
+                                if (def[i]) {
+                                    if ($.isPlainObject(def[i]) &&
+                                        $.isPlainObject(n)) {
+                                        item = getChangedValue(n, def[i]);
+                                        if (!$.isEmptyObject(item)) {
+                                            arrChanged = true;
+                                        }
+                                    }
+                                    else if (n !== def[i]) {
+                                        arrChanged = true;
+                                    }
+                                }
+                                else {
+                                    arrChanged = true;
+                                }
+                            });
+                            if (arrChanged) {
+                                newValue[key] = value;
+                            }
+                        }
+                        else {
+                            newValue[key] = value;
+                        }
+                    }
+                    else if (def != value) {
+                        newValue[key] = value;
+                    }
+                });
+            }
+            return newValue;
+        };
+
+
+        var getChart = function (t) {
+            var type = {};
+            switch (t) {
+                case "Line":
+                    type.chart = "wijlinechart";
+                    type.subtype = "line"; //change options object after seriesStyle created
+                    break;
+                case "Spline":
+                    type.chart = "wijlinechart";
+                    type.subtype = "spline";
+                    break;
+                case "Stacked Column":
+                    type.chart = "wijbarchart";
+                    type.subtype = { stacked: true, horizontal: false };
+                    break;
+                case "Stacked Bar":
+                    type.chart = "wijbarchart";
+                    type.subtype = { stacked: true, horizontal: true };
+                    break;
+                case "Column":
+                    type.chart = "wijbarchart";
+                    type.subtype = { stacked: false, horizontal: false };
+                    break;
+                case "Bar":
+                    type.chart = "wijbarchart";
+                    type.subtype = { stacked: false, horizontal: true };
+                    break;
+                case "Pie":
+                    type.chart = "wijpiechart";
+                    type.subtype = { innerRadius: 0 };
+                    break;
+                case "Donut":
+                    type.chart = "wijpiechart";
+                    type.subtype = { innerRadius: 40 };
+                    break;
+                default:
+                    type.chart = "wijlinechart";
+                    type.subtype = "line";
+                    break;
+            }
+            return type;
+        };
+
+        var paintPreview = function ($preview, $code, chartType, options) {
+            paintChart($preview, chartType, options);
+            setCode($code, chartType, options);
+        }
+
+        var paintChart = function ($preview, chartType, options) {
+            if ($preview.data(chartType)) {
+
+                $preview[chartType]("beginUpdate");
+                $preview[chartType](options);
+                $preview[chartType]("endUpdate");
+
+                return;
+            }
+            else {
+                if ($preview.data("wijlinechart"))
+                    $preview.wijlinechart("destroy");
+                if ($preview.data("wijbarchart"))
+                    $preview.wijbarchart("destroy");
+                if ($preview.data("wijpiechart"))
+                    $preview.wijpiechart("destroy");
+
+                $preview[chartType](options);
+            }
+        }
+
+        var setCode = function ($code, chartType, options) {
+            $code.text('$("#preview").' +
+                chartType + '(' +
+                JSON.stringify(getChangedValue(options, defaultValue)) +
+            ')');
+        }
+
+        var defaultValue = {
+            header: {
+                text: "Hardware Distribution"
+            },
+            seriesList: [{
+                label: "West",
+                legendEntry: true,
+                data: { x: ['Desktops', 'Notebooks', 'AIO', 'Tablets', 'Phones'], y: [5, 3, 4, 7, 2] }
+            }, {
+                label: "Central",
+                legendEntry: true,
+                data: { x: ['Desktops', 'Notebooks', 'AIO', 'Tablets', 'Phones'], y: [2, 2, 3, 2, 1] }
+            }, {
+                label: "East",
+                legendEntry: true,
+                data: { x: ['Desktops', 'Notebooks', 'AIO', 'Tablets', 'Phones'], y: [3, 4, 4, 2, 5] }
+            }]
+        };
+
+        var barTestValue = {
+            header: {
+                text: "Hardware Distribution"
+            },
+            seriesList: [{
+                label: "West",
+                legendEntry: true,
+                data: { x: ['Desktops', 'Notebooks', 'AIO', 'Tablets', 'Phones'], y: [5, 3, 4, 7, 2] }
+            }, {
+                label: "Central",
+                legendEntry: true,
+                data: { x: ['Desktops', 'Notebooks', 'AIO', 'Tablets', 'Phones'], y: [2, 2, 3, 2, 1] }
+            }, {
+                label: "East",
+                legendEntry: true,
+                data: { x: ['Desktops', 'Notebooks', 'AIO', 'Tablets', 'Phones'], y: [3, 4, 4, 2, 5] }
+            }]
+        };
+
+        //data item
+        var seriesStyles = [{
+            fill: "#8ede43", stroke: "#7fc73c", opacity: 0.8
+        }, {
+            fill: "#6aaba7", stroke: "#5f9996", opacity: 0.8
+        }, {
+            fill: "#466a85", stroke: "#3e5f77", opacity: 0.8
+        }, {
+            fill: "#466a85", stroke: "#3e5f77", opacity: 0.8
+        }];
+
+
+
+        $(document).ready(function () {
+            /* accordion*/
+            var accordion = $("#accordion")
+            .wijaccordion({
+                header: "h3",
+                requireOpenedPane: false,
+                selectedIndex: 3
+            }), options = {}, txtWidth = $("#txtWidth"),
+            txtHeight = $("#txtHeight"), i,
+            length = accordion.children("h3").length,
+            chartPanel = $(".finished .preview:eq(0)"),
+            chartLinks = accordion.find(".chartSelector a"),
+            chartName, $preview = $("#preview"), $code = $("#code"),
+            chartType;
+
+            for (i = 0; i < length; i++) {
+                expandAccordion(accordion, i);
+            }
+
+            chartLinks.click(function () {
+                var link = $(this), title;
+                collapseAccordion(accordion, 0);
+                title = link.attr("title"), options = {};
+
+                chartName = accordion.find(".chartSelector")
+                .prev().find("span.chartname");
+
+                if (!link.hasClass("ui-state-active")) {
+                    chartLinks.removeClass("ui-state-active");
+                    link.addClass("ui-state-active");
+
+                    chartName.html(title);
+
+                    chartType = getChart(title);
+
+                    //for test
+                    options = barTestValue;
+                    //end test
+
+                    if (chartType.chart !== "wijlinechart") {
+                        $.extend(options, chartType.subtype);
+                    }
+
+                    paintPreview($preview, $code, chartType.chart, options);
+                }
+            });
+
+            //set size
+            accordion.find("button:eq(0)").button()
+            .click(function () {
+                setSizeInput(320, 240);
+            }).next().button().click(function () {
+                setSizeInput(640, 480);
+            }).next().button().click(function () {
+                setSizeInput(800, 600);
+            });
+
+            var width, height;
+            txtWidth.blur(function () {
+                width = parseInt(txtWidth.val());
+                height = parseInt(txtHeight.val());
+                chartName.html(width + "×" + height);
+                applySize(width, height);
+            });
+
+            txtHeight.blur(function () {
+                width = parseInt(txtWidth.val());
+                height = parseInt(txtHeight.val());
+                chartName.html(width + "×" + height);
+                applySize(width, height);
+            });
+
+
+            var setSizeInput = function (w, h) {
+                chartName = accordion.find(".sizeSelector")
+                .prev().find("span.chartname");
+                txtWidth.val(w);
+                txtHeight.val(h);
+                collapseAccordion(accordion, 1);
+
+                chartName.html(w + "×" + h);
+
+                applySize(w, h);
+            };
+
+            var applySize = function (w, h) {
+                $.extend(options, { width: w, height: h });
+
+                if (chartType) {
+                    paintPreview($preview, $code, chartType.chart, options);
+                }
+            }
+
+            var applyData = function (data) {
+                $.extend(options, {
+                    seriesList: data
+                });
+                if (chartType) {
+                    paintPreview($preview, $code, chartType.chart, options);
+                }
+            }
+
+            accordion.find("input").wijtextbox();
+
+            accordion.find(".displayOption input").wijcheckbox();
+            $("#cbLabels").change(function () {
+                if ($(this).is(":checked")) {
+                    options.showChartLabels = true;
+                }
+                else {
+                    options.showChartLabels = false;
+                }
+
+                if (chartType) {
+                    paintPreview($preview, $code, chartType.chart, options);
+                }
+
+            });
+
+            $("#cbLegend").change(function () {
+                if (!$.isPlainObject(options.legend)) {
+                    options.legend = {};
+                }
+                if ($(this).is(":checked")) {
+                    $.extend(options.legend, {
+                        visible: false
+                    });
+                }
+                else {
+                    $.extend(options.legend, {
+                        visible: true
+                    });
+                }
+
+                if (chartType) {
+                    paintPreview($preview, $code, chartType.chart, options);
+                }
+            });
+
+            $("#clipboard").button().click(function () {
+                var text = $preview.val();
+                if ($.browser.msie) {
+                    window.clipboardData.setData('text', text);
+                }
+                else {
+                    alert("Your broswer not support this function.");
+                }
+            });
+
+            //data
+            var btnOpts = {
+                Ok: function () {
+                    var datetype, data, originalMarkup, isPieChart = false;
+
+                    //bar chart for example
+                    var getGridData = function (data) {
+                        var gridData = [], dataItem;
+                        if (data) {
+                            $.each(data, function (key, value) {
+                                dataItem = [];
+                                dataItem.push(value.label);
+                                $.merge(dataItem, value.data.y);
+                                gridData.push(dataItem);
+                            })
+                        };
+                        return gridData;
+                    };
+
+                    //get pie char data
+                    var getGridDataByPieChart = function (data) {
+                        var gridData = [], dataItem;
+                        if (data) {
+                            $.each(data, function (key, value) {
+                                dataItem = [];
+                                dataItem.push(value.label);
+                                dataItem.push(value.data);
+                                gridData.push(dataItem);
+                            })
+                        };
+                        return gridData;
+                    };
+
+                    //get seriesStyles
+                    var getSeriesStylesColor = function (seriesStyles, index) {
+                        if (index > -1) {
+                            return seriesStyles[index].stroke;
+                        }
+                        return null;
+                    };
+
+                    //set seriesStyles
+                    var setSeriesStylesColor = function (seriesStyles, index, color) {
+                        return seriesStyles[index].fill = color;
+                    };
+
+                    //get header 
+                    var getGridHeader = function (data) {
+                        var gridHeader = [], headerItem;
+                        if (data) {
+                            headerItem = { headerText: "" }
+                            gridHeader.push(headerItem);
+                            $.each(data[0].data.x, function (i, x) {
+                                headerItem = {};
+                                headerItem.headerText = x.toString();
+                                gridHeader.push(headerItem);
+                            });
+                            return gridHeader;
+                        }
+                    };
+
+                    //add color to last column
+                    var formatLastColumn = function (arg, index) {
+                        var itemText, itemContainer;
+                        if (arg.state == 1 && arg.column.dataIndex == index) {
+                            itemText = arg.$cell.children(":first").text();
+                            //arg.$cell.text("");
+                            itemContainer = arg.$cell.children(":first");
+                            itemContainer.text("")
+                                .append("<span >" + itemText + "</span>")
+                                .append($("<span />").css({ "width": "20px", "height": "20px", "background-color": getSeriesStylesColor(seriesStyles, arg.row.dataRowIndex) })
+                                        .bind("click", showColorDialog));
+                        }
+                    };
+
+                    //show color dialog
+                    var showColorDialog = function () {
+                        var span = $(this),
+                        coloript = span.next(), data = {
+                            span: span,
+                            input: coloript
+                        };
+                        $("#colorwheel").wijdialog("open").data("data", data);
+                    };
+
+                    //create grid  by data 
+                    var createGrid = function (data) {
+                        var gridHeaderData, gridData;
+                        if (isPieChart) {
+                            gridData = getGridDataByPieChart(data);
+                        } else {
+                            gridHeaderData = getGridHeader(data);
+                            gridData = getGridData(data);
+                        }
+
+                        if (data) {
+                            $("#gridcontainer").empty();
+                            $("<table />").appendTo($("#gridcontainer"))
+                                    .wijgrid({
+                                        //allowEditing: true,
+                                        data: gridData,
+                                        columns: gridHeaderData,
+                                        cellStyleFormatter: function (arg) {
+                                            if (gridHeaderData) {
+                                                formatLastColumn(arg, gridHeaderData.length - 1);
+                                            }
+                                        }
+                                    });
+                        }
+                    };
+
+                    //create grid by table mark up
+                    var createGridByTable = function (tableMarkUp) {
+                        $("#gridcontainer").empty();
+                        tableMarkUp.appendTo($("#gridcontainer"));
+                        var colSize = $("#gridcontainer  tr").eq(1).find("td").length;
+                        wijgrid = tableMarkUp.wijgrid({
+                            cellStyleFormatter: function (arg) {
+                                formatLastColumn(arg, colSize);
+                            }
+                        });
+                    };
+
+                    //prepare data
+                    datetype = $(":radio[checked]").attr("id");
+                    switch (datetype) {
+                        case "csv":
+                            $.get($("#urltxt").val(), function (loaddata) {
+                                data = loaddata;
+                            });
+                            break;
+                        case "xml":
+                            $.ajax({
+                                type: "POST",
+                                contentType: "application/json",
+                                url: "WebService1.asmx/GetClass",
+                                dataType: 'xml',
+                                success: function (result) {
+                                    data = result.d;
+                                    createGrid(data);
+                                }
+                            });
+                            break;
+                        case "json":
+
+                            eval("var data =" + $("#rawtext").val() + ";");
+                            //              				if (options) {
+                            //              					options.seriesList = data;
+                            //              				}
+                            createGrid(data);
+                            applyData(data);
+                            break;
+                        case "table":
+                            originalMarkup = $($("#rawtext").val());
+                            //Todo: get serieslist from table markup
+                            //data = getSeriesListFromMarkUp(originalMarkup);
+                            //options.seriesList = data;
+                            createGridByTable(originalMarkup);
+                            break;
+                    };
+
+                    $(this).wijdialog("close");
+                },
+                Cancel: function () {
+                    $(this).wijdialog("close");
+                }
+            };
+
+
+            //color
+            var colorPicker = $("#colorPicker"),
+                colorval = $("#colorval"),
+                colorinput = $("#tbColor"),
+                pickercontainer = colorPicker.parent(),
+                value;
+
+            colorPicker.wijeditorcolorcanvas(function (val) {
+                colorval.css("background-color", val);
+                colorinput.val(val);
+                var hsl = $.colorObj.unpack(val);
+                valueChanged(hsl);
+            });
+
+            pickercontainer.hide();
+            colorinput.wijtextbox();
+            pickercontainer.css("top", colorinput.outerHeight());
+            colorval.css("height", colorinput.outerHeight());
+            colorval.css("width", colorinput.outerHeight());
+
+            if (colorinput.val() === "") {
+                colorinput.val("#000000");
+
+            }
+            value = colorinput.val();
+            colorval.css("background-color", value);
+            valueChanged($.colorObj.unpack(value));
+
+            colorval.bind("click", function () {
+                pickercontainer.show();
+            });
+            $(document).bind("click", function (e) {
+                if ($.contains(pickercontainer.get(0), e.target) || colorval.get(0) === e.target) {
+                    return;
+                }
+                pickercontainer.hide();
+            });
+
+            $(".swatch").bind("click", function () {
+                var div = $(this);
+                color = div.text().substring(0, 7);
+                colorinput.val(color);
+                colorval.css("background-color", color);
+                valueChanged($.colorObj.unpack(color));
+            });
+
+            colorinput.change(function () {
+                var color = colorinput.val();
+                colorval.css("background-color", color);
+                valueChanged($.colorObj.unpack(color));
+            })
+
+            $("#colorwheel button").button();
+            $("#colorwheel").wijdialog({
+                width: "auto",
+                autoOpen: false,
+                title: "Color",
+                captionButtons: captionBtnOption,
+                buttons: {
+                    Ok: function () {
+                        var dialog = $(this), span, input,
+                        data, color = colorinput.val();
+
+                        data = dialog.data("data");
+                        if (data) {
+                            input = data.input;
+                            span = data.span;
+                        }
+                        span.css("background-color", color);
+                        input.val(color);
+
+                        if (input.attr("name") == "Labels") {
+
+                            if (!$.isPlainObject(options.chartLabelStyle)) {
+                                options.chartLabelStyle = {};
+                            }
+                            $.extend(options.chartLabelStyle, {
+                                stroke: color
+                            });
+
+                            if (chartType) {
+                                paintPreview($preview, $code, chartType.chart, options);
+                            }
+                        }
+                        else if (input.attr("name") == "Background") {
+
+                        }
+
+                        dialog.wijdialog("close");
+                    },
+                    Cancel: function () {
+                        $(this).wijdialog("close");
+                    }
+                }
+            });
+
+
+            $(".colorspan").bind("click", function () {
+                var span = $(this),
+                coloript = span.next(), data = {
+                    span: span,
+                    input: coloript
+                };
+                $("#colorwheel").wijdialog("open").data("data", data);
+            });
+            //end color
+
+            //Data 
+
+            dialogOptions = {
+                captionButtons: captionBtnOption,
+                buttons: btnOpts,
+                resizable: false,
+                autoOpen: true,
+                modal: false,
+                width: 450
+            };
+
+            $(".data-header :button").button();
+            $("#importdatadialog :text").wijtextbox();
+            $("#importdatadialog textarea").wijtextbox();
+
+            $("#import").bind("click", function () {
+                $("#importdatadialog").wijdialog(dialogOptions);
+            });
+            //end data
+
+        });
+
+    </script>
+</head>
+<body>
+    <div class="main">
+        <div class="left">
+            <div id="accordion">
+                <h3>
+                    <a href="#">Choose a chart type: <span class="chartname"></span></a>
+                </h3>
+                <div class="chartSelector">
+                    <h4>
+                        Lines</h4>
+                    <a class="" href="#" name="lc" title="Line" />
+                    <img src="images/lc.png" alt="Line" /></a> <a class="selected" href="#" name="ls"
+                        title="Spline">
+                        <img src="images/ls.png" alt="Spline" /></a>
+                    <h4>
+                        Bar charts</h4>
+                    <a class="" href="#" name="bhs" title="Stacked Column">
+                        <img src="images/bhs.png" alt="Stacked Column" /></a> <a href="#" name="bvs" title="Stacked Bar">
+                            <img src="images/bvs.png" alt="Stacked Bar" /></a> <a href="#" name="bhg" title="Column">
+                                <img src="images/bhg.png" alt="Column" /></a> <a href="#" name="bvg" title="Bar">
+                                    <img src="images/bvg.png" alt="Bar" /></a>
+                    <h4>
+                        Pie charts</h4>
+                    <a href="#" name="p" title="Pie">
+                        <img src="images/p.png" alt="Pie" /></a> <a href="#" name="pc" title="Donut">
+                            <img src="images/pc.png" alt="Donut" /></a>
+                </div>
+                <h3>
+                    <a href="#">Choose a size: <span class="chartname"></span></a>
+                </h3>
+                <div class="sizeSelector">
+                    <div>
+                        <button>
+                            <span>Small</span><br />
+                            <span>(320×240)</span></button>
+                        <button>
+                            <span>Medium</span><br />
+                            <span>(640×480)</span></button>
+                        <button>
+                            <span>Large</span><br />
+                            <span>(800×600)</span></button>
+                    </div>
+                    <br />
+                    <div>
+                        <span>Width</span><input id="txtWidth" /><span> × </span><span>Height</span><input
+                            id="txtHeight" />
+                    </div>
+                </div>
+                <h3>
+                    <a href="#">Data</a></h3>
+                <div>
+                    <p>
+                        <div class="data-header">
+                            <span>Data</span>
+                            <input id="import" type="button" value="Import" />
+                            <input id="colorize" type="button" value="Colorize" class="data-header-colorbutton" />
+                        </div>
+                        <div id="gridcontainer">
+                        </div>
+                        <div id="importdatadialog" title="Import Data" class="data-dialog">
+                            <div id="importdatadialog.header" class="importdatadialog-header">
+                                <input id="csv" type="radio" name="datasourcetype" checked="checked" />
+                                <label for="csv">
+                                    CSV
+                                </label>
+                                <input id="xml" type="radio" name="datasourcetype" /><label for="xml">
+                                    XML
+                                </label>
+                                <input id="json" type="radio" name="datasourcetype" />
+                                <label for="json">
+                                    JSON
+                                </label>
+                                <input id="table" type="radio" name="datasourcetype" />
+                                <label for="table">
+                                    HTML TBALE</label>
+                            </div>
+                            <div class="dataeditorcontainer">
+                                <span>URL</span>
+                                <input id="urltxt" type="text" class="dataeditor" />
+                            </div>
+                            <div class="dataeditorcontainer">
+                                <span>File</span>
+                                <input id="filetxt" type="text" class="dataeditor" />
+                            </div>
+                            <div class="dataeditorcontainer">
+                                <span>Raw</span>
+                                <textarea id="rawtext" cols="20" rows="10" class="dataeditor"></textarea>
+                            </div>
+                        </div>
+                    </p>
+                </div>
+                <h3>
+                    <a href="#">Colors</a></h3>
+                <div>
+                    <div class="ui-helper-clearfix">
+                        <div class="colorlabel">
+                            Labels:</div>
+                        <div class="colorspan">
+                        </div>
+                        <input type="text" name="Labels" /></div>
+                    <div class="ui-helper-clearfix">
+                        <div class="colorlabel">
+                            Background:</div>
+                        <span class="colorspan"></span>
+                        <input type="text" name="Background" /></div>
+                </div>
+                <h3>
+                    <a href="#">Display Options</a></h3>
+                <div class="displayOption">
+                    <input id="cbLabels" type="checkbox" /><label for="cbLabels">Labels</label>
+                    <input id="cbLegend" type="checkbox" /><label for="cbLegend">Legend</label>
+                    <input id="cbAxis" type="checkbox" /><label for="cbAxis">Axis</label>
+                    <input id="cbTooltip" type="checkbox" /><label for="cbTooltip">Tooltip</label>
+                    <input id="cbLines" type="checkbox" /><label for="cbLines">Lines</label>
+                </div>
+                <h3>
+                    <a href="#">Finished</a></h3>
+                <div class="finished">
+                    <div class="preview" id="preview">
+                    </div>
+                    <div class="code">
+                        <textarea id="code" readonly="readonly" rows="8"></textarea>
+                        <button id="clipboard">
+                            <span>Copy to clipboard</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right" id="ppg">
+        </div>
+    </div>
+    <div id="colorwheel">
+        <table cellspacing="0" style="width: 770px;">
+            <tbody>
+                <tr>
+                    <td valign="top">
+                        <div id="colorcontainer">
+                            <div id="colorval">
+                            </div>
+                            <input type="text" id="tbColor" />
+                            <div class="colorPickerContainer wijmo-wijcoloreditor ui-corner-all ui-widget-content">
+                                <div id="colorPicker">
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td valign="top" align="center">
+                        <div id="complementary">
+                            <h2>
+                                Complementary</h2>
+                            <div id="cc1a" class="swatch sa s1">
+                                #DD9999<br>
+                                (221,153,153)</div>
+                            <div id="cc1b" class="swatch sb s1">
+                                #BF4040<br>
+                                (191,64,64)</div>
+                            <div id="cc1c" class="swatch sc s1">
+                                #AA0000<br>
+                                (170,0,0)</div>
+                            <div id="cc1d" class="swatch sd s1">
+                                #710000<br>
+                                (113,0,0)</div>
+                            <div id="cc1e" class="swatch se s1">
+                                #330000<br>
+                                (51,0,0)</div>
+                            <div id="cc2a" class="swatch sa s2">
+                                #99DDDD<br>
+                                (153,221,221)</div>
+                            <div id="cc2b" class="swatch sb s2">
+                                #40C0C0<br>
+                                (64,192,192)</div>
+                            <div id="cc2c" class="swatch sc s2">
+                                #00ABAB<br>
+                                (0,171,171)</div>
+                            <div id="cc2d" class="swatch sd s2">
+                                #007272<br>
+                                (0,114,114)</div>
+                            <div id="cc2e" class="swatch se s2">
+                                #003333<br>
+                                (0,51,51)</div>
+                        </div>
+                    </td>
+                    <td valign="top" align="right">
+                        <div id="splitcomplementary">
+                            <h2>
+                                Split&nbsp;Complementary</h2>
+                            <div id="sc1a" class="swatch sa s1">
+                                #99DDBB<br>
+                                (153,221,187)</div>
+                            <div id="sc1b" class="swatch sb s1">
+                                #40C080<br>
+                                (64,192,128)</div>
+                            <div id="sc1c" class="swatch sc s1">
+                                #00AB55<br>
+                                (0,171,85)</div>
+                            <div id="sc1d" class="swatch sd s1">
+                                #007239<br>
+                                (0,114,57)</div>
+                            <div id="sc1e" class="swatch se s1">
+                                #00331A<br>
+                                (0,51,26)</div>
+                            <div id="sc2a" class="swatch sa s2">
+                                #DD9999<br>
+                                (221,153,153)</div>
+                            <div id="sc2b" class="swatch sb s2">
+                                #BF4040<br>
+                                (191,64,64)</div>
+                            <div id="sc2c" class="swatch sc s2">
+                                #AA0000<br>
+                                (170,0,0)</div>
+                            <div id="sc2d" class="swatch sd s2">
+                                #710000<br>
+                                (113,0,0)</div>
+                            <div id="sc2e" class="swatch se s2">
+                                #330000<br>
+                                (51,0,0)</div>
+                            <div id="sc3a" class="swatch sa s3">
+                                #99BBDD<br>
+                                (153,187,221)</div>
+                            <div id="sc3b" class="swatch sb s3">
+                                #4080C0<br>
+                                (64,128,192)</div>
+                            <div id="sc3c" class="swatch sc s3">
+                                #0055AB<br>
+                                (0,85,171)</div>
+                            <div id="sc3d" class="swatch sd s3">
+                                #003972<br>
+                                (0,57,114)</div>
+                            <div id="sc3e" class="swatch se s3">
+                                #001A33<br>
+                                (0,26,51)</div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table cellspacing="0" style="width: 770px;">
+            <tbody>
+                <tr>
+                    <td style="width: 140px;">
+                        <div id="monochrome">
+                            <h2>
+                                Monochrome</h2>
+                            <div id="mc1a" class="swatch sa s1">
+                                #DD9999<br>
+                                (221,153,153)</div>
+                            <div id="mc1b" class="swatch sb s1">
+                                #BF4040<br>
+                                (191,64,64)</div>
+                            <div id="mc1c" class="swatch sc s1">
+                                #AA0000<br>
+                                (170,0,0)</div>
+                            <div id="mc1d" class="swatch sd s1">
+                                #710000<br>
+                                (113,0,0)</div>
+                            <div id="mc1e" class="swatch se s1">
+                                #330000<br>
+                                (51,0,0)</div>
+                        </div>
+                    </td>
+                    <td align="center">
+                        <div id="triadic">
+                            <h2>
+                                Triadic</h2>
+                            <div id="tc1a" class="swatch sa s1">
+                                #DD9999<br>
+                                (221,153,153)</div>
+                            <div id="tc1b" class="swatch sb s1">
+                                #BF4040<br>
+                                (191,64,64)</div>
+                            <div id="tc1c" class="swatch sc s1">
+                                #AA0000<br>
+                                (170,0,0)</div>
+                            <div id="tc1d" class="swatch sd s1">
+                                #710000<br>
+                                (113,0,0)</div>
+                            <div id="tc1e" class="swatch se s1">
+                                #330000<br>
+                                (51,0,0)</div>
+                            <div id="tc2a" class="swatch sa s2">
+                                #9999DD<br>
+                                (153,153,221)</div>
+                            <div id="tc2b" class="swatch sb s2">
+                                #4040BF<br>
+                                (64,64,191)</div>
+                            <div id="tc2c" class="swatch sc s2">
+                                #0000AA<br>
+                                (0,0,170)</div>
+                            <div id="tc2d" class="swatch sd s2">
+                                #000071<br>
+                                (0,0,113)</div>
+                            <div id="tc2e" class="swatch se s2">
+                                #000033<br>
+                                (0,0,51)</div>
+                            <div id="tc3a" class="swatch sa s3">
+                                #99DD99<br>
+                                (153,221,153)</div>
+                            <div id="tc3b" class="swatch sb s3">
+                                #40BF40<br>
+                                (64,191,64)</div>
+                            <div id="tc3c" class="swatch sc s3">
+                                #00AA00<br>
+                                (0,170,0)</div>
+                            <div id="tc3d" class="swatch sd s3">
+                                #007100<br>
+                                (0,113,0)</div>
+                            <div id="tc3e" class="swatch se s3">
+                                #003300<br>
+                                (0,51,0)</div>
+                        </div>
+                    </td>
+                    <td align="right">
+                        <div id="analogous">
+                            <h2>
+                                Analogous</h2>
+                            <div id="ac1a" class="swatch sa s1">
+                                #DDBB99<br>
+                                (221,187,153)</div>
+                            <div id="ac1b" class="swatch sb s1">
+                                #C08040<br>
+                                (192,128,64)</div>
+                            <div id="ac1c" class="swatch sc s1">
+                                #AB5500<br>
+                                (171,85,0)</div>
+                            <div id="ac1d" class="swatch sd s1">
+                                #723900<br>
+                                (114,57,0)</div>
+                            <div id="ac1e" class="swatch se s1">
+                                #331A00<br>
+                                (51,26,0)</div>
+                            <div id="ac2a" class="swatch sa s2">
+                                #DD9999<br>
+                                (221,153,153)</div>
+                            <div id="ac2b" class="swatch sb s2">
+                                #BF4040<br>
+                                (191,64,64)</div>
+                            <div id="ac2c" class="swatch sc s2">
+                                #AA0000<br>
+                                (170,0,0)</div>
+                            <div id="ac2d" class="swatch sd s2">
+                                #710000<br>
+                                (113,0,0)</div>
+                            <div id="ac2e" class="swatch se s2">
+                                #330000<br>
+                                (51,0,0)</div>
+                            <div id="ac3a" class="swatch sa s3">
+                                #DD99BB<br>
+                                (221,153,187)</div>
+                            <div id="ac3b" class="swatch sb s3">
+                                #C04080<br>
+                                (192,64,128)</div>
+                            <div id="ac3c" class="swatch sc s3">
+                                #AB0055<br>
+                                (171,0,85)</div>
+                            <div id="ac3d" class="swatch sd s3">
+                                #720039<br>
+                                (114,0,57)</div>
+                            <div id="ac3e" class="swatch se s3">
+                                #33001A<br>
+                                (51,0,26)</div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

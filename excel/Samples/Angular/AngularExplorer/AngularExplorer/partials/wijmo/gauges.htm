@@ -1,0 +1,93 @@
+﻿<h3>Wijmo Gauges</h3>
+
+<p class="text-info">
+    Wijmo provides
+    <a href="http://wijmo.com/widgets/wijmo-complete/linear-gauge/">linear</a> and
+    <a href="http://wijmo.com/widgets/wijmo-complete/radial-gauge/">radial</a> gauge widgets.
+All gauges show a value within a dial that may contain tickmarks, labels, and range indicators.
+The Wijmo gauges are flexible and easy to customize.
+</p>
+
+<p class="text-info">
+    This page shows two gauge directives designed for use in dashboard applications. 
+The radial gauge is based on the Wijmo radial gauge widget, with annotations added to the widget's Raphael canvas.
+The bullet graph is based on a Wijmo linear gauge. The bullet graph concept is described in 
+    <a href="http://www.amazon.com/Information-Dashboard-Design-Effective-Communication/dp/0596100167">Stephen Few's book on dashboard design</a>
+</p>
+.
+
+<!-- radial gauges -->
+<h4>Top Three Airports in 2011 (million passengers flown):</h4>
+<div class="row-fluid">
+    <div class="span4 pagination-centered" ng-repeat="ap in airports | limitTo:3">
+        <div style="height: 110px;">
+            <wij-radialgauge min="0" max="50" value="{{ap.vol2011 / 1000000}}" width="180" height="180"
+                margin-left="0" margin-right="0" margin-top="0" margin-bottom="0">
+                <animation enabled="false"></animation>
+                <pointer visible="false"></pointer>
+                <cap visible="false"></cap>
+                <face>
+                    <style fill="none" stroke="none"></style>
+                </face>
+                <labels visible="false"></labels>
+                <tickMajor visible="false"></tickMajor>
+                <tickMinor visible="false"></tickMinor>
+                <ranges>
+                    <range start-value="0" end-value="50" start-width="45" end-width="45" start-distance="0.4" end-distance="0.4">
+                        <style fill="#e0e0e0" stroke="#e0e0e0"></style>
+                    </range>
+                    <range start-value="0" end-value="{{ap.vol2011 / 1000000}}" start-width="45" end-width="45" start-distance="0.4" end-distance="0.4">
+                        <style fill="gold" stroke="gold"></style>
+                    </range>
+                </ranges>
+            </wij-radialgauge>
+        </div>
+        <p class="text-center">{{ ap.vol2011 / 1000000 }}</p>
+        <p class="text-center">
+            <span class="label label-info"><b>{{ap.code}}</b>: {{ap.city}}</span>
+        </p>
+    </div>
+</div>
+
+<!-- linear gauges (bullet graphs) -->
+<h4>Top 20 Airports in 2011 (million passengers flown):</h4>
+<div class="row-fluid">
+    <table>
+        <tr ng-repeat="ap in airports | limitTo:20">
+            <td>#{{$index + 1}}: <b>{{ap.code}}</b></td>
+            <td>{{ap.city}}</td>
+            <td>
+                <wij-lineargauge value="20" min="0" max="50" height="30">
+                    <face>
+                        <style fill="none" stroke="none"></style>
+                    </face>
+                    <animation enabled="false"></animation>
+                    <labels visible="false"></labels>
+                    <tickMajor visible="false"></tickMajor>
+                    <tickMinor visible="false"></tickMinor>
+                    <pointer length="1" shape="rect">
+                        <style fill="black" stroke="none" ></style>
+                    </pointer>
+                    <ranges>
+                        <range start-value="0" end-value="18" start-width="1" end-width="1" start-distance="1" end-distance="1">
+                            <style fill="grey" stroke="none" opacity="0.1"></style>
+                        </range>
+                        <range start-value="0" end-value="15" start-width="1" end-width="1" start-distance="1" end-distance="1">
+                            <style fill="grey" stroke="none" opacity="0.2"></style>
+                        </range>
+                        <range start-value="0" end-value="5" start-width="1" end-width="1" start-distance="1" end-distance="1">
+                            <style fill="grey" stroke="none" opacity="0.4"></style>
+                        </range>
+                        <range start-value="0" end-value="{{ap.vol2011/1000000}}" start-width="0.3" end-width="0.3" start-distance="0.65" end-distance="0.65">
+                            <style fill="grey" stroke="none" opacity="0.95"></style>
+                        </range>
+                    </ranges>
+                </wij-lineargauge>
+                <wij-bullet
+                    actual="{{ap.vol2011/1000000}}"
+                    poor="5" satisfactory="15" good="18" target="20" max="50"></wij-bullet>
+            </td>
+        </tr>
+    </table>
+    <wij-bullet-legend class="pull-right"></wij-bullet-legend>
+</div>

@@ -68,7 +68,17 @@ abstract class AbstractController extends PhalconController
         }
 
         if (!$this->request->isAjax()) {
-            $this->_setupAssets();
+            //$this->_setupAssets();
+        	$eventsManager = new \Phalcon\Events\Manager();
+        	$this->setEventsManager($eventsManager);
+        	$eventsManager->attach('assets:after_setupAssets', function($event, $component, $data){
+        		$this->assets->get(
+        				AssetManager::DEFAULT_COLLECTION_CSS)
+        				//$this->assets->getEmptyCssCollection()
+        		->addCss('assets/css/constants.css')
+        		->addCss('assets/css/theme.css');
+        		//);
+        	});
         }
 
         // run init function
@@ -204,17 +214,16 @@ abstract class AbstractController extends PhalconController
      */
     protected function _setupAssets()
     {
-        $this->assets->set(
-            AssetManager::DEFAULT_COLLECTION_CSS,
-            $this->assets->getEmptyCssCollection()
-                ->addCss('external/jquery-ui/1.10.4/jquery-ui.css',false)
-                ->addCss('assets/css/constants.css')
-                ->addCss('assets/css/theme.css')
-        );
+//         $this->assets->get(
+//             AssetManager::DEFAULT_COLLECTION_CSS)
+//             //$this->assets->getEmptyCssCollection()
+//                 ->addCss('assets/css/constants.css')
+//                 ->addCss('assets/css/theme.css');
+//         //);
 
-        $this->assets->set(
-            AssetManager::DEFAULT_COLLECTION_JS,
-            $this->assets->getEmptyJsCollection()
+        $this->assets->get(
+            AssetManager::DEFAULT_COLLECTION_JS)
+            //$this->assets->getEmptyJsCollection()
                 ->addJs('external/jquery/2.1.0/jquery-2.1.0.js')
                 ->addJs('external/jquery-ui/1.10.4/jquery-ui-1.10.4.js')
                 ->addJs('external/jquery/plugins/jquery.cookie.js')
@@ -225,8 +234,8 @@ abstract class AbstractController extends PhalconController
                 ->addJs('assets/js/core/widgets/grid.js')
                 ->addJs('assets/js/core/widgets/autocomplete.js')
                 ->addJs('assets/js/core/widgets/modal.js')
-                ->addJs('assets/js/core/widgets/ckeditor.js')
-        );
+                ->addJs('assets/js/core/widgets/ckeditor.js');
+
 
         if ($this->di->has('profiler')) {
             $this->di->get('assets')

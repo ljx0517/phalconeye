@@ -1,0 +1,76 @@
+<div data-role="appviewpage" data-title="Cell formatting">
+	<style type="text/css">
+		.wijmo-wijgrid
+		{
+			min-height: 100px;
+		}
+	</style>
+
+	<div data-role="content">
+		<table id="demo" style="height:90%; width:100%"></table>
+
+		<p>National flag (click any row to show):</p>
+		<div id="flagContainer" class="ui-widget-content">
+			<img id="imgFlagLarge" style="display:none" />
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		$(document).one("wijappviewpageinit", function() {
+
+            $("#demo").wijgrid({
+				scrollMode: "auto",
+                data: new wijdatasource({
+                    proxy: new wijhttpproxy({
+                        url: "http://ws.geonames.org/searchJSON",
+                        dataType: "jsonp",
+                        data: {
+                            username: "demo",
+                            featureClass: "P",
+                            style: "full",
+                            maxRows: 5,
+                            name_startsWith: "ab"
+                        },
+                        key: "geonames"
+                    }),
+                    reader: new wijarrayreader([
+						{ name: "Name", mapping: "name" },
+						{ name: "CountryName", mapping: "countryName" },
+						{ name: "CountryCode", mapping: "countryCode" },
+						{ name: "ContinentCode", mapping: "continentCode" }
+                    ])
+                }),
+
+                columns: [
+                    {}, // Name
+					{ headerText: "Country name" }, // CountryName
+                    {
+						headerText: "National flag",
+                        cellFormatter: function (args) {
+                            if (args.row.type & $.wijmo.wijgrid.rowType.data) {
+                                args.$container
+                                    .css("text-align", "center")
+                                    .empty()
+                                    .append($("<img />")
+                                    .attr("src", "http://www.geonames.org/flags/m/" + args.row.data.CountryCode.toLowerCase() + ".png"));
+
+                                return true;
+                            }
+                        }
+                    },
+					{ headerText: "Continent code" }
+                ],
+
+                rowStyleFormatter: function (args) {
+                    if ((args.state & $.wijmo.wijgrid.renderState.rendering) && (args.type & $.wijmo.wijgrid.rowType.data)) {
+                        args.$rows
+                            .css("cursor", "pointer")
+                            .click(function (e) {
+								$("#imgFlagLarge").show().attr("src", "http://www.geonames.org/flags/x/" + args.data.CountryCode.toLowerCase() + ".gif")
+                            });
+                    }
+                }
+            });
+		});
+	</script>
+</div>

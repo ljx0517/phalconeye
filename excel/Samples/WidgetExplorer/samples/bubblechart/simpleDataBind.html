@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>BubbleChart - Array Datasource</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="%description%" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="ComponentOne" />
+
+    <link href="../../../../Themes/rocket/jquery-wijmo.css" rel="stylesheet" type="text/css" />
+    <link href="../../../../css/jquery.wijmo-pro.all.3.20143.59.min.css" rel="stylesheet" type="text/css" />
+    <script src="../../js/require.js" type="text/javascript"></script>
+    <script src="../../js/require.wijmo.config.js" type="text/javascript"></script>
+
+    <script id="scriptInit" type="text/javascript">
+        require(["wijmo.wijbubblechart"], function () {
+            $(document).ready(function () {
+
+                // defining data source array as a number of object literals with three properties according to three chart axises
+                var data = [
+                    // you can use any names for your properties
+                    {
+                        income: 2972,
+                        population: 1150,
+                        expectency: 65
+                    }, {
+                        income: 7931,
+                        population: 1340,
+                        expectency: 73
+                    }, {
+                        income: 14318,
+                        population: 140,
+                        expectency: 69
+                    }, {
+                        income: 42066,
+                        population: 309,
+                        expectency: 78
+                    }, {
+                        income: 30866,
+                        population: 126,
+                        expectency: 83
+                    }];
+
+                // initializing BubbleChart widget
+                $("#wijbubblechart").wijbubblechart({
+                    // use 'dataSource' proprty to define your array as data source for the widget
+                    dataSource: data,
+
+                    // then use 'seriesList' property to setup the data binding
+                    seriesList: [{
+                        // all you need is only to specify the relations between chart axises and data proprties
+                        data: {
+                            x: { bind: "income" }, // binding the 'x' axis values to the 'income' property 
+                            y: { bind: "expectency" }, // binding the 'y' axis values to the 'expectency' property
+                            y1: { bind: "population" } // binding the 'y1' axis to the 'population' property
+                        }
+                    }],
+                    axis: {
+                        y: {
+                            text: "Life Expectancy",
+                            labels: {
+                                textAlign: "far"
+                            }
+                        },
+                        x: {
+                            text: "Income",
+                            tickMajor: {
+                                position: "inside"
+                            },
+                            labels: {
+                                textAlign: "near"
+                            }
+                        }
+                    },
+                    legend: {
+                        visible: false
+                    },
+                    hint: {
+                        content: function () {
+                            return this.data.label + " \n"
+                                + "Life Expectency: " + this.y + "\n"
+                                + "Income: " + Globalize.format(this.x, "n") + "\n"
+                                + "Population: " + this.data.y1 + "M";
+                        },
+                        style: {
+                            stroke: "#000",
+                            "stroke-width": 10
+                        }
+                    },
+                    header: {
+                        text: "Wealth & Health of Nations - 2010"
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body class="demo-single">
+    <div class="container">
+        <div class="header">
+            <h2>Array Datasource</h2>
+        </div>
+        <div class="main demo">
+            <!-- Begin demo markup -->
+            <div id="wijbubblechart" class="ui-widget ui-widget-content ui-corner-all" style="width: 756px; height: 475px;">
+            </div>
+            <!-- End demo markup -->
+            <div class="demo-options">
+                <!-- Begin options markup -->
+                <!-- End options markup -->
+            </div>
+        </div>
+        <div class="footer demo-description">
+            <p>
+                This sample shows another way how to setup chart data. Besides defining data directly in 'seriesList' property
+                you can use array as data source and data binding. All you need is to use 'dataSource' property.
+            </p>
+            <h3>Test the features</h3>
+            <ul>
+                <li>Note both 'x' and 'y' axises are presented as continuous number variables.</li>
+                <li>Note every chart bubble has it own size according to the third data value.</li>
+                <li>Hover over a bubble to see the tooltip with description.</li>
+                <li>Go to the 'Sources' tab to see how to bind array data using 'dataSource' property.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

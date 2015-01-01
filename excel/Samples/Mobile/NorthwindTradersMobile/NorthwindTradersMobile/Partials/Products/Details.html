@@ -1,0 +1,36 @@
+<div data-role="appviewpage">
+    <div data-role="header">
+        <a href="List.html" data-icon="back">Back</a>
+        <h2>Details</h2>
+    </div>
+    <div data-role="content">
+        <ul id="list" data-role="listview" data-inset="true" data-theme="c" data-bind="with: product.toObservableArray()()[0]">
+            <li data-bind="text: 'Product ID: ' + Product_ID"></li>
+            <li data-bind="text: 'Product Name: ' + Product_Name"></li>
+            <li data-bind="text: 'Units In Stock: ' + Units_In_Stock"></li>
+        </ul>
+    </div>
+    
+    <script type="text/javascript">
+        $.support.cors = true;
+        var viewModel;
+        function ViewModel() {
+            var loc = window.location.hash;
+            loc = loc.substr(loc.lastIndexOf("ID=") + 3, loc.length);
+            var productView = new wijmo.data.AjaxDataView("http://demo.componentone.com/aspnet/NorthwindAPI/api/read/Product/" + loc, {
+                onResponse: function (res) {
+                    return { results: [res] };
+                }
+            });
+            productView.refresh().then(function () {
+
+            });
+            this.product = productView;
+        }
+
+        $(document).one("wijappviewpageinit", function () {
+            viewModel = new ViewModel();
+            ko.applyBindings(viewModel);
+        });
+    </script>
+</div>

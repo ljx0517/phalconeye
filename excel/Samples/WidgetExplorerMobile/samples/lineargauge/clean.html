@@ -1,0 +1,71 @@
+<div data-role="appviewpage" data-title="Clean Style">
+	<div data-role="content">
+		<div id="gauge" data-role="wijlineargauge">
+		</div>
+		<script type="text/javascript">
+			$(document).one("wijappviewpageinit", function () {
+				$("#gauge").wijlineargauge({
+					width: 480,
+					height: 140,
+					value: 70,
+					max: 90,
+					min: 0,
+					labels: {
+						visible: false
+					},
+					pointer: {
+						length: 0.6,
+						width: 12,
+						offset: 0.2,
+						shape: "rect",
+						style: { fill: "0-#CFD0D0-#CECECE:50-#F0F0F0:51", stroke: "none" }
+					},
+					tickMajor: {
+						factor: 10,
+						interval: 15,
+						position: "center",
+						style: { fill: "0-#008EFE-#00C0FF", stroke: "none", width: 8 }
+					},
+					tickMinor: {
+						visible: true,
+						factor: 6,
+						interval: 5,
+						position: "center",
+						style: { fill: "0-#008EFE-#00C0FF", stroke: "none", width: 4 }
+					},
+					face: {
+						style: {},
+						template: function (ui) {
+							var set = ui.canvas.set();
+							var rect = ui.canvas.rect(ui.x, ui.y, ui.width, ui.height, 60);
+							rect.attr({ "stroke": "none", fill: "90-#8E8E8F-#FBFBFB" });
+							set.push(rect);
+
+							var rect2 = ui.canvas.rect(ui.x + 17, ui.y + 17, ui.width - 34, ui.height - 34, 43);
+							rect2.attr({ "stroke": "#C8C8C9", "stroke-width": 0, fill: "270-#32353F-#7C8491" });
+							set.push(rect2);
+
+							var rect3 = ui.canvas.rect(ui.x + 26, ui.y + 26, ui.width - 52, ui.height - 52, 38);
+							rect3.attr({ "stroke": "#000513", "stroke-width": 6, fill: "90-#010A44-#002369" });
+							set.push(rect3);
+
+
+							return set;
+						}
+					},
+					ranges: [{
+						startWidth: 0.4,
+						endWidth: 0.4,
+						startValue: 60,
+						endValue: 90,
+						startDistance: 0.7,
+						endDistance: 0.7,
+						style: {
+							fill: "300-#065AFE-#00C0FF", stroke: "none"
+						}
+					}]
+				});
+			});
+		</script>
+	</div>
+</div>

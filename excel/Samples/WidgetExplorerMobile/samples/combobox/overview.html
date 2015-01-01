@@ -1,0 +1,64 @@
+<div data-role="appviewpage" data-title="Overview">
+	<div data-role="content">
+		<div>
+			<label> HTML input element</label> <input id="tagsinput"
+				data-role="wijcombobox" />
+		</div>
+		<script type="text/javascript">
+			$(document).one('wijappviewpageinit', function() {
+				// put all your jQuery goodness in here.
+				$("#tagsinput").wijcombobox({
+					showingAnimation : {
+						effect : "blind"
+					},
+					hidingAnimation : {
+						effect : "blind"
+					},
+					data : [ {
+						label : 'c++',
+						value : 'c++'
+					}, {
+						label : 'java',
+						value : 'java'
+					}, {
+						label : 'php',
+						value : 'php'
+					}, {
+						label : 'coldfusion',
+						value : 'coldfusion'
+					}, {
+						label : 'javascript',
+						value : 'javascript'
+					}, {
+						label : 'asp',
+						value : 'asp'
+					}, {
+						label : 'ruby',
+						value : 'ruby'
+					}, {
+						label : 'python',
+						value : 'python'
+					}, {
+						label : 'c',
+						value : 'c'
+					}, {
+						label : 'scala',
+						value : 'scala'
+					}, {
+						label : 'groovy',
+						value : 'groovy'
+					}, {
+						label : 'haskell',
+						value : 'haskell'
+					}, {
+						label : 'perl',
+						value : 'perl'
+					} ]
+				});
+				$('#show').click(function() {
+					$("#tags").show();
+				})
+			});
+		</script>
+	</div>
+</div>

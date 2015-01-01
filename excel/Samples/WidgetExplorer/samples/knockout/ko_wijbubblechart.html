@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Knockout - Bubble Chart</title>
+    
+    <link href="../../../../Themes/rocket/jquery-wijmo.css" rel="stylesheet" type="text/css" />
+    <link href="../../../../css/jquery.wijmo-pro.all.3.20143.59.min.css" rel="stylesheet" type="text/css" />
+    <script src="../../js/require.js" type="text/javascript"></script>
+    <script src="../../js/require.wijmo.config.js" type="text/javascript"></script>
+
+    <script id="scriptInit" type="text/javascript">
+        var index = 0, viewModel;
+
+        require(["wijmo.wijbubblechart", "knockout.wijmo"], function () {
+            //Create ViewModel
+            viewModel = {
+                seriesList: ko.observableArray([createRandomSeriesList('legend' + index)])
+            };
+            //Bind ViewModel
+            $(document).ready(function () {
+                ko.applyBindings(viewModel, $(".container").get(0));
+            });
+        });
+
+        function createRandomSeriesList(label) {
+            var x = [], y = [], y1 = [],
+                randomDataValuesCount = 12,
+                //labels = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+                //	"Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                idx;
+            for (idx = 0; idx < randomDataValuesCount; idx++) {
+                x.push(createRandomValue());
+                y.push(createRandomValue());
+                y1.push(createRandomValue());
+            }
+            return {
+                label: label,
+                legendEntry: false,
+                data: { x: x, y: y, y1: y1 }
+            };
+        }
+
+        function createRandomValue() {
+            var val = Math.round(Math.random() * 100);
+            return val;
+        }
+
+        function reload() {
+            index++;
+            var randomSeriesList = createRandomSeriesList('legend' + index);
+            viewModel.seriesList([randomSeriesList]);
+        }
+        function add() {
+            index++;
+            var randomSeriesList = createRandomSeriesList('legend' + index);
+            viewModel.seriesList.push(randomSeriesList);
+        }
+    </script>
+</head>
+<body class="demo-single">
+    <div class="container">
+        <div class="header">
+            <h2>
+                Bubble Chart</h2>
+        </div>
+        <div class="main demo">
+            <!-- Begin demo markup -->
+            <div id="wijbubblechart" data-bind="wijbubblechart: { seriesList: seriesList }" style="width:600px;height:400px;"></div>
+            <!-- End demo markup -->
+            <div class="demo-options">
+                <!-- Begin options markup -->
+                <div>
+                    <input type="button" value="reset observablearray" onclick="reload()" />
+                </div>
+                <div>
+                    <input type="button" value="add" onclick="add()" />
+                </div>
+                <div>
+                    <table>
+                        <thead>
+                            <tr><th>seriesList</th></tr>
+                        </thead>
+                        <tbody data-bind="foreach: seriesList">
+                            <tr>
+                                <td data-bind="text: label"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- End options markup -->
+            </div>
+        </div>
+        <div class="footer demo-description">
+            <p>
+                Wijmo provides a Knockout Integration Library so that all jQuery UI and Wijmo widgets can be used with Knockout declarative syntax.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

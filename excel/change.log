@@ -1,0 +1,4770 @@
+Wijmo v3.20143.59 (dropped)
+==========================
+Drop Date: 11/10/2014
+---------------------
+Dependencies
+------------
+Uses jQuery 1.11.1/2.1.1, jQuery UI 1.11.0 and jQuery Mobile 1.4
+
+wijgrid
+-------
+[92713][Community][WijGrid] Filtering does not work when paging is enabled in WijGrid and column.filterValue option is changed directly from the user code.
+
+wijeditor
+-------
+Fixed an issue that "SAVE" button's localization is incorrect.
+Fixed an issue that javascript error[cannot call methods on wijtabs prior to initialization; attempted to call method 'destroy'] occurs when mode option is set to "bbcode".
+
+WidgetExplorer
+---------------
+Fixed an issue of Javascript error is observed in Knockout TreeMap sample.
+
+Wijmo v3.20143.58 (dropped)
+==========================
+Drop Date: 11/7/2014
+---------------------
+Dependencies
+------------
+Uses jQuery 1.11.1/2.1.1, jQuery UI 1.11.0 and jQuery Mobile 1.4
+
+WidgetExplorer
+---------------
+Fixed an issue of Javascript error is observe when click on "Explorer All" button in WidgetExplorer sample
+
+Wijmo v3.20143.57 (dropped) 
+===========================
+Drop Date: 11/7/2014
+---------------------
+Dependencies
+------------
+Uses jQuery 1.11.1/2.1.1, jQuery UI 1.11.0 and jQuery Mobile 1.4
+
+drag feature
+----------
+Fixed an issue that drag feature is not working in IE touch environment
+
+wijgauges
+---------
+Fixed an issue of memory leak.
+
+wijtreemap
+----------
+Added support of bootstrap style.
+
+wijpager
+--------
+Fixed an isuse that selected page index style is not correctly applied in bootstrap mode.
+
+wijeditor
+---------
+Fixed an issue that 'Next page' link does not work properly when 'Preview' dialog box is re-opened.
+Fixed an issue that added objects are displayed outside of wijeditor.
+Fixed an issue that html tag show in "Text to display" of hyperlink dialog.
+Fixed an issue that cursor lose focus on 'Insert Hyperlink' dialog box.
+
+wijappview
+----------
+Fixed an issue that in IE the option "disable" takes no effects.
+
+wijdialog
+---------
+Fixed an issue that can move focus to element in background when restoring modal dialog size
+Fixed an issue that wijdialog does not get closed when it is bigger in size than parent window.
+Fixed an issue that page is not correctly rendered in modal dialog mode when modal option is set to true.
+Fixed an issue of memory leak.
+
+wijcandlestickchart
+-------------------
+Fixed an issue that javascript error is observed when applying axis in candlestickchart.
+
+WidgetExplorer
+--------------
+Fixed an issue that javascript error is observed after click on "explorer all" button while browsering "File Input" page of wijupload.
+Fixed "Gallery/Ajax" sample that one image is missing.
+
+wijdatepager
+------------
+Fixed issues that these controls do not show selected style correctly in Bootstrap.
+
+wijlightbox
+-----------
+Fixed an issue that timer meter works incorrectly.
+Fixed an issue that "disabled" option works incorrectly at runtime.
+
+wijsuperpanel
+-------------
+Fixed an issue that JavaScript error is observed setting "disabled" option when "allowResize" is false.
+Fixed an issue that if element is hidden and "autoRefresh" is true, JS error will occur when wijsuperpanel initialize.
+
+knockout
+--------
+Add an event "optionsUpdated" offering timing to manipulate controls.
+Fixed an issue that option values of type "Date" are incorrectly treated as composite values when updating observables.
+
+wijgrid
+-------
+The following options are obsoleted and moved into the new scrollingSettings option: allowVirtualScrolling, freezingMode, rowHeight, staticColumnIndex, staticColumnsAlignment, staticRowIndex.
+New feature added: columns virtual scrolling (check the wijgrid.scrollingSettings option for more details).
+Javascript error[Cannot read property "options" of undefined] is thrown when new row is added after removing the data rows.
+
+wijdata
+----------
+Fixed an issue that Javascript error is observed when delete last row.
+
+wijlistview
+-----------
+Fixed an issue that "disabled" option can not make the filterable disabled in wijlistview.
+
+wijevcal
+--------
+Fixed an issue that Color field binding does not work when C1EventsCalendar is bound to a database.
+
+wijinputtext
+------------
+Fixed an issue that Overflow Tip is displayed on mouse hover on disabled wijInputText.
+
+wijinputdate
+------------
+Added calendar.calendarMode option.
+
+wijtooltip
+----------
+Fixed an issue that "hiding" and "hiden" events fire even though tooltip is not showing, if "closeBehavior" is "auto".
+
+wijgallery
+----------
+Fixed an issue that Play method does not work well after disabled option is used.
+Fixed an issue that "thumbnailOrientation" option works incorrectly at runtime.
+
+wijcarousel
+-----------
+Fixed an issue that Play method does not work well after disabled option is used.
+
+wijtree
+-------
+Fixed issues that JavaScript runtime error occurs after node dragdrop action is performed at second time between two WijTreeView.
+Fixed issues that these controls do not show selected style correctly in Bootstrap.
+
+wijmenu
+-------
+Fixed an issue that "maxHeight" option does not work at runtime.
+Fixed issues that these controls do not show selected style correctly in Bootstrap.
+Fixed an issue that "previousPage" and "nextPage" methods throw error if no item is selected.
+
+wijbubblechart
+--------------
+Fixed an issue that JavaScript error is observed on changing data in WijBubbleChart.
+
+wijcompositechart
+-----------------
+Fixed an issue that data series and annotation are changed on changing some properties in wijcompositechart with candlestick type.
+Fixed an issue that tooltip is not shown for the Line Chart when line is over a Bar Chart.
+
+wijsplitter
+-----------
+Fixed an issue that it cannot be recreated after destroy.
+
+wijwizard
+---------
+Fixed an issue that it cannot be recreated after destroy.
+
+wijdatepager
+----------
+Fixed an issue that 'Destroy' method is not working.
+
+wijribbon
+---------
+Fixed an issue that 'Destroy' method is not working in WijRibbon.
+
+wijcombobox
+-----------
+Add an option that allow the width of the combobox to automatically fit the widest list item.
+Fixed an issue that that Unlike previous build, selectedIndex binding does not work.
+
+angular
+-------
+Add options watching support for decorator controls (controls using attribute directives like formdecorator and video).
+
+wijcharts
+---------
+Fixed an issue that container of header and footer is located in a wrong position.
+
+wijsparkline
+----------
+Fixed an issue that Sparkline data is not shown if its size is not defined.
+Fixed an issue that sparkline doesn't support visibilityObserver.
+
+Wijmo v3.20143.56 (dropped)
+================
+Dependencies
+------------
+Uses jQuery 1.11.1/2.1.1, jQuery UI 1.11.0 and jQuery Mobile 1.4
+
+New Widgets
+-----------
+wijtreemap
+wijmaps
+wijfileexplorer
+
+New Freatures
+-------------
+virtualization in wijtree
+localization in wijeditor/wijribbon
+
+wijaccordion
+------------
+Fixed an issue that panel fails to open after quickly hover between headers.
+Fixed an issue that the linechart in a panel will redraw when open this panel.
+
+wijeditor
+------------
+expose "localization" option.
+Fixed an issue that Unable to Merge cell on vertical cells of table inside wijeditor.
+Fixed an issue that "disabled" and "fullScreenMode" options have problem working together.
+Fixed an issue that browser becomes unresponsive for a while after pasting HTML content in WijEditor.
+
+wijcombobox
+----------
+Fixed an issue that changes in "selectedIndex" property is not correctly updated to the underlying data source.
+Fixed an issue that when "selectionMode" is "multiple" a blank item marked "selected" does not show like selected.
+
+wijdialog
+------------
+Fixed an issue that caption button's tooltip is show same that is incorrect.
+
+wijcharts
+---------
+Added chartLabelFormatter option.
+Fixed an issue that in barchart, if axis min and max has been set, the barchart will change after refersh.
+Fixed an issue that in barchart, first item of valueLabels may not be able to show.
+Fixed an issue that when chart located at a hidden panel of accordion, chart can not refresh after this panel show.
+Fixed an issue that if legend compass is "east" or "west", and orientation is "horizontal", chart legends may locate in a wrong position.
+
+wijslider
+---------
+Fixed an issue that when "dragFill" is true, "start" event fires twice if dragging the thumb but 0 time if dragging the fill.
+
+wijprogressbar
+--------------
+Fixed an issue that all events cannot fire when using AngularJS.
+
+WidgetExplorer
+--------------
+Fixed an issue that error occurs when opening input samples of Knockout.
+Fixed an issue that Javascript error is observed when navigate to 'File input' sample page.
+
+angular
+-------
+Fixed an issue that when use AngularJS, wijcompositechart can not hide the grid lines of Y-axis.
+
+wijtooltip
+---------
+Fixed an issue that "content" property is not bindable for wijtooltip.
+
+wijcarousel
+-----------
+Fixed an issue that "auto" option does not work at runtime.
+
+wijgrid
+-------
+[83747][ASP.Net Wijmo][Wijmo Widget][WijGrid] Filter option dropdown and calendar dropdown are not closed when resizing the browser.
+
+wijtabs
+-------
+Fixed an issue that in Bootstrap with "left"/"right" alignment the tab strip is too wide.
+
+wijevecal
+------------
+Fixed an issue that the event is drag dropped to the new date, even if an error occurs while performing the drag drop operation in the Month View.
+
+wijvideo
+--------
+Fixed an issue that fullscreen mode does not show correctly.
+
+wijgallery
+----------
+Fixed an issue that JavaScript errors are observed using pager.
+
+wijsparkline
+------------
+Fixed an issue that indicator line is stuck at left most position after switching to other types from "column" type.
+
+wijribbon
+------------
+Add "data" option.
+
+bootstrap&wijcalendar
+Fixed an issue that preview buttons are not able to see if use 'BootStrap' style.
+
+wijtree
+-----------
+Fixed an issue that  Javascript error occurs after node dragdrop action between two WijTreeView.
+
+Wijmo v3.20142.55 (dropped)
+================
+Dependencies
+------------
+Uses jQuery 1.11.1/2.1.1, jQuery UI 1.11.0 and jQuery Mobile 1.4
+
+wijcharts
+----------
+Fixed an issue that seriesStyle not working when using AngularJS markup to initialize wijcharts with jQuery v2.0.3 and v2.1.1.
+
+wijcandlestickchart
+----------
+Fixed an issue that annotation value are changed and trendline is not displayed after refresh candlestickchart.
+
+wijtooltip
+----------
+Fixed an issue that setting "showCallout" option causes tooltip position and callout shape change (when tooltip flipping occurs).
+
+wijevcal & wijdatepager
+-----------------------
+Fixed an issue that week view cannot navigate to next in specific months whose last day is the first day of week. 
+
+wijradio & wijtextbox
+---------------------
+Fixed issues that "disabled" options do not work correctly.
+
+wijrating
+---------
+Fixed an issue that "position" and other complex options do not work at runtime with AngularJS.
+
+wijcompositechart
+----------
+Fixed an issue that the whole sharedPie chart is disappeared after adding candlestick chart.
+Implement painting a title for each "sharedPie".
+
+knockout
+--------
+Fixed an issue knockout view model broken when the binding expression has a nested structure.
+
+wijbarchart & wijcompositechart
+----------
+Fixed an issue that extra space generated between the YAxis and the bar on the first data point of the chart if 17 or more values are plotted on the chart.
+
+wijdialog
+---------
+Fixed an issue that disabledDiv has wrong position after reopening the dialog.
+
+wijutil
+--------
+Fixed an issue for IE10+ that scrolling behaviour is weird in an iFrame .
+
+Wijmo v3.20142.54 (dropped)
+================
+Dependencies
+------------
+Uses jQuery 1.11.1/2.1.1, jQuery UI 1.11.0 and jQuery Mobile 1.4
+
+wijeditor
+---------
+Fixed an issue that using text option to create editor widget,  the text can't show in editor in IE(sometimes).
+
+wijcombobox
+-----------
+Fixed an issue that combobox have different background color in mobile themes.
+
+wijdatepager
+------------
+Fixed an issue that "selectedDateChanged" event cannot fire when "selectedDate" option is changed at runtime.
+
+wijaccordion
+------------
+Fixed an issue that "selectedIndexChanged" and "beforeSelectedIndexChanged" events cannot fire when using AngularJS.
+Fixed an issue that JS error occurs in IE8.
+
+wijmenu
+-------
+Fixed an issue that "disabled" option is working incorrectly in widget at run time.
+Dim the menu when it is disabled.
+
+wijgallery
+----------
+Fixed an issue that "showThumbnailCaptions" option does not work at runtime.
+
+wijlightbox
+-----------
+Fixed an issue that "showCounter" option does not work at runtime.
+
+angular->wijgrid
+-----------
+Fixed an issue "editor-template" directive in Wijmo vCurrent grid is incorrect.
+
+wijdialog
+---------
+Fixed an issue that when using AngularJS "beforeClosing" and 3 drag events cannot fire while "close" event fires twice.
+
+wijtree
+-----------
+Fixed an issue that TreeNode's height is doubled when it gets into edit mode.
+Fixed an issue that treenodes added to a disabled tree remain disabled after the tree get enabled.
+
+wijtouchutil
+----------
+Fixed an issue that detection of touch device is wrong in Chrome.
+
+wijtabs
+-------
+Fixed an issue that TabStrip is not correctly displayed in left/right alignment.
+
+wijtooltip
+----------
+Fixed an issue that "disabled" option does not work correctly.
+
+wijcompositechart
+----------
+Fixed an issue that if there are more than 2 pies in "sharedPie" type serie, JS error will occur when click the legend.
+
+wijchartcore
+--------
+Fixed an issue that export chart not working after adding SpreadJS.
+
+Wijmo v3.20142.53 (dropped)
+================
+Dependencies
+------------
+Uses jQuery 1.11.1/2.1.1, jQuery UI 1.11.0 and jQuery Mobile 1.4
+
+wijwizard
+---------
+Fixed an issue that clicking prev/next button forces page to scroll to top.
+
+wijcombobox
+---------
+Fixed an issue that autofilter does not work when inserted text is modified using 'Del' key.
+
+wijevcal
+-------
+Fixed an issue that events are duplicated when custom editEventDialogTemplate is set.
+
+wijdialog&&wijeditor&&wijupload&&wijdatepager&&wijvideo
+---------
+Fixed an issue that "disabled" option is working incorrectly in widget at run time.
+
+wijslider
+-------
+Fixed an issue that increase or decrease button is not dim although "disabled" option is set as true.
+
+wijprogressbar&&wijpopup&&wijsparkline&&wijsuperpanel
+--------
+Add widgets dim effect when "disabled" option is set as true at page initialize.
+
+wijaccordion
+-------
+Fixed an issue that header and content area is not consistent  when changing expend directions.
+
+wijcandlestickchart
+--------
+Fixed an issue that '0NAN' is display in X-axis when 'Trendline' is added in candlestick chart.
+
+wijcompositechart
+--------
+Fixed an issue that '0NAN' is display in X-axis when 'Trendline' is added for candlestick type series.
+
+Wijmo v3.20142.52 (dropped)
+================
+Dependencies
+------------
+Uses jQuery 1.11.1/2.1.1, jQuery UI 1.11.0 and jQuery Mobile 1.4
+
+Updated generated wijmo.d.ts file.
+
+wijgrid
+-------
+[77049]the "count" aggregate is calculated incorrectly for boolean column.
+[78523]args.formattedValue gets written over with latest build.
+Added "calendar" option.
+Checkbox column in wijgrid is not working correctly if the "scrollMode" option is set.
+[82576]WijGrid renders incorrectly when column is resized and scrollbars are hidden.
+
+wijeditor
+---------
+Fixed an issue that change the insert hyperlink dialog text from "textarea" to "input text" to avoid type "enter".
+
+wijcharts
+---------
+Fixed an issue that javascript error "Unable to get property showAt..." is occurred If "Indicator" is used and Hint is disabled in C1Chart.
+
+wijdatepager
+-------
+Localize the year label in month view and month label in day view.
+
+wijcompositechart
+---------
+Fixed an issue that legend item for the hidden series is not dim with 'SharedPie' type in CompositeChart.
+Fixed an issue that javascript error "Unable to get property 'push'..." is thrown in the disabled compositechart.
+Fixed an issue that JavaScript error is observed if the data series is added at the secondary axis.
+Fixed an issue that some of the candlestick data series are displayed at the same point after "seriesList" option is set.
+Fixed an issue that wijcompositechart can not set multiple axis with AngularJS markup.
+
+wijcalendar
+---------
+Fixed an issue that wijCalendar is not refreshed after updating "maxDate" or "minDate" option.
+
+wijcombobox
+-------
+Fixed an issue that items become non-selectable when dataSource is set in the Search method.
+
+wijcandlestickchart
+-------
+Fixed an issue that some of the data series are displayed at the same point after "seriesList" option is set.
+
+wijdialog
+-------
+Fixed an issue that some columns of wijgrid are not visible after restoring the WijDialog.
+
+wijwizard
+-------
+Fixed an issue that NavigationButtons can't work when 'navButtons' property is changed.
+
+wijaccordion
+-------
+Fixed an issue that accordion's pane is unable to open when there is empty content in it.
+
+WidgetExplorer
+-------
+Fixed an issue that Javascript error is observed when navigate to 'File input' sample page.
+Fixed an issue that javascript error will occur if open "Upload --> OverView" firstly and then open the sample of another widget.
+Fixed an issue that Javascript error is observe after browsing "Simple Datasource" sample page in CompositeChart with IE8 browser.
+Fixed an issue that the scrollbar and the text position area are overlapped in the "LightBox" sample of "Carousel".
+
+wijupload
+-------
+Destroy "SWFUpload" instance when call wijupload destroy method.
+
+Wijmo v3.20142.48 (dropped)
+================
+Dependencies
+------------
+Uses jQuery 1.11.1/2.1.1, jQuery UI 1.11.0 and jQuery Mobile 1.4
+
+wijbarchart
+-----------
+Fixed an issue that axis.y.origin doesn't work correctly.
+
+wijvideo
+--------
+Show controls immediately if not "showOnHover", on option changed.
+
+wijgrid
+-------
+[74338]Javascript error [Object doesn't support property or method "c1field"] occurs when sorting is applied through code.
+[74219]Filterbar UI is not correctly maintained after column width is resized.
+[77136]Editing does not work when sorting is cancelled using DataView.
+[77049]The "count" aggregate is calculated incorrectly for boolean column.
+
+angularJs
+--------
+Fixed an issue that "slide" event doesn't fire when moving the thumb button of wijSlider.
+
+wijmenu
+---------
+Fixed an issue that Sub menu items are cut off in NEWS CATEGORY menu of Overview sample page.
+
+wijtree
+--------
+Fixed an issue that Expand button is displayed above the text with Mac OS Safari.
+
+wijtextbox
+--------
+Fixed an issue that labels are not shown and text cannot be entered to the textbox of "name,location" in the New Appointment Dialog of eventcalendar.
+
+wijeditor
+-------
+Fixed an issue that typed editor's text gets lost after drag drop.
+
+wijscatterchart
+--------
+Fixed an issue that symbol markers are not zoomed when hovering on them.
+Fixed an issue that when click the legend item, the labels will not hide.
+
+wijcalendar
+--------
+Fixed an issue that wijCalendar is not refreshed after updating "navButtons" option. 
+
+wijevecal
+-------
+Fixed an issue that javascript error is observe pressing "Delete" key or "Backspace" key in in "start" time input textbox of Appointment dialog.
+
+wijcompositechart
+--------
+Fixed an issue that javascript error is thrown when click on the plot area with "Indicator".
+
+wijflipcard
+--------
+Fixed an issue that flip is not restored to original state after "destroy" method is called.
+
+Wijmo v3.20142.47 (dropped)
+================
+Dependencies
+------------
+Uses jQuery 1.11.1/2.1.1, jQuery UI 1.11.0 and jQuery Mobile 1.4
+
+wijcharts
+---------
+Fixed an issue that javascript error is thrown when returing false in the event beforePaint.
+
+wijradio
+--------
+Fixed an issue that 'checked' option is not set to True for Wijradio when other radiobutton's 'Checked' option is set to false after setting it
+
+knockout
+--------
+Support "minDate" and "maxDate" option of wijinputdate widget.
+
+wijcandlestickchart
+-------------------
+Fixed an issue that an exception is thrown when switching type in wijcandlestickchart.
+Fixed an issue that an exception is thrwon when some series hasn't x values.
+
+wijgrid
+-------
+[72470]imageButton does not show icon in WijGrid under jqmobile.
+[73412]row selection is automatically shifted to first row after adding the new record to the underlying data source.
+[71652]Observable array bound to WijGrid data is not updated if it contains a custom object.
+[74264]Click event of command button does not fire when WijGrid is bound to AngularJS.
+[74835]Selection does not work correctly after calling clear method.
+[61293]Text are not shown in localized format at footer bar.
+[64048]WijGrid hangs on pressing "Enter" key in filterbar of datetime column if bounded to the ODataView data source.
+[70657]wijgrid is automatically scrolled down when Collapse / Expand icon is clicked.
+
+wijinput
+----------
+[74469][wijinputtext] When Format Option is set to single byte '@'  then some of the single byte symbols cannot be entered.
+
+wijgauge
+-----------
+Fixed memory leak issue observed when destroying and recreating WijRadialGauge.
+
+explorer
+------
+Fixed an issue that the incorrect description is mentioned in 'Grid Export' sample.
+Fixed an issue that Duplicate check boxes are observed for 'showWeekNumbers' option and incorrect spelling is observed in 'allowQuciPick' checkbox
+Fixed an issue that Caption text of images in lightbox show at incorrect position in Text Position sample.
+Add "upload.ashx" and "SWFUpload.swf" files to WidgetExplorer folder.
+Add "SWFUpload.swf" file to upload sample.
+Fixed an issue that legend in 'Candlestick Formatter' sample is not shown
+
+wijribbon
+---------
+Add "compactMode" for support compact ribbon.
+
+wijEditor
+-------
+Add "compactRibbonMode" for support editor compact ribbon directly.
+Fixed an issue that wijeditor hang after adding images inside the content and clicking on "FullScreen" mode.
+Fixed an issue that Dropdown list and dialog boxes of wijeditor are shown behind the flash file in content area of Editor.
+
+wijflipcard
+------
+Fixed an issue that 'animation' option work incorrectly on ie9 when it is set at runtime
+Fixed an issue that 'width' and 'height' options do not work well after the flipcard is flipped.
+
+wijdialog
+---------
+Fixed an issue that input content can not be cleared by cross button of IE if this input is placed in wijdialog.
+Fixed an issue that the widget in content has no refresed when recover state from minimize.
+Fixed an issue that dialog is disappeared when contentUrl is set to dialog at minimized state.
+Fixed an issue that disabled property does not work properly when width property of dialog is changed at run time.
+
+bootstrap
+---------
+Fixed an issue that "modal" option of WijDialog does not work when using BootStrap theme.
+Fixed an issue that wijcombobox gets resized after 'repaint' method is called with Bootstrap theme.
+
+wijsparkline
+----------
+Fixed an issue that error "Invalid value for <rect> attribute..." is thrown after Sparkline is binding with array in column type
+
+wijcompositechart
+---------
+Fixed an issue that WijCompositeChart throws "TypeError: axisOptions.tickMajor is undefined", when creating mutliple axis to display multiple WijBarChart.
+
+wijslider
+---------
+Fixed an issue that "Step" property can't work properly when moving slider thumb from left to right and changing "min","max" proprety.
+
+wijscatterchart
+---------
+Fixed an issue that "Transform" option of "chartLabelStyle" not work.
+
+wijcombobox
+---------
+Fixed an issue that boundary UI is cut off on the right-hand side when "showTrigger" property is set from "true" to "false".
+Fixed an issue that "Open" event is always fired on typing the text in C1ComboBox Editor.
+Fixed an issue that "TextChanged()" event is not fired even after the text in C1ComboBox is changed.
+Fixed an issue that select element have not updated when combobox "changed" event triggered.
+
+wijexpander
+---------
+Fixed an issue that 'destroy' method is not working correctly.
+Fixed an issue that collapse state can't be retained when changing Expand state to Collapse state.
+
+wijaccordion
+---------
+Fixed an issue that accordion panel's content width will change after changing the selected index and expandDirection.
+Fixed an issue that 'destroy' method is not working correctly.
+
+wijcarousel
+----------
+Fixed an issue that Images in carousel widget can be changed by clicking number or slider button although 'Disabled' property is set to 'true' when 'PagerType' is set to 'Numbers' or 'Slider' at runtime
+
+wijcalendar
+--------
+Fixed an issue that setting popupMode option from client side does not work.
+
+wijtabs
+---------
+Fixed an issue that tabstrips are shown beyond the C1Tabs and they can't be scrollable with left/right alignment.
+
+wijsplitter
+----------
+Fixed an issue that some events do not get fired for WijSplitter.
+
+wijbubblechart
+----------
+Fixed an issue that "ShowChartLabels" property does not work after set it as false.
+
+
+Wijmo v3.20142.46 (dropped)
+================
+Dependencies
+------------
+Uses jQuery 1.11.1/2.1.1, jQuery UI 1.11.0 and jQuery Mobile 1.4
+
+WidgetExplorer
+--------------
+Added icon for export.
+Fixed an issue that bubblechart in 'Dataview' sample can not be shown and script error is observed.
+
+Wijmo v3.20142.45 (dropped)
+================
+Dependencies
+------------
+Uses jQuery 1.11.1/2.1.1, jQuery UI 1.11.0 and jQuery Mobile 1.4
+
+wijtree
+-------
+Fixed an potential issue.
+
+Wijinputnumber
+-------
+Fixed an issue that KeyDown event of WijInputText is not trigerred when the dropdown list of WijInputText is shown.
+
+Wijinputdate
+-------
+Fixed an issue that Time cannot be edited for the second time.
+Fixed an issue that "maxDate" and "minDate" does not work after binding with knockout.
+
+export sample
+-------
+Fixed an issue that the black line is appeared after opening the dropdown list in Chart and Grid Export samples.
+
+wijgrid
+-------
+[72812]Fixed an issue that date column group row texts are not correctly aligned.
+[69545]Fixed an issue that postback occurs on pressing "Enter" key in the checkbox of WijGrid.
+[72664]Fixed an issue that grid lines are not correctly displayed for Command buttons.
+
+wijfilter
+---------
+[73887]Fixed an issue that javascript error is observe javascript error is observe when browsing "wijgrid-extension.html" sample.
+
+wijcandlestickchart
+-------------------
+Fixed an issue that the candlestick high/low element is not filled with the fill color when stroke is not set.
+
+wijlist
+-----------
+Fixed an issue that setting null or nudefined to the wijlist with setItems funtion, it will throw errors.
+
+widget sample: upload
+----------
+Fixed the upload action take no effect on ie9.
+
+wijflipcard
+--------
+Fixed an issue that 'width' and 'height' options do not work well after the flipcard is flipped.
+
+wijsuperpanel
+----------
+Fixed an issue that in Win8.1 device last combo item cannot be seen in dropdown.
+
+wijcombobox
+-----------
+Fixed an issue that more spaces are added to the dropdown list after selecting the last item and searching the last item.
+
+knockout
+------
+Fixed an issue that using "with" data-bind results in InvalidStateError when using WijDialog.
+
+Wijmo v3.20142.44 (dropped)
+================
+Dependencies
+------------
+Uses jQuery 1.11.1/2.1.1, jQuery UI 1.11.0 and jQuery Mobile 1.4
+
+updated bootstrap to 3.2
+
+wijlinechart
+------------
+Fixed an issue that the symbol markers are not displayed in the trendline but visible in Legend of wijlinechart.
+
+knockout.wijmo.js
+-----------------
+[72656]"Maximum call stack size exceeded" exception occurs, when refereshing the WijGrid data bound using BreezeJS.
+
+wijchartcore
+-----------
+Fixed an issue that error is thrown when redraw chart if there are more than 12 series in the chart.
+Fixed an issue that the axes are not displayed in wijlinechart if origin value is set.
+Fixed an issue that "SeriesHoverStyle" does not take effect to the trendlines in wijcharts.
+Remove the class definition of ChartAxis and fix the possible problems by Nazim's modification about axis.
+Fixed an issue that trendline is not shown if Y value count is more than X,  and the legend  the data series become inconsistent.
+Fixed an issue that the trendline would not be shown with special data when the min value of axis is set to some value.
+
+export
+--------
+Fixed an issue that cannot export the chart again if it is exported one time.
+Add an export sample.
+
+wijcombobox
+------------
+Fixed an issue that mutiple selection is shown when SelectionMode is set to Single and Selected is set true to comboboxItem.
+Fixed an issue that Javascript error is thrown on clicking dropdown button after changing selectedIndex to null or undefined.
+
+wijflipcard
+-----------
+Fixed an issue that flipping event does not fire when flipcard is flipping from backpanel to frontpanel.
+Hide the "Repeat Grid Header" property on chart export sample.
+Hide the Margin, Paper Kind , Paper Size , Landscape properties on chart export sample.
+Fixed an issue that the black line is appeared after opening the dropdown list  in Chart and Grid Export samples.
+Fixed an issue that 'animation' option does not  work when it is set at runtime.
+
+wijgallery
+----------
+Fixed an issue that 'Mode' property of gallery is set as 'Swf', 'Autoplay' property does not work correctly.
+Fixed an issue that the last page button of the gallery is placed in the next line with other page buttons.
+
+wijdialog
+--------
+Fixed an issue that position option of wijdialog do not work.
+
+wijpopup
+--------
+Fixed an issue that dropdown calendar is shown behind the "New Event" dialog.
+
+wijeditor
+---------
+Fixed an issue that 'Set Background Color' dialog box is shown at bottom-left corner and insert table cannot be closed by 'Esc' key.
+
+wijcandlestickchart
+----------
+Fixed an issue that JavaScript runtime error: Unable to get property 'valueOf'... is thrown if some binding properties are null
+
+Wijmo v3.20142.43 (dropped)
+================
+Dependencies
+------------
+Uses jQuery 1.11.1/2.1.1, jQuery UI 1.11.0 and jQuery Mobile 1.4
+
+WidgetExplorerMobile
+-------------
+Added wijsparkline samples.
+Added wijflipcard samples.
+Added trendline samples in wijcharts.
+
+wijflipcard
+--------
+Fixed an issue that 'width' and 'height' options do not work well at run time.	
+Fixed an issue that content inside backpanel and frontpanel are not display anymore when wijflipcard is destroy and recreated again.
+Fixed an issue that "triggerEvent" option is not working at run time in wijflipcard.
+
+wijcompositechart
+-----------------
+Fixed an issue that exception is observed and scatter chart type is not shown correctly in wijcompositechart.
+
+wijribbon
+----------
+Fixed an issue that split button and drop-down are not displayed correctly on ribbon.
+
+wijlinechart & wijscatterchart
+------------
+Fixed an issue that data series are not display in linechart and scatterchart when DateTime values are set in Yaxis.
+
+wijgrid
+-------
+[72351]Scrollbar does not work correctly when WijGrid is placed inside WijDialog with IE8.
+
+wijbarchart
+-----------
+Fixed an issue that uncaught typeerror is thrown when toggling legend item if the trendline is set in the stacked wijbarchart.
+
+Wijmo v3.20142.42 (dropped)
+================
+Dependencies
+------------
+Uses jQuery 1.11.1/2.1.1, jQuery UI 1.11.0 and jQuery Mobile 1.4
+
+Upgrade TypeScript from 0.8.3 -> 1.0.1
+
+Wijmo v3.20142.41 (dropped)
+================
+Dependencies
+------------
+Uses jQuery 1.11.1/2.1.1, jQuery UI 1.11.0 and jQuery Mobile 1.4
+
+Support jQuery UI 1.11.0.
+
+Support jQuery 2.1.1.
+
+Support jQuery 1.11.1.
+
+Update knockout to version 3.1.0
+
+Add trendline in wijcharts except wijpiechart.
+
+Add wijflipcard widget.
+
+Add wijsparkline widget.
+
+wijcalendar
+------
+Fixed an issue that unable to click month in month view on Android touch device using Chrome browser.
+
+Themes
+------
+Fixed an issue that scrollbars do not get rendered correctly in AppView Page.
+
+wijtree
+-------
+Fixed an issue that 'showExpandCollapse' option does not work when WijTree is bounded to Knockout.
+Fixed an issue that collapse/expand icon is still shown even through no child item is present in tree node.
+Fixed an issue that tree node disappear after doing drag drop action for two times.
+Fixed an issue that selected nodes collection not getting reset after a node is dragged from one WIjTree to other WijTree.
+
+wijevcal
+-------
+Fixed an issue that after clicking the button of New Event Dialog, the page will turn to home.
+
+WidgetExplorerMobile 
+--------------
+Change the title of "Table As DataSource" sample of "BarChart" from "Stacked Percentage Bar Chart" to "Table Datasource" in Mobile Explorer
+Fixed an issue that Data series are not loaded and error occurred console in the "External DataSource" sample of "BarChart" from Mobile Explorer
+
+WidgetExplorer
+------------
+Fixed an issue that JavaScript error 'Object doesn't support property or method 'wijcheckbox' ' is observed when open 'Legend' sample page of Piechart
+Fixed an issue that Sub tree items of tree control doesn't show from Ajax sample of widget explorer in IE and Chrome.
+Fixed an issue that Error occurs on selecting a date from WijCalendar if 'PopupMode' checkbox is toggled for Calendar Knockout sample.
+Fixed an issue that Sub-Menu-items are covered by the container in the some samples of "Menu" in Widget Explorer.
+
+wijcandlestickchart
+-------------------
+Fixed an issue that in candlestick type the default value of stroke-width for fallingClose should be 0.
+
+wijgrid
+-------
+[71104]WijGrid displays horizontal scrollbar when ensureColumnsPxWidth option is set to true.
+
+wijcombobox
+--------
+Fixed an issue that items are not traversed using arrow keys when BootStrap theme is applied.
+Fixed an issue that list part doesn't move with the input field when the browser window resize.
+Fixed an issue that the dropdown list does not appear correctly upon typing if WijComboBox is used with BootStrap.
+
+wijtabs
+--------
+Fixed an issue that Uncaught TypeError: Cannot read property ... is thrown when changing "Collapsible" property.
+Fixed an issue that tabs is distorted when changing the Alignment after collapsed.
+
+wijeditor
+-------
+Fixed an issue that text value gets lost when objects is inserted after changing the 'editorMode' of WijEditor.
+
+wijexpander
+--------
+Fixed an issue that The height of Header and Content are not consistence if ExpandDirection is 'Left' or 'Right' for mobile expander
+
+wijtooltip
+----------
+Refactor the unit test codes for wijtooltip.
+Fixed an issue that when there are two elements with tooltip and one is destroy, the other works incorrectly.
+Fixed an issue that current tooltip causes memory leak.
+
+wijcompositechart
+-------
+Add a compositechart type "sharedPie" to implement the shared Legend in Pie Chart.
+Fixed an issue that the data series color and legend color are inconsistent with 'candlestick' chart type in wijcompositechart.
+
+angularJs
+-------
+Fixed an issue that selectedNodeChanged event of wijtree not getting raised when WijTree is created using AngularJS.
+
+wijcharts
+-------
+Fixed an issue that clicking legend item can not make some chart elements show or hide.
+
+wijscatterchart
+----------
+Fixed an issue Javascript error is observe invoking redraw funtion before the animation stopped.
+
+wijbubblechart
+-------
+Implement one part of the request: adjustment for overlapping bubbles.
+
+Wijmo v3.20141.40 (dropped)
+================
+Dependencies
+------------
+Uses jQuery 1.9.1, jQuery UI 1.10.1 and jQuery Mobile 1.4
+
+wijdialog
+-------
+Fixed an issue that closeButton does not work in minimize state and restore state (i.e. when reopen the dialog after minimize state) when ContentUrl property is defined for dialog control.
+
+wijtabs
+-------
+Fixed an issue that typed text gets disappeared after dragging the tab item.
+Fixed an issue that wijEditor's cursor is displayed on the tab header of WijTabs after changing tab item.
+
+wijgrid
+-------
+The pageSize option is removed from the description of virtual-scrolling.html sample.
+
+wijeditor
+--------
+Fixed an issue that text is displayed on the web page when added through "Insert Code" dialog.
+
+wijribbon
+-------
+Add default width for wijribbon dropdown button.
+
+wijevcal
+-------
+Fixed an issue that time slots are shifted to the left while dragging the mouse at all day area.
+exposed calendar option in evcal.
+Fixed an issue that javascript error[Unable to get value of the property 'top': object is null or undefined] occurs when "goToTime" client side method is invoked.
+
+wijtree
+-------
+Added nodeCheckChanging event.
+
+wijcombobox
+-------
+Fixed an issue that wijcombobox dropdown items are not displayed if wijcombobox is initially disabled and enabled later.
+Fixed an unit test issue which is casued by my check-in mistake.
+
+wijsuperpanel
+-------
+Fixed an issue that in some cases, superpanel can not scroll to the bottom of content.
+
+wijcalendar
+------
+Fixed an issue that unable to navigate between months on Android touch device using Chrome browser.
+
+wijscatterchart
+-------
+Fixed an issue that "Transform" option of "chartLabelStye" not working for wijscatterchart. (Only available for IE9+ for now).
+
+wijribbon
+-------
+Fixed an issue that button text gets truncated when text size is larger than the button size.
+
+Wijmo v3.20141.39 (dropped)
+================
+Dependencies
+------------
+Uses jQuery 1.9.1, jQuery UI 1.10.1 and jQuery Mobile 1.4
+
+wijcandlestickchart & wijcompositechart
+---------------------------------------
+Implement that candlestickchart has different default formatting for rising and falling values.
+
+WidgetExplorer
+--------------
+Fixed an issue of lightbox sample in carousel.
+
+wijdialog
+-------
+Fixed an issue that open and close events of wijdialog not getting raised when it is created using AngularJS.
+
+Wijinputnumber
+-------
+Fixed an issue that memory Leaks observed when WijInputNumber is destroyed using the 'removeNode' method of KnockOut.
+
+wijcombobox
+-------
+Fixed an issue that wijcombobox navigate to the last item through all items with one click on the scroll bar down button.
+Fixed an issue that selection is always reset to first combo item after invoking "destroy" client side method.
+Fixed an issue that wijcombobox does not support multiple selection mode with Knockout.
+Fixed an issue that selectedValue option of wijcombobox not selecting an item in wijcombobox that has value equal to 0.
+Refix a previous issue that textChanged event does not occur consistently. (for fixing this issue, last changeset make another previous issue appear again).
+
+wijtooltip
+-------
+Fixed an issue that when the tooltip is hidden before, and call "showAt" method, the callout element will render incorrectly.
+Fixed an issue that when move the tooltip close to the edge of the window, the callout will change its direction and position, but when move back to the center, the callout cannot recover.
+
+wijeditor
+---------
+Fixed an issue that three line break tags are automatically added if the editor content is not set and editorMode is set to 'code' in full screen mode.
+Fixed an issue that fullscreen action affect document overflow style.
+Fixed an issue that existing objects are removed when items are added after switching to "Full Screen" mode.
+Fixed an issue that splitter bar is not shown in the middle when setting editorMode = "split".
+Fixed an issue that only one control is added when clicking twice in control icon in "Insert" tab.
+
+wijtree
+-------
+Fixed an issue that Expand button is displayed above the text with Mobile Safari
+Improve the performance.
+
+wijchart
+-------
+Fixed an issue that setting "stroke-width" to "0" in seriesStyle does not sets the width of the stroke around the legend boxes to 0 in chart legend.
+Add a property in chart_hint option named "isContentHtml" to determine whether to use a html style tooltip.
+
+wijsuperpanel
+-------
+Fixed an issue that thumb in the vertical scrollbar of wijcombobox cannot be dragged using the left mouse button in AppView Page.
+Fixed an issue that user cannot get the scroller newValue form the parameter of the "scrolled" event.
+
+wijutil
+-------
+Fixed an issue that after trigger "wijmovisibilitychanged" event, if element is still hidden, it won't be able to refresh its size by triggerring event.
+
+wijgrid
+-------
+A new method added to the wijmo.grid.selection class: selectedRows()
+[67882]Multiple issues observed when sorting a specific column in wijgrid.
+
+Wijmo v3.20141.38 (dropped)
+================
+Dependencies
+------------
+Uses jQuery 1.9.1, jQuery UI 1.10.1 and jQuery Mobile 1.4
+
+wijchartcore
+------------
+Fixed an issue that tooltip with white "fill color" becomes transparent when chart in IE and document mode is below 9.
+
+wijsuperpanel
+------------
+Fixed an issue that when scrollValue is larger than max the element inner scrollbar will be located outside its container.
+
+globalize.cultures
+---------
+Update "ja" and "ja-JP" globalize culture.
+
+wijeditor
+---------
+Fixed an issue that javascript error occured when click the "FullScreen" button after selecting the added textbox in IE.
+Fixed an issue that when multiple hidden input elements are inserted continuously, the selection is incorrect.
+Fixed an issue that Javascript error occurs when Html control is added after selecting the added textbox in IE.
+Fixed an issue that right border is not shown and height is increased if pased in Splitter
+
+wijtree
+------------
+Fixed an issue that treeNodes are expanded and automatically collapsed on clicking "Expand" icon if wijtree is recreated
+Fixed an issue that expand button is displayed above the text with Mobile Safari
+
+wijbarchart
+-----------
+Fixed an issue that drill down is executed twice by single tap.
+
+wijtabs
+-------
+Fixed an issue that tab item selection does not work correctly and content of all tab items are displayed after item re-ordering.
+
+wijdialog
+-------
+Fixed an issue that C1Dialog's position is changed on Asynchronous Postback.
+
+wijgrid
+-------
+[65097]Javascript error[Object doesn't support property or method "indexOf"] is thrown if grouping is applied in client side script.
+[65116]showFilter option not working at column level when creating wijgrid using AngularJS directives.
+Unable to change page index if dynamic wijdatasource is used.
+[66592]AjaxDataView does not load data when WijGrid is bound with KnockOutJS.
+
+wijmo dataview
+-------
+Fixed an issue that cancelEdit function can't rollback the change caused by add function.
+
+wijgauge wijradialgauge
+-------
+Fixed an issue that tick major and tick minor are not displayed correctly when 'Marker' is set to 'Tri'.
+
+widget explorer
+-------
+Remove the 'transfer' animation option of for the animation sample for wijtree.
+Remove the 'transfer' option for animation sample of wijdialog.
+
+Wijmo v3.20141.37 (dropped)
+================
+Dependencies
+------------
+Uses jQuery 1.9.1, jQuery UI 1.10.1 and jQuery Mobile 1.4
+
+wijmo.data
+-----------
+Add comments for public fields and functions.
+
+wijeditor
+---------
+Fixed an issue that the editor's behavior is confusion when place two editors on page that they have not an id.
+Fixed an issue that when there are two wijeditors and clicking the button of inserting date in the first one, the date text will be inserted into the second one. 
+
+wijsplitter
+-----------
+Fixed an issue that clicking the Ribbon toolbar does not work after draggging the Splitter expander bar.
+
+wijgrid
+-------
+[64328]Unlike previous build, page is automatically scrolled up when sorting or changing page index in WijGrid.
+[49039]Javascript error[Invalid row.] is thrown on clicking "Edit" button in any row after leaving edit mode.
+A boolean optional paramater is added to the endEdit method that indicates whether changes will be rejected (true) or commited (false, default value).
+
+wijsuperpanel
+-------------
+Fixed an issue that when initialize the superpanel will ignore the "scrollValue" if "scrollBarVisibility" is hidden.
+
+wijcalendar
+-------------
+Fixed an issue that the calendar view does not switch to 12 month view while clicking calendar title.
+
+Wijmo v3.20141.36 (dropped)
+================
+Dependencies
+------------
+Uses jQuery 1.9.1, jQuery UI 1.10.1 and jQuery Mobile 1.4
+
+wijeditor
+---------
+Add an internal option item tableBorderShowing.
+Fixed an issue that formatting applied to the hyperlink text is displayed in the hyperlink dialog as HTML style tags in IE and Chrome.
+Fixed an issue that javascript error[cannot call methods on wijmenu prior to initialization; attempted to call method 'hideAllMenus'] occurs when pressing "Esc" key in color dialog.
+Fixed an issue that height setting of underlying textarea get lost when WijEditor instance is created if CSS class is used.
+Fixed an issue that wijPopup is automatically closed down when click the wijeditor that located in wijpopup.
+
+wijmenu/wijtree
+---------------
+Upgraded to work with jQuery 2.
+
+wijcompositechart
+-------------------
+Fixed an issue that wijcompositechart with one String X axis value doesn't display correctly.
+
+wijcombobox
+-----------
+Fixed an issue that when filtering by entering Japanese character, duplicated characters are shown in C1ComboBox in IE 11.
+Fixed an issue that wijComboBox resizes abruptly when wijComboBox visibility changed.
+
+wijinputnumber
+------------
+[63007]When an input control is converted to wijinputnumber, then the JQuery change event is fired for it even when no value is changed in the control.
+
+wijcharts
+-----------
+Fixed an issue that the checking whether the mouse is inside the the chart plot area is incorrect if browser is in Quirks mode.
+
+wijcalendar
+-----------
+Fixed an issue that incorrect calendar week numbering is shown when the culture is set to 'fi-FI'.
+
+wijcarousel
+-----------
+Fixed an issue that images in carousel can be moved although 'disabled' property is set to 'false' when 'pagerType' is set to 'slider'
+
+angularjs
+---------
+Fixed an issue of wijtooltip.
+
+WidgetExplorerMobile
+----------
+Fixed an issue that Barchart isn't displayed at all in the External Datasource sample.
+Fixed an issue that the donutpie sample for wijcompositechart displays incorrect with small screen device.
+
+wijtree
+-----------
+Expand / Collapse icons and treenodes are not correctly aligned in data bound WijTreeView with Chrome.
+
+wijgrid
+-------
+[63777]WijGrid sorting does not works when clicking on the sort icon in the column header.
+[63623]No effect is seen on clicking the Collapse/Expand icon when another grouped column have groupSingleRow = false.
+
+wijbubblechart
+-----------
+Fixed an issue that if "y1" data of bubblechart is null, the chart UI (Axis, GridLines, Legend, Labels) is completely removed.
+
+wijexpander
+-----------
+Fixed an issue that web site isn't displayed in the content pane with Mobile mode.
+
+wijlist
+-----------
+Fixed an issue that unselected item remains highlighed with mobile mode.
+
+Wijmo v3.20141.35 (dropped)
+================
+Dependencies
+------------
+Uses jQuery 1.9.1, jQuery UI 1.10.1 and jQuery Mobile 1.4
+
+wijcharts
+---------
+Added cultureCalendar option.
+
+wijcalendar
+-----------
+Added cultureCalendar option.
+
+wijdatepager
+------------
+Added cultureCalendar option.
+
+wijevcal
+--------
+Added cultureCalendar option.
+Fixed an issue that lower part of "New Event" dialog is displayed outside visible region.
+
+wijlinechart
+------------
+Fixed an issue that DataSeries's display exceed the ChartArea and Axis-X is covered up.
+
+wijbarchart
+-----------
+Fixed an issue that when there is only one Datetime x axis, wijbarchart displays incorrectly.
+
+wijeditor
+---------
+Fixed an issue that hyperlink is always inserted at the beginning in IE11.
+Fixed an issue that tab item headers and Ribbon toolbar are not correctly aligned in wijeditor only in BootStrap mode.
+Fixed an issue that "Font Size" combo dropdown items are not shown if mode = bbcode with Bootstrap style.
+Fixed an issue that selected Font Name is not shown as Selected Item in "Font Name" dropdown.
+
+wijbubblechart
+--------------
+Fixed an issue that unlike previous build some axis label are not shown and bubble object overlap the axis.
+
+wijcandlestickchart
+-------------------
+Fixed an issue that an exception is thrown when changing the chart type.
+
+wijinput
+--------
+[56252]Multiple issues are observed with C1InputText on iPad.
+[56289]Japanese Text cannot be enter with "Japanese Romaji" keyboard on iPad.
+[56146]Setting focus on  Input Mask places the cursor at the end of the text field¡£
+[63006]Multiple issues are observe when entering Japanese text in iPad device.
+
+wijgrid
+-------
+[50674][GridBenchmark Sample]Performance has slowed down when Data Size = 50000.
+The selected item does not de-select when Shift+Ctrl+Click is used on the current cell (related issue: 60638).
+Added cultureCalendar option.
+[61398]column header and filterbar get lost vertical alignment with data columns if scrollMode option is set to "vertical" after resizing the column.
+
+wijcombobox
+-------
+Fixed an issue that "labelText" element will be repeated if set otpion "labelText" mutil times.
+
+wijtabs
+-------
+Fixed an issue that embedded tabs will be hidden after the parent tabs reordered.
+
+Angular
+-------
+Fixed an issue that javascript error is thrown when setting option to menu and tree.
+
+wijmenu
+-------
+Add property "submenuTriggerEvent" to specify the event used to show the submenu.
+
+wijwizard
+-------
+Fixed an issue that in Mobile mode, javascript error is observed when render wijwizard.
+Fixed an issue when wijwizard renders in Mobile mode.
+
+Wijmo v3.20141.34 (dropped)
+================
+Dependencies
+------------
+Uses jQuery 1.9.1, jQuery UI 1.10.1 and jQuery Mobile 1.4
+
+WijGallery
+----------
+Images are not displayed in Gallery when clicking thumbnails
+
+wijcharts
+--------------------
+Fix an issue gridstyle is changed to the last line style of valuelabels. 
+
+WidgetExplorerMobile
+--------------------
+Update the candlestickchart samples.
+
+WidgetExplorer
+--------------
+Fixed an issue of wijpiechart's animation sample.
+
+wijcandlestickchart
+-------------------
+Fix an issue that the data doesn't display when only there is only one data value is set.
+
+wijcompositechart
+-------------------
+Fixed an issue that an exception is thrown when the chart contains candlestick series.
+Fixed an issue that dataSeries is displayed out of ChartArea partially when mutiple Y axis are plotted
+Fixed an issue that visibility of bubble series are not correctly toggled on clicking the legend items.
+
+wijevcal
+-------
+Fixed an issue that "New Event" dialog is automatically closed down on selecting the date in calendar dropdown.
+
+wijgrid
+-------
+If there is no data bound to the grid, the keydown event will bubble out of the grid.
+[57586] Unlike previous build, filter dropdown button gets hidden from last column after applying "No Filter" option if WijGrid instance is placed inside WijDialog.
+New option added to grid column: encodeHtml.
+
+wijcombobox
+-------
+Fixed an issue that the dropdown list does not need to open when its items list is empty.
+Fixed an issue that javascript error is thrown on clicking the dropdown button when datasource is null.
+
+Angular
+-------
+Fixed an issue that wijList does not synchronize with the underlying data source when item is removed.
+
+wijsuperpanel
+-------
+Fixed an issue that the scrollValue of scroller can not update when the scrollMax changed to be smaller enough.
+
+wijmo.data
+----------
+Change stablesort to internal method instead of extend Array.prototype so that it will not affect others.
+
+wijeditor
+--------
+Fixed an issue 'Next Page' link in Preview dialog of C1Editor is not working.
+
+Wijmo v3.20133.33 (dropped)
+================
+Dependencies
+------------
+Uses jQuery 1.9.1, jQuery UI 1.10.1 and jQuery Mobile 1.4
+
+wijcandlestickchart
+-------------------
+Remove the maxWidth option for it's not necessary, and the default value of this option is 15, if user want to set bigger width in the style, the style can't applied.
+Rename the hloc type to ohlc.
+Update the tooltip behavior to let user easily show the tooltip. 
+Rename the raisingClose to risingClose in seriesStyles option
+Fix an issue when seriesStyles set in the first data series is also effect on the second data series.
+
+wijdata
+-------
+Support stable sort of array in chrome.
+
+wijgrid
+-------
+[53562]Fixed ans issue that WijGrid does not revert to previous page when all the rows of a page are deleted from the underlying data source.
+[57207]]Fixed ans issue that filter dropdown button is not shown for last column if WijGrid instance is placed inside WijDialog.
+[46451]]Fixed ans issue that column headers do not scroll if the total column width exceeds the visible area and wijgrid is placed inside a 100% width table in Chrome browser.
+Fixed an issue that record ordering is not maintained after grouping is applied.
+
+wijevcal
+-------
+Add "ensureEventDialogOnBody" option.
+
+wijeditor
+--------
+Fixed an issue the width of the title bar in the 'Insert Hyperlink' dialog is getting reduced in IE7 document mode.
+Fixed an issue Hyperlink address and text are getting lost in the 'Insert Hyperlink' dialog, when certain style settings are applied to the hyperlink text.
+Fixed an issue Heading1 (<h1> tag) text does not wrap in IE and FF.
+Fixed an issue that 'Browse¡­' button in 'Image Browser' dialog box of wijEditor is not visible in bootstrap mode.
+
+Angular
+-------
+Support "face" option of wijgauges.
+Support nested ng-repeat binding in wijmenu and wijtree.
+
+wijcompositechart
+----------------
+Fixed an issue that bubblechart not getting rendered in compositechart.
+
+wijchart
+-------
+Fixed an issue that when the focus moves out of the wijlinechart fastly, the hint bubble keeps on displaying.
+
+wijpiechart
+-------
+Fixed an issue that label connectors not rotating with the wijpiechart on mobile devices.
+
+Wijmo v3.20133.32 (dropped)
+================
+Dependencies
+------------
+Uses jQuery 1.9.1, jQuery UI 1.10.1 and jQuery Mobile 1.4
+
+wijcombobox
+------------
+'selectedIndexChanging' event is not fired, after the wijcombobox is destroyed and recreated.
+Fixed an issue that javascript error : "Unable to get property 'items'" is thrown when opening the dropdown if C1ComboBox has multiple columns with ItemTemplate
+
+wijgallery
+----------
+Fixed an issue that images are not displayed in gallery when clicking thumbnails
+
+wijcandlestickchart
+-------------------
+Update the default tooltip text and style.
+Fixed an issue that when the x data contains repeat values, the chart renders wrong axis.
+Fixed an issue that javaScript runtime error: Bad number format specifier is thrown if some annoFormatString vlaue is set for Axis
+Add valueLabels support for candlestick chart.
+Fixed an issue that javascript exception is thrown when series's data x is not set.
+Fix an issue that nncaught typeError is thrown when only one series style is set with multiple data series.
+Fixed an issue that JavaScript error  Unable to get property 'setTargets... is thrown with disabled hint.
+
+wijcompositechart
+-------------------
+Fixed an issue that javaScript error "Unable to get property length..." is thrown if wijandlestickchart and wijpiechart are set
+
+wijcarousel
+-----------
+Fixed an issue that javaScript error is observed when disabled is true, showPager is true and pagerType is "dots".
+
+wijeditor
+---------
+Fixed an issue that hyperlink is always inserted at the beginning in Wijeditor.
+Fixed an issue that clicking the toolbar button effect outside of editor after switching the full screen mode.
+Fixed an issue that Font settings does not change in IE
+
+wijtabs
+----------
+Fixed an issue that "sortable" option does not work.
+Fixed an issue taht error "Uncaught jQuery UI Tabs: Mismatching..." is occurred when removing the tab item after sorting
+
+wijsuperpanel
+-------------
+Fixed an issue that when footer of superpanel exist, the superpanel in touch mode render incorrectly.
+
+wijgrid
+-------
+[56457]Fixed an issue that command buttons stop working after setting disabled option to false.
+[56041]Fixed an issue that disabled checkboxes inside the WijGrid can be toggled.
+[52059]Fixed an issue that last data row is not displayed after scrolling to bottom.
+[56659][IE 11]Fixed an issue that frozen bar UI is not shown for rows in lower side of wijgrid.
+[47731]Fixed an issue that pageIndex and data rows are not correctly displayed after removing the data records
+[50090]Fixed an issue that size of paging bar is set to very high
+[56497]Fixed an issue that paging bar is not shown in Chrome browser
+[56498]Fixed an issue that paging bar disappear after setting the "showGroupArea" option to true
+
+wijevcal
+-------
+Fixed an issue that time slots are not correctly displayed in touch device.
+Fixed an issue that repeat dropdownlist is not fully displayed in New Event Dialog of C1EventsCalendar in mobile.
+
+wijlist
+--------------
+Fixed an issue that setting selected to false does not work.
+Fixed an issue that wijList is not displaying the template items added to the listItems collection.
+Remove the duplicat class("wijmo-wijlist-item") on list item.
+
+wijradialgauge
+--------------
+Fixed an issue that radius property of RadialGauge not working.
+
+wijtabs
+-------
+Fixed an issue that typeerror: "Cannot read property ..." is thrown and the tab item is shown beyond the C1Tab when changing 'Scrollable' property to false.
+
+wijpopup
+--------
+Fixed an issue that wijpopup is closed down automatically after selecting in wijcombobox.
+
+wijmo.data
+-------
+Fixed an issue that in wijgrid, the 1st row is always selected after deleting the multi rows.
+
+
+Wijmo v3.20133.31 (dropped)
+================
+Dependencies
+------------
+Uses jQuery 1.9.1, jQuery UI 1.10.1 and jQuery Mobile 1.4
+
+wijcandlestickchart
+-------------------
+Hide the showChartLabels, chartLabelStyle and chartLabelFormatString options.
+Fixed an issue that the series hover styles does not take effect to C1CandlestickChart when the seriesStyle is not set.
+
+wijpiechart
+-----------
+Negative value is calculated as positive number when painting.
+
+wijbubblechart
+-------------
+Fixed an issue that unlike previous version, the data bind is not work in bubble chart.
+
+wijgallery
+----------
+Update the wrong sample comments for data option.
+
+wijupload
+---------
+Fixed an issue that when upload a file name which contains some uninvalid character, an URL exception will thrown.
+Fixed an issue that the page scrolls to the top after the upload of a file completes using wijupload.
+Fixed an issue that wijupload is not reinitialized, once destroyed using the 'Destroy' method.
+Fixed an issue that viewport jumps to the top of the page when the Cancel button in wijupload is pressed.
+
+wijlinechart
+------------
+Fixed an issue that area chart does not fill correctly when negative values are plotted.
+
+wijeidtor
+---------
+Fixed an issue that Text alignment for "Text to Display" option in insert hyperlink dialog is not correct in IE9 and later
+Fixed an issue that when call destroy method, if some dialog has opened,  the dialog element is not removed.
+Fixed an issue that an javascript error pops up when some hyper link focus and click the button of inserting link.
+Fixed an issue that no validation when entering incorrect email or url in insert hyperlink dialog.
+
+Angular
+-------
+Support "buttons" option of dialog for angular.
+Support <a>, <img>, <input>, <label> as subelement.
+Support "hint" option of wijrating.
+
+widgetexplorermobile
+--------------------
+Update the sample to make it consistent with control samples.
+
+widgetexplorer
+--------------
+Update the sample to make it consistent with control samples.
+
+wijevcal
+---------
+Fixed an issue if there are multiple wijevcal controls in the same page, they use the same eventsData array to store the events.
+
+wijtabs
+---------
+Fixed an issue that when the alignment of WijTabs is set to left or right, then tabs are not getting switched if the user does not click on the text in the tab.
+
+wijlist
+--------------
+Fixed an issue html code is displayed in the dropdown list after typing text in ComboBox which has Item Template.
+
+wijevcal
+-------------
+Refixed an issue that appointment dialog opens up with a flicker in IE11.
+
+wijinput
+-------------
+Add the input format function library.
+Add the input validation function library.
+Add the highlighttext feature for all the input widget.
+Add the keyExit event for all the input widget.
+Add the increment option for the input date widget.
+Add the E keyword for the date widget's displayFormat.
+Add some new format key word(support DBCS and surrogate char) for the input mask widget.
+Add the ellipsis setting for the input text widget.
+Add the showOverflowTip option for the input text widget.
+Add some new format keyword for the input text widget.
+
+wijinputdate
+---------
+[50664]Memory not cleared off when the wijinpput date is bound using knockout. It has been fixed.
+
+wijinputtext
+-------
+[49440]WijInputText does not accepts 'AltGr' key on Swedish keyboard as input. It has been fixed.
+
+wijgrid
+-------
+[52058]Javascript error [Unable to get value of the property 'jquery': object is null or undefined] is thrown on hovering the mouse in data records after pressing "Enter" key in filter bar.
+
+
+Wijmo v3.20133.30
+================
+Dependencies
+------------
+Uses jQuery 1.9.1 and jQuery UI 1.10.1
+
+Support jqm1.4 in wijmo.
+
+Add wijcandlestickchart widget.
+
+MobileExplorer
+---------
+Fixed an issue that WijComboBox sample is missing from the Mobile widget explorer.
+
+BreezeDataView
+---------
+Fixed an issue that Add and Delete actions with BreezeJS data does not work.
+
+wijeidtor
+---------
+Fixed an issue that the anchor radio button is automatically selected if the insert hyperlink dialog is closed and reopened again.
+Fixed an issue that clicking the "insert date" button effect outside of widget after switching the editorMode.
+
+widgetexplorer
+-----------
+Fix an issue that the home page of the Widget Explorer is distorted in IE8.
+
+wijgallery
+----------
+Display selected image in the middle in wijgallery.
+
+wijtree
+-------
+Improve performance.
+
+Angular
+-------
+Support "value" option of wijgauges.
+Fixed an issue of angular.wijmo with jQuery 2.
+Support options of decorator widgets(wijdropdown, wijvideo, etc...).
+Support "selectedDate" option of wijdatepager.
+Support "captionButtons" option of wijdialog.
+Support "simpleModeCommands" option of wijeditor.
+
+wijmenu
+-------
+Fixed an issue for wijmenu in IE8 that text "false" appears before SubMenu is displayed.
+Fixed an issue that the item href still take effect even the item is disabled.
+
+wijcombobox
+-------
+Fixed an issue that deleted text is retained after postback in C1ComboBox editor.
+Fixed an issue that background of dropdown are not display after dynamic data is set in Dynamic Data sample page.
+Fixed an issue that when using knockout, "dataSource" attribute can not be updated as other attributes.
+
+wijlist
+-------
+Fixed an issue that when using knockout, "dataSource" attribute can not be updated as other attributes.
+list items are not display when wijlist is not added in the content of wijappview.
+Fixed an issue that the the combobox will throw exception when postback if the combobox list items contain html tag. 
+
+wijsuperpanel
+-------------
+Fixed an issue that if "customScrolling" is true, the grid in superpanel may not be able to scroll to the last item.
+
+wijgrid
+-------
+[49487] "Update" and "Cancel" text are shown for Delete button in edit mode.
+An aria-expanded attribute is not correctly switched when a group is collapsed\expanded.
+In virtual scrolling mode group icon is not correctly switched when a group is collapsed\expanded.
+New classes are added to group header rows: "wijmo-wijgrid-groupheaderrow-collapsed" and "wijmo-wijgrid-groupheaderrow-expanded".
+Filtering is now triggered when Enter key is pressed.
+Aggregate values are marked now with span having the "wijmo-wijgrid-aggregate" class.
+
+wijinputtext
+-------
+[50765]when using 'RequiredFieldValidator', validation is performed for C1InputText as soon as it loses focus.
+
+wijpiechart
+-------
+Fixed an issue that the pie sector rotates twice on ios devices.
+
+Wijmo v3.20133.29
+================
+Dependencies
+------------
+Uses jQuery 1.9.1 and jQuery UI 1.10.1
+
+wijsuperpanel
+-------------
+Fix an issue that in widget explorer javascript Error is observed when navigating to any widget sample pages.
+
+widgetexplore
+-------------
+Fixed an issue in widget Explorer that items in favorites are disorted.
+
+Angular
+-------
+Fixed an issue that style node is not parsed(which is used in gauges and charts).
+
+wijgrid
+-------
+The IME is disabled when you select the cell in Chrome.
+[49508]Setting sortDirection property does not work in data-bound C1GridView.
+[47851]Data are not display in "BreezeJs without a data view" sample of Widget Explorer.
+[49763]Data are not display in Wijgrid when browsing some sample in "knockout-grid".
+[48994]Command Buttons are still enabled and working although the whole grid is disabled.
+
+wijappview
+---------
+Fixed an issue in Mobile Explorer that 'Custom menu' is display on the left side of wijappview which overlap the menu of wijappeview
+
+wijcompositechart
+---------
+Fixed an issue Javascript Error is observed after adding pie chart type in the wijcompositechart.
+
+wijlistview
+Fixed an issue that nesteditem of listview is not navigated to its child items when put C1ListView in C1AppViewPage.
+
+wijevcal
+--------
+Fixed an issue that in IE11 "New Event" dialog is closed down on navigation the months in calendar dropdown.
+
+Wijmo v3.20133.28
+================
+Dependencies
+------------
+Uses jQuery 1.9.1 and jQuery UI 1.10.1
+
+wijcalendar
+-----------
+Fixed an issue that disabled option doesn't work in wijcalendar.
+
+wijlist
+-------
+Fixed an issue that list items are not display when wijlist is not added in the content of wijappview which is unlike previous version.
+
+wijeditor
+-----------
+Fixed an issue that cursor is shown in disabled wijeditor.
+Fixed an issue that javascript error [Unable to get property 'createRange' of undefined or null reference] is thrown on clicking "Block Quote" button in toolbar if mode=bbcode in ie11.
+
+wijsuperpanel
+-------------
+Fix an issue that data is not shown in C1GridView after the page is loaded which is unlike previous build.
+Fixed an issue that horizontal scrollbar can not display in mobile device.
+
+wijgrid
+-------
+The IME is disabled when you select the cell in Chrome.
+
+wijcombobox
+-----------
+Fixed an issue that dim UI is not observed in disabled wijcombobox.
+
+wijPieChart
+-----------
+Fixed an issue that hint is always visible and chart rotates on click on a Win8 machine with IE10
+
+wijevcal
+---------
+Fixed the issue that total 7 days are displayed with Day/List view after using setting option to change view from Week view
+
+Wijmo v3.20133.27
+================
+Dependencies
+------------
+Uses jQuery 1.9.1 and jQuery UI 1.10.1
+
+wijtree
+--------
+Fixed an issue that navigateUrl property of TreeView nodes is not getting set using the nodes option.
+
+widget mobile explore
+---------------------
+Fixed an issue that image for browser symbol is not display for "Symbol" sample page in Mobile Explorer
+
+wijmo.angular
+-------------
+Added angular support of wijcompositechart.seriesList.radius option.
+
+wijappview
+----------
+Fixed an issue that javascript error is observe after clicking 'Cancel' button or 'Submit' button in 'Widgest' sample of AppView.
+Fixed an issue that Javascirpt Error is observed when navigating to any appview page items
+
+wijtooltip
+-----------
+Fix an issue that 'aria-Describedby' attribute for the underlying DIV for WijTooltip shows "undefined".
+
+wijmenu
+-------
+Fixed an issue that there're two arrow icon in menuitem which contains submenuitem.
+Fixed an issue that submenu closes without complete animation if parent menu item is clicked while the opening animation is running.
+
+wijTouchUtil
+------------
+Fixed an issue that $.support.isTouchEnabled returns wrong value in IE11.
+
+wijcombobox
+-----------
+Fixed an issue that the whole "LabelText" property is not shown in wijComboBox with Bootstarp style in Chrome
+Fixed an issue that underlying data source is not correctly updated if selectedValue is databound.
+Fixed an issue that incorrect selection & hover styles are applied on dropdown items with bootstrap style.
+Fixed an issue that javascript error is thrown on selecting combo item if selectedIndex is data bound.
+
+wijexplore
+---------
+Fixed an issue that Javascript Error is observed after browsing WidgetExplorer with IE8
+
+wijevcal
+---------
+Fixed an issue clicking more in month view switches to day view but doesn’t change the menu for mobile control.
+Fixed an issue that total 7 days are displayed with Day/List view after using setting option to change view from Week view 
+
+wijsuperpanel
+---------
+Fixed an issue that the bottom border of scroll container to display for mobile control.
+
+wijcompositechart
+---------
+Fixed an issue that "StrokeDashArray" is automatically applied to a series if another series with different type has "StrokeDashArray" set.
+
+wijeditor
+---------
+Fixed an issue that javascript error is observed after right clicking on the text area of wijeditor when browsing with IE11
+Fixed an issue that button's state on footer ribbon is not refreshed after switching the editorMode by code.
+Fixed an issue that can't insert html element after inserting hidden html element on editor in IE9 and IE10.
+
+wijchart
+-------
+For some attr parameters for svg element, we should parse the option to the pattern like 'xxxx-xxxx'
+
+wijinputmask
+--------
+Fixed an issue that blurOnLastChar worked incorrect in the advanced format mode.
+Fixd an issue that if any text is not entered and the non_default prompt char is used ,System.ArgumentException "The value of Text is invalid" is shown after page is postback in C1InputMask.
+Fixed an issuse that 'blur on last char' doesn't work in the input mask control.
+
+wijinputdate
+-----------
+Fixed an issuse that 'blur on last char' doesn't work in the input date control.
+
+wijinputtext
+--------
+[48093] Fixed an issue that wijinputtext throws exception when set focus.
+
+wijgrid
+-------
+Fixed an issue that all columns display same column header "ProductID" in "Remote Data Using OData API" sample of WijGrid.
+Fixed an issue that Jscript error occurs on setting "showFilter - true" when setting "inputType" option of a column.
+Fixed an issue that Javascript Error is observed after sorting is applied and "allowVirtualScrolling" option is set to true.
+Fixed an issue that column moving is performed instead of column sizing when resize a column.
+Fixed an issue that vertical scrollbar is not working correctly when setting "showFilter" and "allowVirtualScrolling" options.
+Fixed an issue that IMEmode doesn't change when I move an active cell by keyboard(arrow key or tab key).
+Fixed an issue that record selection does not work after leaving edit mode if editingMode option is set to "row".
+Fixed an issue that behavior change related to grid.editingInitOption and column.inputType options: mobile environment detection has changed. Mobile environment is only considered available if jquery.mobile.js is registered on page.
+
+Wijmo v3.20133.26
+================
+Dependencies
+------------
+Uses jQuery 1.9.1 and jQuery UI 1.10.1
+
+wijlinechart
+------------
+Fixed an issue that javascript exception may thrown when play animation with 'easeInBack' easing.
+
+wijlist
+-------
+Added selectedIndex option and getSelectedItems method.
+Fixed an issue for combobox that keyboard navigation broke down after combobox filter opteration.
+
+wijcombobox
+-----------
+Fixed an issue that the dropdownlist doesn't appear when the 'disabled' option is set to false twice.
+Fixed an issue that if a comboitem has been selected and then this item is hidden after the filter opteration of combobox, the keyboard navigation will break down.
+
+wijsuperpanel
+---------
+Add "scrollValueToPx" method in superpanel.
+
+wijeditor
+-----------
+Fixed an issue that there is an exception because wijribbon isn't created while set the state of wijribbon's button.
+Fixed an issue that there is an unexpected error when the document's range selected in IE11.
+
+wijgrid
+-------
+[47277][Wijmo Widget][WijGrid] Column headers and data cells are inconsistent when resize a column in scrollable grid.
+
+wijevcal
+-----------
+Fixed an issue that wijevcal Appointment dialog is flicking while opening in IE.
+
+Wijmo v3.20133.25
+================
+Dependencies
+------------
+Uses jQuery 1.9.1 and jQuery UI 1.10.1
+
+Wijtabs
+---------
+Fixed an issue that 'show' event does not fire when creating WijTabs using AngularJS.
+
+wijgrid
+-------
+Fixed an issue that columns are getting deleted on tapping anywhere on WijGrid when setting "showDeleteButton" option to true.
+Fixed an issue that javascript error [Unable to get value of the property "r1": object is null or undefined] is thrown when grouping is applied if groupSingleRow=false and outlineMode="startCollapsed".
+Fixed an issue that grouped columns are not displayed correctly in group area of WijGrid.
+
+wijdialog
+---------
+Fixed an issue that javascript error is observed because the opener is missing when open the dialog without super open function.
+
+wijsuperpanel
+---------
+Implement vertical customScrolling for superpanel in touch device.
+
+wijCombobox
+------------
+Fixed an issue that in wijcombobox right border is missing if TriggerPosition="Left".
+Fixed an issue that javascript Error is observed after C1CombBox is placed with "RequiredFieldValidator" control on the same page when "SelectionMode" is set to Multiple
+Fixed an issue that select element "onchange" event does not fire when select item from WijComboBox dropdown list.
+Fixed an issue that setting SelectionMode=Single does not work correctly.
+Fixed an issue that item selection through keyboard does not work correctly if Selected=true in a comboitem
+
+
+Wijmo v3.20133.24
+================
+Dependencies
+------------
+Uses jQuery 1.9.1 and jQuery UI 1.10.1
+
+wijgrid
+-------
+Fixed an issue with editing in mobile mode.
+
+wijbubblechart
+--------------
+Fixed an issue that the index in symbol doesn't work.
+
+wijeditor
+-----------
+Update the 'Insert Media' dialog's size in bootstrap.
+
+wijlinechart/wijbubblechart
+---------------------------
+Added angular support of seriesList.markers option.
+
+wijinputdate
+---------------------------
+Fixed an issue that the result is not right when invoke setText method and parameter is valid era year date.
+Fixed an issue that An error shows when invoke destroy after selectText.
+
+wijinputnumber
+---------------------------
+Fixed an issue that placeholder shows after control get focus.
+
+Wijmo v3.20133.23
+================
+Dependencies
+------------
+Uses jQuery 1.9.1 and jQuery UI 1.10.1
+
+Themes
+------
+New moonlight-mobile theme added!
+
+wijgrid
+-------
+[MobileSafari] When you select any cell there is a cursor in the top of the cell and the native keyboard gets opened.
+
+WijRadialGauge
+-----------
+Fixed an issue that changing the WijRadialGauge value from ViewModel forces the pointer to start from 0 again when cap option is setting.
+
+wijinputdate
+-----------
+Fixed an issue that The copied time value is pasted as date value in C1InputDate with Format.
+Fixed an issue that selectText works wrong.
+Fixed an issue that highlight item is kept after open dropdown again.
+Fixed an issue that selected item isn't highlighted in dropdown list.
+
+wijinputnumber
+-----------
+Fixed an issue that the spin result is same when set increment to positive or negative number.
+Fixed an issue that the selectText method take no effect in control.
+Fixed an issue that an error shows after change readOnly from true to false.
+
+
+Wijmo v3.20133.22
+================
+Dependencies
+------------
+Uses jQuery 1.9.1 and jQuery UI 1.10.1
+
+wijCombobox
+-----------
+Fixed an issue that selected item is not rendered correctly when wijcombobox has multiple column and the theme is "aristo".
+
+wijgallery
+----------
+Fixed an issue that "Next" and "previous" buttons are not displayed when wijgallery is placed in the same page with wijcharts in IE10.
+
+wijeditor
+-----------
+Fixed an issue that set "fullScreenMode" twice, the fullscreen mode is incorrect.
+Fixed an issue that ForeColor and BackColor cannot be set in ie11.
+
+wijgrid
+-------
+Fixed an issue that horizontal scrollbar does not work and WijGrid is distorted when wijgrid has band columns and frozen columns.
+Fixed an issue that no data row is displayed in paged C1GridView after removing some records even though data rows are remaining.
+Fixed an issue that Jscript error occurs on grouping when setting "GroupSingleRow - false" and "OutlineMode - startCollapsed" in a column.
+Fixed an issue that record selection is not maintained after sorting is applied.
+
+wijcarousel
+-------
+Add setting "thumbnails" option handler.
+
+wijevcal
+-----------
+Fixed an issue that wijevcal Appointment dialog is distorted with bootstrap style.
+
+wijbarchart
+-----------
+Fixed an issue that unlike previous build, legend item visibility is not toggled when clicking on it.
+
+wijinputdate
+-----------
+Fixed an issue that today date is not displayed as default when Date property is not set.
+Fixed an issue that unlike C1WebUI control, ¡®SmartInputMode¡¯ does not work in C1InputDate of WebWijmo control.
+Fixed an issue that  ¡®AMDesignator¡¯ and ¡®PMDesignator¡¯ properties are not working in C1InputDate.
+Fixed an issue that ¡®OnClientDropDownClose¡¯ event fired twice after opening the dropdown calendar selecting any date.
+Fixed an issue that the spin down result is wrong when value of C1InputDate control is max value.
+Fixed an issuse that the text is clear to empty string when dateFormat is JP era setting and delete in month or day field.
+Fixed an issue that the invalidInput event can not be fired when caret is in era field and input invalid key.
+Fixed an issue that the keyword "A" take no effect in displayFormat of C1InputDate.
+Fixed an issue that the result is wrong when date is "0001/1/1" and spin down.
+Fixed an issue that ¡®DisplayFormat¡¯ property setting is not retained when opened date drop-down and moved focus to another control.
+Fixed an issue that he placeholder can not be shown in control when open the dropdown by click the dropdown button and then click the other control.
+
+wijinputmask
+-----------
+Fixed an issue that spinner button does not work in wijInputMask after setting ¡®showSpinner¡¯ option as true.
+
+wijinputtext
+-----------
+Fixed an issue that the selected value from the dropdown list is not shown with password character in C1InputText.
+Fixed an issue that the text is not shown with password character when the text is pasted into C1InputText after clearing the text.
+Fixed an issue that the placeholder value in C1InputText are not disappear when focus is set on it.
+Fixed an issue that 'Height' property does not take effect to C1InputText and the shadow of rectangle shape is shown on hovering mouse over C1InputText when use bootstrap style.
+Fixed an issue that the typed text is shown at the beginning even though the cursor/focus is at the end of the pasted text.
+
+wijinputnumber
+-----------
+Fixed an issue that spinner buttons are not displayed properly on setting ¡®SpinnerAlign¡¯ property in bootstrap style.
+Fixed an issue that the numbers after (.) are removed on typing (.) in C1InputNumeric with 'DecimalPlaces' - 0 property.
+Fixed an issue that the forecolor of text is still black when change maxValue to nagative number.
+Fixed an issue that cannot enter correct values in WijInputNumber when using culture which uses comma as decimal separator.
+Fixed an issue that the value is changed to 0 when value is null and input invalid char and press Enter key in control.
+
+wijinputdate / wijinputnumber
+-----------
+Fixed an issue that after set blurOnLastChar to true, when input last char in control and focus is moved to next control, the keyExit event can not be fired.
+
+wijinput
+-----------
+Fixed an issue that the dropdown button and spinner buttons are distorted in all C1Input with Bootstrap style.
+Fixed an issue that DropDown button and Trigger button are display on the same align on the ¡®left¡¯ after setting ¡®DropDownButtonAlign¡¯ property to ¡®Left¡¯ although ¡®SpinnerAlign¡¯ property is set to ¡®VerticalRight¡¯.
+Fixed an issue that spinner buttons are not displayed properly on setting ¡®SpinnerAlign¡¯ property with Bootstrap style.
+
+Wijmo v3.20133.21
+================
+Dependencies
+------------
+Uses jQuery 1.9.1 and jQuery UI 1.10.1
+
+angular
+-------
+$scope.$digest() is automatically performed after each widget event handler invocation.
+
+wijtree
+--------
+Fixed an issue that child nodes are disappear after expanding the tree in IE8.
+
+widgetExplorer
+--------------
+Fix an issue that javascript Error is observed after browsing WidgetExplorer with IE8.
+
+wijpager
+--------
+Fixed an issue taht first & last buttons are not rendered on load with bootstrap style.
+
+wijupload
+---------
+Provided a 'response' object in the 'complete' event.
+
+wijcarousel
+----------
+Fix an issue that when the carousel parent container's dir is set to "rtl", the carousel display incorrectly.
+
+wijcombobox
+-----------
+Fixed an issue that Javascript error [Unable to get value of the property "length": object is null or undefined] is thrown on clicking the trigger button after pasting the text into wijcombobox.
+Fixed an issue that trigger renders incorrectly when zoom out and last character is overlapped by the trigger icon.
+
+wijdialog
+-----------
+Fixed an issue that when a form in which there is a modal dialog called "A" is the content of another modal dialog "B", the dialog "A" seems to be disabled after showing.
+Fixed an issue that javascript exception is thrown when dialog's show/hide set to some effect and contentUrl option set to a page which contains script reference.
+
+touchutil
+--------
+Fixed an issue that touch(wijclick, wijmouseover etc) events can't fire in IE 11.
+
+wijmo.angular
+------------
+Fixed an issue that when the angular expression's value is 0 or false, the data type of the parsed value is not correct.
+
+wijcharts, wijgauges
+--------------------
+Fixed an issue that chart/gauge does not render correctly on mobile devices when the orientation is changed from Portrait to Landscape
+
+wijevcal
+-----------
+Fixed an issue that down arrow button is not observed in vertical scroll-bar for the event calendar day column with bootstrap style.
+Fixed an issue that weekView's time line is displayed only till 9pm in 'Week' view if 'ViewType' is set to 'Month' initially and switch to weekView.
+
+wijeditor
+-----------
+Add "fontSizes" and "fontNames" options to wijeditor.
+Fixed an issue that IE ignores cursor placement when inserting text into editor.
+Fix an issue that the operations of inserting elements don't work in ie11.
+
+wijslider
+----------
+Fixed an issue that 'Stop' event does not fire when using WijSlider on touch devices.
+
+wijgrid
+-------
+Uncaught Syntax Error occurred in the "Paging" Sample of wijGrid in Mobile Explorer.
+javascript error is observe after setting "Culture" option at run time in wijgrid although "globalize.culture" reference is set.
+Filter input is still disabled after setting "staticColumnAlignment" option to right at run time when the grid is disabled and set it to enabled again.
+Error "Cannot read property 'jquery' of null" is thrown when PageSize is defined with AllowPaging=False.
+javascript error is observe after display page is set to "5" in KnockoutGrid sample.
+Using 'rowStyleFormatter' to hide a row from WijGrid changes the default width assigned to WijGrid columns.
+New option added to grid column: imeMode (related task #46391).
+"allowSort" property for a column does not work with AngularJS.
+Column Headers do not scroll if the total column width exceeds the visible area and wijgrid is placed inside a 100% width table.
+
+Widget Explorer
+-----------
+Fixed an issue that javascript error is observe after navigating to 'Upload' sample page in IE.
+Fixed an issue that incorrect  description is mention on C1InputDate overview page of Toolkit Explorer.
+
+wijinputtext
+------
+Fixed an issue that inconsistent behavior is observed in shown Placeholder text in C1InputText with Format and without Format.
+Fixed an issue that the text is clear to empty string when select all text and input invalid chars in control.
+Fixed an issue that ¡®System.NullReferenceException¡¯ is thrown after navigating to ¡®InputText¡¯ in MVC Explorer sample.
+Fixed an issue that the chosen value is not shown at once after "Text" property is set.
+Fixed an issue that in chrome "\r\n" are shown between the text  instead of the line break (Enter key) in C1InputText
+Fixed an issue that in chrome the old data is not overwrite with new data in C1InputText if the text is selected using mouse.
+Fixed an issue that after the text is clear using Cross button, the cleared text is shown again after pasting the value with Ctrl+V in C1InputText with PasswordChar property.
+
+Wijmo v3.20133.20
+================
+Dependencies
+------------
+Uses jQuery 1.9.1 and jQuery UI 1.10.1
+
+wijcharts
+---------
+Fixed an issue that the shadow element should not fill an color.
+
+wijeditor
+-----------
+Fixed an issue that can't selected style are not display for selected toolbar button or context menu.
+
+wijtabs
+-----------
+Fixed an issue that the last tab item is remained at second line when set 'scrollable = true' with Bootstrap style.
+
+wijlinechart
+------------
+Fixed an issue that clicking the legend, the series elements are not shown when series's visible option is false.
+
+wijinputdate, wijinputmask, wijinputnumber
+------------
+Add Japanese related features.
+
+wijinputdate
+------------
+Add date & time picker.
+
+wijinputtext
+------------
+Add the new widget.
+
+Wijmo v3.20133.19
+================
+Dependencies
+------------
+Uses jQuery 1.9.1 and jQuery UI 1.10.1
+
+wijcombobox
+-----------
+Fixed an issue that 'Javascript' error is observed after entering second time in wijcombobox when using remote data.
+Fixed an issue that pressing "Backspace" key does not work in some cases.
+
+wijpopup
+--------
+Fixen an issue that popup can't hide any more after cancel the hide behavior in hiding event one time.
+
+wijcompositechart
+-----------------
+Fixed an issue that second axis is drawn to the max point of first axis if multiple Y-axes exist and both axis shows at one side.
+
+wijevcal
+--------
+Fixed an issue when set less than 750 to eventcalender's width style, the width can't applied.
+Fixed an issue that  Date number are not display in navigation bar after 'Bootstrap' style is applied in eventCalendar when browsing with IE10
+Fixed an issue that Today background color, Time-slot lines and the down arrow button of vertical scrollbar are not applied in the Day View of wijevcal with bootstrap style.
+Fixed an issue that "New Event" dialog is closed down when clicking a date in dropdown calendar of Start/End date
+
+wijeditor
+-----------
+Fixed an issue that Splitter bar is not shown when the height of editor is not enough in split mode.
+
+wijtooltip
+-----------
+Fixed an issue that If 'Theme=metro-dark' is set, 'CalloutFilled' style is not applied in 'wijtooltip' even 'calloutfilled' is set to 'True'
+
+wijappview
+-----------
+Fixed an issue that Javascript Error is observed when clicking on any AppView item if 'AppViewPageUrl' property of any item is not set.
+Fixed an issue that "NavigateUrl" and "SplitUrl" does not work if C1ListView is inside C1AppViewPage.
+
+wijdialog
+-----------
+Fixed an issue that extra buttoon icons on the header is increased by one whenever maximizing the dialog with Bootstrap style.
+Fixed an issue that the position of the dialog is correct if maxmize the dialog or restore the dialog after minimizing when others wijmo controls are placed on the same page with dialog with bootstrap style.
+
+wijlist
+-----------
+Fixed an issue that 'Highlight Matching' style is still effected in wijlist although items have been selected with Bootstrap style.
+Fixed an issue that the background and border styles of list item are different after adding default state class.
+
+wijgallery
+-----------
+Fixed an issue that is not able to click play button in wijgallery with 'Vertical' ThumbnailOrientation with Bootstrap style.
+
+
+Wijmo v3.20133.18
+================
+Dependencies
+------------
+Uses jQuery 1.9.1 and jQuery UI 1.10.1
+
+wijbarchart, wijbubblechart, wijscatterchart
+--------------------------------------------
+Fixed an issue that chart's mouse event(such as click, mouseDown, mouseUp etc) can't fire in touch device.
+
+wijevcal
+-----------
+Fixed an issue that the vertical scroll bar of event list view is clipped of mobile wijeval control.
+Fixed an issue that EventList from left pane is listed horizontally and only first 2 events are visible with bootstrap style.
+
+wijlinechart
+------------
+Fixed an issue that an exception thrown when users redraw linechart and show the tooltip by hover mouse on the line.
+
+wijgallery
+-----------
+Fixed an issue that Button, border and background styles are missing in wijgallery with Bootstrap style.
+
+Wijmo v3.20133.17
+================
+Dependencies
+------------
+Uses jQuery 1.9.1 and jQuery UI 1.10.1
+
+wijtooltip
+-----------
+Fixed an issue that wijTooltip does not hide when trigger is set to any option except hover.
+
+wijpiechart
+-----------
+When the radius of WijPieChart is set to null and specific size is set, then the chartlabels are clipped
+
+wijlistview
+-----------
+Fixed an issue that filter box is displayed twice if data-filter is set as "true"
+
+wijeidtor
+---------
+Fixed an issue that if editor place inside of another widget's container which will hide after the container widget init such as accordion, create editor firstly, the eidt cursor will show in the container widget.
+Fixed the issue that line break are not retain after postback occur when C1Editor is in 'Bbcode' mode.
+Fixed an issue that changing the text font size does not retain and revert back to default font size after postback occur when the text are in selection mode.
+
+wijdialog
+---------
+Fixed an issue that setting 'stack' option to false at run time does not effect the wijdialog.
+
+wijcalendar
+------------
+Fixed an issue when calendar is in decade view, set displayDate, calendar's title is wrong.
+
+wijevcal
+------------
+Fixed an issue that status bar is dispalyed outside the wijevcal control.
+
+wijcombobox
+----------
+"textChanged" event fire while focus is in C1ComboBox using "BACKSPACE" key to delete the text.
+
+wijgrid
+-------
+IME support added.
+After changing the current cell position document content is scrolled to the top of the grid.
+New option added: editingMode.
+New methods added: editRow, updateRow, cancelRowEditing, deleteRow.
+The allowEditing option is obsolete. Use editingMode option instead.
+
+Wijmo v3.20132.16 
+=================
+Dependencies
+------------
+Uses jQuery 1.9.1 and jQuery UI 1.10.1
+
+wijlinechart
+------------
+Fixed an issue that gradient color is lost after wijlinechart is loaded in IE8.
+
+wijradialgauge
+--------------
+Fixed an issue that colorized ranges appear jagged.
+
+wijgrid
+-------
+An exception thrown when moving the current cell to the position (-1, -1).
+
+charts
+------
+If min/max of axis option is set, autoMin/autoMax will be set to false automatically.
+
+widget explore
+----------
+Fixed an issue that clicking 'Uploaded files' button , 'open' dialog does not display in IE.
+Fixed an issue that javascript Error is observe after selecting any comobo items from wijcombobox after browsing with IE8.
+Fixed an issue that javascript Error is observe after clicking on the month when wijcalendar is in month view month view mode when browsing with IE8.
+
+wijtree
+-------
+Added Ajax sample into list.
+Added "wijmo-state-expanded" class to expandable nodes' icon and add "wijmo-state-collapsed" to collapsed ones.
+
+wijevcal
+--------
+Fixed an issue that events are not rendered correctly in IE8
+Fixed an issue that existing event dialog remained opened after navigating to other date by clicking on 'NavigationBar'
+Fixed an issue that in listview, when the left list panel contains scrollbar, when scroll to end of the scrollbar, javascript exception thrown.
+
+wijcombobox
+----------
+Fixed an issue that 'selectElementWidthFix' option is not effected on width of the original HTML select element.
+Fixed an issue that Javascript error[Unable to get value of the property 'replace': object is null or undefined] is thrown on pressing "Down" key after last comboitem is selected if the combobox contains empty item.
+Fixed an issue that selected item style is not applied if combo item with empty data is selected
+
+wijfilter
+---------
+[42798][WijmoWidget][WijFilter]Unlike previous version, Javascript Error is observe after selecting date from combobox in FilterDropDown of WijFilter for second time in datetime column.
+
+wijcalendar
+-----------
+Fixed an issue that selected style is affected on hovering any date on wijcalendar in window 7 IE10.
+
+wijwizard
+----------
+Fixed an issue that javascript error [Unable to get value of the property 'outerHeight': object is null or undefined] occurs
+wijaccordion
+Fixed an issue that javascript error is observed after clicking on the accordion pane when browsing with IE 8
+
+wijeditor
+----------
+Fixed an issue that wijEditor does not work correctly inside wijTab.
+Fixed an issue that in wijEditor, 'Full Screen' button UI is not shown in checked state even though FullScreenMode=true.
+
+wijdropdown
+----------
+[42874][Wijdropdown]Fixed an issue that disabled option of dropdown object does not work.
+
+Wijmo v3.20132.15
+=================
+Dependencies
+------------
+Uses jQuery 1.9.1 and jQuery UI 1.10.1
+
+wijgrid
+-------
+In scrolling mode pressing alphanumeric key does not enable editing mode in FireFox and Chrome.
+In virtual scrolling mode current cell highlighting does not restore after scrolling. 
+Tab key navigation is added in the allowKeyboardNavigation mode.
+
+Wijmo v3.20132.14
+=================
+Dependencies
+------------
+Uses jQuery 1.9.1 and jQuery UI 1.10.1
+
+wijtree
+----------
+Fixed an issue that Child nodes are disappear after collapsing the tree with 'Pulsate' animation for IE8 and former version of IE.
+
+wijupload
+----------
+Modify the href attribute of upload button to "javascript:void(0);" for fixing the issue when click 'Upload files' button , it it navigate to Home Page in 'Overview' sample page of widget explore in IE.
+
+widget explore
+----------
+Fixed an issue that Page is navigate to the Home Page, when click on the control in "Modal" sample page of ToolTip widget in IE.
+
+wijcarousel
+----------
+Update the disabled state processing.
+
+wijgallery
+----------
+Update the disabled state processing.
+
+wijwizard
+----------
+Fixed an issue that the bounds of content will overflow the bounds of wijwizard control, if we set height style for the container of wijwizard. 
+
+wijmo.data
+----------
+Fixed an issue that a new item was not committed to the source array properly
+
+wijcombobox
+----------
+Fixed an issue that can't select the addtional added items.
+Fixed an issue that 'OnClientTextChanged' event is not fired after entering from  keyboard when 'AutoComplete' property is set to false
+Fixed an issue that empty data gets displayed with smaller height.
+
+wijevcal
+----------
+Fixed an issue that "New Event" dialog is closed down on navigation the months in calendar dropdown.
+Fixed an issue that existing events are not display in left pane of 'List' view.
+Fixed an issue that "New Event" dialog box shown cutoff, if placed the wijevcal into other container control such as wijexpander.
+
+wijbarchart
+-----------
+Fixed an issue that setting the unitMajor option for XAxis changes the text displayed for the XAxis valueLabels
+
+wijvideo
+--------
+Classes can be customized in options.
+
+wijdatepager
+------------
+Classes can be customized in options.
+
+wijaccordion
+------------
+Classes can be customized in options.
+
+wijgrid
+-------
+[41296][34497-139][WijGrid] JS Error is observed on moving columns.
+
+Wijmo v3.20132.13
+=================
+Dependencies
+------------
+Uses jQuery 1.9.1 and jQuery UI 1.10.1
+
+wijappview
+----------
+Fixed an issue that a request to the server is made when switching to an embedded appviewpage
+
+wijbarcharts
+------------
+Fixed an issue that when create charts from table, and the table contains more than 12 rows, a javascript exception thrown.
+
+wijgallery
+-------------
+Fixed an issue that script error is occurred on mouse hover if "Mode" is not "img".
+
+wijsuperpanel
+-------------
+Added abilibty to customize some classes in options.
+Added arrow icon of scrollbar in mobile mode.
+
+wijcalendar
+---------
+Update the touch supporting source code.
+Fixed an issue that 'selectedDatesChanged' event isn't triggered correctly with touch event.
+Fixed an issue that Today background color is not applied for Today Date.
+Fixed an issue that 'popupMode' option does not work correctly.
+
+wijdropdown
+---------
+Fixed an issue that 'Title' attribute is lost on converting a select element to WijDropDown.
+
+wijtooltip
+---------
+Fixed an issue that wijtooltip doesn't support width and height setting.
+
+wijdialog
+---------
+Fixed an issue that 'Restore' button is disappear and others buttons are appear after setting 'minimizeZoneElementId' option when wijdialog is in minimize state
+Fixed an issue that the buttons add in wijdialog are disappear after setting 'maxwidth', 'maxheight', 'minwidth' and 'minheight' at run time.
+Fixed an issue that tooltip is not display for dialog when hovering over it although 'Tooltip' property is set for C1Dialog control.
+Fixed an issue that 'width' and 'height' of wijdialog is not resets to their default values although setting 'resets' method at run time
+
+wijtree
+-----------
+Fixed an issue that child nodes are disappear after applying 'Pulsate' animation in "Animation" sample page of WidgetExplorer.
+
+wijcarousel
+-----------
+Fixed an issue when images are navigated through pager in auto play mode, the images are still auto playing although  it is set to paused.
+Fixed an issue that prevBtn/nextBtn will be convered by video in iframe. 
+Updated videos.html sample.
+
+wijmenu
+-----------
+Fixed an issue that after doing 'Click' trigger event, 'Mouse Enter' trigger event doesn't work correctly.
+
+wijsplitter
+-----------
+Fixed an issue that can't disable the resize animation.
+Fixed an issue that when drag the spliter, the panel can't resized when animation is enabled.
+Fixed an issue that when put an iframe into panel, splitter cannot be moved if it is dragged into the iframe.
+
+wijsuperpanel
+-------------
+Updated method hScrollTo, vScrollTo, scrollTo. Added a parameter to indicates whether x/y is value or pixel.
+vScroller.scrollValue, hScroller.scrollValue can be updated correctly when setting by hScrollTo, vScrollTo, scrollTo method in mobile mode.
+
+wijprogressbar
+-----------
+Fixed an issue that 'Label' is partially show when 'FillDirection = North (or) South' and "LabelAlign = North".
+
+wijcombobox
+-----------
+Fixed an issue that javascript error is observed when opening the drop down button of WijComboBox after dynamic data is added through "data" option
+update the combobox to use the copied data to init the combobox, so that the if some combobox used the same data, the selected status will effect each other.
+Fixed an issue that 'Text' option does not refresh when an item is selected for the second time.
+Fixed an issue that selected item style is not removed from combo dropdown after selection is cleared.
+Fixed an issue that setting 'selectedndex' property using AngularJS does not work when the 'selectionMode' is set to multiple
+Fixed an issue that combobox is not deselecting previous selection after loading new data and set a selectedIndex.
+Fixed an issue that javascript error is observe after set data option to an contains selected item and the selected index is larger than the length of the set array.
+Fixed an issue that setting selectedIndex option to -1 does not work.
+Fixed an issue that javascript error[Unable to get value of the property 'toString': object is null or undefined] is thrown on clicking the trigger button after selecting empty data
+
+wijlightbox
+-----------
+Fixed an issue that controlsPosition property doesn't work when set at runtime.
+Fixed an issue that QuickTime doesn't work in wijlightbox.
+
+wijevcal
+---------
+Fixed an issue that the localization option can't bind in angular.
+Fixed an issue that duplicate Events are created when an option is set in wijevcal in chrome.
+Fixed an issue that new timeRulerFormat is not reflected in  wijEventsCalendar when 'timeRulerFormat' option is set at run time
+Fixed an issue when wijEventsCalendar change from hidden to visible, it's position crashed.
+Fixed an issue that 'firstDayOfWeek' option can't set.
+Fixed an issue that overlapping appointments are positioned incorrectly.
+Fixed an issue that event is not updated by using "updateEvent" in wijevcal.
+Fixed an issue that the list of events from the Left pane of List view can be clicked in the disabled EventsCalendar.
+Fixed an issue that "Delete" button is not displayed in the Event Dialog for the events added from eventsData option.
+Fixed an issue that javascript error is observed after clicking on delete button which the event has not yet been created.
+Fixed an issue that "Javascript" error is observed when eventcalendar is inside of an superpanel, and firstly init the superpanel and then init superpanel. 
+Fixed an issue that rectangle is appeared on Header when 'statusBarVisible' is set as 'true'.
+
+wijinputs
+---------
+Fixed an issue that the existing valid value are disappear when focus has lost after entering invalid value.
+Fixed an issue that selecting a valid item from the drop down the input element doesn't get focus.
+
+wijinputnumber
+--------------
+value option can be set to null.
+Fixed an issue that if 'showNullText' option is set to true and 'nullText' is set, the 'isValueNull' option would be wrong and display text would not be set when user set value by 'value' option or 'setValue' method.
+Fixed an issue that ShowNullText and NullText properties do not work after bluring.
+
+wijinputdate
+------------
+minDate and maxDate options can be set by $("selector").wijinputnumber("option", "minDate/maxDate", value);
+
+wijinputmask
+------------
+Fixed an issue that text is reset to original value when following condition met£º nomask, delete text to empty and let control lost focus.
+
+wijpiechart
+-----------
+Added "enableTouchBehavior" option.
+Cannot read property startX of undefined' error is observed when initializing WijPieChart inside 'pageinit' event using jQuery mobile.
+
+wijgrid
+-------
+The wijgrid.allowSorting and column.allowSort options now affects only possibility of sorting when user clicks on column header.
+Virtual scrolling mode refactored.
+New properties added: freezingMode, rowHeight.
+
+wijribbon
+-------
+Fixed an issue that ribbon UI is not correctly maintained when it is placed in tabs.
+
+wijeditor
+---------
+Fixed an issue that Javascript error [Unable to get value of the property 'document': object is null or undefined] is thrown when "Insert Code" diloag is closed using "Esc" close.
+Fixed an issue that the special characters gets selected and overwritten by second one after selecting it from "Insert special character" dialog.
+Fixed an issue that 'String Not Found' message box is display after using 'Find & Replace' dialog when the words that user is searching is selected
+Fixed an issue that "Full Screen" button UI is not changed into checked state when clicking on it.
+Fixed an issue that when splitting the cell for the same column for two times in C1Editor, 'Unable to get property "colSpan" of undefined or null reference' message box is display.
+Fixed an issue that 'FontColor' are not effected on 'Underline' and 'Strikethrough' when this style are apply first.
+Fixed an issue that splitter bar is not shown at correct position on clicking "Split View" button.
+
+wijlist
+--------
+Fixed an issue that Javascript error is thrown when select the wijlist item.
+
+wijtabs
+-------
+Fixed an issue that focus is shown in non-selected tabitem on clicking outside of C1Tabs.
+
+Wijmo v3.20132.12
+=================
+Dependencies
+------------
+Uses jQuery 1.9.1 and jQuery UI 1.10.1
+
+wijcombobox
+-------
+Fixed an issue that the item is not display in text area of wijcombbox after deselecting it with ‘delete?(x) button in IE 10 and selected it again.
+
+Wijmo v3.20132.11
+=================
+Dependencies
+------------
+Uses jQuery 1.9.1 and jQuery UI 1.10.1
+
+angular
+-------
+Fixed an issue that grid's 'cellclicked' event does not work with AngularJS.
+
+wijtree
+-------
+Fixed an issue that when set the nodes option to '[]', the tree node is not removed.
+
+wijinputnumber
+--------------
+Fixed an issue 'showNullText' property does not work when pressing 'DELETE' key to delete the text in wijinputnumber with Firefox.
+
+wijtooltip
+----------
+Fixed an issue that 'showing' event cannot be cancelled when same tooltip is hovered over multiple elements
+
+wijcarousel
+-----------
+Fixed an issue that when thumbnails option's width is less than the image width, if disable the wijcarousel, the last thumbnails item still can click.
+Fixed an issue that timer bar doesn't appear again, if set preview to false first before 'showTimer' to true again.
+
+wijmenu
+-------
+Fixed an issue that if menu is sliding mode and inside of li element, when click the item to show submenu, a javascript exception thrown.
+
+wijtabs
+-------
+Fixed an issue that when scrollable is true, tab header with icons will wrap line.
+
+wijcombobox
+-----------
+Fixed an issue that selected value is not shown as selected item when multiple combobox using the same datasource.
+
+wijgallery
+--------
+Fixed an issue that thumbnail is moved along and display as blank space although there is no thumbnail images when 'scrollWithSelection' is set to true.
+Fixed an issue that auto play button disappear when touch the play/pause button to play in IE 10.
+Fixed an issue that Next and Previous button doesn't appear when mouse over the corresponding navigation area in IE 10.
+
+wijevcal
+--------
+Fixed an issue that can added an exist name calendar using addCalendar method.
+Fixed an issue that when update calendar name, the visibleCalendars option's calendar which name is the same as the updated calendar is not updated.
+
+
+Wijmo v3.20132.10
+================
+Dependencies
+------------
+Uses jQuery 1.9.1 and jQuery UI 1.10.1
+
+wijcarousel
+--------------
+Fixed an issue that clicking the 'Next' button and 'Pager' button works incorrectly after changing the 'display' option.
+
+widget explore
+--------------
+Fixed an issue that when referencing the minified knockout to run dataview samples, javascript exception is thrown.
+Fixed the issue turn back to Home page instead of Carousel page when clicking Back button in IE.
+
+wijvideo
+--------
+Fixed an issue that if the video load too quickly, javascript exception will thrown.
+
+wijinputnumber
+-------------
+Fixed an issue that nullText is displayed if entered value is equal to minValue.
+
+wijrating
+-------
+Fixed the issue that selected rate is disappeared when increase 'Count' at 'Rating Mode' is 'Single'.
+
+wijslider
+-------
+Add touch support for wijslider.
+
+wijbubblechart
+--------------
+Fixed an issue that fixed the y1 value in -999999999999 to 9999999999999, if the number is not in this range, it will use the -999999999999 as min value, and 9999999999999 as max value.
+fixed an issue that when the page contains two bubble chart, and create it the same time the max and min value calculate wrong.
+
+wijCarousel
+-----------
+Fixed an issue that wijCarousel doesn't get dim state although set disabled to true in the options.
+Fixed an issue that Setting "showControlsOnHover" option from true to false doesn't work.
+Fixed an issue that able to click and image is moving although get dim state at Preview Area when disabled option is true.
+Fixed an issue that pager button doesn't appear again, if set preview to false first before 'ShowPager' to true again.
+Fixed an issue that next/previous buttons are still working although disabled is set to false when "buttonPosition" option is set to "outside"
+
+wijcalendar
+-------
+Fixed an issue that 'NaN' value shown when setting 'AllowQuickPick = false' at MonthView state or YearView state or DecadeView state.
+
+wijsuperpanel
+-------------
+Fixed an issue that superpanel is able to scroll by dragging 'scroll thumb' although set 'enabled' to false.
+
+wijdialog
+---------
+Fixed an issue that  title aligns to right when an External jQuery theme is applied.
+Fixed an issue that the destory method works not correctly. it doesn't remove the data object from the element.
+
+wijgrid
+-------
+Fixed an issue that filter dropdown is overlapped by the frozen line.
+Fixed an issue that cancelling currentCellChanging event, the grid will auto set the first cell to selected when showSelectionOnRender option is false.
+Fixed an issue when remote data item is 0.
+
+wijlist
+-------
+Fixed an issue that if the items contains html template, the item text rendered html tags.
+
+wijinputs
+---------
+Fixed an issue that in mobile mode, when keydown on input widgets, javascript exception will thrown.
+Fixed an issue that error is observed when mask is set to accept characters
+
+Angular Explorer
+----------------
+Fixed the issue that an error is occur after selecting ‘class?option  in  “Wijmo Input?sample page
+
+wijtabs
+-------------
+Fixed the issue that size and alignment of tab header items are not correctly when addtional items are added in tab header items after wijtabs being created.
+
+widget explore
+-------------
+Fixed an issue that javascript error is thrown in IE8 when navigate the demos.
+Fixed an issue that contents are not display for step2 a nd step3 in wijwizard when browsing "Ajax" sample in Widget Explorer
+Fixed an issue that "Displaying Context menus" sample is not loaded in the Widget Explorer online sample
+
+wijradio
+--------
+Fixed an issue that in radio group, without radio label, radio buttons cannot be selected after first time selection.
+
+wijcompositechart
+-----------------
+Fixed an issue that when not set the center in pie series, after reszing the width or height option, some pie sector will clipped.
+
+wijcombobox
+-----------
+Fixed an issue that two combobox use the same data source, only the last combobox item can selected.
+Fixed an issue that deselected item is still selected in C1ComboBox in multiple selection mode.
+Fixed an issue that when use datasource, when select an item, the previous selected item can't deselected.
+Fixed an issue that the combobox's trigger width is not correct.
+Fixed an issue that when click the "x" button in input element in IE10, the selected items can't cleared.
+
+wijevcal
+--------
+Fixed an issue that changes made in existing events are not effected in wijEvcal when browsing with IE 10 and Firefox and the amplify is not referenced.
+Fix an issue that validation for Start-time and End-time is not provided when Start-date or End-date is changed
+
+wijeditor
+-------
+Fixed an issue that focus gets lost from editor after closing color dialog.
+Fixed an issue that the editor will overlap the elements which is placed right below of it.
+
+wijfilter
+---------
+[40113][Forum-CustomerSupport][WijGrid] Null value is not displayed correctly in FilterDropDown of WijGrid
+
+wijmo mobile explore
+--------------------
+Fixed an issue that  title is incorrect in the "Margin" sample of "Radial Gauge" in Mobile Explorer.
+Fixed an issue that  script error is occurred if a character is typed in the input box of the "Overview" and "Multiple Selection" sample of ¡°List¡± in Mobile Explorer
+
+
+
+Wijmo v3.20132.9
+================
+Dependencies
+------------
+Uses jQuery 1.9.1 and jQuery UI 1.10.1
+
+wijaccordion
+---------
+Fixed the issue that unable to open some accordion pane after hover quickly upon the Accordion.
+
+wijinputnumber
+---------
+Fixed the issue that 'showNullText' property does not work when any text is entered and deleted from it.
+
+wijdialog
+---------
+Fixed an issue that Dialog is resized and  does not shown properly when ¡°Show Animation¡± is set to Clip,Scale or Size
+
+wijlist
+-------
+Fixed an issue that special characters doesn't display correctly in the dropdown items
+
+wijtree
+-------
+Fixed an issue that when wijtree is placed in hidden container and then showing the container by clicking one button, the bullets render in ie10.
+
+C1Input
+-------
+Fix an issue that some error occurs in Safari 6+.
+
+WijCheckbox
+-------
+Fixed an issue that unable to set 'disabled' option dynamically.
+
+wijbarchart
+-----------
+Fixed an issue that error is observed on setting axis labels style 'transform' option.
+
+wijdropdown
+-----------
+Fixed an issue that ie10 don't working when place wijeditor and wijdropdown on one page.
+
+wijeditor
+--------
+Fixed an issue that right border is missing in editor if placed inside expander when it init with collapse.
+
+Wijmo v3.20132.8
+================
+Dependencies
+------------
+Uses jQuery 1.9.1 and jQuery UI 1.10.1
+
+widget explorer
+---------------
+Fixed an issue that "Javascript" error is observed when navigating to "Streaming data"
+
+wijtabs
+-------
+Fixed an issue that the last tab item is remained at second line when set scrollable option to true.
+
+wijeditor
+---------
+Fixed an issue that table is not selected when selecting the table or the table header.
+
+wijcalendar
+---------
+Fixed an issue that 'MonthSelectorImage' is disappeared at run time if 'Enabled' is set to 'False'.
+
+wijdropdown
+-----------
+Fixed an issue that item cannot be selected after scrolling down the browser
+
+wijinputnumber
+------------
+Fixed an issue that Wijinputnumber renders with dual spinners in Chrome.
+
+wijeditor
+------------
+Fixed an issue that there is a delay in the movement of the cursor when pressing the left arrow keys multiple times in IE6.
+Fixed an issue that the cursor loses focus after entering any text and click any option from the toolbar like bold or italic in chrome pr firefox.
+
+wijtouchutil
+------------
+Fixed an issue of checking if touch is enabled in IE10.
+
+wijcalendar
+-----------
+Fixed an issue that current date is not highlighted on using WijCalender within AppView.
+
+wijsuperpanel
+-------------
+Fixed an issue that javascript error is observed after  pressing arrow key when "KeyboardSupport" property is set to true in IE10.
+Fixed an issue that the scrollbar can't clicked to scroll the content in IE8.
+Fixed an issue that the scrollValue in hScroller and vScroller option lost effect in IE10 metro mdoe.
+
+wijcombobox
+-----------
+Fixed an issue that DropdownHeight property does not work in opening the dropdown for second time in IE10.
+Fixed an issue that when create combobox from focused element, the element will lost focus.
+
+wijdialog
+---------
+Fixed an issue that the appendTo option works not correctly
+Fixed an issue that "stack" option is not working any more although setting one of the dialog to false
+
+wijfilter
+---------
+[38909] Excel like Filters are not retained in the filter dialog on reopening filter dialog (wijgrid-extension.html sample).
+[38910] Different format of datetime column is displayed in filter dialog of Excel like filter in Wijgrid (wijgrid-extension.html sample).
+
+wijgrid
+-------
+[Bernardo] Custom icons appear right-aligned within the column headers.
+[39149] [33056-139] Filter operator name are not localized in Wijgrid when using customized filter operator
+Grouped columns are sorted in order of their indexes in the columns option, not the their order in the group area.
+[39139] Wijmo Gridview Filter ignores "d" dataformat.
+If you select a cell in a frozen column and scroll down, the frozen pane will scroll vertically as expected, but the non-frozen pane will not.
+[39166][IE10] Unlike previous build, data rows exceed the footer row on setting Height property at run time
+
+wijcompositechart
+-----------------
+Fixed an issue that set the width/height option, the pie sector's size is not changed when the compositechart contains pie series.
+Fixed an issue that if the radius of pie series is not set, the radius is not the default 50 as eraly versions.
+
+wijbubblechart
+--------------
+Fixed an issue that seriesStyles rotation is not effected in bubblechart when the marker type is not circle and enable animation.
+Fixed an issue that bubble series are rotated after hovering over it although only "rotation" option is set in seriesStyles and not seriesHoverStyle
+
+wijbarchart
+-----------
+Fixed an issue that bar series are rotated after hovering over it although only "rotation" option is set in seriesStyles and not seriesHoverStyle
+
+wijdropdown
+----------
+Fixed an issue that when the select element is not set the width, the label and dropdown item will line wrap.
+Fixed an issue that when call refresh method after init the dropdown which the select element is not set width CSS, the width of the widget will increase.
+
+wijlist
+-------
+Fixed an issue that if the two wijlist use the same array as datasource, when mouse over the first element's item, it can't applied the hover style.
+
+wijtree
+-------
+Fixed an issue that when drag all the children items from parent item, the parent ul element is not hide, and the parent item's CSS class is not correct.
+
+wijinputs
+---------
+Fixed an issue that in IE7, if the input text is too long in table cell, the cell width will incress.
+Fixed an issue that in IE7, the input widgets is not display as inline mode.
+
+wijinputnumber
+------------
+Fixed an issue that Wijinputnumber renders with dual spinners in Chrome.
+
+wijeditor
+------------
+Fixed an issue that there is a delay in the movement of the cursor when pressing the left arrow keys multiple times in IE6.
+
+wijtouchutil
+------------
+Fixed an issue of checking if touch is enabled in IE10.
+
+wijcalendar
+-----------
+Fixed an issue that current date is not highlighted on using WijCalender within AppView.
+
+wijsuperpanel
+-------------
+Fixed an issue that javascript error is observed after  pressing arrow key when "KeyboardSupport" property is set to true in IE10.
+Fixed an issue that the scrollbar can't clicked to scroll the content in IE8.
+Fixed an issue that the scrollValue in hScroller and vScroller option lost effect in IE10 metro mdoe.
+
+wijcombobox
+-----------
+Fixed an issue that DropdownHeight property does not work in opening the dropdown for second time in IE10.
+Fixed an issue that when create combobox from focused element, the element will lost focus.
+
+wijdialog
+---------
+Fixed an issue that the appendTo option works not correctly
+Fixed an issue that "stack" option is not working any more although setting one of the dialog to false
+
+wijfilter
+---------
+[38909] Excel like Filters are not retained in the filter dialog on reopening filter dialog (wijgrid-extension.html sample).
+[38910] Different format of datetime column is displayed in filter dialog of Excel like filter in Wijgrid (wijgrid-extension.html sample).
+
+wijgrid
+-------
+Custom icons appear right-aligned within the column headers.
+
+wijcompositechart
+-----------------
+Fixed an issue that set the width/height option, the pie sector's size is not changed when the compositechart contains pie series.
+
+wijbubblechart
+--------------
+Fixed an issue that seriesStyles rotation is not effected in bubblechart when the marker type is not circle and enable animation.
+Fixed an issue that bubble series are rotated after hovering over it although only "rotation" option is set in seriesStyles and not seriesHoverStyle
+
+wijbarchart
+-----------
+Fixed an issue that bar series are rotated after hovering over it although only "rotation" option is set in seriesStyles and not seriesHoverStyle
+
+wijdropdown
+----------
+Fixed an issue that when the select element is not set the width, the label and dropdown item will line wrap.
+
+All widgets
+-----------
+Added theme support in mobile mode.
+
+wijwizard
+---------
+Fixed an exception when its initial state is hidden. 
+
+wijevcal
+-----------
+[37754] [Forum-CustomerSupport][wijevcal] Overlapping appointments are positioned incorrectly.
+Fixed an issue that delete event data, but the listview's item is not deleted in IE10.
+Fixed an issue that the ListView's scrollbar is not shown in IE10.
+Fixed an issue that The events more than 100 events is not loaded in the ListView in IE10.
+Added minWidth option to event calendar to fixed a issue that when resize the window to too small, some elements will overlap each others.
+
+wijcombobox
+-----------
+Fixed an issue that when click the scrollbar, the dropdown list colsed in IE10.
+
+wijinputdate
+-----------
+Fixed an issue that inputdate control does not loose focus and shift the focus to another element when the Tab is pressed for the first time
+
+wijeditor
+-----------
+Fixed an issue that ribbon of disabled C1Editor are not correctly disabled when place editor in wijtab.
+Fixed an issue that when create the editor widget, and then call focus method in IE7, it will throw exception.
+
+wijdialog
+-----------
+Fixed an issue that dialog can't load content url in IE9.
+Fixed an issue that dialog is not dim although it is disabled.
+Fixed an issue that Javascript error is observed when setting draggable option to false and disabled option to true.
+
+wijgrid
+-------
+[37813][Forum-Community][WijGrid] JS Error occurs when "allowColMoving" property is set after initializing Wijgrid
+[34508][Wijmo Mobile][wijGrid][MobileExplorer][Query] Initialization of Pager Setting from Grid and the selected item from drop-down are inconsistence in “Paging" sample of Grid.
+Minimum width to which column can be resized using column resizing UI is limited to 5px.
+
+wijpager
+--------
+[34468][Wijmo Mobile][wijPager] Unlike Widget 2.3.7, Incorrect icon is displayed in wijPager for Mobile
+
+wijmo.raphael
+-------------
+Fixed the wrong version compare if the jQuery version is not lower than 1.10.
+
+wijtabs
+-------
+Fixed an issue that item focus is shown in other tab item when a tabitem is doubleclicked.
+
+wijslider
+---------
+Fixed an issue that the "dragFill" option doesn't work.
+
+wijlist
+-------
+Fixed an issue that border disappears on adding new item to the Wijlist when it is placed in Wijwizard
+
+wijsuperpanel
+-------
+Fixed an issue that scrollbar is not displayed when set overflow-x and overflow-y to "visible" at same time In IE10.
+
+wijmenu
+-------
+Fix the Javascript error with IE7 and IE8 for Bug 37175. 
+Update the _innerDestroy method of wijmenu and wijmenuItem.
+
+wijutil
+------
+Override the jQuery UI position utility for upgrade to jQuery UI 1.10. Fixed some position issue with using the removed offset option.
+
+wijsplitter
+----------
+Fixed an issue that splitter can't be resizable in wijeditor.
+
+wijtree
+-------
+Fixed an issue that the tree node can drag and drop when set the option to disabled.
+Fixed an issue that javascript error occurs when a child node is removed in Wijtree.
+
+wijevcal
+--------
+Fixed an issue that create widget using eventsData option will can't show the events data and the event view can't open event edit dialog when the page is not reference amplify in FF and IE.
+Fixed an issue that the addEvent method doesn't work correctly in none support local storage(in FF and IE without amplify).
+Fixed an issue that if the firstDayOfWeek option is set to a number string, the browser will Infinite loop.
+
+wijslider
+--------
+change the slider "disabeld" behavior: don't cover the disabled div by disabled the button behavior.
+
+wijdialog
+---------
+Fixed an issue the if the select elment is not the first focusable element(such as input elements) inside of the dialog, the value of the select element can't be selected.
+
+wijbubblechart
+---------
+Fixed an issue that shadow don't rotate when mouse hover.
+
+wijgrid
+------
+[37223]  Filtering Grid by Date is not working in Overview sample of Grid.
+[30103] Sorting is case-sensitive.
+[36419] [Wijmo Mobile] "Failed to load resource" error is occurred in the "Cell formatting" sample of "Grid" in Mobile Explorer.
+[37191]  Row selection is not correctly maintained after data record is deleted.
+wijgrid no longer creates an own copy of data option. 
+
+wijexplore
+---------
+Fixed an issue that the demo can't work in IE8.
+
+wijlightbox
+----------
+Fixed an issue that when show as modal, click the modal the light box will close even if the closeOnOuterClick set to false.
+
+wijinputnumber
+-------------
+Fixed an issue that Old value is prepended on entering new value when data is removed using 'x' button in IE10(browser mode IE10, document mode IE9).
+
+wijevcal
+--------
+Fixed an issue that color dropdown is automatically shown on opening the New Event Dialog for second time
+Fixed an issue that the whole list got hover effect instead of applying hover effect to individual event of the list.
+Wijmo v3.20131.7
+================
+Dependencies
+------------
+Uses jQuery 1.9.1 and jQuery UI 1.10.1
+
+wijmenu
+-------
+Added a "ensureSubmenuOnBody" option, it is a value indicating the submenu element will be append to the body or menu container. 
+
+wijcombobox
+-----------
+Fixed an issue that the first row is displayed clipped in Firefox in multi-column mode.
+Fixed an issue that when trying to access the document.activeElement object in an page that is loaded in an iframe in the Sys.Application.Load event "Unspecified error" exception will throw.
+
+wijcharts
+---------
+Fixed an issue that hint value(tooltip) are not display properly when its value is camel case.
+
+wijsuperpanel
+-------------
+Fixed an issue that scroll event can't fire correctly when touch is enabled.
+Fixed an issue that container's height is wrong when touch is enabled.
+
+wijevcal
+---------
+Fixed an issue that set eventdata option can't work correctly in Chrome.
+
+wijutil
+-----
+Add zIndex method to util if the jQuery doesn't contains this method(when using wijmo in mobile)
+
+wijpopup
+--------
+Fixed an issue that if user call show method with position argument which contains of field,  it can't get correct z-index by the of element.
+Fixed the wrong method to get the max z-index by the element.
+
+wijeditor
+--------
+Fixed an issue that when click the sourceview, the browser crashed.
+
+wijgrid
+-------
+[37101] Fixed column Scrolling does not work in IE 10.
+[37099] Pager is not visible when viewing wijgrid in IE 10.
+
+wijlightbox
+-----------
+Fixed an issue that when the page contains more than one lightbox, the counter of the lightbox will show wrong counter number.
+
+wijinputnumber
+-----------
+Fixed an issue that the cursor in the input is incorrect When entering  second number (eg. 0.25) after '.'
+
+wijaccordion
+-----------
+Fixed an issue that accordion headers are bumped down to the next line when resize the window.
+
+Wijmo v3.20131.6
+================
+Dependencies
+------------
+Uses jQuery 1.9.1 and jQuery UI 1.10.1
+
+Added jQuery UI Position utility to Wijmo Open to enable positioning on when used with jQuery Mobile (tooltip, eventcalendar, grid)
+
+wijsplitter
+----------
+Fixed an issue that in nested spliter, the layout is wrong.
+
+wijdialog
+---------
+Fixed an issue that the model dialog works not correctly.
+Fxied an issue that the disable and enable method lost effect when reference the jQuery UI 1.10.1.
+
+wijpopup
+--------
+item is not closed on clicking other region in the page.
+
+wijupload
+--------
+Fixed an issue that progress bar is left behind after uploading invalid number of files and again uploading a valid number of file
+
+wijcompositechart
+-----------------
+Unlike other chart type, ChartLabels are not displayed for Scatter Chart Series although "showChartLabels" property is set as "true" for compositeChart
+
+wijlinechart
+------------
+Fixed an issue that line is shown below x-axis if axis.y.min is greater than minimum Y.
+
+wijtabs
+-------
+Fixed an issue that added tabs will be removed when reset alignment.
+
+wijspliter
+----------
+Fixed an issue that if some wijmo widget inside the spliter hidden panel, when show the panel, the contains widgets may has layout issue.
+
+wijinputdate
+------------------
+Fixed an issue that calendar dropdown is not correctly shown on clicking the trigger button after resizing the browser window(jQuery ui ticket #8710, http://bugs.jqueryui.com/ticket/8710)
+
+wijaccordion
+-----------
+Fixed an issue that when set the expandDirection to left/right in overview sample, the layout is wrong.
+
+wijappview
+----------
+Fixed an issue that appview attempted to load a page even if the default behavior of a click event was prevented.
+
+wijbubblechart
+--------------
+Add shadow support for bubble chart.
+[35657] when set 'width' property at runtime, the icon of bubble chart doesn't shrink as set in design time
+
+wijvideo
+--------------
+Fixed an issue that Javascript error is observe after clicking volume button on WijVideo player
+
+wijdialog
+---------
+Fixed an issue that if the pages contains two model dialog, the secend dialog's overlap can't cover the first one.
+
+wijscatterchart
+----------------
+Fixed an issue that if the marker is diamond, the scatter element is not drawed correctly.
+Fixed an issue that the fill and stroke color of the scatter is not right in VML mode(below IE9). 
+
+Wijmo v3.20131.5
+================
+Dependencies
+------------
+Uses jQuery 1.9.1 and jQuery UI 1.10.1
+
+AppView
+-------
+Form hijacking: forms are sent using AJAX
+Link hijacking: all links within an appview can be hijacked
+
+wijevcal
+--------
+[36176][Wijmo Mobile] Unlike previous build, the calendar is disabled in wijEventsCalendar
+
+wijtree
+-------
+[33296][Wijmo Mobile] Checkbox of wijTree cannot be seen in UnChecked state.
+
+wieditor
+------
+Fixed an issue that table is not display in the content of editor although adding on to it when browsing with IE.
+
+WijBarChart
+----------
+[35882][Chrome] Error is occur after setting easeInBack Easing in wijbarchart in Series transition sample of WidgetExplorer
+
+wijdropdown
+------------
+fixed an issue that can't get correct original's element value in chrome.
+
+WijRadialGauge
+--------------
+[36403] C1RadialGauge shrinks on using Gauge ranges and removes range indicator if range is set explicitly
+
+WijGauges
+[35447][Wijmo Mobile] Ranges are not display although on radial guage in template sample of Mobile Explorer
+
+WijBubbleChart
+-------------
+Fixed an issue that bubble Chart seriesStyles don't apply to legend
+
+Wijmo v3.20131.4
+================
+Dependencies
+------------
+Uses jQuery 1.9.1 and jQuery UI 1.10.1
+
+WijDialog
+---------
+[36241][wijmo][wijdialog] Modal=true doesn't work if the page contains a scrollbar
+
+Appview
+-------
+Disabled page caching
+
+WijTouchUtil
+-----------
+wijmoApplyWijTouchUtilEvents is deprecated
+
+WijBubbleChart
+--------------
+[36130] Unlike previous build 3.20131.2, script error: Cannot read property 'visible' of undefined occurred in the Overview and "Table as DataSource" samples of BubbleChart
+
+WijCompositeChart
+-----------------
+[35610] The second data series are  not hidden although clicking on the legend when datetime data value type is set in X-axis
+[35717][Wijmo Mobile] Unlike previous version 3.0.0b3, the hidden pie chart data series are not synchronized with the legend entries display
+
+Charts
+------
+Fixed an issue that the seriesList can't support the xy data.
+
+
+Wijmo v3.20131.3
+================
+Dependencies
+------------
+Uses jQuery 1.9.1 and jQuery UI 1.10.1
+
+Eventscalendar
+[35971] Unlike previous build, the controls from Event Dialog are distorted
+
+Angular Wijmo
+-------------
+Added support for wijcheckbox
+Added support for templates for wijgrid cells (not documented yet)
+
+Upload
+------
+Added option "enableSWFUpload".
+[35788] 'Complete' event does not return the data which the 'totalComplete' event returns
+[35799] C1Upload's OnClientChange event is not fired when 'EnableSWFUploadOnIE' is true
+
+Dialog
+------
+[35789] JavaScript error is observed on opening WijDialog in IE 10
+
+Carousel
+------
+[35797] 'linkUrl' property does not work
+
+BubbleChart
+-----------
+Fixed an issue that the chart label's opacity option can't applied.
+
+Charts
+------
+Fixed an issue when chart is bound to html table.
+Fixed an issue that the older custom tooltip animation can't support.
+
+LineChart
+---------
+Fixed an issue that hiding a series using the legend leaves a blank space when stacked option is true
+
+Editor
+-----
+Fixed an issue that disabled's Toolbar still takes offect by "tab" and "enter" key operation.
+Fixed an issue that postback occur on pressing Enter key if EditorMode=Code
+Fixed an issue that javascript error is observed after click on "Template" button in "Font" group of "Format" tab.
+
+BarChart
+--------
+Fixed an issue that hiding a series using the legend leaves a blank space when stacked option is true
+
+PopUp
+--------
+Fixed an issue that "autohide" takes no effect.
+
+Calendar
+-------
+Fixed an issue that 'MonthSelectorImage' is disappeared if 'Enabled' is set to 'False'.
+
+Wijmo v3.20131.2
+================
+
+Dependencies
+------------
+Uses jQuery 1.9.1 and jQuery UI 1.10.1
+
+Angular Wijmo
+-------------
+Added support for ranges in gauges
+
+WijTouchUtil
+------------
+Fixed IE10 bug on touch devices
+
+Wijmo v3.20131.1
+================
+
+Dependencies
+------------
+Uses jQuery 1.9.1 and jQuery UI 1.10.1
+
+jQuery 1.9 Support
+------------------
+Migrated all widgets to support jQuery 1.9
+
+jQuery UI 1.10 Support
+----------------------
+Migrated all widgets to support jQuery UI 1.10
+
+Name Change
+-----------
+Wijmo Complete has been renamed to Wijmo Professional. 
+So all files referencing wijmo-complete.js should be update to wijmo-pro.js. 
+
+Adaptive Widget Framework
+-------------------------
+All of our widgets will automatically adapt to jQuery Mobile or jQuery UI environments. Simply by 
+swapping out jQuery UI for jQuery Mobile, you can convert your widgets to be mobile without changing 
+a single line of code! Wijmo is offering something that no other tool can: a set of widgets that 
+automatically adapts to its environment.
+
+AppView (new)
+-------
+AppView is an all-in-one widget for mobile applications. It has built-in navigation, ajax-loaded 
+content and a responsive layout system. AppView is ideal for building a single application that 
+works on both phones and tablets while optimizing screen real estate. 
+
+ListView (new)
+--------
+ListView is an extension of jQuery Mobile ListView. Lists are used for data display, navigation, 
+result lists, and data entry so jQuery Mobile includes a wide range of list types and formatting 
+examples to cover most common design patterns. They support a wide array of features such as: 
+read-only, linked, numbered, nested, collapsible lists and more. See jQuery Mobile’s ListView 
+docs for more.
+
+Wijmo Data API (new)
+--------------
+Wijmo Data is a very light DataView API that is easily extended with Adapters. 
+We provide the following adapters
+	wijmo.data.arraydataview.js - For working with local arrays of data
+	wijmo.data.wijdatasource.js - For backaward compatibility with wijdatasource in wijgrid
+	wijmo.data.ajax.js - (optional) For general ajax request including JSONP support
+	wijmo.data.breeze.js - (optional) For seamless integration with BreezeJS
+
+Grid
+----
+The internals of Grid have be rewritten to offload sorting, paging, filtering, editing to the new 
+Wijmo Data API.
+Grid now depends on wijmo.data.js and wijmo.data.arraydataview.js
+
+Wijmo v2.4.0
+===========
+
+Dependencies
+------------
+Uses jQuery 1.8.2 and jQuery UI 1.9.1
+
+Charts
+------
+Fixed an issue that tooltip hides instantly when hideDuration is null and duration has a value.
+
+BarChart
+--------
+Fixed an issue that when the y data is 0, it shows 1px width bar in stack chart.
+Fixed an issue that if the y data is datetime, the chart will throw exception.
+
+Editor
+--------
+Fixed an issue that 'Height'& 'Width' attributes of "img" tag does not change when image is resized in design view.
+
+Charts
+------
+Fixed an issue that the shadow opion lost effect.
+
+CompositeChart
+--------------
+Fixed an issue that when click the legend in multiple axis chart, it show/hide wrong series elements.
+
+Calendar
+---------
+Fixed an issue that calendar dropdown is not correctly shown on clicking the trigger button after resizing the browser window, override the position flip.top method in jquery.wijmo.wijutil.js.
+Add a class when showtitle is false for weekday header is overlapped.
+
+List
+---------
+Fixed an issue that "autosize" option is incorrect when the element is hide.
+
+
+Wijmo v2.3.9
+===========
+
+Dependencies
+------------
+Uses jQuery 1.8.2 and jQuery UI 1.9.1
+
+Input
+-----
+Fixed an issue that selected date was not shown as selected text in textbox of C1InputDate after opening the dropdown calendar
+
+Editor
+-----
+Fixed an issue that the color dialog' height is incorrect in ie6.
+When change the "mode" option with condition "editorMode" is "code",the ribbon disabled div will cover the text content.
+Add "accesskey" attribute for editor.
+Fixed an issue that Wijmo Editor's setText method does not synch up code view with designer view in split mode.
+
+CompositeChart
+--------------
+Fixed an issue that dataseries does not match the legend entries
+
+Charts
+------
+Update the chart's default tooltip, format the y value by jquery globalize.
+
+Grid
+----
+Fixed "Object doesn’t support this property or method" exception when applying filter in the filter\wijgrid-extension.html sample in IE8.
+
+BarChart
+--------
+Fixed an issue that the chart label style can't set opacity to less than 1.
+
+Combobox
+--------
+Fixed an issue that "textchange" event don't fire when "autocomplete" is true.
+Add tooltip for combobox and combobox item.
+Fixed an issue that exception is throwed when selectedIndex setting.
+
+List
+------
+Fixed an issue that "autoSize" option takes no effect.
+
+Dropdown
+----
+Added a new option "ensureDropDownOnBody", indicating the dropdown element will be append to the body or dropdown container.
+
+
+
+Wijmo v2.3.8
+===========
+Dependencies
+------------
+Uses jQuery 1.8.2 and jQuery UI 1.9.1
+
+Charts
+------
+Fixed an issue that "data" option doesn't work properly when setting option;
+
+LineChart
+---------
+"opacity" option works for both line and area.
+
+Grid
+----
+Fixed exception when displaying filter list under IE if Array.prototype is extended with custom functions.
+[34226] Unlike previous build, keyboard navigation does not work if rows contain checkbox.
+
+BarChart
+--------
+fixed an issue that when the series data y is not a number, the chart will throw exception.
+
+Editor
+--------
+Change the "wijmo-ui-editor.png" to separate png file for supporting ie treanparent image.
+
+Ribbon
+-------
+move ribbon disabled style "z-index" to css file
+
+Wijmo v2.3.7
+===========
+Dependencies
+------------
+Uses jQuery 1.8.2 and jQuery UI 1.9.1
+
+LinearGauge
+-----------
+Fixed an issue that the tick lable shows at wrong position when the tick's position is set to outside/cross.
+Fixed an issue that when reset the pointer option, the pointer will disappear.
+Fixed an issue that when the min option is set to negative value, the gauge pointer shows at wrong value.
+
+Gauges
+-------
+Fixed an issue that the gauge's label show at wrong position when reset the width/height option.
+Fixed an issue that when set the disabled option to false, the gauge widget is not show dimmed state
+
+PieChart
+--------
+Show/Hide label connector when clicking legend.
+
+LineChart
+---------
+"fill-opacity" works for area.
+
+C1Input
+-------
+Fixed an issue that a user is unable to get the entered string on setting the password character.
+
+Editor
+-------
+Fixed an issue that pressing <Esc> key does not close dropdown menus (FontName menu, FontSize menu and Table menu)
+Fixed an issue that the color dialog gets crumbled in IE6
+
+BubbleChart
+-----------
+Fixed an issue that when set the showChartLabel to false, the labels of the bubble chart still show.
+
+ScatterChart
+------------
+Fixed an issue that the marker can zoom when the chart is disabled.
+
+Charts
+------
+Fixed an issue that when set the height option, the chart element's height is not reset.
+
+Combobox
+------
+Fixed an issue that two items are shown in bold font style when selecting for second time.
+Fixed an issue that empty data gets displayed with smaller height.
+
+Tabs
+----
+Rename "ui-tabs-selected" class to "ui-tabs-active", "ui-state-processing" class to "ui-tabs-loading" for jQuery ui 1.9.
+
+Wijmo v2.3.6
+===========
+Dependencies
+------------
+Uses jQuery 1.8.2 and jQuery UI 1.9.1
+
+Wizard
+------
+Fixed an issue of "add" method.
+
+Grid
+----
+[33317] Filter dropdown displays behind the dialog.
+Added highlightOnHover option.
+[33573] Grid loses focus when you are editing and press the down arrow.
+[33578] Grid is not updating a column of observables.
+
+C1Input
+------
+Fixed an issue that a user was unable to get the entered string on setting the password character.
+Fixed an issue that an incorrect value was displayed with 'nl-BE' culture related to decimal separator
+Fixed an issue that unlike initial state, deleting entire value in C1InputNumeric control at run time does not set back to Null value
+Fixed an issue that WijInputDate value returns to minDate if time (Hours) starting with 1 or 2 is entered & dateFormat is "HH:mm"
+Fixed an issue that the height specified in style was not padded when applied to the outer div
+
+CompositeChart
+--------------
+[33340] Fixed a issue that value labels are not correctly hidden on toggling the serie display by clicking legend item if the chart contains scatter chart.
+
+Editor
+-----------
+Fixed an issue that ribbon toolbar is covered up by gray area on clicking "Full Screen" button.
+
+Combobox
+----------
+Fixed an issue that the selected item is incorrect when set data options(33446 issue in tfs).
+
+RadialGauge
+-----------
+Fxied an issue that the gauge draw wrong marker if the marker is tri and invertedTri.  
+Fixed an issue that if the marker is cross, the marker is not show with default style.
+
+Gauges
+-------
+Add isInverted option to render the inverted gauges.
+Fixed an issue that when set the face option, the gauge can't show the labels.
+
+ScatterChart
+-----------
+Fixed an issue that the chartLabelFormatString is not work.
+
+Charts
+------
+Fixed an issue that if the chart set an orgin, the charts don't draw the side gridLine. 
+
+Calendar
+--------
+Fixed an issue that Selects previous day that happens between date ranges March 12 - 31. 
+Fixed an issue that calendar is not rendered when monthCols/monthRows is set in year view.
+
+list
+--------
+Changed the "selectItems: function (indices, triggerSelected) " to "selectItems: function (indices, triggerSelected, byIndex)"
+
+
+Wijmo v2.3.5
+===========
+Dependencies
+------------
+Uses jQuery 1.8.2 and jQuery UI 1.9.1
+
+PieChart
+--------
+Fixed an issue in safari6 when data-binding.
+
+Combobox
+-------
+Add getSelectedItems method.
+
+C1Input
+-------
+Fixed an issue that post back does not occur on changing value by selecting dropdown item in C1InputNumeric and C1InputCurrency
+Fixed an issue that combobox dropdown is not correctly populated with the data items if the underlying data is retrieved using wijhttpproxy.
+Fixed an issue that double-byte number which is working as string can be entered when the digit mask ??or ??is set
+
+Editor
+-------
+Fixed an issue that text can be typed beyond the border of text editor if 'ShowFooter' is set to 'False' and 'EditorMode' is set to 'Code'
+
+Combobox
+-------
+Fixed an issue that the bold font style is not applied to the text of selected item when press the DOWN key.
+Fixed an issue that the dropdown's zindex is incorrect.
+
+Grid
+----
+The columns option is writable now.
+Added getCellInfo method.
+Added cellClicked event.
+
+Radio
+------
+Fixed an issue that vertical-align style of wijradio does not work.
+
+
+Wijmo v2.3.4
+===========
+Dependencies
+------------
+Uses jQuery 1.8.2 and jQuery UI 1.9.1
+
+AngularJS Integration Library
+-----------------------------
+Updated Preview of our AngularJS Components. See the Wijmo-Complete/demo-apps/using-angular folder for samples.
+
+ScatterChart
+------------
+Add chart label for scatterchart
+
+Combobox
+-------
+Fixed an issue that the selected class is still on  old selected item when set "data" and "selectedIndex" at same time.
+Add three client events (textChanged/selectedIndexChanged/selectedIndexChanging).Add three client events (textChanged/selectedIndexChanged/selectedIndexChanging).
+
+Editor
+------
+Fixed an issue that javascript error is observed when selecting the item from 'Font Name' or  'Font Size' combo box  of ribbon toolbar in Compatibility View
+Fixed an issue that the page will be automatically scrolled up on clicking the ribbon empty area 
+
+list
+------
+Fixed an issue that incorrect item is selected on pressing "Enter" key after typing a key to filter the comboitems.
+
+Calendar
+------
+Fixed an issue that calendar is not rendered when monthCols/monthRows is set in year view.
+Fixed an issue that javascript error occur when call method 'show'(JQueryUI upgrade caused the issue.).
+
+Tab
+------
+Fixed an issue that the wijdget's object can't find after visibility change from false to true.
+
+
+Wijmo 2.3.3
+===========
+
+Dependencies
+------------
+Uses jQuery 1.8.2 and jQuery UI 1.9.1
+
+Slider
+-------
+Override the "widgetEventPrefix" to "wijslider"
+
+Menu
+-------
+Changed the default value "[]" to "null" of "items" option.
+
+List
+------
+Add "FindIndexByLabel" method.
+Fixed an issue that autoSize property is broken in latest build 
+
+AngularJS Integration Library
+-----------------------------
+Updated Preview of our AngularJS Components. See the Wijmo-Complete/demo-apps/using-angular folder for samples.
+
+Combobox
+-------
+Editor
+------
+Fixed an issue that Table border is disappear when the fullmode is setting.
+Fixed an issue that eidtor in accordion pane is not correctly displayed when open the hiding accordion pane.
+
+Input
+-----
+Fixed an issue that Date can be selected for the first time only from the Calendar drop-down and another date cannot be selected again
+Fixed an issue that Javascript error [Object doesn't support property or method 'wijpopup'] occur on clicking the trigger button for second time
+Fixed an issue that ComboHeight property does not work when date is chosen using datepicker, the time is preserved (not reset to 12am)
+
+Combobox
+--------
+Fixed an issue that incorrect item is selected on typing the text and pressing "Enter" key
+Fixed an issue that focus does not move even when Focus method is run in C1Combobox control.
+Fixed an issue that the previous text don't disappear after setting data dynamically. 
+Fixed an issue that dropdown is not correctly populated after reopening the dropdown use "Ctrl" (caused by jquery ui update)
+
+Grid
+----
+The allowKeyboardNavigation option is turned on by default now.
+Forum issue fixed: wijgrid throws an exception when your grid data contains date/time values and you click the header of the date/time column to sort the rows.
+
+Wijmo 2.3.1
+===========
+
+Dependencies
+------------
+Uses jQuery 1.8.2 and jQuery UI 1.9.1
+
+Tabs
+------
+Fixed an issue with widgets rendering in an inactive (not displayed) tab. 
+
+Charts
+------
+Fixed a issue that the stacked option will effect the scatter and bubble chart.
+
+Grid
+----
+Rendering speed improved.
+
+Input
+-----
+Removed jquery.wijmo.wijwidget.js file and (temporarily) added its contents into jquery.wijmo.wijinputcore.js to prevent breaking changes when referencing individual widget js files. This issue was observed in version 2.3.0.
+Added support for mouse wheel to wijinputnumber
+Prevented page scrolling when date is incremented/decremented by a mouse wheel
+Prevented increment/decrement by mouse wheel when an input is not focused
+Fixed an issue in wijinputdate: when no date is specified, the text updated to the current date on blur
+
+Wijmo 2.2.1
+===========
+
+ToolTip
+----
+Fix an issue when tooltip's method '_set_position' is invoked, however the content and title properties of the tooltip remain unchanged. 
+Fix another issue when 'position.offset' is "none none", the offset of the 'callout' element in the tooltip remain unchanged. 
+
+Wijmo 2.1.7
+===========
+
+tabs
+----
+Fixed an issue when title is localized.
+
+list
+----
+Update for combobox item selection via keyboard when ItemsTemplate is used
+
+menu
+----
+Fixed an issue that submenuitem's text is not shown correctly when templating.
+Fixed an issue that the variable self.domObject is not set to null when killing element.
+
+ToolTip
+----
+Fixed an issue that JavaScript error is observed if 'showCallout' property of ToolTip is set to 'false'.
+
+Wijmo 2.1.5
+===========
+
+calendar
+--------
+Fixed an issue that custom events didn't fire after navigating to previous or next month.
+
+list
+-----------
+Fixed an issue with showing all items in combobox.
+
+Wijmo 2.1.3
+===========
+
+Form Decorator
+--------------
+Updated css to align better in certain scenarios
+
+Themes
+------
+Updated all themes to used the improved ui-helper-clearfix pattern.
+
+calendar
+--------
+Added "displayDate" to _setOption.
+
+menu
+----
+Added a new option "direction", its value is "ltr" or "rtl" to support right-to-left rendering.
+Fixed an issue in the deactivate method.
+
+list
+----
+Fixed an issue when showing all items in combobox.
+
+radio, checkbox
+---------------
+Add "checked" and "changed" option to support knockout bindings
+
+Wijmo 2.1.1
+===========
+
+calendar
+--------
+The result selection has one day off when calling selectDate method in some GMT offset.
+Fixed javascript error thrown in IE8.
+
+tabs
+-------
+selection is incorrect when more than one tabs widget exists on the same page.
+
+dropdown
+--------
+Fixed a bug when multiple items occur with the same value in options.
+
+Wijmo 2.0.8
+===========
+
+menu
+---------
+Removed “wijmo-wijmenu-link?class when templating.
+Fixed a bug where the menu could not be displayed above other elements depending on the triggerElement.
+
+Wijmo 2.0.6
+===========
+
+* Fixes:
+
+Accordion
+---------
+	[16943] [IE8][Win7] "Invalid argument" Javascript error is
+			observed after clicking on any pane of the accordion in IE8
+
+video
+------
+added fullScreenButtonVisible option to wijvideo.
+added getWidth, setWidth, getHeight, setHeight methods.
+add "showControlsOnHover " option .
+
+radio
+------
+fixed a bug that disabled style doesn't not work.
+
+menu
+----
+fixed an issue that select event doesn't fire when a node has children and menu's mode is sliding.
+
+Dropdown
+------
+fixed an issue that the dropdown can't show items from forum.
+fix refresh problem when use wijdropdown in eventCalendars.
+fixed issue that can't get drop down value with keydown operation.
+
+Video
+------
+add class to prevent from overriding the origin css of tooltip.
+Add comment to methods.
+
+Progressbar/Splitter
+--------------------
+Fix the issues with destroy method.
+
+Slider
+------
+Fixed the issue that increment/decrement button can still work even though the slider is disabled.
+Update destroy method.
+
+Superpanel
+-------------
+add refresh method which refreshes the superpanel.
+add scroll event which is called immediately after scrolling occurs.
+
+checkbox
+-------------
+Fixed bug that Wijcheckbox change event get the wrong checked value.
+Fixed bug that wijcheckbox can't checked when the label is front of the checkbox.
+
+calendar
+-------------
+Fixed an issue that popped up calendar automatically close when there is previous selection happen.
+Fixed an issue that the selected year 2011 is change to year 2001 after selecting with quick navigation in certain scenarios
+Enhanced the selection behavior, allows unselect a selected date by pressing the ctrl key.
+
+popup
+____________
+When you have an autocomplete (or wijmo combobox) inside a wijpopup, when you select on the dropdown list it close both wigets.
+Fixed an issue when nested popup is used.
+
+Wijmo 1.5.0
+===========
+
+The fifth major release of of Wijmo Open v1 contains a number of bug fixes and support for jQuery globalize (breaking change).
+
+* Fixes
+
+	Tree
+	----
+	Changed expandAnimation.effect to expandAnimation.animated, collapseanimation.effect to collapseAnimation.animated.  
+
+	Dialog
+	------
+	Fixed bug when setting the 'contentUrl' option.
+	Fixed bug when drag & size the dialog when dialog has external content.
+
+	Menu
+	----
+	Fixed the issue that "blur" and "focus" event fired twice.
+
+Wijmo 1.4.0
+===========
+
+The fourth major release of of Wijmo v1 contains a number of bug fixes and breaking changes.
+
+* Breaking changes
+
+	Tabs
+	----
+		Renamed the 'disabled' option to 'disabledIndexes'
+		Renamed the 'enable' method to 'enableTab', renamed the 'disable' method to 'disableTab'
+
+	Accordion
+	---------
+		Parameters for "beforeSelectedIndexChanged"/"selectedIndexChanged" events was changed:
+
+* Enhancements
+
+	Dialog
+	------
+		New event: stateChanged - Raised when the state ("minimized", "maximized", "normal") of this dialog is changed.
+		New event: blur - Raised when the dialog lose focus.
+
+* Fixes
+
+Superpanel
+----------
+Prevent right and middle clicking takes effect on scrollbar.
+Fixed bug: Exception on option "autoRefresh" set to true.
+
+Tabs
+------
+Fixed bug: Setting disabled option to true, tabs still can be selected.
+
+Dialog
+------
+Fixed bug: "Open" method will reload iframe of the dialog.
+Fixed bug: beforeClose has some issues on iframe mode.  
+
+Menu
+--------
+Fixed bug: javascript error is observe after navigating with access key and pressing any key.
+Fixed bug: when focus is on a menuitem, pressing the enter key wasn't navigating the link's url.
+Fixed bug: when the disabled option is set to true, the sub menu was still opening.
+Fixed bug: when the template item is input element, it will throw an exception in IE 8
+Fixed bug: incorrect style was applied when the trigger event was set to rtclick and you moused from an item which has submenu
+Modify the aria-activedescendant to an menu item id.
+
+Tooltip
+---------
+Change the ajaxCallback option's default value from false to null.
+Fixed bug: setting the content option was not setting the content of the tooltip.
+
+Splitter
+--------
+Fixed the issue that dragging the expander bar will throw an exception in ie7.
+Added disabled option support.
+Resetting panel1 option will override previous panel1 settings in firefox(because the "use strict").
+
+slider
+---------
+Fixed a bug: the height of slider is error when setting it in control.
+Fixed issue: if the mouse release util the mouse out on decrese or increse button, the track still take effect.
+
+Progressbar
+-----------
+Fixed the issue that value option need be set to reflect the setting of labelFormatString and toolTipFormatString option.
+Fixed bug: when setting maxValue option's value more than 100, the progressbar renders incorrectly.
+
+Calendar
+--------
+Now accepts string type date value.
+
+Accordion
+---------
+"ui-helper-clearfix" css class was added to accordion widget (16002).
+Javascript error is observed after setting "ExpandDirection" option to "Top" or "Left" from widget constructor
+disabled option does not work.
+Multiple issue are observed  when ExpandDirection property is set to "left/right" and more than one accordion is on the page	
+
+Expander
+--------
+"Javascript runtime error" observe while expand the content of expander when animated option set to false.
+
+Wijmo 1.2.0
+===========
+
+Changes for jQuery 1.6 compatability.
+
+Totally reworked the sample explorer.
+
+Enhancements to the AristO theme.
+
+menu
+----
+The menu no longer closes and immediately reopens when navigating submenus.
+
+superpanel
+----------
+Fixed issue : Setting margin in css of handle prevent scrolling to end with continuing pressing down button.
+Fixed issue : The scrolled event won't be triggered when scrollTo method is invoked programmatically.
+
+dropdown
+--------
+Modify the dropdown list's width to select element's width.
+
+tabs
+----
+Changed the default value of tabTemplate, panelTempate, spinner to empty string ('').
+
+Wijmo 1.1.5
+===========
+
+tabs
+-----
+Added 'beforeShow' event, by which user can customize the tab content.
+Two new samples werw added to sample collection: ajax.html and customcontent.html 
+
+tooltip
+-------
+Fixed callout css issue in IE7 and IE6. 
+Fixed the flip collision issue in IE7 and IE6.
+
+progressbar
+-----------
+Refactored the wijprogressbar.
+When the filldirection is north and lableAlign is north, if the progressbar's value label is not show completely in browsers beside IE.
+Modified the label css from 'lb_***' to 'wijmo-progressbar-lb-***'.
+The destroy method wasn't removing filldirection css class.
+When filldirection is 'north' or 'south', the value div has 'ui-corner-left' css class.
+Having labelAlign to running and fillDirection to south wasn't working.
+The fillDirection=north/south and labelAlign=north/south/east wasn't rendering correctly in non-ie browsers.
+Removed startTask and stopTask methods.
+
+menu
+----
+In flyout mode, mousing slowly between two items was hiding the curent menu.
+Submenu was hiding when mousing over a checkbox menu item.
+Remove the link "#" behavior.
+Modify the keyboard behaviors.
+Mousing over an item which contains child items, the item's css class changed from 'ui-state-hover' to 'ui-state-active'.
+
+dialog
+------
+Fixed bug the position is changed after call the open method of the dialog when dialog restore from minimized.
+The pin method wasn't working after the dialog was restored from a minimized state.
+
+Splitter
+--------
+Fixed the issue that expander isn't centered on the bar for the new style.
+
+Wijmo 1.1.3
+===========
+
+** The slider widget can now take an input element as its selector.
+** Added listItems options to the list widget.
+
+calendar
+-------
+Changed event name 'hidding' to 'hiding'.
+Fixed issue with yui compressor.
+
+popup
+------
+Changed event name 'hidding' to 'hiding'.
+
+dialog
+------
+Fixed bug when minimize the dialog the iframe content will reload.(on FF & Webkit)
+Add owner context of the specified seletor.
+$(".wijmo-wijdialog-captionbutton", self.uiDialog)
+
+dropdown
+---------
+Fixed bug with destroy method. remove the 'a' element.
+
+accordion
+------
+Fixed bug with incorrect selectedIndex value when page contains two or more accordion widgets.
+
+superpanel
+----------
+Add two events:
+	-hScrollerActivating
+	-vScrollerActivating
+Fixed bug: When scroller.scrollBarVisibility is set to "true", two horizontal scrollbar painted.
+
+Util
+-----
+modify the missplled word 'hidding' to 'hiding'.
+
+Menu
+------
+Fixed a bug when the trigger option is "" click the document, paint the superpanel.
+
+Wijmo 1.0.1
+===========
+
+"use strict" has been moved into the main closure for all widgets.
+
+Menu
+-------
+Fixed bug: Setting the animated and duration options wasn't effecting animation.
+
+Calendar
+-------
+Fixed bug: Exception is fired when clicking a weekend day if the weekDay selection is allowed.
+
+Splitter
+-------- 
+Fixed bug : ghost function in Splitter wasn't working correctly.
+Remove increment from option.
+
+Dropdown
+--------
+Fixed bug : Bind event (change,click) was not working in select .
+Attach select element event to dropdown.
+
+Splitter
+-------- 
+wijsplitter code appears a new problem. This makes the sample of wijmo-open cant work.
+
+Dialog
+------
+Fixed: Fire event "resize" when maximized. 
+Fixed: Icon class when using "toggle" method.
+
+Changes made to version 0.9.0
+===================
+
+Accordion
+------
+wijlinechart that located inside hidden accordion pane now updated automatically when pane visibility state changed.
+Fixed problem with wrong jquery.wijmo.wijutil references for the samples and unit test.
+"use strict"; moved into the function scope.
+
+Expander
+------
+Fixed problem with wrong jquery.wijmo.wijutil references for the samples and unit test.
+"use strict"; moved into the function scope.
+
+Changes made to version 0.8.2
+===================
+
+** Breaking changes.**
+---------------------- 
+All widgets have been renamed (file and namespaces) to conform to jQuery UI naming patterns.
+- The widget names have not changed, in most cases you only need to change the script reference.
+- Name change to specific wijmo css classnames.
+- The decorator widgets have been renamed.
+
+Calendar
+------
+Add customizeDate to option, which allows user to customize date cells.
+
+Splitter
+------
+In nested case, adjust panels width for chrome. 
+Fix the issue that the panel2 of splitter1 is not abound with whole splitter2.
+
+Add the special css to the splitter.css for ie6 and ie7.  Fix the issue that it's hard to grab the resizing handle in ie6/7.
+
+Fixed the bug for ie 6.0 and 7.0 that user can take the panel2 out of the border by dragging the bar to the right edge of splitter.
+
+Dialog
+------
+Improve source code with JSLint.
+Change namespace,file name, css class name.
+
+DropdownDecorator
+-----------------
+Removed the z-index from the outermost element and added z-index when necessary.  The dropdown list can be covered by other dom elements.
+
+Add z-index to the outermost element when browser is ie6.  The dropdown list can be covered by other dom elements in IE6.
+
+Use stop method to stop the uncomplete animation.  Sometimes, opening the dropdownlist will push the below dom elements to
+another position.
+Add ARIA support and rename the widget namespace.
+
+Menu
+---------------------
+Fixed the css bug in IE6.0 and IE7.0. Add z-index to the outer div and the panret li element and the submenu when the submenu is opened, 
+remove these z-index when it hides
+Remove the templete item hover event and click event.
+In IE 6.0, when the submenu is shown completily, set the submenu's overflow css to empty to 
+fixed the second menu is covered by the first submenu. This is the jQuery's animation's bug.
+In IE 9.0, when the submenu is shown completily,wrap an div and unwrap the div to refresh the DOM 
+to fixed the second menu is covered.  
+
+Progressbar
+--------------------
+Remove the progressbar label's z-index to avoid cover other widget.
+
+Changes made to version 0.8.1
+===================
+
+Accordion
+---------
+Fixed javascript exception during animation under IE 9. Javascript exception 
+was thrown when trying to expand/collapse accordion panes.
+
+CheckBoxDecorator
+-----------------
+Modified checkboxElement.click.  The checkbox was not being checked/unchecked 
+when placed inside a dialog widget.
+Fixed a bug that can't use the space bar to check/uncheck a checkbox.  Added the keydown event handle th handle the space key down. 
+Add ARIA support and rename the widget namespace.
+
+Menu, ToolTip
+-------------
+Upgrade bgiframe from 2.1.1 to 2.1.3-pre.  This version fixed the issue that iframe is 
+still created on the win7 and ie7/8/9.
+Fixed the callout not shown correctly. Changed the call out border from dotted to solid.
+Add an event before show the submenu.
+Add Aria support.
+Fixed the keyboard enter key event not show the submenu and hide the last submenu correctly.
+Rename the widget namespace.
+When click the close button, the url will set a '#' at the end. Fixed this bug.
+
+Progressbar
+-----------
+Fixed not shown corectly when the fillDirection set to 'north' or 'south' 
+and labelAlign set to 'north' or south.
+Fixed the progress value is not corectly. When the indicatorIncrement is one, don't caculate the progress value. 
+Add ARIA support and rename the widget namespace.
+
+Wijmo 1.0.1
+===========
+
+
+Wijmo 1.0.1
+===========
+
+
+Wijmo 1.0.1
+===========
+
+
+Wijmo 1.0.1
+===========
+
+
+Wijmo 1.0.1
+===========
+
+
+Wijmo 1.0.1
+===========
+
+
+Wijmo 1.0.1
+===========
+
+
+Wijmo 1.0.1
+===========
+
+
+Wijmo 1.0.1
+===========
+
+
+Wijmo 1.0.1
+===========
+
+
+Wijmo 1.0.1
+===========
+
+
+Wijmo 1.0.1
+===========
+
+
+Wijmo 1.0.1
+===========
+
+
+"use strict" has been moved into the main closure for all widgets.
+
+PieChart
+--------
+Changed the code for explode animation.  
+Fixed:  Slices don't always return to starting position after hovering out of the Pie chart.
+
+Grid
+----
+Fixed issue: outer div does not change its sizes during resizing if table
+initially had width set.
+
+Code refactoring purposing automatic clearing of $data when widget is
+destroyed.
+
+Before event handlers of column widgets were not deleted during wijgrid
+destruction. That caused an exception when column header or filter elements
+are clicked after widget destruction.
+
+Added Unit test case for flat view column width and scrolling.
+
+Fixed column width not working under chrome and make sure column width option work under different browsers.
+
+Changes made to version 0.9.1
+===================
+
+LineChart
+---------
+Add some unit tests.
+
+BarChart, LineChart, PieChart
+-----------------------------
+Refactored the redraw method to add code to get the width/height of the chart.  Fix the issue that an exception is thrown 
+when chart is put in an inactive accordion pane.
+
+Change the code for jslint.
+
+Grid
+----
+Renamed currencychanging event to currentcellchanging.
+
+Renamed currencychanged event to currentcellchanged.
+
+Events and $data are not completely released after widget is destroyed.
+
+Changes made to version 0.9.0
+===================
+
+Grid
+----
+Setter added into the cellInfo.value() method.
+
+Renamed currency() method to currentCell().
+
+Changes made to version 0.8.2
+===================
+
+** Breaking changes.**
+---------------------- 
+All widgets have been renamed (file and namespaces) to conform to jQuery UI naming patterns.
+- The widget names have not changed, in most cases you only need to change the script reference.
+- Name change to specific wijmo css classnames.
+- The decorator widgets have been renamed.
+
+Pager
+-----
+WAI-ARIA support added.
+
+File name, namespace and css classes are changed.
+
+Improve source code to conform JSLint rule for only one var in one method.
+
+ToolTip
+-------
+Fixed a css reference bug in samples in ie6 & ie7.
+
+LineChart
+---------
+Fixed a tooltip bug when offset changed after page load.
+Fxied a tooltip offset bug.
+
+BarChart
+--------
+Removed the useless referrence "raphael-popup.js" from the page.  We already use our tooltip to replace raphael popup.
+
+BarChart, PieChart, LineChart
+-----------------------------
+Change the code for jslint.
+
+Move the code for calculating the tooltip's position from the constructor to the show method.  Fixed the issue
+that if we add a calendar before the chart, then the tooltip can't be shown in the correct location.
+
+Comments out the code for resizing and added the redraw method to the chart.  Fixed the chart's performance issue
+which was brought by changing the dom element.
+
+Change the methods related to axis calculation.  Make these changes to improve the performance.
+
+Change the default value of the hint.showDelay and hint.hideDelay.
+
+Add hoverintent to the animation of the piechart.
+
+Update the readme.txt with the change of the options.
+
+Add comments to the hint.offsetX and hint.offstY option.
+
+Added easing/showEasing/hideEasing to the hint option.
+
+Delete the raphael-popup.js file.  We wrote our tooltip to replace the raphael-popup.
+
+Refactored the code for JSLint.
+
+Change file name, namespace, class names.
+
+Add beforeShowing event for tooltip.
+
+Fix a bug that tooltip doesn't show in index.html page.
+
+Add "beginUpdate" and "endUpdate" methods.
+
+Add the default offset -2 to the tooltip in order to offset the tooltip to the mouse point. 
+The default position where the tooltip shows is too closer to the mouse point.
+
+Update the unit tests for bar/line chart in order to run correctly in other browsers except ie.  
+In svg, the computed value of the text is different with the one of the vml.
+
+Tree
+------
+Improve source code with JSLint.
+Change namespace,file name, css class name.
+Fixed Tree bugs on ie6,7 Chrome, Safari:
+1) drag & drop between two trees not reset the seleted node
+2) select a node but not foucs on it
+3) keyboard event error
+4) style issues on ie6
+5) focus issues on webkit 
+
+BarChart
+---------
+Divide the paintPlotArea method into several methods.  
+Obey the rule(only one var in one method) of jslint.
+
+Grid
+----
+Added width 100% to ui-wijgrid-root selector to make grid fill available space
+in wijgrid. Behavior changed: requested by John Ayers. Table should be sized
+to the outer div width.
+
+Synchronized top table width with content width of superpanel in refreshPanel 
+method. Fix bug: table header overlays on vertical bar.
+Top table element width is not correctly synchronized with bottom table.
+
+Added test for 0 width to return width of wijgrid when setting width to 
+superpanel. Fixed bug: width of superpanel is not correct when wijgrid is empty.
+The widht of superpanel should be the width of wijgrid outer div instead of 0 
+in this case.
+
+Re-insert table element before outer div in destory method. Fixed bug: wijgrid 
+is not restored for fixedview.  Table element is wrapped in superpanel and 
+should be restored to original place when destroying wijgrid.
+
+Added percentage width support for column.  This is requested in github forum.  
+Column only supports px width at present.
+
+Modified flat view column width calculation algorithm to make width work for 
+flat view.  This issue is reported by a user in github forum.  Width should 
+work for all mode.
+
+Modified flat view logic to set width on inner cell.  This is for fixing 
+column widht when enabling editing in cell.  Column should stay the same width.
+
+c1basefield.cellFormatter and wijgrid.rowFormatter options are added. New feature.
+
+WAI-ARIA support added.
+
+File name, namespaces and css classes are changed.
+
+Improve source code to conform JSLint rule for only one var in one method.
+
+Enhanced data handling to provide possibility for custom paging and
+wijdatasource support for local and remote data in case the result returned by
+the server does not confrom to wijgrid requirements.
+
+Now wijgrid accepts dynamic option of wijdatasource, not wijdatasource.proxy.
+
+wijgrid.doRefresh() method added.
+
+cellInfo.column() method added.
+
+cellInfo.contentElement() method renamed to container(), return type changed
+to jQuery.
+
+Filter editors look ugly under IE6.
+
+Changes made to version 0.8.1
+===================
+
+Datasource
+----------
+Modified wijhttpproxy request method. Fixed BUG: reported by Sergey. A copy 
+of options instead of the options object itself needs to be obtained to avoid 
+success method being regiestered multiple times.
+
+Combobox
+--------
+Upgrade bgiframe from 2.1.1 to 2.1.3-pre.  This version fixed the issue that 
+iframe is still created on the win7 and ie7/8/9.
+
+Added overflow: hidden to ui-wijcombobox-list selector.
+This if for fixing a exception in IE6 when dropdown-list is shown.
+The overflow property should be there to avoid the content to expand outer div in IE6.
+
+Added selection logic after enter key is preseed.  Fixed bug active item is not selected after enter key is pressed.
+When enter key is pressed, the active item should be selected.
+
+Cleaned source with JSLint.
+
+Mofiied _onListLoaded method.  Fixed bug: selectedIndex is set to an array of number. The input text is not synchronized with selected items.  
+The input text should synchronized with the selected item text.
+
+ChartCore
+---------
+Add width to the labels option of the axis.x and axis.y.  Provide text wrapping support.
+
+Grid
+----
+Selector changed from "div" to "table". Behavior changed: requested by
+John Ayers. wijrid should expect a table as its selector, not a div tag.
+
+Added dynamic data load from server. New feature.
+
+Changed column widths calculation algorithm and scrollbars positioning in
+scrolling mode. Behavior changed: requested by John Ayers. Now it looks
+more like ordinary table wrapped with div.
+
+Made top and bottom pagers position fixed. Fixed bug: reported by Sergey
+Suturin. Pagers behavior was not consistent with other wijgrid modes.
+
+Fixed filter functionality. Fixed bug: reported by Sergey Suturin. Filters
+were not applied if wijgrid is bound to an array of hashes.
+
+Fixed filter editor markup. Fixed bug: reported by Yan Kun. Filter
+editor markup was broken in scrolling mode if header is fixed.
+
+Hovering and currency fixed under IE6\IE7. Fixed bug: reported by Yan Kun.
+Hovering and currency did not work under IE6\IE7.
+
+Modified hover behavior. Fixed bug. The hover row does
+not disappear when the mouse moves out of the widget.
+
+Modified behavior of filter dropdown. Clicking the filter button does not 
+close the filter dropdown.
+

@@ -46,6 +46,7 @@ class Assets extends Helper
     public function addJs($file, $collection = Manager::DEFAULT_COLLECTION_JS)
     {
         $this->getDI()->get('assets')->get($collection)->addJs($file);
+        //$this->getDI()->get('assets')->collection($collection)->addJs($file);
     }
 
     /**
@@ -60,4 +61,5 @@ class Assets extends Helper
     {
         $this->getDI()->get('assets')->get($collection)->addCss($file);
     }
+
 }

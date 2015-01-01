@@ -1,0 +1,57 @@
+<div data-role="appviewpage">
+    <div data-role="header">
+        <a href="index.html" data-icon="back">Back</a>
+        <h2>
+            Ajax Data</h2>
+    </div>
+    <div data-role="content">
+        <div>
+            <ul id="tree">               
+            </ul>
+        </div>
+        <script type="text/javascript">
+            var netflx = "http://demo.componentone.com/aspnet/Northwind/northwind.svc/Categories?$format=json&$top=1&$expand=Products&$filter=Category_Name%20eq%20'{category}'";
+
+            $(document).one('wijappviewpageinit', function () {
+                var categories = ["Beverages", "Condiments", "Dairy Products", "Confections"]
+
+                $("#tree").wijtree({
+                    nodeExpanding: function (events, data) {
+                        var url = netflx.replace(/\{category\}/, data.params),
+                    node = data.node,
+                    o = node.options;
+
+                        if (o.hasChildren && node.element.find("li:wijmo-wijtreenode").length == 0) {
+                            $.ajax({
+                                dataType: "jsonp",
+                                url: url,
+                                jsonp: "$callback",
+                                success: function (result) {
+                                    var addedNode = {};
+                                    var movies = result["d"][0].Products;
+
+                                    for (var i = 0; i < movies.length; i++) {
+
+                                        addedNode.text = movies[i].Product_Name;
+                                        addedNode.url = "#"
+                                        data.node.add(addedNode);
+                                    }
+
+                                }
+                            });
+                        }
+                    }
+                });
+
+                for (var i = 0; i < categories.length; i++) {
+                    $("#tree").wijtree("add", {
+                        text: categories[i],
+                        hasChildren: true,
+                        url: "#",
+                        params: categories[i]
+                    });
+                }
+            });
+    </script>
+    </div>
+</div>

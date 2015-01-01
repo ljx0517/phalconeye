@@ -1,0 +1,26 @@
+<div data-role="appviewpage">
+    <div data-role="header">
+        <a href="index.html" data-icon="back">Back</a>
+        <h2>
+            Youtube</h2>
+    </div>
+    <div data-role="content">
+        <!-- Begin demo markup -->
+        <div id="lightbox" data-role="wijlightbox">
+            <a title="Keyboard Cat" href="https://www.youtube.com/v/J---aiyznGQ?version=3" rel="wijlightbox;player=swf">
+                <img class="border" alt="" src="http://cdn.wijmo.com/images/keyboardcat.png" /></a>
+            <a title="Sneezing Panda" href="http://www.youtube.com/v/FzRH3iTQPrk?version=3" rel="wijlightbox;player=swf">
+                <img class="border" alt="" src="http://cdn.wijmo.com/images/panda.png" /></a>
+            <a title="Talking Cats" href="http://www.youtube.com/v/z3U0udLH974?version=3" rel="wijlightbox;player=swf">
+                <img class="border" alt="" src="http://cdn.wijmo.com/images/talkingcats.png" /></a>
+        </div>
+        <script type="text/javascript">
+            $(document).one('wijappviewpageinit', function () {
+                $("#lightbox").wijlightbox({
+                    controlsPosition: 'outside',
+                    textPosition: 'outside'
+                });
+            });
+        </script>
+    </div>
+</div>

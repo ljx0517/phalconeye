@@ -1,0 +1,31 @@
+<div data-role="appviewpage" data-title="Overview">
+	<div data-role="content">
+		<h3>Line</h3>
+        <div id="wijsparklineDefault" style="height:50px;width:200px">
+        </div>
+		<h3>Area</h3>
+		<div id="wijsparklineArea" style="height:50px;width:200px">
+        </div>
+		<h3>Column</h3>
+		<div id="wijsparklineColumn" style="height:50px;width:200px">
+        </div>
+
+		<script type="text/javascript">
+			$(document).one("wijappviewpageinit", function () {
+				var data = [33, 11, 15, 26, 16, 27, 37, -13, 8, -8, -3, 17, 0, 22, -13, -29, 19, 8];
+				$("#wijsparklineDefault").wijsparkline({
+					data: data
+				});
+				$("#wijsparklineArea").wijsparkline({
+					data: data,
+					type: "area"
+				});
+				$("#wijsparklineColumn").wijsparkline({
+					data: data,
+					type: "column"
+				});
+			});
+
+		</script>
+	</div>
+</div>

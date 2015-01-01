@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>FlipCard - Customize animation</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="%description%" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="ComponentOne" />
+    <style type="text/css">
+        .cardcontainer
+        {
+            padding:  0 80px 40px 80px;
+            float: left;
+        }
+
+         .cardcontainer img
+         {
+            vertical-align:middle;
+            display: block; 
+            margin:auto; 
+            text-align:center;
+         }
+    </style>
+    <link href="../../../../Themes/rocket/jquery-wijmo.css" rel="stylesheet" type="text/css" />
+    <link href="../../../../css/jquery.wijmo-pro.all.3.20143.59.min.css" rel="stylesheet" type="text/css" />
+    <script src="../../js/require.js" type="text/javascript"></script>
+    <script src="../../js/require.wijmo.config.js" type="text/javascript"></script>
+
+    <script id="scriptInit" type="text/javascript">
+        require(["wijmo.wijflipcard"], function () {
+            $(document).ready(function () {
+                $("#clickhflipcardcustomanimation").wijflipcard({
+                    animation: {
+                        direction: "horizontal",
+                        duration: 2000,
+                        type: "fade"
+                    }
+                });
+            });
+        });
+        function apply() {
+            var val = $("#effectTypes").val();
+            $('#clickhflipcardcustomanimation').wijflipcard({
+                animation: {
+                    direction: "horizontal",
+                    duration: 2000,
+                    type: val
+                }
+            });
+        };
+    </script>
+
+</head>
+<body class="demo-single">
+    <div class="container">
+        <div class="header">
+            <h2>
+                Overview</h2>
+        </div>
+        <div class="main demo">
+            <!-- Begin demo markup -->
+      
+        <div class="cardcontainer" style="padding:  0 80px 40px 80px;float: left;">
+			<div id="clickhflipcardcustomanimation">
+				<div><img src="http://wijmo.com/img/wijmo.png"></div>
+				<div>
+                    <br /><br />
+                        Wijmo is a complete kit of over 40 UI widgets. 
+                    <br /><br />
+                    <a href="http://www.wijmo.com/">http://www.wijmo.com/ </a>
+				</div>
+			</div>
+            Click Action, Horizontal Flip, Customize Animation
+		</div> 
+            <div>              
+                    <select id="effectTypes" name="effects">
+                    <option value="scroll">Scroll</option>
+                    <option value="blind">Blind</option>
+                    <option value="bounce">Bounce</option>
+                    <option value="clip">Clip</option>
+                    <option value="drop">Drop</option>
+                    <option value="explode">Explode</option>
+                    <option value="fade">Fade</option>
+                    <option value="fold">Fold</option>
+                    <option value="highlight">Highlight</option>
+                    <option value="puff">Puff</option>
+                    <option value="pulsate">Pulsate</option>
+                    <option value="scale">Scale</option>
+                    <option value="shake">Shake</option>
+                    <option value="size">Size</option>
+                    <option value="slide">Slide</option>
+                </select>   
+             <input id="apply" type="button" onclick="apply()" value="apply" />
+                </div>
+            <!-- End demo markup -->
+            <div class="demo-options">
+                <!-- Begin options markup -->
+                <!-- End options markup -->
+            </div>
+        </div>
+        <div class="footer demo-description" style="clear:both" >
+            User can use jquery effect to flip.
+         </div>
+    </div>
+</body>
+</html>

@@ -11,7 +11,9 @@ Purchase: http://wrapbootstrap.com
 <!-- Head -->
 <head>
     <meta charset="utf-8" />
-    <title><?php echo $this->i18n->query('Users'); ?></title>
+    <title>
+	<?php echo $this->i18n->query('Users'); ?>
+</title>
 
     <meta name="description" content="Dashboard" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -27,14 +29,14 @@ Purchase: http://wrapbootstrap.com
         <?php echo \Engine\Helper::getInstance('i18n', 'core')->render(); ?>
     </script>
 
-    
-    <script type="text/javascript">
+	
+<script type="text/javascript">
         var deleteItem = function (id) {
             if (confirm('<?php echo $this->i18n->query('Are you really want to delete this user?'); ?>')) {
                 window.location.href = '<?php echo $this->url->get(array('for' => 'admin-users-delete')); ?>' + id;
             }
         }
-    </script>
+</script>
 
 </head>
 <!-- /Head -->
@@ -401,9 +403,11 @@ Purchase: http://wrapbootstrap.com
                 <!-- Page Header -->
                 <div class="page-header position-relative">
                     <div class="header-title">
-                        <h1>
-                            Dashboard
-                        </h1>
+                        
+<div id="top-navbar" class="navbar navbar-header">
+	<div class="navbar-inner"><?php echo $navigation->render(); ?></div>
+</div>
+
                     </div>
                     <!--Header Buttons-->
                     <div class="header-buttons">
@@ -424,13 +428,56 @@ Purchase: http://wrapbootstrap.com
                 <div class="page-body">
                 	<?php echo $this->getContent(); ?>
             		<?php echo $this->flashSession->output(); ?>
-    <div class="span12">
-        <div class="row-fluid">
-            <h2><?php echo $this->i18n->query('Users'); ?> (<?php echo $grid->getTotalCount(); ?>)</h2>
-            <?php echo $grid->render(); ?>
-        </div>
-    </div>
+<div class="row">
+	<div class="col-lg-12 col-sm-12 col-xs-12">
+		<div class="well with-header">
+			<div class="header bordered-blue">用户列表</div>
+			<div id="table" class="" style="overflow-x: scroll;height:auto;"></div>
+		</div>
+	</div>
+</div>
 
+<script>
+  var data = [
+    ["", "Kia", "Nissan", "Toyota", "Honda"],
+    ["2008", 10, 11, 12, 13],
+    ["2009", 20, 11, 14, 13],
+    ["2010", 30, 15, 12, 13]
+  ];
+
+  var container = document.getElementById('table');
+  var maxed = false
+  , resizeTimeout
+  , availableWidth
+  , availableHeight;
+  Handsontable.Dom.addEvent(window, 'resize', calculateSize);
+  var calculateSize = function () {
+	  if(maxed) {
+	    var offset = Handsontable.Dom.offset(example);
+	    availableWidth = Handsontable.Dom.innerWidth(document.body) - offset.left + window.scrollX;
+	    availableHeight = Handsontable.Dom.innerHeight(document.body) - offset.top + window.scrollY;
+
+	    container.style.width = availableWidth + 'px';
+	    container.style.height = availableHeight + 'px';
+	  }
+  };
+
+  var hot = new Handsontable(container,
+    {
+      data: data,
+      minSpareRows: 1,
+      colHeaders: true,
+      stretchH: 'all',
+      manualColumnResize:true,
+      manualRowResize: true,
+      contextMenu: false,
+      renderAllRows: true,
+      persistentState: true
+    });
+  var table = document.querySelector('table');
+  Handsontable.Dom.addClass(table, 'table');
+</script>
+ 
                 </div>
                 <!-- /Page Body -->
             </div>
@@ -440,7 +487,6 @@ Purchase: http://wrapbootstrap.com
         <!-- Main Container -->
 
     </div>
-	@include('admin._partials.assets_bottom')
 
 
 

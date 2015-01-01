@@ -1,0 +1,80 @@
+<div data-role="appviewpage" data-title="Chart Labels">
+	<div data-role="content">
+		<!-- Begin demo markup -->
+		<div id="wijpiechart" data-role="wijpiechart" class="ui-widget ui-widget-content ui-corner-all">
+		</div>
+		<!-- End demo markup -->
+		<div class="footer demo-description">
+			<p>The samples shows how to customize piechart's label.</p>
+		</div>
+		<script type="text/javascript">
+			$(document).one("wijappviewpageinit", function () {
+				$("#wijpiechart").wijpiechart("beginUpdate");
+				$("#wijpiechart").wijpiechart({
+					radius: 140,
+					legend: { visible: true },
+					hint: {
+						content: function () {
+							return this.data.label + " : " + Globalize.format(this.value / this.total, "p2");
+						}
+					},
+					header: {
+						text: "Steam - Mac Hardware"
+					},
+					labels: {
+						style: {
+							"font-size": 11
+						},
+						formatter: function () {
+							return this.chartLabel + " : " + Globalize.format(this.value / this.total, "p2");
+						},
+						connectorStyle: {
+							fill: "red",
+							"stroke-width": 2
+						},
+						position: "outside",
+						offset: 30
+					},
+					seriesList: [{
+						label: "MacBook Pro",
+						legendEntry: true,
+						data: 46.78,
+						offset: 15
+					}, {
+						label: "iMac",
+						legendEntry: true,
+						data: 23.18,
+						offset: 0
+					}, {
+						label: "MacBook",
+						legendEntry: true,
+						data: 20.25,
+						offset: 0
+					}, {
+						label: "Mac Pro",
+						legendEntry: true,
+						data: 5.41,
+						offset: 0
+					}, {
+						label: "Mac mini",
+						legendEntry: true,
+						data: 3.44,
+						offset: 0
+					}],
+					seriesStyles: [{
+						fill: "180-rgb(195,255,0)-rgb(175,229,0)", stroke: "rgb(175,229,0)", "stroke-width": 1.5
+					}, {
+						fill: "90-rgb(142,222,67)-rgb(127,199,60)", stroke: "rgb(127,199,60)", "stroke-width": 1.5
+					}, {
+						fill: "90-rgb(106,171,167)-rgb(95,153,150)", stroke: "rgb(95,153,150)", "stroke-width": 1.5
+					}, {
+						fill: "90-rgb(70,106,133)-rgb(62,95,119)", stroke: "rgb(62,95,119)", "stroke-width": 1.5
+					}, {
+						fill: "90-rgb(166,166,166)-rgb(149,149,149)", stroke: "rgb(149,149,149)", "stroke-width": 1.5
+					}]
+				});
+				$("#wijpiechart").wijpiechart("endUpdate");
+			});
+		</script>
+	</div>
+</div>

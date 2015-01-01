@@ -1,0 +1,17 @@
+<div data-role="appviewpage" data-title="Selection Range">
+	<div data-role="content">
+		<div id="wijcalendar" data-role="wijcalendar"></div>
+		 <script type="text/javascript">
+			$(document).one(
+					"wijappviewpageinit",
+					function() {
+                        $("#wijcalendar").wijcalendar("option",
+								"minDate", new Date('2010/08/16'));
+                        $("#wijcalendar").wijcalendar("option",
+								"maxDate", new Date('2010/08/25'));
+                        $("#wijcalendar").wijcalendar("option",
+								"displayDate", new Date('2010/08/1'));
+					});
+		</script>
+	</div>
+</div>

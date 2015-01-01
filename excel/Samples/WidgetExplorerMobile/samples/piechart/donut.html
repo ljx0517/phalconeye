@@ -1,0 +1,64 @@
+<div data-role="appviewpage" data-title="Donut Chart">
+	<div data-role="content">
+		<!-- Begin demo markup -->
+		<div id="wijpiechart" data-role="wijpiechart" class="ui-widget ui-widget-content ui-corner-all">
+		</div>
+		<!-- End demo markup -->
+		<div class="footer demo-description">
+			<p>This sample demonstrates how to create a donut pie chart simply by setting the <b>innerRadius</b> option.</p>
+		</div>
+		<script type="text/javascript">
+			$(document).one("wijappviewpageinit", function () {
+				$("#wijpiechart").wijpiechart("beginUpdate");
+				$("#wijpiechart").wijpiechart({
+					radius: 140,
+					innerRadius: 40,
+					showChartLabels: false,
+					hint: {
+						content: function () {
+							return this.data.label + " : " + Globalize.format(this.value / this.total, "p2");
+						}
+					},
+					legend: {
+						text: "May 2009 - May 2010"
+					},
+					header: {
+						text: "Steam - DX10/11 Systems (Vista/Win7 + DX10/11 GPU)"
+					},
+					seriesList: [{
+						label: "DX11GPU & WIN7",
+						legendEntry: true,
+						data: 5.6,
+						offset: 30
+					}, {
+						label: "DX10GPU & WIN7",
+						legendEntry: true,
+						data: 56.36,
+						offset: 0
+					}, {
+						label: "DX10/11GPU & XP",
+						legendEntry: true,
+						data: 16.67,
+						offset: 0
+					}, {
+						label: "DX9 SM2b & 3.0",
+						legendEntry: true,
+						data: 11.77,
+						offset: 0
+					}, {
+						label: "DX9 SM 2 GPU",
+						legendEntry: true,
+						data: 4.34,
+						offset: 0
+					}, {
+						label: "DX8 GPU & BELOW",
+						legendEntry: true,
+						data: 5.13,
+						offset: 0
+					}]
+				});
+				$("#wijpiechart").wijpiechart("endUpdate");
+			});
+		</script>
+	</div>
+</div>

@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>LineChart - DataSource</title>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="description" content="%description%" />
+	<meta name="keywords" content="" />
+	<meta name="author" content="ComponentOne" />
+	
+	<link href="../../../../Themes/rocket/jquery-wijmo.css" rel="stylesheet" type="text/css" />
+    <link href="../../../../css/jquery.wijmo-pro.all.3.20143.59.min.css" rel="stylesheet" type="text/css" />
+    <script src="../../js/require.js" type="text/javascript"></script>
+    <script src="../../js/require.wijmo.config.js" type="text/javascript"></script>
+
+	<script id="scriptInit" type="text/javascript">
+	    require(["wijmo.wijlinechart"], function () {
+			$("#wijlinechart").wijlinechart({
+	            // chart title setup
+	            header: {
+	                text: "Cars produced in the world"
+	            },
+	            // chart axises setup
+				axis: {
+					y: {
+	                    text: "Thousands of units", // axis name
+					},
+					x: {
+	                    text: "Years"// axis name
+					}
+				},
+	            // lines setup
+	            seriesList: [
+                    {
+                        // series name
+                        label: "Cars produced in the world",
+                        // chart line data setup
+                        data: {
+                            //X axis values as Date objects.
+                            x: [
+                            new Date('1/1/1999'),
+                            new Date('1/1/2000'),
+                            new Date('1/1/2001'),
+                            new Date('1/1/2002'),
+                            new Date('1/1/2003'),
+                            new Date('1/1/2004'),
+                            new Date('1/1/2005'),
+                            new Date('1/1/2006'),
+                            new Date('1/1/2007'),
+                            new Date('1/1/2008'),
+                            new Date('1/1/2009'),
+                            new Date('1/1/2010'),
+                            new Date('1/1/2011'),
+                            ],
+                            //Y axis values for 1st series
+                            y: [
+                                39.759, 41.215, 39.855, 41.358, 41.968, 44.554, 46.862, 49.918, 53.201, 52.726, 47.772, 58.264, 59.929
+                            ]
+                        },
+                    }
+	            ],
+				hint: {
+	                enable: false,
+	            },
+	            showChartLabels: false,
+	            legend: {
+	                visible: false
+					}
+			});
+		});
+	</script>
+</head>
+<body class="demo-single">
+	<div class="container">
+		<div class="header">
+			<h2>
+				DataSource</h2>
+		</div>
+		<div class="main demo">
+			Wijmo Line chart is the perfect tool for data visualization. In this sample series you will learn how to setup any chart base - the data you need to present. Wijmo Line Chart API support several ways to setup data source. The first of them is using of 'seriesList' property.
+			<!-- Begin demo markup -->
+			<div id="wijlinechart" class="ui-widget ui-widget-content ui-corner-all" style="width: 756px; height: 475px; ">
+			</div>
+			<!-- End demo markup -->
+			<div class="demo-options">
+				<!-- Begin options markup -->
+				<!-- End options markup -->
+			</div>
+		</div>
+		<div class="footer demo-description">
+			<p>
+			</p>
+		</div>
+	</div>
+</body>
+</html>

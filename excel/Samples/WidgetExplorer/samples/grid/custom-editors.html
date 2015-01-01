@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Grid - Custom Editors</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="custom editors" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="ComponentOne" />
+
+    <link href="../../../../Themes/rocket/jquery-wijmo.css" rel="stylesheet" type="text/css" />
+    <link href="../../../../css/jquery.wijmo-pro.all.3.20143.59.min.css" rel="stylesheet" type="text/css" />
+    <script src="../../js/require.js" type="text/javascript"></script>
+    <script src="../../js/require.wijmo.config.js" type="text/javascript"></script>
+    <style type="text/css">
+       .wijmo-wijgrid .wijmo-wijcombobox-input
+       {
+          cursor: inherit; /* prevent Bootstrap's css not-allowed icon */
+       }
+    </style>
+
+
+    <script id="scriptInit" type="text/javascript">
+        // random data generators
+        var sampleCountry = "USA,UK,Germany,Italy,Japan,Brazil,Canada".split(",");
+        var sampleName = "Lorem,Ipsum,Dolor,Amet,Consectetur".split(",");
+
+        require(["wijmo.wijinputnumber", "wijmo.wijcombobox", "wijmo.wijgrid"], function () {
+            $(document).ready(function () {
+
+                // bind the grid
+                $("#demo").wijgrid({
+                    editingMode: "cell",
+                    allowKeyboardNavigation: true,
+                    highlightCurrentCell: true,
+                    selectionMode: "none",
+                    beforeCellEdit: onBeforeCellEdit,
+                    afterCellEdit: onAfterCellEdit,
+                    beforeCellUpdate: onBeforeCellUpdate,
+                    allowSorting: true,
+                    data: getData(12),
+                    columnsAutogenerationMode: "none",
+                    columns: [
+                        { dataKey: "Country", headerText: "Country", dataType: "string", aggregate: "count", footerText: "Count: <b>{0}</b>" },
+                        { dataKey: "ProductName", headerText: "Product Name", dataType: "string" },
+                        { dataKey: "UnitPrice", headerText: "Unit Price", dataType: "currency", aggregate: "average", footerText: "Avg: <b>{0}</b>" },
+                        { dataKey: "Quantity", headerText: "Quantity", dataType: "number", dataFormatString: "n0", aggregate: "sum", footerText: "Sum: <b>{0}</b>" },
+                        { dataKey: "Discount", headerText: "Discount", dataType: "number", dataFormatString: "p0", aggregate: "max", footerText: "Max: <b>{0}</b>" },
+                        { dataKey: "OrderDate", headerText: "Order Date", dataType: "datetime", dataFormatString: "MMM-dd-yyyy", textAlignment: "center" },
+                        { dataKey: "Overseas", headerText: "Overseas", dataType: "boolean" }
+                    ]
+                });
+            });
+        });
+
+        // create custom editors for Country, Quantity, and UnitPrice columns
+        function onBeforeCellEdit(e, args) {
+            switch (args.cell.column().dataKey) {
+                case "Country":
+                    createCombo(args, getCountries());
+                    args.handled = true;
+                    break;
+                case "ProductName":
+                    createCombo(args, getProducts());
+                    args.handled = true;
+                    break;
+
+                case "Quantity":
+                    createNumberInput(args, 0);
+                    args.handled = true;
+                    break;
+
+                case "UnitPrice":
+                    createNumberInput(args, 2);
+                    args.handled = true;
+                    break;
+
+                case "Discount":
+                    createNumberInput(args, 2);
+                    args.handled = true;
+                    break;
+            }
+        }
+        function createCombo(args, items) {
+
+            // build options array
+            var arr = [];
+            for (var i = 0; i < items.length; i++) {
+                arr.push({ label: items[i], value: items[i] });
+            }
+
+            // build combo and place it in the cell
+            $("<input />")
+                .width("100%")
+                .val(args.cell.value())
+                .appendTo(args.cell.container().empty())
+                .wijcombobox({
+                    data: $.map($.extend(true, [], arr), function (item, index) {
+                        if (item.value === args.cell.value()) {
+                            item.selected = true;
+                        }
+                        return item;
+                    }),
+                    isEditable: false
+                })
+                .focus();
+
+        }
+        function createNumberInput(args, decimalPlaces) {
+            $("<input />")
+                .width("100%")
+                .appendTo(args.cell.container().empty())
+                .wijinputnumber({
+                    minValue: 0,
+                    decimalPlaces: decimalPlaces,
+                    showSpinner: true,
+                    value: args.cell.value()
+                })
+                .focus();
+        }
+
+        // delete custom editors when done
+        function onAfterCellEdit(e, args) {
+            switch (args.cell.column().dataKey) {
+                case "Country":
+                case "Product":
+                    args.cell.container().find("input").wijcombobox("destroy");
+                    break;
+                case "Quantity":
+                case "UnitPrice":
+                case "Discount":
+                    args.cell.container().find("input").wijinputnumber("destroy");
+                    break;
+            }
+        }
+
+        // prevent users from entring invalid data
+        function onBeforeCellUpdate(e, args) {
+            switch (args.cell.column().dataKey) {
+                case "Discount":
+                    var editor = args.cell.container().find("input");
+                    var value = editor.wijinputnumber("getValue");
+                    if (value > .3) {
+                        //editor.addClass("ui-state-error")
+                        alert("Sorry, discounts cannot be greater than 30%.");
+                        editor.focus();
+                        return false;
+                    }
+                    args.value = value;
+                    break;
+            }
+        }
+
+        function getCountries() {
+            return sampleCountry;
+        }
+        function getProducts() {
+            return sampleName;
+        }
+        function getData(count) {
+            var data = [];
+            for (var i = 0; i < count; i++) {
+                data.push({
+                    TransactionID: i,
+                    Country: getString(sampleCountry),
+                    ProductName: getString(sampleName),
+                    UnitPrice: Math.floor(getNumber(5, 10)),
+                    Quantity: Math.floor(getNumber(1, 5)) * 10,
+                    Discount: getNumber(0, 0.3),
+                    OrderDate: getDate(i),
+                    Overseas: Math.random() > 0.8
+                });
+            }
+            return data;
+        }
+        function getString(arr) {
+            return arr[Math.floor((Math.random() * arr.length))];
+        }
+        function getNumber(lo, hi) {
+            return lo + Math.random() * (hi - lo);
+        }
+        function getDate(daysAgo) {
+            return new Date((new Date()).getTime() - daysAgo * 24 * 3600 * 1000);
+        }
+    </script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Custom Editors</h2>
+        </div>
+
+        <div class="main demo">
+            <!-- Begin demo markup -->
+            <table id="demo">
+            </table>
+            <!-- End demo markup -->
+
+            <div class="demo-options">
+                <!-- Begin options markup -->
+                <!-- End options markup -->
+            </div>
+        </div>
+        <div class="footer demo-description">
+            <p>
+                This sample shows how you can create custom cell editors using the 
+                <b>beforeCellEdit</b> and <b>afterCellEdit</b> events.
+            </p>
+            <p>
+                The Country and Product Name columns are edited using <b>wijcombobox</b>
+                widgets.
+                The Quantity, Unit Price, and Discount columns are edited using
+                <b>wijinputnumber</b> widgets.
+            </p>
+            <p>
+                The sample also shows how you can perform validation using the
+                <b>beforeCellUpdate</b> event. To see this, try entering a discount 
+                greater than 30%
+            </p>
+        </div>
+    </div>
+</body>
+</html>

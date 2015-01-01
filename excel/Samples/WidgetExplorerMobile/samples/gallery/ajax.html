@@ -1,0 +1,48 @@
+<div data-role="appviewpage">
+    <div data-role="header">
+        <a href="index.html" data-icon="back">Back</a>
+        <h2>
+            Ajax Data</h2>
+    </div>
+    <div data-role="content">
+        <style type="text/css">
+            .wijmo-wijcarousel-text span
+            {
+                padding: 5px;
+            }
+        
+            #wijgallery
+            {
+                width: 750px;
+            }
+        </style>
+        <div id="wijgallery1" class="" data-role="wijgallery">
+        </div>
+        <script type="text/javascript">
+            $(document).one('wijappviewpageinit', function () {
+                $.get("Wijmo-Complete/development-bundle/samples/gallery/ajax.txt", function (data) {
+                    ajaxCallback(data);
+                });
+
+                function ajaxCallback(images) {
+                    var imgs = images.split('|'), data = [];
+                    for (i = 0; i < imgs.length; i++) {
+                        data[i] = {
+                            url: imgs[i],
+                            thumbUrl: imgs[i],
+                            content: "",
+                            caption: "<span>Image " + (i + 1) + "</span>"
+                        }
+                    }
+                    $("#wijgallery1").wijgallery({
+                        data: data,
+                        showTimer: false,
+                        thumbsLength: 100,
+                        thumbsDisplay: 3,
+                        showCaption: false
+                    });
+                }
+            });
+    </script>
+    </div>
+</div>

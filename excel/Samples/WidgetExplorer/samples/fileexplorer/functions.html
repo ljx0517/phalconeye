@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>FileExplorer - Functions</title>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="description" content="%description%" />
+	<meta name="keywords" content="" />
+	<meta name="author" content="ComponentOne" />
+
+	<link href="../../../../Themes/rocket/jquery-wijmo.css" rel="stylesheet" type="text/css" />
+    <link href="../../../../css/jquery.wijmo-pro.all.3.20143.59.min.css" rel="stylesheet" type="text/css" />
+    <script src="../../js/require.js" type="text/javascript"></script>
+    <script src="../../js/require.wijmo.config.js" type="text/javascript"></script>
+	<script id="scriptInit" type="text/javascript">
+		require(["wijmo.wijfileexplorer"], function () {
+			$(document).ready(function () {
+				$("#fileexplorer").wijfileexplorer({
+					actionUri: "./fileexplorer.ashx",
+					initPath: "~/samples/widgetexplorer/samples/fileexplorer/Example",
+					searchPatterns: "*.jpg,*.png,*.jpeg,*.gif,*.bmp",
+				});
+			});
+
+			var optionNames = ["enableCopy", "enableOpenFile", "allowFileExtensionRename", "enableCreateNewFolder", "allowMultipleSelection"];
+			$.each(optionNames, function (i, name) {
+				$("#" + name).attr("checked", !!$("#fileexplorer").wijfileexplorer("option", name));
+			});
+
+			$("input[type=checkbox]").change(function () {
+				var chk = $(this);
+				$("#fileexplorer").wijfileexplorer("option", chk.val(), chk[0].checked);
+			});
+
+			$("#treePanelWidth").change(function () {
+				$("#fileexplorer").wijfileexplorer("option", "treePanelWidth", $("#treePanelWidth").val());
+			});
+		});
+
+	</script>
+</head>
+
+<body class="demo-single">
+	<div class="container">
+		<div class="header">
+			<h2>Functions</h2>
+		</div>
+
+		<div class="main demo">
+
+			<!-- Begin demo markup -->
+			<div>
+				<div id="fileexplorer">
+				</div>
+			</div>
+			<!-- End demo markup -->
+
+			<div class="demo-options">
+				<!-- Begin options markup -->
+				<div class="option-row">
+					<input type="CheckBox" id="enableCopy" value="enableCopy" checked />Enable Copy
+				</div>
+				<div class="option-row">
+					<input type="CheckBox" id="enableOpenFile" value="enableOpenFile" checked />Enable Open File
+				</div>
+				<div class="option-row">
+					<input type="CheckBox" id="allowFileExtensionRename" value="allowFileExtensionRename" />Allow Change File Extension
+				</div>
+				<div class="option-row">
+					<input type="CheckBox" id="enableCreateNewFolder" value="enableCreateNewFolder" checked />Enable Create New Folder
+				</div>
+				<div class="option-row">
+					<input type="CheckBox" id="allowMultipleSelection" value="allowMultipleSelection" checked />Allow Multiple Selection
+				</div>
+
+				<div class="option-row">
+					<label>TreePanelWidth:</label>
+					<input type="text" id="treePanelWidth" value="200"/>
+				</div>
+				<!-- End options markup -->
+			</div>
+		</div>
+
+		<div class="footer demo-description">
+			<p>
+				The Wijmo <strong>FileExplorer</strong> widget provides many powerful functionalities such as creating new folder, delete,  
+				rename or copy a folder, you can peform these actions through the tool bar or context menu, 
+				you can also do this by keyboard and shortcut keys.
+			</p>
+			<p>
+				This demo shows you can enable/disable the Wijmo <strong>FileExplorer</strong> widget to do copy, create new items, or open a file by double click, etc.
+			</p>
+		</div>
+	</div>
+</body>
+</html>

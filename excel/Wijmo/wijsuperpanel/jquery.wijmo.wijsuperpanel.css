@@ -1,0 +1,153 @@
+/* SuperPanel
+----------------------------------*/
+.wijmo-wijsuperpanel
+{
+    overflow: hidden;
+    outline: none;
+    background-image: none;
+}
+.wijmo-wijsuperpanel-statecontainer
+{
+    overflow: hidden;
+    position: relative;
+    zoom:1;
+}
+
+.wijmo-wijsuperpanel-statecontainer {
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style:-ms-autohiding-scrollbar;
+}
+        
+.wijmo-wijsuperpanel-contentwrapper
+{
+    position: absolute;
+    overflow: hidden;
+
+}
+.wijmo-wijsuperpanel-hbarcontainer, .wijmo-wijsuperpanel-vbarcontainer
+{
+    font-size: 0px;
+    border:0;
+}
+.wijmo-wijsuperpanel-templateouterwrapper
+{
+    position: relative; 
+/*    overflow:auto; */
+    zoom: 1;
+}
+
+.wijmo-wijsuperpanel-vbarcontainer .ui-state-default, 
+.wijmo-wijsuperpanel-hbarcontainer .ui-state-default,
+.wijmo-wijsuperpanel-vbarcontainer .ui-btn-up-c, 
+.wijmo-wijsuperpanel-hbarcontainer .ui-btn-up-c
+{
+    width: 16px;
+    height: 16px;
+    position: absolute;
+}
+
+.ui-mobile .wijmo-wijsuperpanel-vbarcontainer .ui-btn.ui-btn-b, 
+.ui-mobile .wijmo-wijsuperpanel-hbarcontainer .ui-btn.ui-btn-b
+{
+    width: 22px;
+    height: 22px;
+	position: absolute;
+	margin: 0px;
+	padding: 0px;
+}
+
+.wijmo-wijsuperpanel .wijmo-wijsuperpanel-vbarcontainer
+{
+    position: absolute;
+    width: 18px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    border: none;
+}
+.wijmo-wijsuperpanel .wijmo-wijsuperpanel-hbarcontainer
+{
+    position: absolute;
+    height: 18px;
+    padding-left: 18px;
+    padding-right: 18px;
+    border: none;
+}
+.ui-mobile .wijmo-wijsuperpanel .wijmo-wijsuperpanel-vbarcontainer
+{
+    width: 22px;
+    padding-top: 22px;
+    padding-bottom: 22px;
+}
+.ui-mobile .wijmo-wijsuperpanel .wijmo-wijsuperpanel-hbarcontainer
+{
+    height: 22px;
+    padding-left: 22px;
+    padding-right: 22px;
+}
+.wijmo-wijsuperpanel-handle
+{
+    position: absolute;
+    font-size:0px;
+    overflow:hidden;
+}
+.wijmo-wijsuperpanel-handle *
+{
+    font-size:0px;
+}
+.wijmo-wijsuperpanel-helper
+{
+    border-style: dotted;
+    background: transparent;
+}
+
+.wijmo-wijsuperpanel-button
+{
+    position: absolute;
+    padding: 4px;
+}
+.wijmo-wijsuperpanel .ui-icon-gripsmall-diagonal-se
+{
+    background: none;
+    width: 7px;
+    height: 7px;
+}
+.wijmo-wijsuperpanel-hbar-buttonleft
+{
+    left: 0;
+}
+.wijmo-wijsuperpanel-hbar-buttonright
+{
+    right: 0;
+}
+.wijmo-wijsuperpanel-vbar-buttontop
+{
+    top: 0;
+}
+.wijmo-wijsuperpanel-vbar-buttonbottom
+{
+    bottom: 0;
+}
+
+.wijmo-wijsuperpanel .ui-icon-arrow-u,
+.wijmo-wijsuperpanel .ui-icon-arrow-d,
+.wijmo-wijsuperpanel .ui-icon-arrow-l,
+.wijmo-wijsuperpanel .ui-icon-arrow-r
+{
+    display: block;
+}
+
+.ui-mobile .wijmo-wijsuperpanel .wijmo-wijsuperpanel-vbarcontainer .ui-btn
+{
+     display: block;
+}
+
+.ui-mobile .wijmo-wijsuperpanel .wijmo-wijsuperpanel-handle .ui-btn-icon-notext:after
+{
+     width: 0px;
+	 height: 0px;
+}
+
+.wijmo-wijsuperpanel-assistContainer
+{
+    z-index: 1000;
+}

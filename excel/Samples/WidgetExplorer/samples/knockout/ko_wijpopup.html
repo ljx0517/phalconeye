@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Knockout - PopUp</title>
+    
+    <link href="../../../../Themes/rocket/jquery-wijmo.css" rel="stylesheet" type="text/css" />
+    <link href="../../../../css/jquery.wijmo-pro.all.3.20143.59.min.css" rel="stylesheet" type="text/css" />
+    <script src="../../js/require.js" type="text/javascript"></script>
+    <script src="../../js/require.wijmo.config.js" type="text/javascript"></script>
+
+    <script id="scriptInit" type="text/javascript">
+        require(["wijmo.wijpopup", "knockout.wijmo"], function () {
+            //Create ViewModel
+            var viewModel = function () {
+                var self = this;
+                self.disabled = ko.observable(false);
+                self.autoHide = ko.observable(false);
+                self.showEffect = ko.observable("show");
+                self.hideEffect = ko.observable("hide");
+            };
+
+            //Bind ViewModel
+            $(document).ready(function () {
+                var vm = new viewModel();
+                ko.applyBindings(vm, $(".container").get(0));
+            });
+        });
+
+        function popupbeside() {
+            // Popups the element on appointed position.
+            $("#unicorn").wijpopup('show');
+        }
+    </script>
+</head>
+<body class="demo-single">
+    <div class="container">
+        <div class="header">
+            <h2>
+                PopUp</h2>
+        </div>
+        <div class="main demo">
+            <!-- Begin demo markup -->
+            <input type="button" id="Button4" onclick="popupbeside();" value="popup" />
+            <div id="unicorn" data-bind="wijpopup: {disabled: disabled, autoHide: autoHide, showEffect: showEffect, hideEffect: hideEffect }">
+                <img src="http://cdn.wijmo.com/images/unicorn.jpg" alt="Popup Unicorn!" />
+            </div>
+            <!-- End demo markup -->
+            <div class="demo-options">
+                <!-- Begin options markup -->
+                <ul>
+                    <li>
+                        <label>
+                            <span>disabled:</span></label><input type="checkbox" data-bind="checked: disabled" />
+                    </li>
+                    <li>
+                        <label>
+                            <span>autoHide:</span></label><input type="checkbox" data-bind="checked: autoHide" />
+                    </li>
+                    <li>
+                        <label>
+                            <span>showEffect:</span></label>
+                            <select data-bind="value: showEffect">
+                                <option value="show">show</option>
+                                <option value="blind">blind</option>
+                                <option value="clip">clip</option>
+                                <option value="drop">drop</option>
+                                <option value="fade">fade</option>
+                                <option value="fold">fold</option>
+                                <option value="slide">slide</option>
+                                <option value="pulsate">pulsate</option>
+                            </select>
+                    </li>
+                    <li>
+                        <label>
+                            <span>hideEffect:</span></label>
+                            <select data-bind="value: hideEffect">
+                                <option value="hide">hide</option>
+                                <option value="blind">blind</option>
+                                <option value="clip">clip</option>
+                                <option value="drop">drop</option>
+                                <option value="fade">fade</option>
+                                <option value="fold">fold</option>
+                                <option value="slide">slide</option>
+                                <option value="pulsate">pulsate</option>
+                            </select>
+                    </li>
+                </ul>
+                <!-- End options markup -->
+            </div>
+        </div>
+        <div class="footer demo-description">
+            <p>
+                Wijmo provides a Knockout Integration Library so that all jQuery UI and Wijmo widgets
+                can be used with Knockout declarative syntax.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

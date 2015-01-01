@@ -1,0 +1,580 @@
+.wijmo-wijgrid
+{
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	overflow: hidden;
+}
+
+/* -- native scrolling -- */
+.ui-mobile .wijmo-wijgrid
+{
+	width: 100%;
+	max-height: 100%;
+	/*overflow: auto;
+	-webkit-overflow-scrolling: touch;*/
+}
+
+.wijmo-wijgrid .wijmo-wijsuperpanel
+{
+	border: 0;
+}
+
+/* filtering */
+
+.wijmo-wijgrid .wijmo-wijgrid-filterrow
+{
+}
+
+.wijmo-wijgrid .wijmo-wijgrid-filterrow td
+{
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: inherit;
+}
+
+.wijmo-wijgrid .wijmo-wijgrid-filter
+{
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	border: none !important;
+	width: 100%;
+}
+
+.wijmo-wijgrid .wijmo-wijgrid-filter td
+{
+	border-top: 0px none !important;
+	border-bottom: 0px none !important;
+}
+
+.wijmo-wijgrid .wijmo-wijgrid-filter td.wijmo-wijgrid-filter-trigger 
+{
+	padding: 0 3px;
+	border-radius: 0;
+	cursor: pointer;
+}
+
+.wijmo-wijgrid .wijmo-wijgrid-filter .wijgrid-input-wrapper
+{
+	padding: 5px;
+	display: block;
+	margin-right: 0px;
+}
+
+.wijmo-wijgrid .wijmo-wijgrid-filter .wijmo-wijgrid-filter-input
+{
+	background: none !important;
+	border: 0px none;
+	padding: 0px;
+	padding-right: 1px;
+	width: 100%;
+}
+
+.wijmo-wijgrid .wijmo-wijgrid-filter td.wijmo-wijgrid-filter-trigger .ui-icon
+{
+	display: block;
+}
+
+.wijmo-wijgrid .ui-input-trigger-right .wijmo-wijinput-trigger {
+	border-radius: 0;
+}
+
+.wijmo-wijgrid .ui-input-spinner-right .wijmo-wijinput-spindown, .wijmo-wijgrid .ui-input-spinner-right .wijmo-wijinput-spinup 
+{
+	border-top: none;
+	border-bottom: none;
+}
+
+.wijmo-wijgrid .wijmo-wijgrid-grouptogglebtn
+{
+	float: left;
+	cursor: pointer;
+	margin-top: 3px;
+}
+
+.ui-mobile .wijmo-wijgrid .wijmo-wijgrid-grouptogglebtn
+{
+	margin-top: 0px;
+}
+
+.wijmo-wijgrid .wijmo-wijgrid-table
+{
+	border-collapse: collapse;
+	outline: none;
+	/*table-layout:fixed;*/
+}
+
+.ui-mobile .wijmo-wijgrid .ui-icon{
+	position: relative;
+}
+
+.ui-mobile .wijmo-wijgrid .wijmo-wijsuperpanel-hbar-buttonleft .ui-icon, 
+.ui-mobile .wijmo-wijgrid .wijmo-wijsuperpanel-hbar-buttonright .ui-icon,
+.ui-mobile .wijmo-wijgrid .wijmo-wijsuperpanel-vbar-buttontop .ui-icon,
+.ui-mobile .wijmo-wijgrid .wijmo-wijsuperpanel-vbar-buttonbottom .ui-icon {
+	position: static;
+}
+
+
+.wijmo-wijgrid .wijmo-wijgrid-table .wijmo-wijgrid-rowheader
+{
+	width: 21px;
+	border-left: none;
+	border-top: none;
+	position: relative;
+	overflow: hidden;
+	padding: 0;
+}
+
+.wijmo-wijgrid .wijmo-wijgrid-table .wijmo-wijgrid-rowheader .wijmo-wijgrid-innercell
+{
+	padding: 1px 2px;
+}
+
+.wijmo-wijgrid .wijmo-wijgrid-header, .wijmo-wijgrid .wijmo-wijgrid-footer
+{
+	border-left: none !important;
+	border-top: none !important;
+	border-bottom: none !important;
+	padding: 0.2em;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+}
+
+.wijmo-wijgrid tr.wijmo-wijgrid-row
+{
+	border-bottom: none;
+}
+
+.wijmo-wijgrid tr.wijmo-wijgrid-row td,
+.wijmo-wijgrid tr.wijmo-wijgrid-row th
+{
+	border: none;
+	border-right-color: inherit;
+	border-right-style: solid;
+	border-right-width: 1px;
+	border-top-color: inherit;
+	border-top-style: solid;
+	border-top-width: 1px;
+	overflow: hidden;
+}
+
+.wijmo-wijgrid .wijgridtd
+{
+	font-weight: normal;
+	padding: 0px;
+}
+
+.wijmo-wijgrid .wijgridth
+{
+	padding: 0px;
+}
+
+.wijmo-wijgrid .wijmo-wijgrid-headerrow .wijmo-c1basefield
+{
+	zoom: 1;
+	overflow: hidden;
+	border-left: 0;
+	border-top: 0;
+	padding: 0px;
+	position: relative;
+}
+
+.ui-mobile .wijmo-wijgrid th,
+.ui-mobile .wijmo-wijgrid td
+{
+	display: table-cell;
+	white-space: normal;
+}
+
+.ui-mobile .wijmo-wijgrid td
+{
+	text-align: left;
+}
+
+.ui-mobile .wijmo-wijgrid tr
+{
+	display: table-row;
+}
+
+.wijmo-wijgrid .wijmo-wijgrid-headerrow .wijmo-wijgrid-headertext
+{
+	padding: 0.5em 1em;
+	display: block;
+	position: relative;
+	color: inherit;
+	text-decoration: none;
+}
+
+.ui-mobile .wijmo-wijgrid .wijmo-wijgrid-headerrow .wijmo-wijgrid-headertext
+{
+	padding: 0.5em 22px;
+}
+
+.wijmo-wijgrid .wijmo-wijgrid-headerrow .ui-icon
+{
+	width: 16px;
+	height: 16px;
+	position: absolute;
+	top: 50%;
+	margin-top: -8px;
+	z-index: 99;
+}
+
+.ui-mobile .wijmo-wijgrid .wijmo-wijgrid-headerrow .ui-icon
+{
+	margin-top: -11px;
+}
+
+.wijmo-wijgrid .wijmo-wijgrid-headerrow th .wijmo-wijgrid-innercell {
+	position: relative;
+}
+
+.wijmo-wijgrid .wijmo-wijgrid-headerrow .wijmo-wijgrid-sort-icon
+{
+	right: 0px;
+}
+
+.wijmo-wijgrid .wijmo-wijpager
+{
+	display: block;
+	position: relative;
+}
+
+.wijmo-wijgrid .wijmo-wijsuperpanel-header
+{
+	position: relative;
+}
+
+.wijmo-wijgrid-resizehandle
+{
+	position: absolute;
+	z-index: 99999;
+}
+
+/* ** freezing handlers */
+
+.wijmo-wijgrid-freezing-handle-v,
+.wijmo-wijgrid-freezing-handle-h
+{
+	background: transparent;
+	cursor: pointer;
+	position: absolute;
+	z-index: 1000;
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+
+.wijmo-wijgrid-freezing-handle-v.not-allowed {
+	cursor: inherit !important;
+}
+
+.wijmo-wijgrid-freezing-handle-v
+{
+	width: 5px;
+}
+
+.wijmo-wijgrid-freezing-handle-h
+{
+	height: 5px;
+}
+
+.wijmo-wijgrid-freezing-handle-v .wijmo-wijgrid-freezing-handle-content
+{
+	width: 0px;
+	height: 100%;
+}
+
+.wijmo-wijgrid-freezing-handle-h .wijmo-wijgrid-freezing-handle-content
+{
+	width: 100%;
+	height: 0px;
+}
+
+.wijmo-wijgrid-freezing-handle-content {
+	border-width: 1px !important;
+}
+
+/* freezing handlers ** */
+
+/* 
+ *    Scrolling
+ */
+
+.wijmo-wijgrid-filterlist
+{
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.wijmo-wijgrid-scroller
+{
+	overflow: hidden;
+	border: 0px;
+}
+
+.wijmo-wijgrid-fixedview
+{
+	position: relative;
+}
+
+.wijmo-wijgrid .wijmo-wijsuperpanel-vbar-buttontop
+{
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	top: -1px;
+}
+
+.wijmo-wijgrid .wijmo-wijsuperpanel-vbar-buttonbottom
+{
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	bottom: -1px;
+}
+
+.wijmo-wijgrid .wijmo-wijgrid-scrollable-content {
+	position: relative;
+	padding: 0px !important;
+	border-width: 0px !important;
+	height: 100%;
+}
+
+.wijmo-wijgrid .wijgridinput
+{
+	width: 100%;
+	margin: 0;
+	border: none;
+	padding: 0;
+	text-align: inherit;
+}
+
+.wijmo-wijgrid tr.wijmo-wijgrid-row td.wijdata-type-currency, .wijmo-wijgrid tr.wijmo-wijgrid-row td.wijdata-type-number, .wijmo-wijgrid tr.wijmo-wijgrid-row td.wijdata-type-date
+{
+	text-align: right;
+}
+
+.wijmo-wijgrid tr.wijmo-wijgrid-row td.wijdata-type-boolean
+{
+	text-align: center;
+}
+.wijmo-wijgrid tr.wijmo-wijgrid-row td.wijalign-left
+{
+	text-align:left;
+}
+.wijmo-wijgrid tr.wijmo-wijgrid-row td.wijalign-right
+{
+	text-align:right;
+}
+.wijmo-wijgrid tr.wijmo-wijgrid-row td.wijalign-center
+{
+	text-align:center;
+}
+
+.wijmo-wijgrid .wijmo-wijgrid-innercell
+{
+	padding: 1px 2px;
+	white-space: normal;
+}
+
+.wijmo-wijgrid .wijmo-wijcombobox-wrapper
+{
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	border-top: 0;
+	border-bottom: 0;
+	border-left: 0;
+}
+
+.wijmo-wijgrid .wijmo-wijcombobox .wijmo-wijcombobox-trigger
+{
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	border-top: 0;
+	border-bottom: 0;
+	border-right: 0;
+}
+
+.wijmo-wijgrid .wijmo-wijcombobox-input
+{
+	padding: 0;
+}
+
+.wijmo-wijgrid .wijmo-wijinput
+{
+	border: none;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+}
+
+/* drag-n-drop *** */
+.wijmo-wijgrid-dnd-arrow-top, .wijmo-wijgrid-dnd-arrow-bottom
+{
+	z-index: 1000;
+	width: 16px;
+	height: 16px;
+}
+
+.wijmo-wijgrid-dnd-arrow-top .ui-icon
+{
+	position: absolute;
+	top: -4px;
+}
+
+.wijmo-wijgrid-dnd-arrow-bottom .ui-icon
+{
+	position: absolute;
+	top: 4px;
+}
+
+.wijmo-wijgrid-dnd-helper
+{
+	border: 1px solid #F0F0F0 !important;
+	filter: alpha(opacity=70) !important;
+	-moz-opacity: 0.7;
+	opacity: 0.7;
+	z-index: 1000;
+	min-height: 0 !important;
+}
+
+.wijmo-wijgrid th.ui-draggable
+{
+	cursor: pointer;
+}
+/* *** drag-n-drop */
+
+.wijmo-wijgrid-footerrow
+{
+	text-align: right;
+}
+
+.wijmo-wijgrid-group-button
+{
+	float: left;
+	padding: 0.4em 1.4em 0.4em 0.4em;
+	position: relative;
+	margin: 0.4em;
+	text-decoration: none;
+}
+
+.wijmo-wijgrid-group-button-close
+{
+	float: right;
+	margin: 0 3px 0 24px;
+	padding: 1px;
+	position: absolute;
+	right: -14px;
+	top: -7px;
+	border-radius: 15px;
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+}
+
+.wijmo-wijgrid-group-button-sort
+{
+	position: absolute;
+	right: 3px;
+	top: 25%;
+}
+
+.wijmo-wijgrid .wijmo-wijgrid-group-button .ui-icon {
+	display: block; /* 47949 [Mobile] close icons are distorted*/
+	margin-right: 0px; /* 47949 [Mobile] sort icons are overlapping over column headers */
+} 
+
+.wijmo-wijgrid-group-area
+{
+}
+
+.wijmo-wijgrid-group-area-empty 
+{
+	height: 35px;
+}
+
+/* disalbe Chrome outlining */
+.wijmo-wijgrid:focus,
+.wijgridtd:focus  
+{  
+   outline: none;
+} 
+
+/* loading overlay */
+.wijmo-wijgrid
+{
+	position: relative;
+}
+
+.wijmo-wijgrid-overlay
+{
+	z-index: 99;
+}
+
+.wijmo-wijgrid-loadingtext
+{
+	position: absolute;
+	opacity: 1;
+	z-index: 100;
+	padding: 0.4em;
+	font-size: 20px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.25);
+}
+
+.wijmo-wijgrid-loadingtext .ui-icon
+{
+	display: inline-block;
+	margin-right: 0.4em;
+	text-indent: 0px; /* IE7 workaround */
+}
+
+/* loading overlay */
+.ui-mobile .wijmo-wijgrid .wijmo-wijgrid-innercell
+{
+	padding: 12px 15px;
+}
+
+
+/** command fields **/
+.wijmo-wijgrid .wijmo-wijgrid-innercell-command {
+	white-space: nowrap;
+}
+
+.wijmo-wijgrid .wijmo-wijgrid-commandbutton {
+	font-weight: normal;
+}
+
+/* all buttons */
+.wijmo-wijgrid button.wijmo-wijgrid-commandbutton .ui-button-text,
+.wijmo-wijgrid input.wijmo-wijgrid-commandbutton {
+	line-height: 1.2;
+}
+
+/* text-only buttons */
+.wijmo-wijgrid input.wijmo-wijgrid-commandbutton {
+	padding: 0.1em 0.25em;
+}
+
+/* icon buttons */
+.wijmo-wijgrid button.wijmo-wijgrid-commandbutton .ui-button-text
+{
+	padding: 0.1em 0.25em;
+	padding-left: 1.25em;
+}
+
+.wijmo-wijgrid button:not(.ui-button-icon-only) .ui-icon {
+	left: 0em;
+	margin-left: 0px;
+}
+
+.ui-mobile .wijmo-wijgrid .ui-icon.ui-btn-icon-notext{
+	width: 22px;
+	height: 22px;
+}
+

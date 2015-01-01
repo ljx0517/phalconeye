@@ -1,0 +1,48 @@
+<div data-role="appviewpage" data-title="DataSource">
+    <div data-role="content">
+        <div id="wijbarchart" data-role="wijbarchart" style="width: 100%; height: 400px">
+        </div>
+		<script type="text/javascript">
+		$(document).one("wijappviewpageinit", function () { 
+			var data = [{
+    			Device: 'Desktops',
+    			Count: 5
+    		}, {
+    			Device: 'Notebooks',
+    			Count: 3
+    		}, {
+    			Device: 'Tablets',
+    			Count: 7
+    		}];
+
+			$("#wijbarchart").wijbarchart("beginUpdate");
+    		$("#wijbarchart").wijbarchart({
+				dataSource: data,
+    			axis: {
+    				y: {
+    					text: "Total Hardware"
+
+    				},
+    				x: {
+    					text: ""
+    				}
+    			},
+    			hint: {
+    				content: function () {
+    					return this.y;
+    				}
+    			},
+    			header: {
+    				text: "Hardware Distribution"
+    			},
+    			seriesList: [{
+    				legendEntry: true,
+					label: "east",
+    				data: { x: { bind: "Device" }, y: { bind: "Count"} }
+    			}]
+    		});
+			$("#wijbarchart").wijbarchart("endUpdate");
+		});
+	</script>
+    </div>
+</div>

@@ -1,0 +1,67 @@
+<div data-role="appviewpage" data-title="Logarithmic">
+	<div data-role="content">
+		<div id="gauge" data-role="wijlineargauge">
+		</div>
+		 <input type="checkbox" id="checkbox1" checked="checked" />
+                <label for="checkbox1">
+                    IsLogarithmic</label>
+		<script type="text/javascript">
+			$(document).one("wijappviewpageinit", function () {
+				$("#gauge").wijlineargauge({ value: 56,
+					islogarithmic: true,
+					labels: {
+						style: {
+							fill: "#1E395B",
+							"font-size": 12,
+							"font-weight": "800"
+						}
+					},
+					tickMajor: {
+						position: "inside",
+						interval: 20,
+						style: {
+							fill: "90-#3DA1D8-#3A6CAC",
+							stroke: "#fff",
+							"stroke-width": 0.5,
+							width: 2.5,
+							height: 10
+						}
+					},
+					tickMinor: {
+						position: "inside",
+						visible: true,
+						interval: 4,
+						style: {
+							fill: "#1E395B",
+							opacity: 0.5,
+							stroke: "none"
+						}
+					},
+					pointer: {
+						shape: "rect",
+						length: 0.5,
+						style: {
+							fill: "#1E395B",
+							stroke: "#7BA0CC",
+							"stroke-width": 1,
+							opacity: 1
+
+
+						}
+					},
+					face: {
+						style: {
+							fill: "270-#FFFFFF-#D9E3F0",
+							stroke: "#7BA0CC",
+							"stroke-width": 2
+						}
+					}
+				});
+
+				$("#checkbox1").change(function () {
+					$("#gauge").wijlineargauge("option", "islogarithmic", $(this).is(":checked"));
+				});
+			});
+		</script>
+	</div>
+</div>

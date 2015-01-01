@@ -1,0 +1,63 @@
+<div data-role="appviewpage" data-title="Indicator Line">
+	<div data-role="content">
+		<div id="wijbubblechart" data-role="wijbubblechart" style="width: 100%; height: 400px">
+		</div>
+		<script type="text/javascript">
+			$(document).one("wijappviewpageinit", function () {
+				$("#wijbubblechart").wijbubblechart("beginUpdate").wijbubblechart({
+					minimumSize: 3,
+					MaximumSize: 15,
+					indicator: {
+						visible: true
+					},
+					chartLabel: {
+						chartLabelFormatString: "c2'kkk'"
+					},
+					axis: {
+						y: {
+							text: "Units Sold in Billions"
+
+						},
+						x: {
+							text: ""
+						}
+					},
+					header: {
+						text: "Sales Trends in Top-Selling WorldWide Cars"
+					},
+					seriesList: [{
+						label: "Toyota",
+						legendEntry: true,
+						data: { x: [2006, 2007, 2008, 2009, 2010],
+							y: [5, 6, 8, 7, 8.5], y1: [4, 4.4, 5.1, 5.5, 5.7]
+						}
+					}, {
+						label: "General Motors",
+						legendEntry: true,
+						data: { x: [2006, 2007, 2008, 2009, 2010],
+							y: [3, 4, 6, 7.5, 8], y1: [2, 2.5, 3, 4, 5]
+						}
+					}, {
+						label: "Volkswagon",
+						legendEntry: true,
+						data: { x: [2006, 2007, 2008, 2009, 2010],
+							y: [4, 5, 6.5, 7.3, 6.6], y1: [2, 2.5, 4.5, 6, 5.5]
+						}
+					}, {
+						label: "Hyundai",
+						legendEntry: true,
+						data: { x: [2006, 2007, 2008, 2009, 2010],
+							y: [6, 1, 5, 2, 4], y1: [2, 3, 4.5, 1.5, 1]
+						}
+					}, {
+						label: "Ford",
+						legendEntry: true,
+						data: { x: [2006, 2007, 2008, 2009, 2010],
+							y: [6, 2, 3, 4.6, 5], y1: [4.5, 4, 3.8, 3, 2]
+						}
+					}]
+				}).wijbubblechart("endUpdate");
+			});
+		</script>
+	</div>
+</div>

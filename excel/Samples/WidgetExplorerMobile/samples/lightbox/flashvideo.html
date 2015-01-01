@@ -1,0 +1,20 @@
+<div data-role="appviewpage">
+    <div data-role="header">
+        <a href="index.html" data-icon="back">Back</a>
+        <h2>
+            Ajax Data</h2>
+    </div>
+    <div data-role="content">
+        <!-- Begin demo markup -->
+        <a id="lightbox" href="http://cdn.wijmo.com/movies/racing.flv" rel="wijlightbox;width=600;height=400">
+            <img src="http://cdn.wijmo.com/images/flash.png" title="Auto Scrollers Racing" alt="Auto Scrollers Racing" /></a>
+        <script type="text/javascript">
+            $(document).one('wijappviewpageinit', function () {
+                $("#lightbox").wijlightbox({
+                    controlsPosition: 'outside',
+                    textPosition: 'outside'
+                });
+            });
+        </script>
+    </div>
+</div>

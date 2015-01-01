@@ -1,0 +1,27 @@
+﻿<h3>Wijmo Grid</h3>
+
+<p class="text-info">
+    The Wijmo grid widget allows users to interactively select, edit, sort, 
+scroll through, filter, and group data. The grid is highly customizable and can be used as a 
+building block for many types of specialized directives.
+</p>
+
+<p class="text-info">
+    The grid below is bound to the list of airports used throughout this
+sample. The grid shows a list of airports grouped by state. The group headers show the
+number of airports in each state and the total air traffic in 2011.
+</p>
+
+<wij-grid style="height: 600px;" data="airports" frozen-columns="1" scroll-mode="auto" columns-autogeneration-mode="none">
+    <columns>
+        <column data-key="code" header-text="Code"></column>
+        <column data-key="city" header-text="City" width="180"></column>
+        <column data-key="state" header-text="State" width="80" aggregate="count">
+            <group-info headerText="{0}: {2} airport(s)" position="header"></group-info>
+        </column>
+        <column data-key="name" header-text="Name" width="300"></column>
+        <column data-key="pop2011" header-text="Population" format="n0" width="100"></column>
+        <column data-key="vol2011" header-text="Traffic" format="n0" width="100" aggregate="sum"></column>
+    </columns>
+</wij-grid>
+

@@ -40,6 +40,8 @@ class AdminIndexController extends AbstractAdminController
      */
     public function indexAction()
     {
+
+    	//$this->assets->addJs('assets/js/core/admin/dashboard.js');
         $this->view->setRenderLevel(View::LEVEL_ACTION_VIEW); // render only action
         $this->view->debug = $this->config->application->debug;
     }

@@ -1,0 +1,203 @@
+﻿.chartSelector a
+		{
+			border: 2px solid #CCCCCC;
+			border-radius: 6px 6px 6px 6px;
+			box-shadow: 0 0 3px #AAAAAA;
+			display: block;
+			float: left;
+			height: 125px;
+			line-height: 125px;
+			margin: 0 8px 8px 0;
+			padding: 6px;
+			width: 200px;
+		}
+		
+		.chartSelector a:hover
+		{
+			border: 2px solid #D54E21;
+		}
+		
+		.chartSelector h4
+		{
+			clear: both;
+			margin: 2px 0 6px;
+		}
+		
+		.sizeSelector button
+		{
+			width: 10em;
+			height: 4em;
+		}
+		
+		.displayOption .wijmo-checkbox
+		{
+			margin: 10px 0;
+		}
+		
+		.finished #code
+		{
+			height: 10em;
+			width: 60%;
+		}
+		
+		.chartname
+		{
+			color: #000;
+			font-style: italic;
+		}
+		
+		/* color picker */
+		#colorval
+		{
+			width: 20px;
+			height: 20px;
+			float: left;
+			cursor: pointer;
+		}
+		
+		#colorwheel
+		{
+			width: 600px;
+		}
+		
+		#colorcontainer
+		{
+			position: relative;
+		}
+		
+		.colorPickerContainer
+		{
+			position: absolute;
+			width: 12.5em;
+			height: 12.5em;
+		}
+		
+		
+		h2
+		{
+			font-size: 14pt;
+		}
+		
+		#monochrome, #analogous, #complementary, #splitcomplementary, #triadic
+		{
+			position: relative;
+			height: 255px;
+			text-align: center;
+		}
+		
+		#complementary
+		{
+			width: 182px;
+		}
+		#splitcomplementary
+		{
+			width: 274px;
+		}
+		#triadic
+		{
+			width: 274px;
+		}
+		#analogous
+		{
+			width: 274px;
+		}
+		
+		.swatch
+		{
+			position: absolute;
+			height: 42px;
+			width: 90px;
+			font-size: 7pt;
+			text-align: center;
+			background: black;
+			color: #666;
+			cursor: pointer;
+		}
+		
+		.sa
+		{
+			top: 30px;
+		}
+		.sb
+		{
+			top: 74px;
+		}
+		.sc
+		{
+			top: 118px;
+		}
+		.sd
+		{
+			top: 162px;
+		}
+		.se
+		{
+			top: 206px;
+		}
+		
+		.s1
+		{
+			left: 0px;
+		}
+		.s2
+		{
+			left: 92px;
+		}
+		.s3
+		{
+			left: 184px;
+		}
+		
+		.buttons
+		{
+			text-align: center;
+		}
+		
+		/* color picker*/
+		.colorspan
+		{
+			float: left;
+			width: 2em;
+			height: 1.8em;
+			background: #d7e35f;
+		}
+		.colorlabel
+		{
+			float: left;
+			width: 6em;
+		}
+		/*data css*/
+		.data-header
+		{
+			margin-bottom: 2em;
+			position: relative;
+		}
+		.data-header-colorbutton
+		{
+			margin-left: 2em;
+		}
+		.dataeditorcontainer span
+		{
+			float: left;
+			width: 5em;
+		}
+		.importdatadialog-header
+		{
+			margin-bottom: 2em;
+		}
+		.dataeditor
+		{
+			width: 15em;
+		}
+		.dataeditorcontainer
+		{
+			margin-bottom: 2em;
+		}
+		#importdatadialog.header radio
+		{
+			margin-right: 1em;
+		}
+		.data-dialog
+		{
+			display: none;
+		}

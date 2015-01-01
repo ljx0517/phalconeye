@@ -1,0 +1,56 @@
+<div data-role="appviewpage" data-title="Timeline">
+	<div data-role="content">
+		<div id="wijcompositechart" data-role="wijcompositechart" style="width: 100%; height: 400px">
+		</div>
+		<script type="text/javascript">
+			$(document).one("wijappviewpageinit", function () {
+				$("#wijcompositechart").wijcompositechart("beginUpdate").wijcompositechart({
+					axis: {
+						y: {
+							text: "Visitors",
+							autoMin: false,
+							min: 500000
+						},
+						x: {
+							text: ""
+						}
+					},
+					legend: {
+						visible: false
+					},
+					showChartLabels: false,
+					stacked: false,
+					hint: {
+						content: function () {
+							return this.label + '\n ' + this.y + '';
+						}
+					},
+					header: {
+						text: "Traffic"
+					},
+					seriesList: [{
+						type: "column",
+						label: "2010",
+						legendEntry: true,
+						data: {
+							x: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+							y: [1000000, 1000000, 1100000, 1400000, 1700000, 2000000, 2500000, 1900000, 1700000, 1400000, 1100000, 1600000]
+						}
+					}, {
+						type: "line",
+						label: "2010",
+						legendEntry: true,
+						data: {
+							x: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+							y: [1000000, 1000000, 1100000, 1400000, 1700000, 2000000, 2500000, 1900000, 1700000, 1400000, 1100000, 1600000]
+						},
+						markers: {
+							visible: true
+						}
+					}
+                ]
+				}).wijcompositechart("endUpdate");
+			});
+		</script>
+	</div>
+</div>

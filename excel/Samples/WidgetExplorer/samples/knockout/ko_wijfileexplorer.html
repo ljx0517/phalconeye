@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Knockout - FileExplorer</title>
+    
+    <link href="../../../../Themes/rocket/jquery-wijmo.css" rel="stylesheet" type="text/css" />
+    <link href="../../../../css/jquery.wijmo-pro.all.3.20143.59.min.css" rel="stylesheet" type="text/css" />
+    <script src="../../js/require.js" type="text/javascript"></script>
+    <script src="../../js/require.wijmo.config.js" type="text/javascript"></script>
+
+    <script id="scriptInit" type="text/javascript">
+        require(["wijmo.wijfileexplorer", "knockout.wijmo"], function () {
+            //Create ViewModel
+        	var viewModel = function () {
+        		var self = this;
+        		self.disabled = ko.observable(false);
+        		self.initPath = '~/widgets/samples/widgetexplorer/samples/fileexplorer/Example';
+        		self.actionUri = './fileexplorer.ashx';
+        		self.currentFolder = ko.observable("~/widgets/samples/widgetexplorer/samples/fileexplorer/Example");
+        		self.allowFileExtensionRename = ko.observable(false);
+        		self.allowMultipleSelection = ko.observable(false);
+        		self.allowPaging = ko.observable(false);
+        		self.pageSize = ko.observable(10);
+        		self.enableOpenFile = ko.observable(true);
+        		self.enableCreateNewFolder = ko.observable(true);
+        		self.enableCopy = ko.observable(true);
+        		self.enableFilteringOnEnterPressed = ko.observable(true);
+        		self.treePanelWidth = ko.observable(200);
+        		self.mode = ko.observable("default");
+        		self.viewMode = ko.observable("detail");
+        	};
+
+            //Bind ViewModel
+            $(document).ready(function () {
+                var vm = new viewModel();
+                ko.applyBindings(vm, $(".container").get(0));
+            });
+        });
+    </script>
+</head>
+<body class="demo-single">
+    <div class="container">
+        <div class="header">
+            <h2>FileExplorer</h2>
+        </div>
+        <div class="main demo">
+            <!-- Begin demo markup -->
+            <div data-bind="wijfileexplorer: {
+	disabled: disabled,
+	initPath: initPath,
+	actionUri: actionUri,
+	currentFolder: currentFolder,
+	allowFileExtensionRename: allowFileExtensionRename,
+	allowMultipleSelection: allowMultipleSelection,
+	enableOpenFile: enableOpenFile,
+	enableCreateNewFolder: enableCreateNewFolder,
+	enableCopy: enableCopy,
+	enableFilteringOnEnterPressed: enableFilteringOnEnterPressed,
+	allowPaging: allowPaging,
+	pageSize: pageSize,
+	treePanelWidth: treePanelWidth,
+	mode: mode,
+	viewMode: viewMode
+}">
+            </div>
+            <!-- End demo markup -->
+            <div class="demo-options">
+                <!-- Begin options markup -->
+                <ul>
+                    <li><label><span>currentFolder: </span></label><span data-bind="text: currentFolder"></span></li>
+                    <li><label><span>disabled:</span></label><input type="checkbox" data-bind="checked: disabled" /></li>
+                    <li><label><span>allowFileExtensionRename:</span></label><input type="checkbox" data-bind="checked: allowFileExtensionRename" /></li>
+                    <li><label><span>allowMultipleSelection:</span></label><input type="checkbox" data-bind="checked: allowMultipleSelection" /></li>
+                    <li><label><span>enableOpenFile:</span></label><input type="checkbox" data-bind="checked: enableOpenFile" /></li>
+                    <li><label><span>enableCreateNewFolder:</span></label><input type="checkbox" data-bind="checked: enableCreateNewFolder" /></li>
+                    <li><label><span>enableCopy:</span></label><input type="checkbox" data-bind="checked: enableCopy" /></li>
+                    <li><label><span>enableFilteringOnEnterPressed:</span></label><input type="checkbox" data-bind="checked: enableFilteringOnEnterPressed" /></li>
+                    <li><label><span>allowPaging:</span></label><input type="checkbox" data-bind="checked: allowPaging" /></li>
+                    <li>
+                        <label><span>pageSize:</span></label>
+						<input type="text" data-bind="value: pageSize" />
+                    </li>
+					<li>
+                        <label><span>treePanelWidth:</span></label>
+						<input type="text" data-bind="value: treePanelWidth" />
+                    </li>
+					<li>
+                        <label><span>mode:</span></label>
+						<select data-bind="value: mode">
+                            <option value="default">default</option>
+                            <option value="fileTree">fileTree</option>
+                        </select>
+                    </li>
+					<li>
+                        <label><span>viewMode:</span></label>
+						<select data-bind="value: viewMode">
+                            <option value="detail">detail</option>
+                            <option value="thumbnail">thumbnail</option>
+                        </select>
+                    </li>
+                </ul>
+                <!-- End options markup -->
+            </div>
+        </div>
+        <div class="footer demo-description">
+            <p>
+                Wijmo provides a Knockout Integration Library so that all jQuery UI and Wijmo widgets
+                can be used with Knockout declarative syntax.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

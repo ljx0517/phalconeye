@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Input Mask - First Name</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="DBCS sample." />
+    <meta name="keywords" content="" />
+    <meta name="author" content="ComponentOne" />
+
+    <link href="../../../../Themes/rocket/jquery-wijmo.css" rel="stylesheet" type="text/css" />
+    <link href="../../../../css/jquery.wijmo-pro.all.3.20143.59.min.css" rel="stylesheet" type="text/css" />
+    <script src="../../js/require.js" type="text/javascript"></script>
+    <script src="../../js/require.wijmo.config.js" type="text/javascript"></script>
+
+    <script id="scriptInit" type="text/javascript">
+        require(["wijmo.wijinputmask"], function () {
+            $(document).ready(function () {
+                $("#textbox1").wijinputmask({
+                    maskFormat:/\Ａ{5}/
+                });
+            });
+        });
+    </script>
+</head>
+<body class="demo-single">
+    <div class="container">
+        <div class="header">
+            <h2>
+                First Name</h2>
+        </div>
+        <div class="main demo">
+            <!-- Begin demo markup -->
+            <input type="text" id="textbox1" />
+            <h6>
+                maskFormat</h6>
+            <p>
+                /\Ａ{5}/</p>
+            
+            <!-- End demo markup -->
+            <div class="demo-options">
+                <!-- Begin options markup -->
+                <!-- End options markup -->
+            </div>
+        </div>
+        <div class="footer demo-description">
+            <p>
+                This sample illustrates how you can use the <b>maskFormat</b> option to allow input the DBCS uppercase alphabet.</p>
+        </div>
+    </div>
+</body>
+</html>

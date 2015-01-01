@@ -1,0 +1,28 @@
+<div data-role="appviewpage">
+    <div data-role="header">
+        <a href="index.html" data-icon="back">Back</a>
+        <h2>
+            Vimeo</h2>
+    </div>
+    <div data-role="content">
+        <!-- Begin demo markup -->
+        <div id="lightbox">
+				<a title="Mindrelic - time lapse summer/autumn 2009" href="http://player.vimeo.com/video/8087882" rel="wijlightbox;player=iframe">
+					<img class=border alt="" src="http://cdn.wijmo.com/images/mindrelic.png"></a>
+				<a title="Rochester NY timelapse" href="http://player.vimeo.com/video/5244737" rel="wijlightbox;player=iframe">
+					<img class=border alt="" src="http://cdn.wijmo.com/images/rochester.png"></a>
+				<a title="Lightning test" href="http://player.vimeo.com/video/5085363" rel="wijlightbox;player=iframe">
+					<img class=border alt="" src="http://cdn.wijmo.com/images/lightning.png"></a>
+				<a title="Quick preview of Iceflow" href="http://player.vimeo.com/video/19746784" rel="wijlightbox;player=iframe">
+					<img class=border alt="" src="http://cdn.wijmo.com/images/iceflow.png"></a>
+			</div>
+         <script type="text/javascript">
+             $(document).one('wijappviewpageinit', function () {
+                 $("#lightbox").wijlightbox({
+                     controlsPosition: 'outside',
+                     textPosition: 'outside'
+                 });
+             });
+    </script>
+    </div>
+</div>

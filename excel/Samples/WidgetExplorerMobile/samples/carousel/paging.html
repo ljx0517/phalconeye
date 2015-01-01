@@ -1,0 +1,157 @@
+<div data-role="appviewpage">
+    <div data-role="header">
+        <a href="index.html" data-icon="back">Back</a>
+        <h2>
+            Pager</h2>
+    </div>
+    <div data-role="content">
+        <style type="text/css">
+            #wijcarousel0, #wijcarousel1, #wijcarousel2, #wijcarousel3
+            {
+                width: 100%;
+                height: 300px;
+            }
+        </style>
+        <!-- Begin demo markup -->
+        <h3>
+            Numbers</h3>
+        <div>
+            <div id="wijcarousel0" data-role="wijcarousel">
+                <ul class="">
+                    <li class="">
+                        <img alt="1" src="http://lorempixel.com/750/300/sports/1" title="Word" /><span>Word
+                            Caption 1</span></li>
+                    <li class="">
+                        <img alt="2" src="http://lorempixel.com/750/300/sports/2" title="Word2" /><span>Word
+                            Caption 2</span></li>
+                    <li class="">
+                        <img alt="3" src="http://lorempixel.com/750/300/sports/3" title="Word3" /><span>Word
+                            Caption 3</span></li>
+                    <li class="">
+                        <img alt="4" src="http://lorempixel.com/750/300/sports/4" title="Word4" /><span>Word
+                            Caption 4</span></li>
+                    <li class="">
+                        <img alt="5" src="http://lorempixel.com/750/300/sports/5" title="Word5" /><span>Word
+                            Caption 5</span></li>
+                </ul>
+            </div>
+            <br />
+            <br />
+            <h3>
+                Dots</h3>
+            <br />
+            <div id="wijcarousel1"  data-role="wijcarousel">
+                <ul class="">
+                    <li class="">
+                        <img alt="1" src="http://lorempixel.com/750/300/city/1" title="Word" /><span>Word Caption
+                            1</span></li>
+                    <li class="">
+                        <img alt="2" src="http://lorempixel.com/750/300/city/2" title="Word2" /><span>Word Caption
+                            2</span></li>
+                    <li class="">
+                        <img alt="3" src="http://lorempixel.com/750/300/city/3" title="Word3" /><span>Word Caption
+                            3</span></li>
+                    <li class="">
+                        <img alt="4" src="http://lorempixel.com/750/300/city/4" title="Word4" /><span>Word Caption
+                            4</span></li>
+                    <li class="">
+                        <img alt="5" src="http://lorempixel.com/750/300/city/5" title="Word5" /><span>Word Caption
+                            5</span></li>
+                </ul>
+            </div>
+            <br />
+            <!--<h3>
+                Slider</h3>
+            <br />
+            <div id="wijcarousel2"  data-role="wijcarousel">
+                <ul class="">
+                    <li class="">
+                        <img alt="1" src="http://lorempixel.com/750/300/abstract/1" title="Word" /><span>Word
+                            Caption 1</span></li>
+                    <li class="">
+                        <img alt="2" src="http://lorempixel.com/750/300/abstract/2" title="Word2" /><span>Word
+                            Caption 2</span></li>
+                    <li class="">
+                        <img alt="3" src="http://lorempixel.com/750/300/abstract/3" title="Word3" /><span>Word
+                            Caption 3</span></li>
+                    <li class="">
+                        <img alt="4" src="http://lorempixel.com/750/300/abstract/4" title="Word4" /><span>Word
+                            Caption 4</span></li>
+                    <li class="">
+                        <img alt="5" src="http://lorempixel.com/750/300/abstract/5" title="Word5" /><span>Word
+                            Caption 5</span></li>
+                </ul>
+            </div>
+            <h3>
+                Slider vertical</h3>
+            <br />
+            <div id="wijcarousel3"  data-role="wijcarousel">
+                <ul class="">
+                    <li class="">
+                        <img alt="1" src="http://lorempixel.com/750/300/abstract/1" title="Word" /><span>Word
+                            Caption 1</span></li>
+                    <li class="">
+                        <img alt="2" src="http://lorempixel.com/750/300/abstract/2" title="Word2" /><span>Word
+                            Caption 2</span></li>
+                    <li class="">
+                        <img alt="3" src="http://lorempixel.com/750/300/abstract/3" title="Word3" /><span>Word
+                            Caption 3</span></li>
+                    <li class="">
+                        <img alt="4" src="http://lorempixel.com/750/300/abstract/4" title="Word4" /><span>Word
+                            Caption 4</span></li>
+                    <li class="">
+                        <img alt="5" src="http://lorempixel.com/750/300/abstract/5" title="Word5" /><span>Word
+                            Caption 5</span></li>
+                </ul>
+            </div>-->
+            <script type="text/javascript">
+                $(document).one('wijappviewpageinit', function () {
+                    var options = {
+                        display: 1,
+                        showTimer: false,
+                        showPager: true,
+                        buttonOffset: 16,
+                        showControlsOnHover: true,
+                        pagerType: "numbers"
+                    };
+
+                    $("#wijcarousel0").wijcarousel(options);
+
+                    $("#wijcarousel1").wijcarousel($.extend(options, {
+                        pagerType: "dots",
+                        showControlsOnHover: true,
+                        pagerPosition: {
+                            my: "center top",
+                            at: "center bottom",
+                            offset: "0 5"
+                        },
+                        start: 2
+                    }));
+
+                    $("#wijcarousel2").wijcarousel($.extend(options, {
+                        pagerType: "slider",
+                        showControlsOnHover: true,
+                        loop: false,
+                        pagerPosition: {
+                            my: "center top",
+                            at: "center bottom"
+                        },
+                        start: 3
+
+                    }));
+
+                    $("#wijcarousel3").wijcarousel($.extend(options, {
+                        pagerType: "slider",
+                        showControlsOnHover: true,
+                        sliderOrientation: "vertical",
+                        loop: false,
+                        pagerPosition: {
+                            offset: "8 0"
+                        },
+                        start: 3
+
+                    }));
+                });
+            </script>
+        </div>
+    </div>

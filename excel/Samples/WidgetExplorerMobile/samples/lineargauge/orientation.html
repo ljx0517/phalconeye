@@ -1,0 +1,61 @@
+<div data-role="appviewpage" data-title="Orientation">
+	<div data-role="content">
+		<div id="gauge" data-role="wijlineargauge">
+		</div>
+		<select id="orientation">
+			<option>horizontal</option>
+			<option>vertical</option>
+		</select>
+		<script type="text/javascript">
+			$(document).one("wijappviewpageinit", function () {
+				$("#gauge").wijlineargauge({
+					value: 50,
+					labels: {
+						style: {
+							fill: "#1E395B",
+							"font-size": 12,
+							"font-weight": "800"
+						}
+					},
+					tickMajor: {
+						position: "inside",
+						interval: 20,
+						style: {
+							fill: "#1E395B",
+							stroke: "none"
+						}
+					},
+					tickMinor: {
+						position: "inside",
+						visible: true,
+						interval: 4,
+						style: {
+							fill: "#1E395B",
+							stroke: "none"
+						}
+					},
+					pointer: {
+						shape: "rect",
+						length: 0.5,
+						style: {
+							fill: "#1E395B",
+							stroke: "#1E395B"
+						}
+					},
+					face: {
+						style: {
+							fill: "270-#FFFFFF-#D9E3F0",
+							stroke: "#7BA0CC",
+							"stroke-width": 4
+						}
+					}
+				});
+
+				$("#orientation").change(function () {
+					var orientation = $(this).val();
+					$("#gauge").wijlineargauge("option", "orientation", orientation);
+				});
+			});
+		</script>
+	</div>
+</div>

@@ -1,0 +1,152 @@
+<div data-role="appviewpage" data-title="Trendline">
+    <div data-role="content">
+        <div id="wijbubblechart" data-role="wijbubblechart" style="width: 100%; height: 400px">
+		</div>
+		<div class="demo-options">
+				<!-- Begin options markup -->
+				<div>
+                    <select id="selFitType">
+                        <option value="polynom">polynom</option>
+                        <option value="exponent">exponent</option>
+                        <option value="logarithmic">logarithmic</option>
+                        <option value="power">power</option>
+                        <option value="fourier">fourier</option>
+                        <option value="minX">minX</option>
+                        <option value="minY">minY</option>
+                        <option value="maxX">maxX</option>
+                        <option value="maxY">maxY</option>
+                        <option value="averageX">averageX</option>
+                        <option value="averageY">averageY</option>
+                    </select>
+                    <label for="inpOrder">
+                        Order
+                    </label>
+                    <input id="inpOrder" type="text" value="4" />
+                    <label for="inpSampleCount">
+                        SampleCount
+                    </label>
+                    <input id="inpSampleCount" type="text" value="100" />					
+					<input type="button" value="Apply" onclick="changeProperties()" />
+				</div>
+				<!-- End options markup -->
+			</div>
+
+		<script type="text/javascript">
+		    var data = [{
+		        Income: 7931,
+		        LifeExpectancy: 73,
+		        Population: 1340
+		    }, {
+		        Income: 2972,
+		        LifeExpectancy: 65,
+		        Population: 1150
+		    }, {
+		        Income: 42066,
+		        LifeExpectancy: 78,
+		        Population: 309
+		    }, {
+		        Income: 30866,
+		        LifeExpectancy: 83,
+		        Population: 126
+		    }, {
+		        Income: 14318,
+		        LifeExpectancy: 69,
+		        Population: 140
+		    }, {
+		        Income: 374,
+		        LifeExpectancy: 48,
+		        Population: 72
+		    }, {
+		        Income: 9284,
+		        LifeExpectancy: 52,
+		        Population: 43
+		    }, {
+		        Income: 11754,
+		        LifeExpectancy: 77,
+		        Population: 112
+		    }, {
+		        Income: 31217,
+		        LifeExpectancy: 80,
+		        Population: 61
+		    }];
+		    $(document).one("wijappviewpageinit", function () {
+		        $("#wijbubblechart").wijbubblechart("beginUpdate");
+		        $("#wijbubblechart").wijbubblechart({
+		            dataSource: data,
+		            seriesList: [{
+		                data: {
+		                    x: { bind: "Income" },
+		                    y: { bind: "LifeExpectancy" },
+		                    y1: { bind: "Population" }
+		                }
+		            }, {
+		                isTrendline: true,// when adding a trendline, its value should be set to true. Otherwise, it would be considered as other charts.
+		                order: 4,//it defines the number of terms in polynom equation
+		                data: {
+		                    x: { bind: "Income" },// binding 'x' axis to the 'Income' property
+		                    y: { bind: "LifeExpectancy" }// binding 'y' axis to the 'LifeExpectancy' property
+		                }
+		            }],
+		            axis: {
+		                y: {
+		                    text: "Life Expectancy",
+		                    labels: {
+		                        textAlign: "far"
+		                    }
+		                },
+		                x: {
+		                    text: "Income",
+		                    tickMajor: {
+		                        position: "inside"
+		                    },
+		                    labels: {
+		                        textAlign: "near"
+		                    }
+		                }
+		            },
+		            legend: {
+		                visible: false
+		            },
+		            hint: {
+		                content: function () {
+		                    return this.data.label + " \n"
+                                + "Life Expectency: " + this.y + "\n"
+                                + "Income: " + Globalize.format(this.x, "n") + "\n"
+                                + "Population: " + this.data.y1 + "M";
+		                },
+		                style: {
+		                    stroke: "#000",
+		                    "stroke-width": 10
+		                }
+		            },
+		            header: {
+		                text: "Wealth & Health of Nations - 2010"
+		            }
+		        });
+		        $("#wijbubblechart").wijbubblechart("endUpdate");
+		    });
+		    function changeProperties() {
+		        var fitType = $("#selFitType").val(),
+                    sampleCount = parseInt($("#inpSampleCount").val()),
+                    order = parseInt($("#inpOrder").val());
+
+		        $("#wijbubblechart").wijbubblechart("option", "seriesList", [{
+		            data: {
+		                x: { bind: "Income" },
+		                y: { bind: "LifeExpectancy" },
+		                y1: { bind: "Population" }
+		            }
+		        }, {
+		            isTrendline: true,// when adding a trendline, its value should be set to true. Otherwise, it would be considered as other charts.
+		            fitType: fitType,//it specifies the fit type of the trendline. There are 11 kinds. Its default value is "polynom".
+		            sampleCount: sampleCount,// it specifies the sample count for function calculation
+		            order: order,//it defines the number of terms in polynom equation
+		            data: {
+		                x: { bind: "Income" },// binding 'x' axis to the 'Income' property
+		                y: { bind: "LifeExpectancy" }// binding 'y' axis to the 'LifeExpectancy' property
+		            }
+		        }]);
+		    }
+	</script>
+    </div>
+</div>

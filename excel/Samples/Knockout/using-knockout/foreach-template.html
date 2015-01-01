@@ -1,0 +1,163 @@
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="utf-8">
+    <title>Radial Gauges</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=660">
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+    <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.min.js" type="text/javascript"></script>
+    <!-- Wijmo CSS and script -->
+    <link href="http://cdn.wijmo.com/themes/metro/jquery-wijmo.css" rel="stylesheet" title="metro-jqueryui" type="text/css" />
+    <link href="http://cdn.wijmo.com/jquery.wijmo-pro.all.3.20143.59.min.css" rel="stylesheet" type="text/css" />
+
+    <script src="http://cdn.wijmo.com/jquery.wijmo-open.all.3.20143.59.min.js" type="text/javascript"></script>
+    <script src="http://cdn.wijmo.com/jquery.wijmo-pro.all.3.20143.59.min.js" type="text/javascript"></script>
+
+    <!-- KnockoutJS for MVVM-->
+    <script src="http://cdn.wijmo.com/wijmo/external/knockout-2.2.0.js" type="text/javascript"></script>
+    <script src="http://cdn.wijmo.com/interop/knockout.wijmo.3.20143.59.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        function rando() {
+            return Math.floor(Math.random() * 91);
+        }
+
+        //Create ViewModel
+        var ViewModel = function () {
+            var self = this;
+            self.segment = ko.observable(rando());
+            self.segments = [{ val: rando(), desc: "Has Auto Lease" }, { val: rando(), desc: "Has Portable Game Player" }, { val: rando(), desc: "$1,000,000+..." }, { val: rando(), desc: "Retired" }, { val: rando(), desc: "Is Forgeign National" }, { val: rando(), desc: "Auto Intender..." }];
+
+        };
+
+        var viewModel = new ViewModel();
+        $(document).ready(function () {
+            ko.applyBindings(viewModel);
+
+
+
+        });
+
+    </script>
+    <style type="text/css">
+      body
+      {
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        font-size: 14px;
+      }
+      
+      h1
+      {
+        font-size: 2.4em;
+        color: #fff;
+        padding: 20px 0 0 6px;
+        margin: 0;
+      }
+      h2
+      {
+        font-weight:normal;
+      }
+      h4
+      {
+        text-transform: uppercase;
+        margin:0;
+        padfding:0;
+        }
+      .container
+      {
+        margin: 0 auto;
+        width: 440px;
+        font-size:11px;
+      }
+      
+      .app
+      {
+        overflow: hidden;
+        text-align:center;
+        background: #34a1d9;
+        color:#fff;
+        padding: 20px;
+      }
+      
+      .pane
+      {
+        float: left;
+        position: relative;
+        width:130px;
+        height:140px;
+      }
+      
+      .labeltext
+      {
+        position: absolute;
+        top: 42px;
+        left: 52px;
+        text-align: center;
+        font-size: 16px;
+        width: 20px;
+        font-weight:800;
+      }
+      
+    </style>
+    </head>
+    <body>
+      <div class="container">
+        <h1>Radial Gauges</h1>
+        <div class="app">
+          <div>
+            <h2>Segments</h2>
+            <p>What type of people are the top consumers of your compaigns? What do they like? What do they do?</p>
+            
+            
+            <div class="panes ui-helper-clearfix" data-bind="foreach: segments">
+              <div class="pane">
+                <div data-bind="wijradialgauge: { 
+  ranges: [
+  {
+  startWidth: 10,
+  endWidth: 10,
+  startValue: 0,
+  endValue: 100,
+  startDistance: 0.9,
+  endDistance: 0.9,
+  style: {
+  fill: '#47aadb',
+  stroke: 'none'
+  }
+  },
+  {
+  startWidth: 10,
+  endWidth: 10,
+  startValue: 0,
+  endValue: val,
+  startDistance: 0.9,
+  endDistance: 0.9,
+  style: {
+  fill: '#fff',
+  stroke: 'none'
+  }
+  }],
+  width:100,
+  height:100,
+  startAngle:270,
+  sweepAngle:360,
+  labels: { visible: false },
+  pointer: { visible: false },
+  tickMajor: { visible: false },
+  tickMinor: { visible: false },
+  face: { style: { fill: 'none', stroke: 'none' } }
+  }">
+                    </div>
+                    <div class="labeltext" data-bind="text: val + '%'"></div>
+                    <h4 data-bind="text: desc"></h4>
+                  </div>
+                </div>
+                <p>
+                  Made with <a href="http://knockoutjs.com">KnockoutJS</a>, <a href="http://wijmo.com">Wijmo</a> and based on <a href="http://dribbble.com/shots/670348-Segment-Graphs">this design</a>
+                </p>
+            </div>
+        </div>
+    </body>
+    </html>

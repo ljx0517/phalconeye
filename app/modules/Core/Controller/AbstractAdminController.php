@@ -50,6 +50,11 @@ abstract class AbstractAdminController extends AbstractController
 
         $this->_setupNavigation();
         $this->_setupAssets();
+        $EM=$this->getEventsManager();
+        if($EM){
+        	$EM->fire("assets:after_setupAssets", $this);
+        }
+
     }
 
     /**
@@ -75,7 +80,7 @@ abstract class AbstractAdminController extends AbstractController
                 'prepend' => '<i class="menu-icon glyphicon glyphicon-home"></i>'
             ],
             'users' => [
-                'title' => '<span class="menu-text">Manage</span>',
+                'title' => '<i class="menu-icon glyphicon glyphicon-tasks"></i><span class="menu-text">Manage</span>',
                 'items' => [ // type - dropdown
                     'admin/users' => [
                         'title' => '<span class="menu-text">Users and Roles</span>',
@@ -110,7 +115,7 @@ abstract class AbstractAdminController extends AbstractController
                 ]
             ],
             'settings' => [ // type - dropdown
-                'title' => '<span class="menu-text">Settings</span>',
+                'title' => '<i class="menu-icon glyphicon glyphicon-tower"></i><span class="menu-text">Settings</span>',
                 'items' => [
                     'admin/settings' => [
                         'title' => '<span class="menu-text">System</span>',
@@ -177,12 +182,13 @@ abstract class AbstractAdminController extends AbstractController
      */
     protected function _setupAssets()
     {
-        parent::_setupAssets();
-
+    	parent::_setupAssets();
+		//var_dump($this->assets);exit();
         // Assets setup.
-        $this->assets->set(
-            AssetManager::DEFAULT_COLLECTION_CSS,
-            $this->assets->getEmptyCssCollection()
+        $collection=$this->assets->get(
+            AssetManager::DEFAULT_COLLECTION_CSS);
+        $collection
+            //$this->assets->getEmptyCssCollection()
         		//
         		->addCss('external/pace/1.0.0/themes/white/pace-theme-flash.css')
         		->addCss('external/font-awesome/4.2.0/css/font-awesome.min.css')
@@ -193,8 +199,8 @@ abstract class AbstractAdminController extends AbstractController
                 //->addCss('assets/css/core/admin/main.css')
         		->addCss('assets/css/core/admin/beyond.min.css')
         		->addCss('assets/css/core/admin/admin.css')
-                ->join(false)
-        );
+                ->join(false);
+        //);
 
         $this->assets->get(AssetManager::DEFAULT_COLLECTION_JS)
         	//
@@ -207,15 +213,17 @@ abstract class AbstractAdminController extends AbstractController
             ->addJs('external/bootstrap/plugins/bootstrap-switch/3.3.0/js/bootstrap-switch.min.js')
             ->addJs('external/ckeditor/4.3.2/ckeditor.js');
 
-        if ($this->di->has('profiler')) {
-        	$this->di->get('assets')
-        	->collection(AssetManager::DEFAULT_COLLECTION_CSS)
-        	->addCss('assets/css/core/profiler.css');
+//         if ($this->di->has('profiler')) {
+//         	$this->di->get('assets')
+//         	->collection(AssetManager::DEFAULT_COLLECTION_CSS)
+//         	->addCss('assets/css/core/profiler.css');
 
-        	$this->di->get('assets')
-        	->collection(AssetManager::DEFAULT_COLLECTION_JS)
-        	->addCss('assets/js/core/profiler.js');
-        }
+//         	$this->di->get('assets')
+//         	->collection(AssetManager::DEFAULT_COLLECTION_JS)
+//         	->addCss('assets/js/core/profiler.js');
+//         }
+
+
     }
 
     /**

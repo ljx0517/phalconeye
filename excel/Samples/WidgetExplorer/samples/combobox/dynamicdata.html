@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>ComboBox - Dynamic Data</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="%description%" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="ComponentOne" />
+    
+    <link href="../../../../Themes/rocket/jquery-wijmo.css" rel="stylesheet" type="text/css" />
+    <link href="../../../../css/jquery.wijmo-pro.all.3.20143.59.min.css" rel="stylesheet" type="text/css" />
+    <script src="../../js/require.js" type="text/javascript"></script>
+    <script src="../../js/require.wijmo.config.js" type="text/javascript"></script>
+
+    <script id="scriptInit" type="text/javascript">
+        require(["wijmo.wijcombobox"], function () {
+            $(document).ready(function () {
+                $("#tags").wijcombobox({
+                    data: [{
+                        label: 'c++',
+                        value: 'c++'
+                    }, {
+                        label: 'java',
+                        value: 'java'
+                    }, {
+                        label: 'php',
+                        value: 'php'
+                    }, {
+                        label: 'coldfusion',
+                        value: 'coldfusion'
+                    }, {
+                        label: 'javascript',
+                        value: 'javascript'
+                    }, {
+                        label: 'asp',
+                        value: 'asp'
+                    }, {
+                        label: 'ruby',
+                        value: 'ruby'
+                    }, {
+                        label: 'python',
+                        value: 'python'
+                    }, {
+                        label: 'c',
+                        value: 'c'
+                    }, {
+                        label: 'scala',
+                        value: 'scala'
+                    }, {
+                        label: 'groovy',
+                        value: 'groovy'
+                    }, {
+                        label: 'haskell',
+                        value: 'haskell'
+                    }, {
+                        label: 'perl',
+                        value: 'perl'
+                    }
+                ]});
+            });
+        });
+
+        function setData() {
+            //specifies the underlying data source provider of wijcombobox.
+            $("#tags").wijcombobox("option", "data", [{
+                    label: 'delphi',
+                    value: 'delphi'
+                }, {
+                    label: 'visual studio',
+                    value: 'visual studio'
+                }, {
+                    label: 'flash',
+                    value: 'flash'
+                }]
+            );
+        }
+    </script>
+</head>
+<body class="demo-single">
+    <div class="container">
+        <div class="header">
+            <h2>
+                Remote Data</h2>
+        </div>
+        <div class="main demo">
+            <!-- Begin demo markup -->
+                <input id="tags" style="width: 300px" />
+            <!-- End demo markup -->
+            <div class="demo-options">
+                <!-- Begin options markup -->
+                <input type="button" value="Set Dynamic Data " onclick="setData()" />
+                <!-- End options markup -->
+            </div>
+        </div>
+        <div class="footer demo-description">
+            <p> 
+                This sample shows how to add dynamical data to the combobox.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,160 @@
+.wijmo-wijflipcard {
+	width: 160px;
+	height: 180px;
+}
+
+.wijmo-wijflipcard .wijmo-wijflipcard-panels {
+	position: relative;
+}
+
+.wijmo-wijflipcard .wijmo-wijflipcard-panel {
+	position: absolute;
+	width: 160px;
+	height: 180px;
+	top: 0;
+	left: 0;
+}
+
+.wijmo-wijflipcard .wijmo-wijflipcard-frontpanel {
+	z-index: 2;
+    background-color: #F0F0F0;
+}
+
+.wijmo-wijflipcard .wijmo-wijflipcard-backpanel {
+	background-color: #F0F0F0;
+}
+
+/* default flip css3 animation */
+.wijmo-wijflipcard.wijflip, 
+.wijmo-wijflipcard.wijvflip {
+	-webkit-perspective: 500;
+	-moz-perspective: 500; 
+	-ms-perspective: 500;
+	-o-perspective: 500;
+	perspective: 500;
+	transform: perspective(500px);
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	-o-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+}
+
+.wijmo-wijflipcard.wijvflip .wijmo-wijflipcard-panels {
+	-webkit-transform-origin: 100% 50%;
+	-moz-transform-origin: 100% 50%;
+	-ms-transform-origin: 100% 50%;
+	-o-transform-origin: 100% 50%;
+	transform-origin: 100% 50%;
+}
+
+.wijmo-wijflipcard.wijflip .wijmo-wijflipcard-panels,
+.wijmo-wijflipcard.wijvflip .wijmo-wijflipcard-panels {
+	-webkit-transition: 1s;
+	-moz-transition: 1s;
+	-ms-transition: 1s;
+	-o-transition: 1s;
+	transition: 1s;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	-o-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+}
+
+.wijmo-wijflipcard.wijflip .wijmo-wijflipcard-panel,
+.wijmo-wijflipcard.wijvflip .wijmo-wijflipcard-panel {
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+	-o-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.wijmo-wijflipcard.wijflip.wijflipshowback.nonie .wijmo-wijflipcard-panels {
+	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg); 
+	-ms-transform: rotateY(180deg);
+	-o-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+}
+
+.wijmo-wijflipcard.wijvflip.wijflipshowback.nonie .wijmo-wijflipcard-panels {
+	-webkit-transform: rotateX(180deg);
+	-moz-transform: rotateX(180deg); 
+	-ms-transform: rotateX(180deg);
+	-o-transform: rotateX(180deg);
+	transform: rotateX(180deg);
+}
+
+.wijmo-wijflipcard.wijflip .wijmo-wijflipcard-backpanel
+{
+	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg); 
+	-ms-transform: rotateY(180deg);
+	-o-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+}
+
+.wijmo-wijflipcard.wijvflip .wijmo-wijflipcard-backpanel
+{
+	-webkit-transform: rotateX(180deg);
+	-moz-transform: rotateX(180deg); 
+	-ms-transform: rotateX(180deg);
+	-o-transform: rotateX(180deg);
+	transform: rotateX(180deg);
+
+}
+
+@-moz-document url-prefix() 
+{ 
+    .wijmo-wijflipcard.wijvflip .wijmo-wijflipcard-backpanel,
+    .wijmo-wijflipcard.wijflip .wijmo-wijflipcard-backpanel 
+     {
+        z-index: 3;  
+     }
+}
+
+/* IE */
+.wijmo-wijflipcard.wijflip.ie .wijmo-wijflipcard-panel,
+.wijmo-wijflipcard.wijvflip.ie .wijmo-wijflipcard-panel {
+	-webkit-transition: 1s;
+	-moz-transition: 1s;
+	-ms-transition: 1s;
+	-o-transition: 1s;
+	transition: 1s;
+}
+
+.wijmo-wijflipcard.wijflip.wijflipshowback.ie .wijmo-wijflipcard-backpanel {
+	-webkit-transform: rotateY(0deg);
+	-moz-transform: rotateY(0deg); 
+	-ms-transform: rotateY(0deg);
+	-o-transform: rotateY(0deg);
+	transform: rotateY(0deg);
+}
+
+.wijmo-wijflipcard.wijflip.wijflipshowback.ie .wijmo-wijflipcard-frontpanel {
+	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg); 
+	-ms-transform: rotateY(180deg);
+	-o-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+}
+
+.wijmo-wijflipcard.wijvflip.wijflipshowback.ie .wijmo-wijflipcard-backpanel {
+	-webkit-transform: rotateX(0deg);
+	-moz-transform: rotateX(0deg); 
+	-ms-transform: rotateX(0deg);
+	-o-transform: rotateX(0deg);
+	transform: rotateX(0deg);
+}
+
+.wijmo-wijflipcard.wijvflip.wijflipshowback.ie .wijmo-wijflipcard-frontpanel {
+	-webkit-transform: rotateX(180deg);
+	-moz-transform: rotateX(180deg); 
+	-ms-transform: rotateX(180deg);
+	-o-transform: rotateX(180deg);
+	transform: rotateX(180deg);
+}
+/* IE */
+/* end of default flip css3 animation */

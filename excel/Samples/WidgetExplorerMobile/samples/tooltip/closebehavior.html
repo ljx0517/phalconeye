@@ -1,0 +1,30 @@
+<div data-role="appviewpage" data-title="Close Behavior">
+    <div data-role="content">
+            <!-- Begin demo markup -->
+            <h3 id="tooltip" class="ui-helper-reset ui-widget-header ui-corner-all" style="padding: 1em;">
+                <a href="#" data-role="wijtooltip" data-options="{triggers: 'click'}" title="tooltip">Anchor</a>
+            </h3>
+            <!-- End demo markup -->
+            <div class="demo-options">
+                <!-- Begin options markup -->
+                <label>
+                    Close Behavior</label>
+                <select id="closeBehavior">
+                    <option value="auto">auto</option>
+                    <option value="none">none</option>
+                    <option value="sticky">sticky</option>
+                </select>
+                <!-- End options markup -->
+            </div>
+        <script id="scriptInit" type="text/javascript">
+            $(document).one('wijappviewpageinit', function () {
+                $("#closeBehavior").change(function () {
+                    $("#tooltip>a").wijtooltip("option", "closeBehavior", this.value);
+                });
+
+            });
+       
+        
+        </script>
+    </div>
+</div>

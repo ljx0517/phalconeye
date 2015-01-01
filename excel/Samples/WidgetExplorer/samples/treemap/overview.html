@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>TreeMap - Overview</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="%description%" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="ComponentOne" />
+
+    <link href="../../../../Themes/rocket/jquery-wijmo.css" rel="stylesheet" type="text/css" />
+    <link href="../../../../css/jquery.wijmo-pro.all.3.20143.59.min.css" rel="stylesheet" type="text/css" />
+    <script src="../../js/require.js" type="text/javascript"></script>
+    <script src="../../js/require.wijmo.config.js" type="text/javascript"></script>
+
+    <script id="scriptInit" type="text/javascript">
+        require(["wijmo.wijtreemap", "wijmo.wijtooltip"], function () {
+            $(document).ready(function () {
+                $("#treemap").wijtreemap({
+                    showTooltip: true,
+                    labelFormatter: function() {
+                        return "Country: " + this.label + "<br/> GDP: " + this.value + " $BN";
+                    },
+                    data: [{
+                        label: "North America",
+                        value: 18625,
+                        items: [{
+                            label: "United States",
+                            value: 16800
+                        },{
+                            label: "Canada",
+                            value: 1825
+                        }]
+                    }, {
+                        label: "Asia",
+                        value: 18934,
+                        items: [{
+                            label: "China",
+                            value: 9240
+                        },{
+                            label: "Japan",
+                            value: 4901
+                        },{
+                            label: "India",
+                            value: 1876
+                        },{
+                            label: "South Korea",
+                            value: 1304
+                        },{
+                            label: "Indonesia",
+                            value: 868
+                        },{
+                            label: "Saudi Arabia",
+                            value: 745
+                        }]
+                    }, {
+                        label: "Europe",
+                        value: 16685,
+                        items: [{
+                            label: "Germany",
+                            value: 3634
+                        },{
+                            label: "France",
+                            value: 2734
+                        },{
+                            label: "United Kingdom",
+                            value: 2522
+                        },{
+                            label: "Russia",
+                            value: 2096
+                        },{
+                            label: "Italy",
+                            value: 2071
+                        },{
+                            label: "Spain",
+                            value: 1358
+                        },{
+                            label: "Turkey",
+                            value: 820
+                        },{
+                            label: "Netherlands",
+                            value: 800
+                        },{
+                            label: "Switzerland",
+                            value: 650
+                        }]
+                    }, {
+                        label: "South America",
+                        value: 4554,
+                        items: [{
+                            label: "Brazil",
+                            value: 2245
+                        },{
+                            label: "Mexico",
+                            value: 1260
+                        },{
+                            label: "Argentina",
+                            value: 611
+                        },{
+                            label: "Venezuela",
+                            value: 438
+                        }]
+                    }, {
+                        label: "Australasia & Oceania",
+                        value: 1742,
+                        items: [{
+                            label: "Australia",
+                            value: 1560
+                        },{
+                            label: "New Zealand",
+                            value: 182
+                        }]
+                    }, {
+                        label: "Africa",
+                        value: 872,
+                        items: [{
+                            label: "Nigeria",
+                            value: 522
+                        },{
+                            label: "South Africa",
+                            value: 350
+                        }]
+                    }]
+                });
+            });
+
+            $("input:radio").change(function() {
+                $("#treemap").wijtreemap("option", "type", this.value);
+            });
+        });
+
+    </script>
+</head>
+<body class="demo-single">
+    <div class="container">
+        <div class="header">
+            <h2>
+                Overview</h2>
+        </div>
+        <div class="main demo">
+            <!-- Begin demo markup -->
+            <div id="treemap" style="width:95%;height: 600px;"></div>
+            <!-- End demo markup -->
+            <div class="demo-options">
+                <!-- Begin options markup -->
+                type: 
+                <input type="radio" id="squarified" value="squarified" checked="checked" name="type"/><label for="squarified">squarified</label>
+                <input type="radio" id="horizontal" value="horizontal" name="type" /><label for="horizontal">horizontal</label>
+                <input type="radio" id="vertical" value="vertical" name="type" /><label for="vertical">vertical</label>
+                <!-- End options markup -->
+            </div>
+        </div>
+        <div class="footer demo-description">
+            <p>The Wijmo TreeMap widget displays hierarchical data as a set of nested rectangles where the area of each rectangle is proportional to its value.</p>
+            <p>Data Source is list by the World Bank (2013) on 
+                <a target="_blank" href="http://en.wikipedia.org/wiki/List_of_countries_by_GDP_%28nominal%29">Wikipedia</a> </p>
+        </div>
+    </div>
+</body>
+</html>

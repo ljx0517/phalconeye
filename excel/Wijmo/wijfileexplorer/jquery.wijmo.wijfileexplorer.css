@@ -1,0 +1,424 @@
+.wijmo-wijtilelist .wijmo-wijtilelist-list .wijmo-wijtilelist-item
+{
+	list-style: none;
+	float: left;
+	margin-right: 0.5em;
+	margin-bottom: 0.5em;
+	text-align: center;
+    border-style: none !important;
+}
+
+.wijmo-wijtilelist .wijmo-wijtilelist-list .wijmo-wijtilelist-link
+{
+	color: #000;
+	width: 90px;
+	height: 100px;
+	display: block;
+    text-decoration: none;
+	*word-wrap: break-word;
+	-webkit-transition: all 0.222s ease-in-out;
+	-moz-transition: all 0.222s ease-in-out;
+	-o-transition: all 0.222s ease-in-out;
+	-ms-transition: all 0.222s ease-in-out;
+	transition: all 0.222s ease-in-out;
+    outline:none;
+}
+
+.wijmo-wijtilelist .wijmo-wijtilelist-list .wijmo-wijtilelist-iconcontainer
+{
+    height: 48px;
+	padding: 1em 1em 0.4em 0;
+	margin: 0 1em;
+    line-height: 48px;
+}
+
+.wijmo-wijtilelist .wijmo-wijtilelist-list .wijmo-wijtilelist-iconcontainer .ui-icon
+{
+    margin: 20px 20px 0;
+}
+
+.wijmo-wijtilelist .wijmo-wijtilelist-list img
+{
+    max-width: 48px;
+    max-height: 48px;
+    vertical-align: bottom;
+}
+
+.wijmo-wijtilelist .wijmo-wijtilelist-list .wijmo-wijtilelist-content
+{
+	-ms-word-break: break-all;
+	word-break: break-all;
+	-ms-word-wrap: break-word;
+	word-wrap: break-word;
+	white-space: normal;
+}
+
+.wijmo-wijtilelist *{
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	-ms-box-sizing: content-box;
+	box-sizing: content-box;
+}
+
+.wijmo-wijtilelist .wijmo-wijtilelist-pager
+{
+	padding-bottom: 0.5em;
+	padding-top: 1em;
+}
+
+.wijmo-wijfileexplorer
+{
+	position: relative;
+    height: 400px;
+}
+
+.wijmo-wijfileexplorer .wijmo-wijfileexplorer-contentcontainer
+{
+	white-space: nowrap;
+}
+
+/* loading overlay */
+.wijmo-wijfileexplorer-overlay
+{
+	z-index: 99;
+}
+
+.wijmo-wijfileexplorer-loadingtext
+{
+	position: absolute;
+	opacity: 1;
+	z-index: 100;
+	padding: 0.4em;
+	font-size: 20px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.25);
+}
+
+.wijmo-wijfileexplorer .wijmo-wijfileexplorer-loadingtext .ui-icon
+{
+	display: inline-block;
+	margin-right: 0.4em;
+	text-indent: 0px; /* IE7 workaround */
+}
+
+.wijmo-wijfileexplorer .ui-icon,
+.wijmo-wijfileexplorer .ui-widget .ui-icon 
+{
+    background-image: url('images/wijfileexplorer/fileexplorer.png')!important;
+}
+
+.wijmo-wijfileexplorer .ui-icon
+{
+    width: 22px;
+    height: 16px;
+    display: block;
+    font-family: Arial;
+    content: none;
+}
+
+.wijmo-wijfileexplorer .ui-icon:before 
+{
+    content: "";
+}
+
+/* toolbar */
+.wijmo-wijfileexplorer .wijmo-wijfileexplorer-toolbar 
+{
+    width: 100%;
+    border: none;
+}
+
+.wijmo-wijfileexplorer .wijmo-wijfileexplorer-toolbar .ui-corner-all
+{
+    float: left;
+    padding: 1em;
+    border-radius: 0;
+}
+
+.wijmo-wijfileexplorer .wijmo-wijfileexplorer-toolbar .wijmo-wijfileexplorer-back
+{
+    padding-right: 0.3em;
+    border-right-width: 0;
+}
+
+.wijmo-wijfileexplorer .wijmo-wijfileexplorer-toolbar .wijmo-wijfileexplorer-forward
+{
+    padding-left: 0.3em;
+    border-left-width: 0;
+}
+
+.wijmo-wijfileexplorer .wijmo-wijfileexplorer-toolbar .wijmo-wijfileexplorer-back .ui-icon
+{
+    background-position: 0 -16px;
+    width: 16px;
+}
+
+.wijmo-wijfileexplorer .wijmo-wijfileexplorer-toolbar .wijmo-wijfileexplorer-forward .ui-icon
+{
+    background-position: -16px -16px;
+    width:16px;
+}
+
+.wijmo-wijfileexplorer .wijmo-wijfileexplorer-toolbar .wijmo-wijfileexplorer-open .ui-icon
+{
+    background-position: 0 0;
+}
+
+.wijmo-wijfileexplorer .wijmo-wijfileexplorer-toolbar .wijmo-wijfileexplorer-refresh .ui-icon
+{
+    background-position: -22px 0;
+}
+
+.wijmo-wijfileexplorer .wijmo-wijfileexplorer-toolbar .wijmo-wijfileexplorer-newfolder .ui-icon
+{
+    background-position: -44px 0;
+}
+
+.wijmo-wijfileexplorer .wijmo-wijfileexplorer-toolbar .wijmo-wijfileexplorer-delete .ui-icon
+{
+    background-position: -66px 0;
+}
+
+.wijmo-wijfileexplorer .wijmo-wijfileexplorer-toolbar .wijmo-wijfileexplorer-grid .ui-icon
+{
+    background-position: -88px 0;
+}
+
+.wijmo-wijfileexplorer .wijmo-wijfileexplorer-toolbar .wijmo-wijfileexplorer-thumbnail .ui-icon
+{
+    background-position: -110px 0;
+}
+
+/*.wijmo-wijfileexplorer .wijmo-wijfileexplorer-toolbar .wijmo-wijfileexplorer-uploader .ui-icon
+{
+    background-position: -132px 0;
+}*/
+
+/* address bar */
+.wijmo-wijfileexplorer .wijmo-wijfileexplorer-addressbar
+{
+    position: relative;
+    background: #fff;
+    border-top-style: none;
+    border-bottom-style: none;
+    margin: 0px;
+}
+
+.wijmo-wijfileexplorer .wijmo-wijfileexplorer-address
+{
+	overflow-x: hidden;
+	-ms-text-overflow: ellipsis;
+	-o-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+}
+
+.wijmo-wijfileexplorer .wijmo-wijfileexplorer-address,
+.wijmo-wijfileexplorer .wijmo-wijfileexplorer-filter
+{
+    height: 22px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+	margin: 0px;
+}
+
+.wijmo-wijfileexplorer .wijmo-wijfileexplorer-addressbar .wijmo-wijfileexplorer-addressbar-fullwidth
+{
+    width: 100%;
+    border: none;
+}
+
+.wijmo-wijfileexplorer .wijmo-wijfileexplorer-addresspanel
+{
+    float:left;
+    width: 100%;
+    border: none;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border-right:250px solid rgba(0, 0, 0, 0.00);
+    padding: 0.2em;
+}
+
+.wijmo-wijfileexplorer .wijmo-wijfileexplorer-filterpanel
+{
+    float: right;
+    margin-left:-250px;
+    width:250px;
+    border: none;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0.2em;
+}
+
+.wijmo-wijfileexplorer .wijmo-wijfileexplorer-address
+{
+    width: 100%;
+}
+
+.wijmo-wijfileexplorer .wijmo-wijfileexplorer-filter
+{   
+    background: url('images/wijfileexplorer/search.png') right center no-repeat;
+    width: 100%;
+}
+
+/* file tree */
+.wijmo-wijfileexplorer .wijmo-wijfileexplorer-filetree
+{
+    border: none;
+}
+
+.wijmo-wijfileexplorer .wijmo-wijfileexplorer-filetree .wijmo-wijtree-node
+{
+    padding: 0px;
+}
+
+.wijmo-wijfileexplorer-hiddenfiletree
+{
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px,1px,1px,1px);
+}
+
+.wijmo-wijfileexplorer .ui-icon-triangle-1-e 
+{
+    width: 16px;
+    background-position: -32px -16px;
+}
+
+.wijmo-wijfileexplorer .ui-icon-triangle-1-se 
+{
+    width: 16px;
+    background-position: -48px -16px;
+}
+
+.wijmo-wijfileexplorer .ui-icon-folder-collapsed 
+{
+    width: 16px;
+    background-position: -64px -16px;
+    float: left;
+}
+
+.wijmo-wijfileexplorer .ui-icon-folder-open
+{
+    width: 16px;
+    background-position: -80px -16px;
+}
+
+.wijmo-wijfileexplorer .ui-icon-clock
+{
+    width: 16px;
+    background-position: -160px -16px;
+}
+
+/* splitter */
+
+/* splitter bar */
+.wijmo-wijfileexplorer .wijmo-wijsplitter-v-panel1-content,
+.wijmo-wijfileexplorer .wijmo-wijsplitter-v-panel2-content
+{
+    overflow-x: hidden !important;
+}
+
+.wijmo-wijfileexplorer .wijmo-wijsplitter-v-bar
+{
+    border-style: none;
+    width: 0px;
+}
+
+.wijmo-wijfileexplorer .wijmo-wijsplitter-v-bar .wijmo-wijsplitter-v-expander
+{
+    top: 0px !important;
+    background: none;
+    border-style: none;
+    width: 27px;
+    padding: 0px;
+    left: 0px;
+    border-radius: 0px;
+    margin-left: 0px;
+}
+
+.wijmo-wijfileexplorer .wijmo-wijsplitter-v-bar .wijmo-wijsplitter-v-panel1-expanded
+{
+    margin-left: -27px;
+}
+
+.wijmo-wijfileexplorer .wijmo-wijsplitter-v-expander .ui-icon
+{
+    margin-left: 0px;
+    width: 27px;
+    height: 27px;
+    border-radius: 0;
+}
+
+.wijmo-wijfileexplorer .wijmo-wijsplitter-v-expander .ui-icon-triangle-1-w 
+{
+    background-position: 0px -32px;
+}
+
+.wijmo-wijfileexplorer .wijmo-wijsplitter-v-expander .ui-icon-triangle-1-e 
+{
+    background-position: -27px -32px;
+}
+
+/* grid view */
+.wijmo-wijfileexplorer .ui-icon-document
+{
+    float: left;
+}
+
+.wijmo-wijfileexplorer .wijmo-wijgrid .ui-icon-triangle-1-s
+{
+    width: 16px;
+    background-position: -96px -16px;
+}
+
+.wijmo-wijfileexplorer .wijmo-wijgrid .ui-icon-triangle-1-n
+{
+    width: 16px;
+    background-position: -112px -16px;
+}
+
+.wijmo-wijfileexplorer .wijmo-wijgrid .ui-icon-document
+{
+    width: 16px;
+    background-position: -144px -16px;
+}
+
+.wijmo-wijfileexplorer .wijmo-wijgrid .wijdata-type-string 
+{
+	text-align: left;
+}
+
+/* focused style */
+.wijmo-wijfileexplorer .wijmo-wijfileexplorer-addressbar.ui-state-focus
+{
+    border-top-style: solid;
+    border-bottom-style: solid;
+}
+.wijmo-wijfileexplorer .wijmo-wijsplitter-v-panel1-content.ui-state-focus
+{
+    background: none;
+}
+.wijmo-wijfileexplorer .wijmo-wijsplitter-v-panel2-content.ui-state-focus
+{
+    background: none;
+}
+.wijmo-wijfileexplorer .wijmo-wijfileexplorer-pager.ui-state-focus
+{
+    background: none;
+}
+
+/*Others*/
+.wijmo-wijfileexplorer .wijmo-wijfileexplorer-itemsviewcontainer
+{
+    overflow-y: auto;
+    overflow-x: auto;
+    width: 100%;
+}
+
+.wijmo-wijfileexplorer .wijmo-wijfileexplorer-emptyfoldertip
+{
+    text-align: center;
+    width: 100%;
+}

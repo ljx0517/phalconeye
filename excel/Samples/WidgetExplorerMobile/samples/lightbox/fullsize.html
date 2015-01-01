@@ -1,0 +1,22 @@
+<div data-role="appviewpage">
+    <div data-role="header">
+        <a href="index.html" data-icon="back">Back</a>
+        <h2>
+            Full Size</h2>
+    </div>
+    <div data-role="content">
+        <!-- Begin demo markup -->
+        <a id="lightbox" href="http://lorempixel.com/1600/1200/sports/1" rel="wijlightbox;player=img">
+            <img src="http://lorempixel.com/150/125/sports/1" title="Sports 1" alt="Sports 1" /></a>
+        <script type="text/javascript">
+            $(document).one('wijappviewpageinit', function () {
+                $("#lightbox").wijlightbox({
+                    textPosition: 'titleOverlay',
+                    modal: true,
+                    closeOnEscape: true,
+                    dialogButtons: 'close|fullSize'
+                });
+            });
+        </script>
+    </div>
+</div>

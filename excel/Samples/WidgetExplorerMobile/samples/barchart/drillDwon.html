@@ -1,0 +1,83 @@
+<div data-role="appviewpage" data-title="Drill Down">
+	<div data-role="content">
+		<div id="wijbarchart" data-role="wijbarchart" style="width: 100%; height: 400px">
+		</div>
+		<script type="text/javascript">
+			$(document).one("wijappviewpageinit", function () {
+				var drillDwonData =
+			{
+				MSIE: {
+					label: "MSIE",
+					legendEntry: true,
+					data: { x: ['MSIE 6.0', 'MSIE 7.0', 'MSIE 8.0', 'MSIE 9.0'], y: [0.1085, 0.0735, 0.3306, 0.0281] }
+				},
+				Firefox: {
+					label: "Firefox",
+					legendEntry: true,
+					data: { x: ['Firefox 2.0', 'Firefox 3.0', 'Firefox 3.5', 'Firefox 3.6', 'Firefox 4.0'], y: [0.002, 0.0083, 0.0158, 0.1312, 0.0543] }
+				},
+				Chrome: {
+					label: "Chrome",
+					legendEntry: true,
+					data: { x: ['Chrome 5.0', 'Chrome 6.0', 'Chrome 7.0', 'Chrome 8.0', 'Chrome 9.0', 'Chrome 10.0', 'Chrome 11.0', 'Chrome 12.0', ], y: [0.0012, 0.0019, 0.0012, 0.0036, 0.0032, 0.0991, 0.005, 0.0022] }
+				},
+				Safari: {
+					label: "Safari",
+					legendEntry: true,
+					data: { x: ['Safari 5.0', 'Safari 4.0', 'Safari Win 5.0', 'Safari 4.1', 'Safari/Maxthon', 'Safari 3.1', 'Safari 4.1'], y: [0.0455, 0.0142, 0.0023, 0.0021, 0.0020, 0.0019, 0.0014]
+					}
+				},
+				Opera: {
+					label: "Opera",
+					legendEntry: true,
+					data: { x: ['Opera 9.x', 'Opera 10.x', 'Opera 11.x'], y: [0.0032, 0.0037, 0.0165] }
+				}
+			},
+			seriesList = [{
+				label: "Browser brands",
+				legendEntry: true,
+				data: { x: ['MSIE', 'Firefox', 'Chrome', 'Safari', 'Opera'], y: [0.5511, 0.2163, 0.1194, 0.0715, 0.0214]}
+			}];
+
+				var drawBrands = function (e, data) {
+					$("#wijbarchart").wijbarchart("option", "click", drawVersions);
+					$("#wijbarchart").wijbarchart("option", "seriesList", seriesList);
+
+				}
+
+				var drawVersions = function (e, data) {
+					var key = data.x, series = drillDwonData[key];
+					$("#wijbarchart").wijbarchart("option", "click", drawBrands);
+					$("#wijbarchart").wijbarchart("option", "seriesList", [series]);
+
+				}
+				$("#wijbarchart").wijbarchart("beginUpdate");
+				$("#wijbarchart").wijbarchart({
+					horizontal: false,
+					axis: {
+						y: {
+							text: "Total Hardware",
+							annoFormatString: "p0"
+						},
+						x: {
+							text: ""
+						}
+					},
+					//                hint: {
+					//                    content: function() {
+					//                        return this.data.label + '\n ' + this.y + '';
+					//                       },
+					//					enabled: false
+					//                },
+					header: {
+						text: "Hardware Distribution"
+					},
+					seriesList: seriesList,
+					chartLabelFormatString: "p2",
+					click: drawVersions
+				});
+				$("#wijbarchart").wijbarchart("endUpdate");
+			});
+		</script>
+	</div>
+</div>

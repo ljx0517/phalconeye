@@ -1,0 +1,28 @@
+<div data-role="appviewpage">
+    <div data-role="header">
+        <a href="index.html" data-icon="back">Back</a>
+        <h2>
+            Full Split</h2>
+    </div>
+    <div data-role="content">
+        <!-- Begin demo markup -->
+        <div id="splitter" data-role="wijsplitter">
+            <div>
+                Panel 1
+            </div>
+            <div>
+                Panel 2
+            </div>
+        </div>
+        <!-- End demo markup -->
+        <div class="demo-options">
+            <!-- Begin options markup -->
+            <!-- End options markup -->
+        </div>
+        <script id="script1" type="text/javascript">
+            $(document).one('wijappviewpageinit', function () {
+                $("#splitter").wijsplitter({ orientation: "vertical", fullSplit: true });
+            });
+        </script>
+    </div>
+</div> 

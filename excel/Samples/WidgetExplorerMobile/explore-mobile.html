@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Explore</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!--jQuery References-->
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js" type="text/javascript"></script>
+
+    <!--Theme-->
+    <link href="http://cdn.wijmo.com/themes/1.4.0/moonlight-mobile/jquery-wijmo.css" rel="stylesheet" />
+
+    <!--Wijmo Widgets CSS-->
+    <link href="http://cdn.wijmo.com/jquery.wijmo-pro.all.3.20143.59.min.css" rel="stylesheet" type="text/css" />
+
+    <!--Wijmo Widgets JavaScript-->
+    <script src="http://cdn.wijmo.com/jquery.wijmo-open.all.3.20143.59.min.js" type="text/javascript"></script>
+    <script src="http://cdn.wijmo.com/jquery.wijmo-pro.all.3.20143.59.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(document).bind("wijappviewpageload", function (e, data) {
+                var page = data.page,
+                    title = page.jqmData("title"),
+                    url = page.data("url");
+                if (url.match(/index.html$/)) {
+                    return;
+                }
+                // add a header if absent
+                if (title && !page.find(":jqmData(role=header)").length) {
+                    $('<div data-role="header"/>')
+                        .append($('<a data-icon="back">Back</a>').attr({
+                            // make it absolute for IE7
+                            href: $.mobile.path.makeUrlAbsolute("index.html", url)
+                        }))
+                        .append($("<h2/>").text(title))
+                        .prependTo(page);
+                }
+            });
+        });
+    </script>
+    <style type="text/css">
+        .v3-adaptive img
+        {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div data-role="page" data-theme="b">
+        <div data-role="wijappview">
+            <div data-role="appviewpage">
+                <div data-role="header">
+                    <h2>Explore Mobile Wijmo</h2>
+                    <a data-appviewpage="false" href="http://wijmo.com/downloads/">Get Wijmo</a>
+                </div>
+                <div data-role="content">
+                    <div class="v3-adaptive">
+                        <div class="padder ui-helper-clearfix">
+                            <img src="http://wijmo.com/files/img/v3-infographic_green.png"><h3>One set of widgets, for both mobile and web</h3>
+                            <p class="adaptive-paragraph">Meet the new Adaptive Widget framework from Wijmo. All of our widgets will automatically adapt to jQuery Mobile or jQuery UI environments. Simply by swapping out  jQuery UI for jQuery Mobile, you can convert your widgets to be mobile without changing a single line of code! That's right, Wijmo v3 supports both jQuery UI and jQuery Mobile including both Themerollers and Themes. Wijmo is offering something that no other tool can: a set of widgets that automatically adapts to its environment.</p>
+                            <img class="adaptive-spread" src="http://wijmo.com/files/img/adaptive-spread.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-role="menu" class="ui-body-a">
+                <ul data-role="wijlistview" data-theme="a">
+                    <li><a href="samples/accordion/index.html">Accordion</a></li>
+                    <li><a href="samples/appview/index.html">App View</a></li>
+                    <li><a href="samples/barchart/index.html">Bar Chart</a></li>
+                    <li><a href="samples/bubblechart/index.html">Bubble Chart</a></li>
+                    <li><a href="samples/calendar/index.html">Calendar</a></li>
+                    <li><a href="samples/candlestickchart/index.html">Candlestick Chart</a></li>
+                    <!--<li><a href="samples/carousel/index.html">Carousel</a></li>-->
+                    <li><a href="samples/combobox/index.html">Combobox</a></li>
+                    <li><a href="samples/compositechart/index.html">Composite Chart</a></li>
+                    <!--<li><a href="samples/datepager/index.html">Date pager</a></li>-->
+                    <!--<li><a href="samples/editor/index.html">Editor</a></li>-->
+                    <li><a href="samples/eventscalendar/index.html">Events Calendar</a></li>
+                    <li><a href="samples/expander/index.html">Expander</a></li>
+                    <li><a href="samples/flipcard/index.html">FlipCard</a></li>
+                    <!--<li><a href="samples/formdecorator/index.html">Formdecorator</a></li>-->
+                    <!--<li><a href="samples/gallery/index.html">Gallery</a></li>-->
+                    <li><a href="samples/grid/index.html">Grid</a></li>
+                    <!--<li><a href="samples/inputdate/index.html">Input Date</a></li>-->
+                    <!--<li><a href="samples/inputmask/index.html">Input Mask</a></li>-->
+                    <!--<li><a href="samples/inputnumber/index.html">Input Number</a></li>-->
+                    <!--<li><a href="samples/lightbox/index.html">LightBox</a></li>-->
+                    <li><a href="samples/linechart/index.html">Line Chart</a></li>
+                    <li><a href="samples/lineargauge/index.html">Linear Gauge</a></li>
+                    <li><a href="samples/list/index.html">List</a></li>
+                    <li><a href="samples/listview/index.html">List View</a></li>
+                    <!--<li><a href="samples/menu/index.html">Menu</a></li>-->
+                    <li><a href="samples/pager/index.html">Pager</a></li>
+                    <li><a href="samples/piechart/index.html">Pie Chart</a></li>
+                    <li><a href="samples/radialgauge/index.html">Radial Gauge</a></li>
+                    <li><a href="samples/rating/index.html">Rating</a></li>
+                    <!--<li><a href="samples/ribbon/index.html">Ribbon</a></li>-->
+                    <li><a href="samples/scatterchart/index.html">Scatter Chart</a></li>
+					<li><a href="samples/sparkline/index.html">Sparkline</a></li>
+                    <!--<li><a href="samples/splitter/index.html">Splitter</a></li>-->
+                    <!--<li><a href="samples/superpanel/index.html">Superpanel</a></li>-->
+                    <li><a href="samples/tabs/index.html">Tabs</a></li>
+                    <li><a href="samples/tooltip/index.html">Tooltip</a></li>
+                    <li><a href="samples/tree/index.html">Tree</a></li>
+                    <li><a href="samples/treemap/index.html">TreeMap</a></li>
+                    <li><a href="samples/wizard/index.html">Wizard</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-208280-14']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+</body>
+</html>

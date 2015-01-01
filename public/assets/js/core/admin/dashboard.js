@@ -31,11 +31,11 @@
         var element = $('[name="debug"]');
 
         element.bootstrapSwitch('size', 'large');
-        element.on('switchChange', function (e, data) {
-            var $this = $(data.el),
-                value = data.value;
+        element.on('switchChange.bootstrapSwitch', function (e, data) {
+            var $this = $(this),
+                value = data;
 
-            root.core.showLoadingStage();
+            //root.core.showLoadingStage();
 
             $.ajax({
                 type: "GET",
@@ -45,7 +45,7 @@
                 },
                 dataType: 'json'
             }).always(function() {
-                root.core.hideLoadingStage();
+                //root.core.hideLoadingStage();
             });
 
         });

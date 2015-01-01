@@ -1,0 +1,27 @@
+<div data-role="appviewpage">
+    <div data-role="header">
+        <a href="index.html" data-icon="back">Back</a>
+        <h2>
+            Flash</h2>
+    </div>
+    <div data-role="content">
+        <!-- Begin demo markup -->
+        <div id="lightbox">
+            <a href="http://cdn.wijmo.com/movies/skip.swf" rel="wijlightbox[stock];width=400;height=300">
+                <img src="http://cdn.wijmo.com/images/happygirl.png" title="Happy Girl" alt="Happy Girl" /></a>
+            <a href="http://cdn.wijmo.com/movies/caveman.swf" rel="wijlightbox[stock];width=520;height=390">
+                <img src="http://cdn.wijmo.com/images/caveman.png" title="Cave Man" alt="Cave Man" /></a>
+            <a href="http://cdn.wijmo.com/movies/old_man.swf" rel="wijlightbox[stock];width=600;height=450">
+                <img src="http://cdn.wijmo.com/images/oldman.png" title="Old Man" alt="Old Man" /></a>
+        </div>
+        <script type="text/javascript">
+            $(document).one('wijappviewpageinit', function () {
+                $("#lightbox").wijlightbox({
+                    controlsPosition: 'outside',
+                    textPosition: 'outside',
+                    showCounter: false
+                });
+            });
+        </script>
+    </div>
+</div>

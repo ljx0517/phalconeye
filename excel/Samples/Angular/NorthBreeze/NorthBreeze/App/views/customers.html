@@ -1,0 +1,38 @@
+<div >
+    <h2>Customers</h2>
+    <div class="row-fluid">
+        <div class="span6">
+            <wij-grid data="mydataView" style="width: 500px;" columns-autogeneration-mode="none" allow-sorting="true" allow-paging="true">
+                <columns>
+                    <column header-text="Company" data-key="CompanyName"></column>
+                    <column header-text="Name" data-key="ContactName"></column>
+                    <column header-text="Country" data-key="Country"></column>
+                </columns>
+            </wij-grid>
+            <p>
+                This View uses a Grid bound to a Wijmo BreezeDataView. The BreezeDataView managages CurrentItem and the editing form is bound to it as well.
+            </p>
+        </div>
+        <div class="span6">
+            <form class="form-horizontal">
+                <!-- We do field-level validation based on the validation rules in the metadata,
+            and twitter bootstrap styles to show invalid fields.  See the breezeinput directive in directives.js -->
+                <breezeinput label="Company Name" ng-model="currentItem.CompanyName"></breezeinput>
+                <breezeinput label="Contact Name" ng-model="currentItem.ContactName"></breezeinput>
+                <breezeinput label="Contact Title" ng-model="currentItem.ContactTitle"></breezeinput>
+                <breezeinput label="Address" ng-model="currentItem.Address"></breezeinput>
+                <breezeinput label="City" ng-model="currentItem.City"></breezeinput>
+                <breezeinput label="Region" ng-model="currentItem.Region"></breezeinput>
+                <breezeinput label="Postal Code" ng-model="currentItem.PostalCode"></breezeinput>
+                <breezeinput label="Country" ng-model="currentItem.Country"></breezeinput>
+                <breezeinput label="Phone" ng-model="currentItem.Phone"></breezeinput>
+                <breezeinput label="Fax" ng-model="currentItem.Fax"></breezeinput>
+                <div style="text-align: center">
+                    <button class="btn" ng-click="reset(currentItem)">Reset Customer</button>
+                    <button class="btn" ng-click="update(currentItem)">Save Customer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

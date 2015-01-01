@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title></title>
+    	<link href="../../../../Themes/aristo/jquery-wijmo.css" rel="stylesheet" type="text/css" />
+	<link href="../../../../Themes/wijmo/jquery.wijmo-open.2.0.0a.css" rel="stylesheet" type="text/css" />
+	<link href="../../../../Wijmo/wijinput/jquery.wijmo.wijinput.css" rel="stylesheet" type="text/css" />
+	<link href="../../../../Wijmo/wijtree/jquery.wijmo.wijtree.css" rel="stylesheet" type="text/css" />
+	<link href="../../../../Wijmo/wijcombobox/jquery.wijmo.wijcombobox.css" rel="stylesheet" type="text/css" />
+	<link href="../../../../Wijmo/wijpropertygrid/jquery.wijmo.wijpropertygrid.css" rel="stylesheet" type="text/css" />
+	<link href="../../../../Wijmo/wijuieditor/jquery.wijmo.wijuieditor.css" rel="stylesheet" type="text/css" />
+	
+	<script src="../../../../Wijmo/external/jquery-1.11.1.min.js" type="text/javascript"></script>
+	<script src="../../../../Wijmo/external/jquery-ui-1.11.0.custom.min.js" type="text/javascript"></script>
+    <script src="../../../../Wijmo/External/globalize.min.js" type="text/javascript"></script>
+	<script src="../../../../Wijmo/External/jquery.mousewheel.min.js" type="text/javascript"></script>
+	<script src="../../../../Wijmo/External/jquery.wijmo-open.2.0.0b1.min.js" type="text/javascript"></script>
+	
+	<script src="../../wijmo/UiEditors/jquery.wijmo.wijuieditor.js" type="text/javascript"></script>
+	<script src="../../wijmo/UiEditors/jquery.wijmo.wijdropdowneditor.js" type="text/javascript"></script>
+	<script src="../../wijmo/UiEditors/jquery.wijmo.wijnumbereditor.js" type="text/javascript"></script>
+	<script src="../../wijmo/UiEditors/jquery.wijmo.wijdatetimeeditor.js" type="text/javascript"></script>
+	<script src="../../wijmo/UiEditors/jquery.wijmo.wijdialogeditor.js" type="text/javascript"></script>
+	<script src="../../wijmo/UiEditors/jquery.wijmo.wijarrayeditor.js" type="text/javascript"></script>
+    <script src="../../wijmo/UiEditors/jquery.wijmo.wijcoloreditor.js" type="text/javascript"></script>
+	<script src="../../wijmo/UiEditors/jquery.wijmo.wijchartstyleeditor.js" type="text/javascript"></script>
+	<script src="../../wijmo/UiEditors/jquery.wijmo.wijcollectioneditor.js" type="text/javascript"></script> 	
+
+	<script src="../../../../Wijmo/wijcombobox/jquery.wijmo.wijcombobox.js" type="text/javascript"></script>
+	<script src="../../../../Wijmo/wijinput/jquery.wijmo.wijinputcore.js" type="text/javascript"></script>
+	<script src="../../../../Wijmo/wijinput/jquery.wijmo.wijinputnumber.js" type="text/javascript"></script>
+	<script src="../../../../Wijmo/wijinput/jquery.wijmo.wijinputdate.js" type="text/javascript"></script>
+	<script src="../../../../Wijmo/wijtree/jquery.wijmo.wijtree.js" type="text/javascript"></script>
+	<script src="../../../../Wijmo/wijpropertygrid/jquery.wijmo.wijpropertygrid.js" type="text/javascript"></script>
+
+	<script src="../chartdesigner/optionconfig.js" type="text/javascript"></script>
+
+    <script src="../../../../Wijmo/External/raphael-min.js" type="text/javascript"></script>
+    <script src="../../../../Wijmo/wijchart/jquery.wijmo.wijchartcore.js" type="text/javascript"></script>
+    <script src="../../../../Wijmo/wijpiechart/jquery.wijmo.wijpiechart.js" type="text/javascript"></script>
+
+    <style type="text/css">
+    .main
+    {
+        width:100%;
+        height:50em;
+        }
+    .main .left
+    {
+        float:left;
+        width:70%;
+        height:100%;
+        }
+     .main .right
+     {
+         float:left;
+         width:29%;
+         height:100%;
+         }
+     .main .left .preview
+     {
+         width:100%;
+         height:25em;
+         }
+      .main .left .code
+      {
+          height:25em;
+          width:100%;          
+          }
+          
+     .main .left .code textarea
+     {
+         width:99%; height:100%; 
+         }                       
+    </style>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            var defaultValue = {};
+            $.each(window.piechartOptions, function (key, value) {
+                defaultValue[key] = value.defaultValue;
+            });
+
+            defaultValue["seriesList"] = [{
+                label: "MacBook Pro",
+                legendEntry: false,
+                data: 46.78,
+                offset: 10
+            }, {
+                label: "iMac",
+                legendEntry: false,
+                data: 23.18,
+                offset: 0
+            }, {
+                label: "MacBook",
+                legendEntry: false,
+                data: 20.25,
+                offset: 0
+            }, {
+                label: "Mac Pro",
+                legendEntry: false,
+                data: 5.41,
+                offset: 0
+            }, {
+                label: "Mac mini",
+                legendEntry: false,
+                data: 3.44,
+                offset: 0
+            }];
+            defaultValue.radius = 150;
+            defaultValue.width = 500;
+            defaultValue.header = { text: "asd" };
+
+            var getChangedValue = function (oldValue, defaultValue) {
+                var newValue = {};
+                if ($.isPlainObject(oldValue)) {
+                    $.each(oldValue, function (key, value) {
+                        var def = defaultValue[key], arrChanged = false, val;
+                        if ($.isPlainObject(value)) {
+                            if (def) {
+                                val = getChangedValue(value, def);
+                                if (!$.isEmptyObject(value) &&
+                                $.isEmptyObject(def)) {
+                                    newValue[key] = val;
+                                }
+                                else if (!$.isEmptyObject(val)) {
+                                    newValue[key] = val;
+                                }
+                            }
+                            else {
+                                newValue[key] = value;
+                            }
+                        }
+                        else if ($.isArray(value)) {
+                            if (value.length === def.length) {
+                                $.each(value, function (i, n) {
+                                    var item;
+                                    if (def[i]) {
+                                        if ($.isPlainObject(def[i]) &&
+                                        $.isPlainObject(n)) {
+                                            item = getChangedValue(n, def[i]);
+                                            if (!$.isEmptyObject(item)) {
+                                                arrChanged = true;
+                                            }
+                                        }
+                                        else if (n !== def[i]) {
+                                            arrChanged = true;
+                                        }
+                                    }
+                                    else {
+                                        arrChanged = true;
+                                    }
+                                });
+                                if (arrChanged) {
+                                    newValue[key] = value;
+                                }
+                            }
+                            else {
+                                newValue[key] = value; 
+                            }
+                        }
+                        else if (def != value) {
+                            newValue[key] = value;
+                        }
+                    });
+                }
+                return newValue;
+            };
+
+            $("#ppg").wijpropertygrid({ optionsDesc: window.piechartOptions,
+                optionsValue: defaultValue,
+                valueChanged: function (event, data) {
+                    var value = data,
+                        $preview = $("#preview");
+
+                    $("#code").text('$("#preview").wijpiechart(' + JSON.stringify(getChangedValue(value, defaultValue)) +
+                    ')');
+
+                    //paint chart
+                    if ($preview.data("wijpiechart")) {
+                        $preview.wijpiechart("beginUpdate")
+                            .wijpiechart(value)
+                            .wijpiechart("endUpdate");
+
+                        return;
+                    }
+
+                    $("#preview").wijpiechart(value);
+                }
+            });
+
+        });
+
+    
+    </script>
+</head>
+<body>
+    <div class="main">
+        <div class="left">
+            <div class="preview" id="preview">                
+            </div>
+            
+            <div class="code">
+                <textarea  id="code" readonly="readonly">            
+                </textarea>
+            </div>
+        </div>
+        <div class="right" id="ppg">
+        </div>
+    </div>
+</body>
+</html>

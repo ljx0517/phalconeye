@@ -1,0 +1,24 @@
+<h4 ng-init="benchmarkView('spreadjs')">SpreadJS</h4>
+
+<p>
+    <b>SpreadJS</b> is an Excel-like control included with Wijmo Professional.
+    It is based on HTML5 and jQuery.
+    <b>SpreadJS</b> supports AngularJS, KnockoutJS, and other popular 
+    frameworks using extensions included with the product.
+</p>
+<p>
+    For more information please visit:
+    <a href="http://wijmo.com/widgets/wijmo-enterprise/spreadjs/">http://wijmo.com/widgets/wijmo-enterprise/spreadjs/
+    </a>
+</p>
+
+<wij-spread class="gridStyle">
+    <wij-spread-sheet title="Sales" data="data">
+        <wij-spread-column binding="id" width="50"></wij-spread-column>
+        <wij-spread-column binding="date" width="100" format="mm-dd-yyyy"></wij-spread-column>
+        <wij-spread-column binding="country" width="100" ></wij-spread-column>
+        <wij-spread-column binding="product" width="140" ></wij-spread-column>
+        <wij-spread-column binding="color" width="140" ></wij-spread-column>
+        <wij-spread-column binding="amount" width="100" format="#,##0.00" ></wij-spread-column>
+    </wij-spread-sheet>
+</wij-spread>

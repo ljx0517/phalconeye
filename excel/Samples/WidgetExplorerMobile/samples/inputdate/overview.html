@@ -1,0 +1,45 @@
+<div data-role="appviewpage" data-title="Input Date - Overview">
+
+	<style type="text/css">
+		#textbox3,
+		#textbox4
+		{
+			width: 240px;
+		}
+	</style>
+
+    <div data-role="content">
+
+        <ul class="ui-helper-reset">
+			<li>
+				<label>dateFormat='T' (Long date pattern)</label>
+				<input type="text" id="textbox1" data-role="wijinputdate" data-options="{ dateFormat: 'T' }"/>
+			</li>
+			<li>
+				<label>
+					dateFormat='d' (Short date pattern)</label>
+				<input type="text" id="textbox2" data-role="wijinputdate" data-options="{ dateFormat: 'd' }"/>
+			</li>
+			<li>
+				<label>
+					dateFormat='g' (General Date & Short Time)
+				</label>
+				<input type="text" id="textbox3" data-role="wijinputdate" data-options="{ dateFormat: 'g' }"/>
+			</li>
+			<li>
+				<label>
+					dateFormat='U' (Universal Date & Long Time)</label>
+				<input type="text" id="textbox4" data-role="wijinputdate" data-options="{ dateFormat: 'U' }"/>
+			</li>
+		</ul>
+
+	    <h6>Options</h6>
+	    <!-- End demo markup -->
+		<div class="footer demo-description">
+			<p>
+				The wijinputdate widget converts an input element into a date/time input tool.</p>
+			<p>
+				The wijinputdate widget also supports the variant date/time format, which is determined by the dateFormat option.</p>
+		</div>
+	</div>
+</div>

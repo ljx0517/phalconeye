@@ -1,0 +1,95 @@
+<div data-role="appviewpage" data-title="ValueLabels">
+	<div data-role="content">
+        <div id="wijcandlestickchartDefault" class="ui-widget ui-widget-content ui-corner-all" style="width: 756px; height: 475px;">
+            </div>
+		<script id="scriptInit" type="text/javascript">
+			$(document).one("wijappviewpageinit", function () {
+				var data = {
+					x: [new Date('12/1/2011'), new Date('12/2/2011'), new Date("12/5/2011"), new Date("12/6/2011"), new Date("12/7/2011")],
+
+					high: [10, 12, 11, 14, 16],
+					low: [7.5, 8.6, 4.4, 4.2, 8],
+					open: [8, 8.6, 11, 6.2, 13.8],
+					close: [8.6, 11, 6.2, 13.8, 15]
+				};
+
+				$("#wijcandlestickchartDefault").wijcandlestickchart({
+					textStyle: {
+						"font-size": "13px",
+						"font-family": '"Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif'
+					},
+					header: {
+						text: "Stock History"
+					},
+					legend: {
+						visible: true,
+						compass: "north",
+						orientation: "horizontal"
+					},
+					hint: {
+						content: function () {
+							return this.label + ' - ' +
+							Globalize.format(this.x, "d") +
+							'\n High:' + this.high +
+							'\n Low:' + this.low +
+							'\n Open:' + this.open +
+							'\n Close:' + this.close;
+						},
+						contentStyle: {
+							"font-size": "12px",
+							"font-family": '"Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif'
+						},
+						style: {
+							fill: "#444444",
+							stroke: "none"
+						}
+					},
+					axis: {
+						x: {
+							textStyle: {
+								"font-weight": "normal"
+							},
+							tickMajor: {
+								position: "outside",//Position tick marks outside of the axis line
+								style: {
+									stroke: "#999999"//Make the tick marks match axis line color
+								}
+							},
+							valueLabels: [{
+								value: new Date('12/1/2011'), text: "Monday"
+							}, {
+								value: new Date('12/2/2011'), text: "Tuesday"
+							}, {
+								value: new Date('12/5/2011'), text: "Wednesday"
+							}, {
+								value: new Date('12/6/2011'), text: "Thursday"
+							}, {
+								value: new Date('12/7/2011'), text: "Friday"
+							}],
+							annoMethod: "valueLabels"
+						},
+						y: {
+							text: "Stock Price",
+							textStyle: {
+								"font-weight": "normal"
+							},
+							alignment: "far"//axis text aligned away from xy intersection
+						},
+					},
+					seriesList: [{
+						label: "MSFT",
+						legendEntry: true,
+						data: data
+					}],
+					seriesStyles: [
+						{
+							highLow: { fill: "rgb(140,140,140)", width: 10 },
+							fallingClose: { fill: "rgb(241,88,84)", width: 40 },
+							risingClose: { fill: "rgb(77,77,77)", width: 40 }
+						}
+					]
+				});
+			});
+    </script>
+	</div>
+</div>

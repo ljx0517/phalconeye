@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Inputdate - Blur On Last Char</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="Blur On Last Char." />
+    <meta name="keywords" content="" />
+    <meta name="author" content="ComponentOne" />
+
+    <link href="../../../../Themes/rocket/jquery-wijmo.css" rel="stylesheet" type="text/css" />
+    <link href="../../../../css/jquery.wijmo-pro.all.3.20143.59.min.css" rel="stylesheet" type="text/css" />
+    <script src="../../js/require.js" type="text/javascript"></script>
+    <script src="../../js/require.wijmo.config.js" type="text/javascript"></script>
+
+    <script id="scriptInit" type="text/javascript">
+        require(["wijmo.wijinputdate", "wijmo.wijinputtext"], function () {
+            $(document).ready(function () {
+                $("#textbox1").wijinputdate({
+                    blurOnLastChar:true
+                });
+                $("#textbox2").wijinputtext({
+                });
+            });
+        });
+    </script>
+</head>
+<body class="demo-single">
+    <div class="container">
+        <div class="header">
+            <h2>
+                Blur On Last Char</h2>
+        </div>
+        <div class="main demo">
+            <!-- Begin demo markup -->
+            <input type="text" id="textbox1" />
+             <input type="text" id="textbox2" />
+            <!-- End demo markup -->
+            <div class="demo-options">
+                <!-- Begin options markup -->
+                <!-- End options markup -->
+            </div>
+        </div>
+        <div class="footer demo-description">
+            <p>
+                This sample demonstrates that when the <b>blurOnLastChar</b> option is set to <b>true</b>,
+                after input finished on the last field, the focus will move to the next control.</p>
+        </div>
+    </div>
+</body>
+</html>

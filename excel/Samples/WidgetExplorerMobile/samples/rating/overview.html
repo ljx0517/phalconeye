@@ -1,0 +1,51 @@
+<div data-role="appviewpage" data-title="Overview">
+    <div data-role="content">
+        <!-- Begin demo markup -->
+        <h4>Select</h4>
+        <div>
+            <select data-role="wijrating" data-options="{iconWidth: 32, iconHeight: 32, icons: {
+					iconsClass: 'wijmo-wijrating-normal-32', hoverIconsClass: 'wijmo-wijrating-hover-32',
+					ratedIconsClass: 'wijmo-wijrating-rated-32'}}">
+                <option value="1">Below Average</option>
+                <option value="2">Average</option>
+                <option selected="selected" value="3">Above Average</option>
+                <option value="4">Awesome</option>
+                <option value="5">Epic</option>
+            </select>
+        </div>
+        <h4>Radio</h4>
+        <div>
+            <div data-role="wijrating" data-options="{iconWidth: 32, iconHeight: 32, icons: {
+					iconsClass: 'wijmo-wijrating-normal-32', hoverIconsClass: 'wijmo-wijrating-hover-32',
+					ratedIconsClass: 'wijmo-wijrating-rated-32'}}">
+                <label for="input1a">
+                    Below Average</label>
+                <input type="radio" id="input1a" value="1" name="rating" data-role="none" />
+                <label for="input2a">
+                    Average</label>
+                <input type="radio" checked="checked" id="input2a" value="2" name="rating" data-role="none" />
+                <label for="input3a">
+                    Above Average</label>
+                <input type="radio" id="input3a" value="3" name="rating" data-role="none" />
+                <label for="input4a">
+                    Awesome</label>
+                <input type="radio" id="input4a" value="4" name="rating" data-role="none" />
+                <label for="input5a">
+                    Epic</label>
+                <input type="radio" id="input5a" value="5" name="rating" data-role="none" />
+            </div>
+        </div>
+        <h4>DIV</h4>
+        <div>
+            <div data-role="wijrating" data-options="{ value: 4, iconWidth: 32, iconHeight: 32, icons: {
+					iconsClass: 'wijmo-wijrating-normal-32', hoverIconsClass: 'wijmo-wijrating-hover-32',
+					ratedIconsClass: 'wijmo-wijrating-rated-32'}}">
+            </div>
+        </div>
+        <!-- End demo markup -->
+        <div class="footer demo-description">
+            <p>The wijrating widget that generates a customizable star rating widget automatically.</p>
+            <p>The widget is based on a set of select options, or radio inputs, or div with widget options. </p>
+        </div>
+    </div>
+</div>

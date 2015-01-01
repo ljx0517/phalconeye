@@ -1,0 +1,61 @@
+﻿<h3>Wijmo Commands</h3>
+
+<p class="text-info">
+    Wijmo menus are easy to use and very flexible. They are based on nested unordered lists of items
+    that can be clicked to trigger events. You can nest menus to any level, provide animations,
+    and much more. All this using clean, simple, standard markup.
+</p>
+
+<p class="text-info">
+    Here is a Wijmo menu with some submenus and empty items (separators).
+</p>
+
+<wij-menu>
+    <li>
+        <a>Navigate</a>
+        <ul>
+            <li><a href="#/home">Home</a></li>
+            <li></li>
+            <li><a href="#/wijmo/input">Input</a></li>
+            <li><a href="#/wijmo/commands">Commands</a></li>
+            <li><a href="#/wijmo/layout">Layout</a></li>
+            <li><a href="#/wijmo/grids">Grid</a></li>
+            <li><a href="#/wijmo/gauges">Gauges</a></li>
+            <li><a href="#/wijmo/charts">Charts</a></li>
+            <li><a href="#/wijmo/docs">Docs</a></li>
+            <li></li>
+            <li>
+                <a>Commands</a>
+                <ul>
+                    <li><a ng-click="say('home')">Home</a></li>
+                    <li><a ng-click="say('input')">Input</a></li>
+                    <li><a ng-click="say('layout')">Layout</a></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a>Commands</a>
+        <ul>
+    
+            <li><a ng-click="say('home')">Home</a></li>
+            <li><a ng-click="say('input')">Input</a></li>
+            <li><a ng-click="say('layout')">Layout</a></li>
+        </ul>
+    </li>
+</wij-menu>
+
+<p />
+<p class="text-info">And here is a simple drop-down:</p>
+<p />
+
+<wij-menu>
+    <li>
+        <a>Airports</a>
+        <ul>
+            <li ng-repeat="ap in airports | limitTo:6" style="white-space: nowrap">
+                <a ng-click="say('Airport: ' + ap.name)"><b>{{ap.code}}</b> - {{ap.name}} <br /><i>{{ap.city}}, {{ap.state}}</i></a>
+            </li>
+        </ul>
+    </li>
+</wij-menu>

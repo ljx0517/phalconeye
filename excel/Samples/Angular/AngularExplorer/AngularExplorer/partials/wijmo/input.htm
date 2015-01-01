@@ -1,0 +1,149 @@
+<h3>Wijmo Input</h3>
+
+<p class="text-info">
+Wijmo has extensive support for input widgets, including a powerful auto-complete/combobox,
+inputdate, inputnumber, inputmask, checkbox, radio, and slider. This page was built using
+directives based on these widgets.
+</p>
+
+<!-- from, to, when -->
+<table>
+    <tr>
+        <td><b>Leaving from:</b></td>
+        <td><b>Departure date:</b></td>
+    </tr>
+    <tr>
+        <td>
+            <!-- REVIEW: wijmo theme not automatically applied to jQueryUI autocomplete? -->
+            <!--<wij-autocomplete value="trip.from" source-fn="acSource" ></wij-autocomplete><br />-->
+            <!-- REVIEW: make combobox data accept a function like the one in jq autocomplete (easy to use, async!!!) -->
+            <!-- REVIEW: wijcombobox directive doesn't work -->
+            <wij-combobox data-source="airports" selected-value="trip.from" style="height:24px">
+                <data>
+                    <label bind="name"></label>
+                    <value bind="code"></value>
+                </data>
+            </wij-combobox>
+        </td>
+        <td>
+            <!-- REVIEW: no hover style on dropdown?? -->
+            <!-- REVIEW: showTrigger is a really bad name, and is not documented!!!! -->
+            <!-- REVIEW: can I select date ranges? (calendar has selectionMode, but it's weird too) -->
+            <!-- REVIEW: two-way bindings should be '=' directive, not '@' (no brackets) -->
+            <wij-inputdate date="trip.departDate" show-trigger="true"></wij-inputdate><br />
+        </td>
+    </tr>
+    <tr>
+        <td><b>Going to:</b></td>
+        <td><b>Return date:</b></td>
+    </tr>
+    <tr>
+        <td>
+            <!--<wij-autocomplete value="trip.to" source-fn="acSource" ></wij-autocomplete><br />-->
+            <!--<wij-combobox data="getComboItems()" selected-value="trip.to" style="height:24px"></!--wij-combobox>-->
+           <wij-combobox data-source="airports" selected-value="trip.to" style="height:24px">
+                <data>
+                    <label bind="name"></label>
+                    <value bind="code"></value>
+                </data>
+            </wij-combobox>
+        </td>
+        <td>
+            <wij-inputdate date="trip.returnDate" min-date="{{trip.departDate}}" show-trigger="true"></wij-inputdate>
+        </td>
+    </tr>
+</table>
+
+<br />
+
+<!-- passenger counts -->
+<table>
+    <tr>
+        <td><b>Adults:</b></td>
+        <td><b>Seniors:</b></td>
+        <td><b>Children:</b></td>
+    </tr>
+    <tr>
+        <!-- REVIEW: camel case should convert to hyphenated (e.g 'minValue' >> 'min-value') -->
+        <!-- REVIEW: no hover style on wijinputnumber spin buttons?? -->
+        <td><wij-inputnumber value="trip.adults" min-value="0" max-value="5" show-spinner="true"></wij-inputnumber></td>
+        <td><wij-inputnumber value="trip.seniors" min-value="0" max-value="5" show-spinner="true"></wij-inputnumber></td>
+        <td><wij-inputnumber value="trip.children" min-value="0" max-value="5" show-spinner="true"></wij-inputnumber></td>
+    </tr>
+    <tr>
+        <!-- REVIEW: no hover style on wijslider buttons?? -->
+        <!-- REVIEW: can't hide the buttons and keep just the slider? -->
+        <td>
+            <h3>
+                <!--<wij-pluralize count="trip.adults" singular="adult"></wij-pluralize>-->
+            </h3>
+            <wij-slider value="trip.adults" max="5" ></wij-slider>
+        </td>
+        <td>
+            <h3>
+                <!--<wij-pluralize count="trip.seniors" singular="senior"></wij-pluralize>-->
+            </h3>
+            <wij-slider value="trip.seniors" max="5" ></wij-slider>
+        </td>
+        <td>
+            <h3>
+                <!--<wij-pluralize count="trip.children" singular="kid"></wij-pluralize>-->
+            </h3>
+            <wij-slider value="trip.children" max="5" ></wij-slider>
+        </td>
+    </tr>
+</table>
+
+<br />
+
+<!-- radio buttons for flight class and checkboxes for extras -->
+<table>
+    <tr>
+        <td><b>Class</b></td>
+        <td><b>Extras</b></td>
+    </tr>
+    <tr>
+        <td>
+            <label><input type="radio" wij-radio name="class" ng-click="setTripClass('economy')" ng-checked="trip.class=='economy'"/> Economy</label>
+            <label><input type="radio" wij-radio name="class" ng-click="setTripClass('business')" ng-checked="trip.class=='business'"/> Business</label>
+            <label><input type="radio" wij-radio name="class" ng-click="setTripClass('first')" ng-checked="trip.class=='first'"/> First</label>
+        </td>
+        <td>
+            <label><input id1="flag1" type="checkbox" wij-checkbox ng-click="toggleTripExtra(1)" ng-checked="getTripExtra(1)"/> Hotel</label>
+            <label><input id1="flag2" type="checkbox" wij-checkbox ng-click="toggleTripExtra(2)" ng-checked="getTripExtra(2)"/> Car</label>
+            <label><input id1="flag4" type="checkbox" wij-checkbox ng-click="toggleTripExtra(4)" ng-checked="getTripExtra(4)"/> Insurance</label>
+        </td>
+    </tr>
+</table>
+
+<p />
+<p />
+
+<div class="alert alert-block" >
+    <h4>Trip Summary</h4>
+
+    <p>
+        Current trip is from <span class="bound">{{trip.from}}</span>, 
+        on <span class="bound">{{trip.departDate | date:'shortDate' }}</span>
+        <br />
+        to <span class="bound">{{trip.to}}</span>,
+        returning on <span class="bound">{{trip.returnDate | date:'shortDate' }}</span>,
+        <br />
+        <span class="bound">
+           and {{ trip.adults + trip.seniors + trip.children }} additional travelers
+        </span>.</p>
+    <p>
+        Class: <span class="bound">{{trip.class}}</span>.
+        <br />
+        Extras: <span class="bound">
+            <span ng-show="getTripExtra(1)">hotel</span>
+            <span ng-show="getTripExtra(2)">car</span>
+            <span ng-show="getTripExtra(4)">insurance</span>
+            <span ng-show="trip.extras == 0">** no extras selected **</span>
+        </span></p>
+    <p>
+        <button class="btn btn-primary" onclick="alert('Sorry, flight Search not implemented.')" 
+            ng-disabled="!trip.from || !trip.to || !trip.departDate || !trip.returnDate || trip.adults + trip.seniors + trip.children == 0">
+            <i class="icon-plane icon-white"></i> Search for flights...
+        </button></p>
+</div>

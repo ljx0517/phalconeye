@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>LineChart - Export</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="%description%" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="ComponentOne" />
+
+    <link href="../../../../Themes/rocket/jquery-wijmo.css" rel="stylesheet" type="text/css" />
+    <link href="../../../../css/jquery.wijmo-pro.all.3.20143.59.min.css" rel="stylesheet" type="text/css" />
+    <script src="../../js/require.js" type="text/javascript"></script>
+    <script src="../../js/require.wijmo.config.js" type="text/javascript"></script>
+
+    <script id="scriptInit" type="text/javascript">
+        require(["wijmo.wijlinechart", "wijmo.wijdropdown", "chartexport"], function () {
+            $(document).ready(function () {
+                $("#wijlinechartDefault").wijlinechart({
+                    textStyle: {
+                        "font-size": "13px",
+                        "font-family": '"Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif'
+                    },
+                    header: {
+                        text: "2010 Sales Revenue"
+                    },
+                    axis: {
+                        y: {
+                            text: "USD (thousands)",
+                            textStyle: {
+                                "font-weight": "normal"
+                            },
+                            min: 0, //Minimum value for axis
+                            max: 4000, //Maximum value for axis
+                            autoMin: false, //Tell the chart not to automatically generate minimum value for axis
+                            autoMax: false, //Tell the chart not to automatically generate maximum value for axis
+                            annoFormatString: 'n0', //Format values on axis as number with 0 decimal places. For example, 4.00 would be shown as 4
+                            alignment: "far", //axis text aligned away from xy intersection
+                            labels: { textAlign: "near" } //Axis labels aligned near axis
+                        },
+                        x: {
+                            textStyle: {
+                                "font-weight": "normal"
+                            },
+                            tickMajor: {
+                                position: "outside",//Position tick marks outside of the axis line
+                                style: {
+                                    stroke: "#999999"//Make the tick marks match axis line color
+                                }
+                            }
+                        }
+                    },
+                    showChartLabels: false,
+                    hint: {
+                        //Display custom information in tooltip. If not set, the content will default to x and y data display values
+                        content: function () {
+                            //Check if multiple data points are on one axis entry. For example, multiple data entries for a single date. 
+                            if ($.isArray(this)) {
+                                var content = "";
+                                //Multiple entries of data on this point, so we need to loop through them to create the tooltip content.
+                                for (var i = 0; i < this.length; i++) {
+                                    content += this[i].lineSeries.label + ': ' + Globalize.format(this[i].y * 1000, 'c0') + '\n';
+                                }
+                                return content;
+                            }
+                            else {
+                                //Only a single data point, so we return a formatted version of it. "/n" is a line break.
+                                return this.data.lineSeries.label + '\n' +
+                                        //Format x as Short Month and long year (Jan 2010). Then format y value as calculated currency with no decimal ($1,983,000). 
+                                    Globalize.format(this.x, 'MMM yyyy') + ': ' + Globalize.format(this.y * 1000, 'c0');
+                            }
+                        },
+                        contentStyle: {
+                            "font-size": "14px",
+                            "font-family": '"Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif'
+                        },
+                        style: {
+                            fill: "#444444"
+                        }
+                    },
+                    indicator: {
+                        visible: true
+                    },
+                    legend: {
+                        visible: true
+                    },
+                    data: {
+                        //X axis values as Date objects. We are using a shared x value array for this chart with multiple y value arrays.
+                        x: [
+                            new Date('1/1/2010'),
+                            new Date('2/1/2010'),
+                            new Date('3/1/2010'),
+                            new Date('4/1/2010'),
+                            new Date('5/1/2010'),
+                            new Date('6/1/2010'),
+                            new Date('7/1/2010'),
+                            new Date('8/1/2010'),
+                            new Date('9/1/2010'),
+                            new Date('10/1/2010'),
+                            new Date('11/1/2010'),
+                            new Date('12/1/2010')]
+                    },
+                    seriesList: [{
+                        label: "Domestic", //Label shown in legend
+                        legendEntry: true,
+                        markers: {
+                            visible: true,
+                            type: "circle"
+                        },
+                        data: {
+                            //Y axis values for 1st series
+                            y: [
+                                1983,
+                                2343,
+                                2593,
+                                2283,
+                                2574,
+                                2838,
+                                2382,
+                                2634,
+                                2938,
+                                2739,
+                                2983,
+                                3493
+                            ]
+                        }
+                    }, {
+                        label: "International",
+                        legendEntry: true,
+                        markers: {
+                            visible: true,
+                            type: "circle"
+                        },
+                        data: {
+                            //Y axis values for 2nd series
+                            y: [
+                                574,
+                                636,
+                                673,
+                                593,
+                                644,
+                                679,
+                                593,
+                                139,
+                                599,
+                                583,
+                                602,
+                                690
+                            ]
+                        }
+                    }],
+                    //Override width of lines for both series. More customization can be done, such as fill, stroke (color) etc.
+                    seriesStyles: [
+                            { stroke: "rgb(93,165,218)", "stroke-width": 4 },
+                            { stroke: "rgb(250,164,58)", "stroke-width": 4 }
+                    ],
+                    //Override width of lines for both series when hovered. 
+                    seriesHoverStyles: [
+                            { "stroke-width": 4 },
+                            { "stroke-width": 4 }
+                    ]
+                });
+            });
+
+            $("#exporttype").wijdropdown({ ensureDropDownOnBody: true });
+            $("#export").button().click(function () {
+                $("#wijlinechartDefault").wijlinechart("exportChart", "export", $("#exporttype").val());
+            });
+        });
+    </script>
+</head>
+<body class="demo-single">
+    <div class="container">
+        <div class="header">
+            <h2>Export</h2>
+        </div>
+        <div class="main demo">
+            <div style="width: 500px;">
+                <div style="vertical-align:middle; display:inline-block">
+                    <select id="exporttype">
+                        <option selected="selected" value="jpg">Export To Jpg</option>
+                        <option value="png">Export To Png</option>
+                        <option value="gif">Export To Gif</option>
+                        <option value="bmp">Export To Bmp</option>
+                        <option value="tiff">Export To Tiff</option>
+                        <option value="pdf">Export To PDF</option>
+                    </select>
+                </div>
+                <input type="button" value="Export" id="export" />
+            </div>
+            <!-- Begin demo markup -->
+            <div id="wijlinechartDefault">
+            </div>
+            <!-- End demo markup -->
+            <div class="demo-options">
+                <!-- Begin options markup -->
+                <!-- End options markup -->
+            </div>
+        </div>
+        <div class="footer demo-description">
+            This sample demonstrates how to export the linechart to image or pdf file.
+        </div>
+    </div>
+</body>
+</html>

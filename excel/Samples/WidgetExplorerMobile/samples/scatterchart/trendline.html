@@ -1,0 +1,243 @@
+<div data-role="appviewpage" data-title="Trendline">
+    <div data-role="content">
+        <div id="wijscatterchartDefault" data-role="wijscatterchart" style="width: 100%;
+			height: 400px">
+		</div>
+		<div class="demo-options">
+				<!-- Begin options markup -->
+				<div>
+                    <select id="selFitType">
+                        <option value="polynom">polynom</option>
+                        <option value="exponent">exponent</option>
+                        <option value="logarithmic">logarithmic</option>
+                        <option value="power">power</option>
+                        <option value="fourier">fourier</option>
+                        <option value="minX">minX</option>
+                        <option value="minY">minY</option>
+                        <option value="maxX">maxX</option>
+                        <option value="maxY">maxY</option>
+                        <option value="averageX">averageX</option>
+                        <option value="averageY">averageY</option>
+                    </select>
+                    <label for="inpOrder">
+                        Order
+                    </label>
+                    <input id="inpOrder" type="text" value="4" />
+                    <label for="inpSampleCount">
+                        SampleCount
+                    </label>
+                    <input id="inpSampleCount" type="text" value="100" />					
+					<input type="button" value="Apply" onclick="changeProperties()" />
+				</div>
+				<!-- End options markup -->
+			</div>
+
+		<script type="text/javascript">
+		    var data = [{ year: 1994, rating: 9.2 },
+                        { year: 1972, rating: 9.2 },
+                        { year: 1974, rating: 9.0 },
+                        { year: 1994, rating: 8.9 },
+                        { year: 1966, rating: 8.9 },
+                        { year: 2008, rating: 8.9 },
+                        { year: 1957, rating: 8.9 },
+                        { year: 1993, rating: 8.9 },
+                        { year: 2003, rating: 8.8 },
+                        { year: 1999, rating: 8.8 },
+                        { year: 1980, rating: 8.8 },
+                        { year: 2001, rating: 8.8 },
+                        { year: 1975, rating: 8.7 },
+                        { year: 1990, rating: 8.7 },
+                        { year: 2010, rating: 8.7 },
+                        { year: 1954, rating: 8.7 },
+                        { year: 1977, rating: 8.7 },
+                        { year: 1994, rating: 8.7 },
+                        { year: 1999, rating: 8.7 },
+                        { year: 2002, rating: 8.7 },
+                        { year: 2002, rating: 8.6 },
+                        { year: 1968, rating: 8.6 },
+                        { year: 1995, rating: 8.6 },
+                        { year: 1991, rating: 8.6 },
+                        { year: 1942, rating: 8.6 },
+                        { year: 1995, rating: 8.6 },
+                        { year: 1981, rating: 8.6 },
+                        { year: 1954, rating: 8.6 },
+                        { year: 1946, rating: 8.6 },
+                        { year: 1960, rating: 8.6 },
+                        { year: 1994, rating: 8.6 },
+                        { year: 1950, rating: 8.5 },
+                        { year: 1998, rating: 8.5 },
+                        { year: 2000, rating: 8.5 },
+                        { year: 1991, rating: 8.5 },
+                        { year: 1998, rating: 8.5 },
+                        { year: 1979, rating: 8.5 },
+                        { year: 1931, rating: 8.5 },
+                        { year: 1964, rating: 8.5 },
+                        { year: 1979, rating: 8.5 },
+                        { year: 2001, rating: 8.5 },
+                        { year: 1936, rating: 8.5 },
+                        { year: 1997, rating: 8.5 },
+                        { year: 1959, rating: 8.5 },
+                        { year: 1985, rating: 8.5 },
+                        { year: 2002, rating: 8.4 },
+                        { year: 1941, rating: 8.4 },
+                        { year: 1980, rating: 8.4 },
+                        { year: 2013, rating: 8.4 },
+                        { year: 2006, rating: 8.4 },
+                        { year: 1931, rating: 8.4 },
+                        { year: 1957, rating: 8.4 },
+                        { year: 2011, rating: 8.4 },
+                        { year: 1958, rating: 8.4 },
+                        { year: 1999, rating: 8.4 },
+                        { year: 2012, rating: 8.4 },
+                        { year: 2000, rating: 8.4 },
+                        { year: 2012, rating: 8.4 },
+                        { year: 1999, rating: 8.4 },
+                        { year: 1986, rating: 8.4 },
+                        { year: 1944, rating: 8.4 },
+                        { year: 1976, rating: 8.4 },
+                        { year: 2006, rating: 8.4 },
+                        { year: 2008, rating: 8.4 },
+                        { year: 2010, rating: 8.4 },
+                        { year: 1940, rating: 8.4 },
+                        { year: 2006, rating: 8.4 },
+                        { year: 2001, rating: 8.4 },
+                        { year: 1971, rating: 8.4 },
+                        { year: 1962, rating: 8.4 },
+                        { year: 1962, rating: 8.4 },
+                        { year: 1992, rating: 8.4 },
+                        { year: 1981, rating: 8.3 },
+                        { year: 1988, rating: 8.3 },
+                        { year: 1994, rating: 8.3 },
+                        { year: 1948, rating: 8.3 },
+                        { year: 1984, rating: 8.3 },
+                        { year: 2000, rating: 8.3 },
+                        { year: 1983, rating: 8.3 },
+                        { year: 1995, rating: 8.3 },
+                        { year: 1949, rating: 8.3 },
+                        { year: 2004, rating: 8.3 },
+                        { year: 2003, rating: 8.3 },
+                        { year: 1987, rating: 8.3 },
+                        { year: 1997, rating: 8.3 },
+                        { year: 1927, rating: 8.3 },
+                        { year: 1952, rating: 8.3 },
+                        { year: 1950, rating: 8.3 },
+                        { year: 1974, rating: 8.3 },
+                        { year: 1959, rating: 8.3 },
+                        { year: 1948, rating: 8.3 },
+                        { year: 1997, rating: 8.3 },
+                        { year: 1950, rating: 8.3 },
+                        { year: 1984, rating: 8.3 },
+                        { year: 1957, rating: 8.3 },
+                        { year: 1975, rating: 8.3 },
+                        { year: 1973, rating: 8.3 },
+                        { year: 1968, rating: 8.3 },
+                        { year: 1960, rating: 8.3 },
+                        { year: 1988, rating: 8.3 },
+		    ];
+		    $(document).one("wijappviewpageinit", function () {
+		        $("#wijscatterchartDefault").wijscatterchart({
+		            dataSource: data,
+		            seriesList: [{
+		                data: {
+		                    x: { bind: "year" },
+		                    y: { bind: "rating" }
+		                },
+		                visible: true,
+		                markerType: "circle",
+		                label: "The rating of year",
+		                legendEntry: true
+		            }, {
+		                isTrendline: true,// when adding a trendline, its value should be set to true. Otherwise, it would be considered as other charts.
+		                order: 4,//it defines the number of terms in polynom equation
+		                data: {
+		                    x: { bind: "year" }, // binding 'x' axis to the 'year' property
+		                    y: { bind: "rating" } // binding 'y' axis to the 'rating' property
+		                },
+		                label: "Trendline for rating",
+		                legendEntry: true
+		            }],
+		            header: {
+		                text: "IMDb Top 100 movies rating"
+		            },
+		            axis: {
+		                x: {
+		                    text: "Premier year",
+		                    labels: {
+		                        style: {
+		                            fill: "#7f7f7f",
+		                            "font-size": 11,
+		                            rotation: -45
+		                        }
+		                    },
+		                    tickMajor: { position: "outside", style: { stroke: "#7f7f7f" } }
+		                },
+		                y: {
+		                    text: "Raiting",
+		                    labels: {
+		                        style: {
+		                            fill: "#7f7f7f",
+		                            "font-size": 11
+		                        }
+		                    },
+		                    gridMajor: {
+		                        style: { stroke: "#353539", "stroke-dasharray": "- " }
+		                    },
+		                    tickMajor: { position: "outside", style: { stroke: "#7f7f7f" } },
+		                    tickMinor: { position: "outside", style: { stroke: "#7f7f7f" } }
+		                }
+		            },
+		            animation:
+                    {
+                        enabled: true
+                    },
+		            showChartLabels: false,
+		            hint: {
+		                content: function () {
+		                    return "Year: " + this.x + "\n" + "Raiting: " + this.y;
+		                },
+		                offsetY: -10
+		            },
+		            legend: {
+		                visible: true
+		            },
+
+		            seriesStyles: [{
+		                fill: "r(0.25, 0.75)#fff-#0c0:30-#000",
+		                stroke: "#afe500"
+		            }, {
+		                fill: "90-#cc0000-#0c0-#0000cc",
+		                stroke: "#ff9900"
+		            }],
+		            seriesHoverStyles: [{ fill: "90-#00cc00-#0c0-#cc0000" }, { fill: "#0000cc" }]
+		        });
+		    });
+		    function changeProperties() {
+		        var fitType = $("#selFitType").val(),
+                    sampleCount = parseInt($("#inpSampleCount").val()),
+                    order = parseInt($("#inpOrder").val());
+
+		        $("#wijscatterchartDefault").wijscatterchart("option", "seriesList", [{
+		            data: {
+		                x: { bind: "year" },
+		                y: { bind: "rating" }
+		            },
+		            visible: true,
+		            markerType: "circle",
+		            label: "The rating of year",
+		            legendEntry: true
+		        }, {
+		            isTrendline: true,// when adding a trendline, its value should be set to true. Otherwise, it would be considered as other charts.
+		            fitType: fitType,//it specifies the fit type of the trendline. There are 11 kinds. Its default value is "polynom".
+		            sampleCount: sampleCount,// it specifies the sample count for function calculation
+		            order: order,//it defines the number of terms in polynom equation
+		            data: {
+		                x: { bind: "year" }, // binding 'x' axis to the 'year' property
+		                y: { bind: "rating" } // binding 'y' axis to the 'rating' property
+		            },
+		            label: "Trendline for rating",
+		            legendEntry: true
+		        }]);
+		    }
+	</script>
+    </div>
+</div>

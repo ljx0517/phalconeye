@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Ribbon - Customize Ribbon By Data</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="%description%" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="ComponentOne" />
+
+    <link href="../../../../Themes/rocket/jquery-wijmo.css" rel="stylesheet" type="text/css" />
+    <link href="../../../../css/jquery.wijmo-pro.all.3.20143.59.min.css" rel="stylesheet" type="text/css" />
+    <script src="../../js/require.js" type="text/javascript"></script>
+    <script src="../../js/require.wijmo.config.js" type="text/javascript"></script>
+
+    <script id="scriptInit" type="text/javascript">
+        require(["wijmo.wijribbon"], function () {
+            var ribbonData = [];
+            //format tab
+            ribbonData[0] = {
+                id: "format",
+                text: "format",
+                groups:[
+                {
+                    id:"Actions",
+                    text: "Actions",
+                    css: "wijmo-wijribbon-actions",
+                    buttons:[
+                        //big button: save
+                        { name: "save", tip: 'Save', text: 'Save Button', css: "wijmo-wijribbon-save", buttonType: "bigButton", action: function (e) { alert("Saveaaaaa"); } },
+                        //redo and undo in one group
+                        [
+                          { name: "undo", tip: 'Undo', css: "wijmo-wijribbon-undo", buttonType: "button" },
+                          { name: "redo", tip: 'Redo', css: "wijmo-wijribbon-redo", buttonType: "button" }
+                        ],
+                         //preview and cleanup in one group
+                        [
+                          { name: "preview", tip: 'Preview', css: "wijmo-wijribbon-preview" },
+                          { name: "cleanup", tip: 'Clean up', css: "wijmo-wijribbon-cleanup" }
+                        ] 
+                    ]
+                },
+                {
+                    id:"Font",
+                    text:"Font",
+                    css: "wijmo-wijribbon-font",
+                    buttons:[
+                            //dropdown button
+                            {
+                                name: "fontname", tip: 'Font Name', text: "Font Name", css: "wijmo-wijribbon-fontname", buttonType: "dropdownButton",
+                                dropdownButtons: [{
+                                    buttonType: "textRadio",
+                                    tip: "Arial",
+                                    name: "fn1",
+                                    text: "Arial",
+                                    grpname: 'fontname',
+                                    action: function (e) { alert("Arial"); }
+                                }, {
+                                    buttonType: "textRadio",
+                                    tip: "Courier New",
+                                    name: "fn2",
+                                    text: "Courier New",
+                                    grpname: 'fontname'
+                                }, {
+                                    buttonType: "textRadio",
+                                    tip: "Garamond",
+                                    name: "fn3",
+                                    text: "Garamond",
+                                    grpname: 'fontname'
+                                }, {
+                                    buttonType: "textRadio",
+                                    tip: "Tahoma",
+                                    name: "fn4",
+                                    text: "Tahoma",
+                                    grpname: 'fontname'
+                                }, {
+                                    buttonType: "textRadio",
+                                    tip: "Times New Roman",
+                                    name: "fn5",
+                                    text: "Times New Roman",
+                                    grpname: 'fontname'
+                                }, {
+                                    buttonType: "textRadio",
+                                    tip: "Verdana",
+                                    name: "fn6",
+                                    text: "Verdana",
+                                    grpname: 'fontname'
+                                }, {
+                                    buttonType: "textRadio",
+                                    tip: "Wingdings",
+                                    name: "fn7",
+                                    text: "Wingdings",
+                                    grpname: 'fontname'
+                                }]
+                            },
+                             //dropdown button
+                            {
+                                name: "fontsize", tip: 'Font Size', text: "Font Size", css: "wijmo-wijribbon-fontsize", buttonType: "dropdownButton", 
+                                dropdownButtons: [{
+                                    buttonType: "textRadio",
+                                    tip: "VerySmall",
+                                    name: "xx-small",
+                                    text: "VerySmall",
+                                    grpname: 'fontsize'
+                                }, {
+                                    buttonType: "textRadio",
+                                    tip: "Smaller",
+                                    name: "x-small",
+                                    text: "Smaller",
+                                    grpname: 'fontsize'
+                                }, {
+                                    buttonType: "textRadio",
+                                    tip: "Small",
+                                    name: "small",
+                                    text: "Small",
+                                    grpname: 'fontsize'
+                                }, {
+                                    buttonType: "textRadio",
+                                    tip: "Medium",
+                                    name: "medium",
+                                    text: "Medium",
+                                    grpname: 'fontsize'
+                                }, {
+                                    buttonType: "textRadio",
+                                    tip: "Large",
+                                    name: "large",
+                                    text: "Large",
+                                    grpname: 'fontsize'
+                                }, {
+                                    buttonType: "textRadio",
+                                    tip: "Larger",
+                                    name: "x-large",
+                                    text: "Larger",
+                                    grpname: 'fontsize'
+                                }, {
+                                    buttonType: "textRadio",
+                                    tip: "VeryLarge",
+                                    name: "xx-large",
+                                    text: "VeryLarge",
+                                    grpname: 'fontsize'
+                                }]
+                            },
+                            [
+                                {name: "backcolor", tip: 'Background Color', css: "wijmo-wijribbon-bgcolor"},
+                                {name: "fontcolor", tip: 'Font Color', css: "wijmo-wijribbon-color"}
+                            ],
+
+                            //checkbox group
+                            [
+                                { name: "bold", tip: 'Bold', css: "wijmo-wijribbon-bold", buttonType: "checkbox", grpname: "alignment" },
+                                { name: "italic", tip: 'Italic', css: "wijmo-wijribbon-italic", buttonType: "checkbox", grpname: "alignment" },
+                                { name: "strikethrough", tip: 'Strikethrough', css: "wijmo-wijribbon-strike", buttonType: "checkbox", grpname: "alignment" },
+                                { name: "underline", tip: 'Underline', css: "wijmo-wijribbon-underline", buttonType: "checkbox", grpname: "alignment" },
+                                { name: "subscript", tip: 'Subscript', css: "wijmo-wijribbon-sub", buttonType: "checkbox", grpname: "alignment" },
+                                { name: "superscript", tip: 'Superscript', css: "wijmo-wijribbon-sup", buttonType: "checkbox", grpname: "alignment" }
+                            ]
+                    ]
+                },
+                {
+                    id:"Paragraph",
+                    text:"Paragraph",
+                    css: "wijmo-wijribbon-paragraph",
+                    buttons:[
+                        //radio group
+                        [
+                            {name: "justifyleft", tip: 'Justify Left', css: "wijmo-wijribbon-justifyleft", buttonType:"radio", grpname: 'alignment'},
+                            {name: "justifycenter", tip: 'Justify Center',css: "wijmo-wijribbon-justifycenter", buttonType:"radio", grpname: 'alignment' },
+                            {name: "justifyright", tip: 'Justify Right', css: "wijmo-wijribbon-justifyright", buttonType:"radio", grpname: 'alignment'},
+                            {name: "justifyfull", tip: 'Justify Full', css: "wijmo-wijribbon-justifyfull", buttonType:"radio", grpname: 'alignment' }                      
+                        ]                      
+                    ]
+                },
+                {
+                    id:"Review",
+                    text:"Review",
+                    css: "wijmo-wijribbon-review",
+                    buttons:[
+                            {name: "find", tip: 'Find And Replace', css: "wijmo-wijribbon-find", text: 'Find', buttonType: "buttonWithText"},
+                            { name: "inspect", tip: 'Tag Inspect', css: "wijmo-wijribbon-inspect", text: 'Inspect', buttonType: "buttonWithText" }
+                        ]
+                    }
+              ]
+            };
+            //insert tab
+            ribbonData[1] = {
+                id: "insert",
+                text:"insert",
+                groups:[
+                {
+                    id: "Tables",
+                    text: "Tables123",
+                    css: "wijmo-wijribbon-tables",
+                    buttons:[
+                    //split button
+                    {
+                        name: "table", tip: 'Table', css: "wijmo-wijribbon-table", buttonType:"splitButton", buttons:[{
+                            tip: "Insert Table",
+                            css: "wijmo-wijribbon-inserttable",
+                            name: "inserttable",
+                            text: "Insert",
+                            buttonType: "buttonWithText"
+                        }, {
+                            tip: "Edit Table",
+                            css: "wijmo-wijribbon-edittable",
+                            name: "edittable",
+                            text: "Edit",
+                            buttonType: "buttonWithText"
+                        }]
+                    }
+                    
+                    ]
+                }
+                
+                ]
+            },
+
+            $(document).ready(function () {
+                $("#ribbon").wijribbon({
+                    data: ribbonData,
+                    click: function (e, cmd) {
+                        // the funtion is called when the ribbon command button is clicked.
+                        alert(cmd.commandName);
+                    }
+                });
+            });
+        });
+    </script>
+    <style type="text/css">
+        #ribbon
+        {
+            width: 700px;
+        }
+        .wijmo-wijribbon-action, .wijmo-wijribbon-action>div
+        {
+            width: 200px;
+        }
+        .wijmo-wijribbon-font,  .wijmo-wijribbon-font>div
+        {
+            width: 250px;
+        }
+        .container
+        {
+            height:300px;
+        }
+    </style>
+</head>
+<body class="demo-single">
+    <div class="container">
+        <div class="header">
+            <h2>
+                Customize Ribbon By Data</h2>
+        </div>
+        <div class="main demo">
+            <!-- Begin demo markup -->
+            <div id="ribbon">
+            </div>
+            <!-- End demo markup -->
+            <div class="demo-options">
+                <!-- Begin options markup -->
+                <p>
+                    <div id="log_label">
+                    </div>
+                </p>
+                <!-- End options markup -->
+            </div>
+        </div>
+        <div class="footer demo-description">
+            <p>
+                The wijribbon widget created by data option.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

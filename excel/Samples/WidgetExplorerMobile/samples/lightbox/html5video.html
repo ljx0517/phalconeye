@@ -1,0 +1,21 @@
+<div data-role="appviewpage">
+    <div data-role="header">
+        <a href="index.html" data-icon="back">Back</a>
+        <h2>
+            Html5</h2>
+    </div>
+    <div data-role="content">
+        <!-- Begin demo markup -->
+      		<a id="lightbox" href="http://cdn.wijmo.com/movies/wijmo.mp4video.mp4" wijvideosrc="http://cdn.wijmo.com/movies/wijmo.theora.ogv" rel="wijlightbox;player=wijvideo" width="600" height="450">
+				<img src="http://cdn.wijmo.com/images/wijmo.png" title="Movie" alt="Played by Wijmo HTML5 Video Player" /></a> 
+   <script type="text/javascript">
+       $(document).one('wijappviewpageinit', function () {
+           $("#lightbox").wijlightbox({
+               controlsPosition: 'outside',
+               textPosition: 'outside',
+               dialogButtons: 'close|fullSize'
+           });
+       });
+    </script>
+   </div>
+</div>

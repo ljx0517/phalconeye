@@ -1,0 +1,89 @@
+<div data-role="appviewpage" data-title="Origin">
+	<div data-role="content">
+		<!-- Begin demo markup -->
+		<div id="wijlinechart" data-role="wijlinechart" class="ui-widget ui-widget-content ui-corner-all" style="width: 100%; height: 475px; background: #242529;">
+		</div>
+		<!-- End demo markup -->
+		<div class="footer demo-description">
+			<p>
+				The wijlinechart supports negative values and can display them nicely using the origin option for each axis. The origin option tells the axis where to draw its starting point. This is optimal for displaying positive and negative values on the same chart.
+			</p>
+		</div>
+		<script type="text/javascript">
+			$(document).one("wijappviewpageinit", function () {
+				$("#wijlinechart").wijlinechart("beginUpdate");
+				$("#wijlinechart").wijlinechart({
+					header: {
+						visible: true,
+						textStyle: {
+							fill: "#fafafa"
+						}
+					},
+					axis: {
+						y: {
+							labels: {
+								style: {
+									fill: "#7f7f7f",
+									"font-size": 11
+								}
+							},
+							gridMajor: {
+								style: { stroke: "#353539", "stroke-dasharray": "- " }
+							},
+							tickMajor: { position: "outside", style: { stroke: "#7f7f7f"} },
+							tickMinor: { position: "outside", style: { stroke: "#7f7f7f"} },
+							visible: true,
+							origin: 0
+						},
+						x: {
+							labels: {
+								style: {
+									fill: "#7f7f7f",
+									"font-size": 11,
+									rotation: -45
+								}
+							},
+							tickMajor: { position: "outside", style: { stroke: "#7f7f7f"} }
+						}
+					},
+					showChartLabels: false,
+					hint: {
+						content: function () {
+							return this.data.lineSeries.label + '\n' +
+						this.x + '\n' + this.y + '';
+						},
+						contentStyle: {
+							"font-size": 10
+						},
+						offsetY: -10
+					},
+					legend: {
+						visible: false
+					},
+					seriesList: [
+					{
+						label: "My Stocks",
+						legendEntry: true,
+						fitType: "spline",
+						data: {
+							x: [new Date("3/1/2010"), new Date("6/1/2010"), new Date("9/1/2010"), new Date("12/1/2010"), new Date("3/1/2011"), new Date("6/1/2011"), new Date("9/1/2011")],
+							y: [-6.1, -10.4, -2.8, 1.1, 2.1, -1.6, 6.2]
+						},
+						markers: {
+							visible: true,
+							type: "circle"
+						}
+					}
+				],
+					seriesStyles: [
+					{ stroke: "#afe500", "stroke-width": 3 }
+				],
+					seriesHoverStyles: [
+					{ "stroke-width": 4 }
+				]
+				});
+				$("#wijlinechart").wijlinechart("endUpdate");
+			});
+		</script>
+	</div>
+</div>

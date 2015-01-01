@@ -1,0 +1,29 @@
+<h4 ng-init="benchmarkView('wijgrid')">Wijmo Grid</h4>
+
+<p>
+    The <b>wij-grid</b> is Wijmo's primary data grid control.
+    It is based on HTML5 and jQuery.
+    The <b>wij-grid</b> supports AngularJS, KnockoutJS, and other popular 
+    frameworks using extensions included with the product.
+</p>
+<p>
+    For more information please visit:
+    <a href="http://wijmo.com/widgets/wijmo-complete/grid/">http://wijmo.com/widgets/wijmo-complete/grid/
+    </a>
+</p>
+
+<wij-grid style="width:100%; height: 429px;" options='{"data": "data", 
+    columnsAutogenerationMode: "none",
+    allowEditing: true,
+    "allowSorting": true,
+    "allowVirtualScrolling": true, 
+    "scrollMode": "auto",
+    "columns": [
+        { "dataKey": "id", "headerText": "ID", "ensurePxWidth": true, "width": 50 },
+        { "dataKey": "date", "headerText": "Date", "dataType": "datetime", "dataFormatString": "d", "ensurePxWidth": true, "width": 100 },
+        { "dataKey": "country", "headerText": "Country" },
+        { "dataKey": "product", "headerText": "Product", "ensurePxWidth": true, "width": 140 },
+        { "dataKey": "color", "headerText": "Color", "ensurePxWidth": true, "width": 70 },
+        { "dataKey": "amount", "headerText": "Amount", "dataType": "currency", "dataFormatString": "c2", "ensurePxWidth": true, "width": 100 }
+    ]}'>
+</wij-grid>

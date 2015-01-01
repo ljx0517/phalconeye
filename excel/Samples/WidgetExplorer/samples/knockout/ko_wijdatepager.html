@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Knockout - DatePager</title>
+    
+    <link href="../../../../Themes/rocket/jquery-wijmo.css" rel="stylesheet" type="text/css" />
+    <link href="../../../../css/jquery.wijmo-pro.all.3.20143.59.min.css" rel="stylesheet" type="text/css" />
+    <script src="../../js/require.js" type="text/javascript"></script>
+    <script src="../../js/require.wijmo.config.js" type="text/javascript"></script>
+
+    <script id="scriptInit" type="text/javascript">
+        require(["wijmo.wijdatepager", "knockout.wijmo"], function () {
+            //Create ViewModel
+            var viewModel = function () {
+                var self = this;
+                self.disabled = ko.observable(false);
+                self.firstDayOfWeek = ko.numericObservable(0);
+                self.viewType = ko.observable("week");//day/week/month
+                self.nextTooltip = ko.observable("next");
+                self.prevTooltip = ko.observable("previous");
+            };
+
+            //Bind ViewModel
+            $(document).ready(function () {
+                var vm = new viewModel();
+                ko.applyBindings(vm, $(".container").get(0));
+            });
+        });
+    </script>
+</head>
+<body class="demo-single">
+    <div class="container">
+        <div class="header">
+            <h2>
+                DatePager</h2>
+        </div>
+        <div class="main demo">
+            <!-- Begin demo markup -->
+            <div id="datepager" data-bind="wijdatepager: {disabled: disabled, firstDayOfWeek: firstDayOfWeek, viewType: viewType, nextTooltip: nextTooltip, prevTooltip: prevTooltip }" style="margin-top:20px">
+            </div>
+            <!-- End demo markup -->
+            <div class="demo-options">
+                <!-- Begin options markup -->
+                <ul>
+                    <li>
+                        <label>
+                            <span>disabled:</span></label><input type="checkbox" data-bind="checked: disabled" />
+                    </li>
+                    <li>
+                        <label>
+                            <span>firstDayOfWeek:</span></label>
+                            <select data-bind="value: firstDayOfWeek">
+                                <option value="0">Sunday</option>
+                                <option value="1">Monday</option>
+                                <option value="2">Tuesday</option>
+                                <option value="3">Wednesday</option>
+                                <option value="4">Thursday</option>
+                                <option value="5">Friday</option>
+                                <option value="6">Saturday</option>
+                            </select>
+                    </li>
+                    <li>
+                        <label>
+                            <span>viewType:</span></label>
+                            <select data-bind="value: viewType">
+                                <option value="day">day</option>
+                                <option value="week">week</option>
+                                <option value="month">month</option>
+                            </select>
+                    </li>
+                    <li>
+                        <label>
+                            <span>nextTooltip:</span></label><input type="text" data-bind="value: nextTooltip" />
+                    </li>
+                    <li>
+                        <label>
+                            <span>prevTooltip:</span></label><input type="text" data-bind="value: prevTooltip" />
+                    </li>
+                </ul>
+                <!-- End options markup -->
+            </div>
+        </div>
+        <div class="footer demo-description">
+            <p>
+                Wijmo provides a Knockout Integration Library so that all jQuery UI and Wijmo widgets
+                can be used with Knockout declarative syntax.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

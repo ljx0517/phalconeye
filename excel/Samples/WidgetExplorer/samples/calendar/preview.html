@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Calendar - Month Preview</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="ComponentOne" />
+
+    <link href="../../../../Themes/rocket/jquery-wijmo.css" rel="stylesheet" type="text/css" />
+    <link href="../../../../css/jquery.wijmo-pro.all.3.20143.59.min.css" rel="stylesheet" type="text/css" />
+    <script src="../../js/require.js" type="text/javascript"></script>
+    <script src="../../js/require.wijmo.config.js" type="text/javascript"></script>
+
+    <script id="scriptInit" type="text/javascript">
+        require(["wijmo.wijcalendar"], function () {
+            $(function () {
+                //a popup calendar will appear that displays the previous and next calendar months
+                $("#calendar1").wijcalendar({ allowPreview: true });
+            });
+        });
+    </script>
+</head>
+<body class="demo-single">
+    <div class="container">
+        <div class="header">
+            <h2>
+                Preview Month</h2>
+        </div>
+        <div class="main demo">
+            <!-- Begin demo markup -->
+            <div id="calendar1">
+            </div>
+            <!-- End demo markup -->
+            <div class="demo-options">
+                <!-- Begin options markup -->
+                <!-- End options markup -->
+            </div>
+        </div>
+        <div class="footer demo-description">
+            <p>
+                This sample illustrates the wijcalendar widget's ability to show preview months.
+                To show preview months, set the allowPreview option to true. When the project is
+                loaded, users can preview the next or previous month by hovering over the indicators
+                on either side of the control.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

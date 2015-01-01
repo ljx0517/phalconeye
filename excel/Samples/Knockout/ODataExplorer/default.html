@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Data - OData Explorer</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="OData explorer" />
+    <meta name="keywords" content="odata" />
+    <meta name="author" content="ComponentOne" />
+    
+    <link href="http://cdn.wijmo.com/themes/metro/jquery-wijmo.css" rel="stylesheet" title="metro-jqueryui" type="text/css" />
+    <link href="styles/odataExplorer.css" rel="stylesheet" type="text/css" />
+
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.min.js" type="text/javascript"></script>
+    
+    <!--Wijmo Widgets CSS-->
+    <link href="http://cdn.wijmo.com/jquery.wijmo-pro.all.3.20143.59.min.css" rel="stylesheet" type="text/css" />
+
+    <!--Wijmo Widgets JavaScript-->
+    <script src="http://cdn.wijmo.com/jquery.wijmo-open.all.3.20143.59.min.js" type="text/javascript"></script>
+    <script src="http://cdn.wijmo.com/jquery.wijmo-pro.all.3.20143.59.min.js" type="text/javascript"></script>
+    
+    <!--Wijmo Knockout Integration-->
+    <script src="http://cdn.wijmo.com/wijmo/external/knockout-2.2.0.js" type="text/javascript"></script>
+    <script src="http://cdn.wijmo.com/interop/knockout.wijmo.3.20143.59.min.js"></script>
+    
+    <!--Wijmo Data API-->
+    <script src="http://cdn.wijmo.com/interop/wijmo.data.ajax.3.20143.59.js" type="text/javascript"></script>
+
+    <script src="scripts/modernizr-2.5.3.js" type="text/javascript"></script>
+    <script src="scripts/serviceListViewModel.js" type="text/javascript"></script>
+    <script src="scripts/odataExplorerViewModel.js" type="text/javascript"></script>
+
+    <style type="text/css">
+        .no-data {
+            text-align: center;
+            margin: 40px;
+        }
+    </style>
+
+    <script id="scriptInit" type="text/javascript">
+
+        // a view model for the OData Service editing dialog window
+        function ServiceDialogViewModel() {
+            var that = this;
+
+            // observables for text fields
+            this.name = ko.observable();
+            this.url = ko.observable();
+
+            this.currentService = ko.observable();
+            this.currentService.subscribe(function (item) {
+                if (item) {
+                    this.name(item.name);
+                    this.url(item.url);
+                }
+            }, this);
+
+            // show the dialog window for the specified live service
+            this.show = function (service, callback) {
+                var hidden = { visible: false },
+                    $dialog = $("#dialog-service");
+
+                // assign service property values to the fields
+                this.name(service.name());
+                this.url(service.url());
+
+                // initialize a wijdialog
+                $dialog.wijdialog({
+                    autoOpen: true,
+                    // hide caption buttons
+                    captionButtons: {
+                        pin: hidden,
+                        refresh: hidden,
+                        toggle: hidden,
+                        minimize: hidden,
+                        maximize: hidden
+                    },
+                    buttons: {
+                        ok: function () {
+                            $dialog.wijdialog("close");
+                            // assign fields values to properties
+                            service.name(that.name());
+                            service.url(that.url());
+                            if (callback) {
+                                callback();
+                            }
+                        },
+                        cancel: function () {
+                            $dialog.wijdialog("close");
+                        }
+                    },
+                    height: 280,
+                    width: 400,
+                    modal: true
+                });
+            };
+        }
+
+        // create a view model and bind to it
+        $(document).ready(function () {
+
+            // create view models
+            var serviceDialog = new ServiceDialogViewModel();
+            var serviceList = new ServiceListViewModel(serviceDialog);
+            var viewModel = new ODataExplorerViewModel(serviceList);
+            viewModel.queryResult.subscribe(function (dataView) {
+                dataView.refresh().then(function () {
+                    var container = $("#dataContainer");
+                    container.empty()
+
+                    if (dataView.count() == 0) {
+                        container.append("<p class='no-data'>No data</p>");
+                    } else {
+                        var $grid = $("#gridTemplate").clone();
+                        $grid.attr("data-bind", $grid.attr("data-bind-template"));
+                        $grid.attr("id", "gridInstance");
+                        container.empty().append($grid);
+
+                        ko.applyBindings({ queryResult: dataView }, $grid[0]);
+                        $grid.wijgrid("setSize", container.width() - 2, Math.max(500, container.height() - 2));
+                    }
+                });
+            });
+
+            // bind view (GUI) to the view model
+            ko.applyBindings(viewModel);
+
+            $('#urlinput').wijtextbox();
+
+        });
+
+        // initialize splitters
+        //$(document).ready(function () {
+        //    var $collectionSplitter = $("#collectionSplitter");
+        //    function updateGridSize() {
+        //        var container = $("#dataContainer");
+        //        container.find("table.wijmo-wijgrid-table").filter(function () {
+        //            return $(this).data("wijgrid");
+        //        }).wijgrid("setSize", container.width(), container.height());
+        //    }
+        //    function onCollectionSplitterResize() {
+        //        updateGridSize();
+        //    }
+        //    function onMainSplitterResize() {
+        //        $collectionSplitter.wijsplitter("refresh");
+        //        onCollectionSplitterResize();
+        //    }
+        //    $("#splitter").wijsplitter({
+        //        splitterDistance: 220,
+        //        expanded: onMainSplitterResize,
+        //        collapsed: onMainSplitterResize,
+        //        sized: onMainSplitterResize
+        //    });
+        //    $(window).bind("resize", function () {
+        //        $("#splitter").wijsplitter("refresh");
+        //        onMainSplitterResize();
+        //    });
+
+        //    $collectionSplitter.wijsplitter({
+        //        splitterDistance: 200,
+        //        sized: onCollectionSplitterResize,
+        //        expanded: onCollectionSplitterResize,
+        //        collapsed: onCollectionSplitterResize
+        //    });
+
+        //});
+
+    </script>
+</head>
+<body>
+    <header>
+        <div class="padder">
+            <h1>OData Explorer</h1>
+        </div>
+    </header>
+    <aside class="ui-helper-clearfix" id="serviceContainer" data-bind="with:serviceList">
+        <div class="grey button-set">
+<!--            <button data-bind="click: addService">Add</button>
+            <button data-bind="click: editService">Edit</button>
+            <button data-bind="click: removeService">Delete</button>-->
+        </div>
+        <div class="padder">
+            <h3>Services </h3>
+            <div id="serviceList" data-bind="wijlist: { dataSource: services, selected: setCurrentService, listItems: { label: { bind: 'name' }, value: { bind: 'url' } } }"></div>
+        </div>
+    </aside>
+    <aside id="collectionContainer" class="ui-helper-clearfix">
+        <div class="grey input-container">
+            <input type="text" id="collectionName" data-bind="value:query">
+            <button data-bind="click:executeQuery">GO</button>
+        </div>
+        <div class="padder">
+            <h3>Collections </h3>
+            <div id="collectionList" data-bind="wijlist: { listItems: collections, selected: setCurrentCollection }"></div>
+        </div>
+    </aside>
+    <section class="ui-helper-clearfix">
+        <h3>
+            <div class="padder">OData Results</div>
+        </h3>
+        <div class="padder main">
+            <table id="gridTemplate" data-bind-template='wijgrid: { data: queryResult, scrollMode: "both",showFilter: true,allowSorting: true,allowColSizing: true,allowKeyboardNavigation: true,allowPaging: true,pagerSettings: { position: "top" } }'>
+            </table>
+            <div id="dataContainer"></div>
+        </div>
+    </section>
+    <footer>
+        <div class="ui-helper-hidden" id="dialogs">
+            <div id="dialog-service" title="Add/edit service" data-bind="with:serviceDialog">
+                <label>Name:</label>
+                <input id="namecombobox" type="text" data-bind="value:name">
+                <label>Url:</label>
+                <input id="urlinput" type="text" data-bind="value:url">
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

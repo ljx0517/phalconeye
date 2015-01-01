@@ -1,0 +1,133 @@
+<div data-role="appviewpage" data-title="Temperature Gauge">
+	<style type="text/css">
+        #gauge
+        {
+            position: relative;
+        }
+        #glass
+        {
+            background: transparent url(http://cdn.wijmo.com/images/temp_glass.png) no-repeat;
+            width: 44px;
+            height: 394px;
+            position: absolute;
+            top: 14px;
+            left: 16px;
+            z-index: 99;
+        }
+    </style>
+	<div data-role="content">
+		<div id="gauge" data-role="wijlineargauge">
+		</div>
+		 <input id="btn" type="button" value="Change" />
+		<script type="text/javascript">
+			$(document).one("wijappviewpageinit", function () {
+				$("#gauge").wijlineargauge({
+                width: 50,
+                height: 400,
+                orientation: "vertical",
+                xAxisLocation: 0.02,
+                xAxisLength: 0.95,
+                value: 65,
+                labels: {
+                    style: {
+                        fill: "#1E395B",
+                        "font-size": 10,
+                        "font-weight": "300"
+                    }
+                    },
+                tickMajor: {
+                    position: "inside",
+                    offset: -12,
+                    factor: 2,
+                    style: {
+                        fill: "#000",
+                        stroke: "none",
+                        opacity: 0.2
+                    }
+                },
+                tickMinor: {
+                    position: "inside",
+                    offset: -12,
+                    visible: true,
+                    style: {
+                        fill: "#000",
+                        stroke: "none",
+                        opacity: 0.2
+                    }
+                },
+                animation: {
+                    enabled: false
+                },
+                pointer: {
+                    visible: true,
+                    shape: "tri",
+                    length: 0.5,
+                    width: 4,
+                    style: {
+                        fill: "#000",
+                        stroke: "#434343",
+                        "stroke-width": 0.5,
+                        opacity: 0.8
+                    }
+                },
+                face: {
+                    style: {
+                        fill: "180-#e4e4e4-#c0c0c0",
+                        stroke: "#8d8d8d",
+                        "stroke-width": 0.5
+                    }
+                },
+                ranges: [
+                {
+                    startValue: 0,
+                    endValue: 50,
+                    startDistance: 0.75,
+                    endDistance: 0.75,
+                    startWidth: 0.15,
+                    endWidth: 0.15,
+                    style: {
+                        fill: "180-#CC00CC-#AA00AA",
+                        stroke: "none"
+                    }
+                }
+                ]
+            });
+				$("#btn").button().click(function () {
+				    if ($(this).hasClass("clicked")) {
+				        $(this).removeClass("clicked");
+				        $("#gauge").wijlineargauge("option", "ranges", [
+                            {
+                                startValue: 0,
+                                endValue: 10,
+                                startDistance: 0.75,
+                                endDistance: 0.75,
+                                startWidth: 0.15,
+                                endWidth: 0.15,
+                                style: {
+                                    fill: "180-#0099FF-#0066CC",
+                                    stroke: "none"
+                                }
+                            }
+				        ]).wijlineargauge("redraw");
+				    } else {
+				        $(this).addClass("clicked");
+				        $("#gauge").wijlineargauge("option", "ranges", [
+                            {
+                                startValue: 0,
+                                endValue: 98.6,
+                                startDistance: 0.75,
+                                endDistance: 0.75,
+                                startWidth: 0.15,
+                                endWidth: 0.15,
+                                style: {
+                                    fill: "180-#FF0000-#CC0000",
+                                    stroke: "none"
+                                }
+                            }
+				        ]).wijlineargauge("redraw");
+				    }                
+                })
+			});
+		</script>
+	</div>
+</div>

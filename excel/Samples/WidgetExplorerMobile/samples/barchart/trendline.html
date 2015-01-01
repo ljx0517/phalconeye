@@ -1,0 +1,156 @@
+<div data-role="appviewpage" data-title="Trendline">
+    <div data-role="content">
+        <div id="wijbarchart" data-role="wijbarchart" style="width: 100%; height: 400px">
+        </div>
+		<div class="demo-options">
+				<!-- Begin options markup -->
+				<div>
+                    <select id="selFitType">
+                        <option value="polynom">polynom</option>
+                        <option value="exponent">exponent</option>
+                        <option value="logarithmic">logarithmic</option>
+                        <option value="power">power</option>
+                        <option value="fourier">fourier</option>
+                        <option value="minX">minX</option>
+                        <option value="minY">minY</option>
+                        <option value="maxX">maxX</option>
+                        <option value="maxY">maxY</option>
+                        <option value="averageX">averageX</option>
+                        <option value="averageY">averageY</option>
+                    </select>
+                    <label for="inpOrder">
+                        Order
+                    </label>
+                    <input id="inpOrder" type="text" value="4" />
+                    <label for="inpSampleCount">
+                        SampleCount
+                    </label>
+                    <input id="inpSampleCount" type="text" value="100" />					
+					<input type="button" value="Apply" onclick="changeProperties()" />
+				</div>
+				<!-- End options markup -->
+			</div>
+
+		<script type="text/javascript">
+		    var datesData = [new Date('1/1/2010'), new Date('2/1/2010'), new Date('3/1/2010'), new Date('4/1/2010'), new Date('5/1/2010'), new Date('6/1/2010'), new Date('7/1/2010'), new Date('8/1/2010'), new Date('9/1/2010'), new Date('10/1/2010'), new Date('11/1/2010'), new Date('12/1/2010')];
+		    var domesticData = [1983, 2343, 2593, 2283, 2574, 2838, 2382, 2634, 2938, 2739, 2983, 3493];
+		    $(document).one("wijappviewpageinit", function () {
+		        $("#wijbarchart").wijbarchart("beginUpdate");
+		        $("#wijbarchart").wijbarchart({
+		            horizontal: false, // toggle chart type: use 'true' for bar chart and 'false' for column chart
+		            axis: {
+		                y: {
+		                    text: "USD (thousands)",
+		                    textStyle: {
+		                        "font-weight": "normal"
+		                    },
+		                    min: 0, //Minimum value for axis
+		                    max: 4000, //Maximum value for axis
+		                    autoMin: false, //Tell the chart not to automatically generate minimum value for axis
+		                    autoMax: false, //Tell the chart not to automatically generate maximum value for axis
+		                    annoFormatString: 'n0', //Format values on axis as number with 0 decimal places. For example, 4.00 would be shown as 4
+		                    alignment: "far", //axis text aligned away from xy intersection
+		                    labels: {
+		                        textAlign: "near"
+		                    }
+		                },
+		                x: {
+		                    textStyle: {
+		                        "font-weight": "normal"
+		                    }
+		                }
+		            },
+		            showChartLabels: false,
+		            hint: {
+		                //Display custom information in tooltip. If not set, the content will default to x and y data display values
+		                content: function () {
+		                    //Check if multiple data points are on one axis entry. For example, multiple data entries for a single date.
+		                    if ($.isArray(this)) {
+		                        var content = "";
+		                        //Multiple entries of data on this point, so we need to loop through them to create the tooltip content.
+		                        for (var i = 0; i < this.length; i++) {
+		                            content += this[i].label + ': ' + Globalize.format(this[i].y * 1000, 'c0') + '\n';
+		                        }
+		                        return content;
+		                    }
+		                    else {
+		                        //Only a single data point, so we return a formatted version of it. "/n" is a line break.
+		                        return this.data.label + '\n' +
+                                    //Format x as Short Month and long year (Jan 2010). Then format y value as calculated currency with no decimal ($1,983,000).
+                                    Globalize.format(this.x, 'MMM yyyy') + ': ' + Globalize.format(this.y * 1000, 'c0');
+		                    }
+		                },
+		                contentStyle: {
+		                    "font-size": "14px",
+		                    "font-family": '"Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif'
+		                },
+		                style: {
+		                    fill: "#444444"
+		                }
+		            },
+		            shadow: false,
+		            textStyle: {
+		                "font-size": "13px",
+		                "font-family": '"Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif'
+		            },
+		            header: {
+		                text: "2010 Sales Revenue"
+		            },
+		            legend: {
+		                visible: true,
+		                compass: "north",
+		                orientation: "horizontal"
+		            },
+		            data: {
+		                //X axis values as Date objects. We are using a shared x value array for this chart with multiple y value arrays.
+		                x: datesData
+		            },
+		            seriesList: [{
+		                label: "Actual", //Label shown in legend
+		                legendEntry: true,
+		                data: {
+		                    //Y axis values for 1st series
+		                    y: domesticData
+		                }
+		            }, {
+		                isTrendline: true,// when adding a trendline, its value should be set to true. Otherwise, it would be considered as other charts.
+		                order: 4,//it defines the number of terms in polynom equation
+		                legendEntry: true,
+		                label: "Trend",
+		                data: {
+		                    y: domesticData
+		                }
+		            }],
+		            seriesStyles: [
+                        { fill: "rgb(136,189,230)", stroke: "none" },
+                        { stroke: "rgb(251,179,88)", "stroke-width": 4 }
+		            ]
+		        });
+		        $("#wijbarchart").wijbarchart("endUpdate");
+		    });
+		    function changeProperties() {
+		        var fitType = $("#selFitType").val(),
+                    sampleCount = parseInt($("#inpSampleCount").val()),
+                    order = parseInt($("#inpOrder").val());
+
+		        $("#wijbarchart").wijbarchart("option", "seriesList", [{
+		            label: "Actual", //Label shown in legend
+		            legendEntry: true,
+		            data: {
+		                //Y axis values for 1st series
+		                y: domesticData
+		            }
+		        }, {
+		            isTrendline: true,// when adding a trendline, its value should be set to true. Otherwise, it would be considered as other charts.
+		            fitType: fitType,//it specifies the fit type of the trendline. There are 11 kinds. Its default value is "polynom".
+		            order: order,//it defines the number of terms in polynom equation
+		            sampleCount: sampleCount,// it specifies the sample count for function calculation
+		            label: "Trend",
+		            data: {
+		                y: domesticData
+		            }
+		        }]);
+		    }
+	</script>
+    </div>
+</div>

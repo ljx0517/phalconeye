@@ -1,0 +1,134 @@
+<div data-role="appviewpage" data-title="Overview">
+	<div data-role="content">
+		<div id="wijbubblechart" data-role="wijbubblechart" style="width: 100%; height: 400px">
+		</div>
+		<div class="togbuttons">
+				<button id="Btn1910">
+					1910</button>
+				<button id="Btn2010">
+					2010</button>
+			</div>
+		<script type="text/javascript">
+			$(document).one("wijappviewpageinit", function () {
+				var data2010 = [{
+					label: "China",
+					legendEntry: true,
+					data: { y: [73], x: [7931], y1: [1340] }
+				}, {
+					label: "India",
+					legendEntry: true,
+					data: { y: [65], x: [2972], y1: [1150] }
+				}, {
+					label: "USA",
+					legendEntry: true,
+					data: { y: [78], x: [42066], y1: [309] }
+				}, {
+					label: "Japan",
+					legendEntry: true,
+					data: { y: [83], x: [30866], y1: [126] }
+				}, {
+					label: "Russia",
+					legendEntry: true,
+					data: { y: [69], x: [14318], y1: [140] }
+				}, {
+					label: "Congo",
+					legendEntry: true,
+					data: { y: [48], x: [374], y1: [72] }
+				}, {
+					label: "South Africa",
+					legendEntry: true,
+					data: { y: [52], x: [9284], y1: [43] }
+				}, {
+					label: "Mexico",
+					legendEntry: true,
+					data: { y: [77], x: [11754], y1: [112] }
+				}, {
+					label: "UK",
+					legendEntry: true,
+					data: { y: [80], x: [31217], y1: [61] }
+				}];
+
+				var data1910 = [{
+					label: "China",
+					legendEntry: true,
+					data: { y: [32], x: [810], y1: [423] }
+				}, {
+					label: "India",
+					legendEntry: true,
+					data: { y: [23], x: [692], y1: [249] }
+				}, {
+					label: "USA",
+					legendEntry: true,
+					data: { y: [52], x: [7914], y1: [93] }
+				}, {
+					label: "Japan",
+					legendEntry: true,
+					data: { y: [40], x: [1883], y1: [50] }
+				}, {
+					label: "Russia",
+					legendEntry: true,
+					data: { y: [36], x: [1842], y1: [80] }
+				}, {
+					label: "Congo",
+					legendEntry: true,
+					data: { y: [32], x: [602], y1: [11] }
+				}, {
+					label: "South Africa",
+					legendEntry: true,
+					data: { y: [34], x: [2864], y1: [5.9] }
+				}, {
+					label: "Mexico",
+					legendEntry: true,
+					data: { y: [27], x: [2102], y1: [15] }
+				}, {
+					label: "UK",
+					legendEntry: true,
+					data: { y: [54], x: [6489], y1: [42] }
+				}];
+
+				$("#wijbubblechart").wijbubblechart("beginUpdate").wijbubblechart({
+					showChartLabels: false,
+					axis: {
+						y: {
+							text: "Life Expectancy",
+							autoMin: false,
+							autoMax: false,
+							min: 0,
+							max: 100
+						},
+						x: {
+							text: "Income",
+							autoMin: false,
+							autoMax: false,
+							min: 0,
+							max: 45000
+						}
+					},
+					hint: {
+						content: function () {
+							return "" + this.data.label + " \nLife Expectency: " + this.y + " \nIncome: " + Globalize.format(this.x, "n") + " \nPopulation: " + this.data.y1 + "M";
+						}
+					},
+					header: {
+						text: "Wealth & Health of Nations - 2010"
+					},
+					seriesList: data2010
+				}).wijbubblechart("endUpdate");
+
+
+				$("#Btn1910").click(function () {
+					$("#wijbubblechart")
+					.wijbubblechart("option", "header", { text: "Wealth & Health of Nations - 1910" })
+					.wijbubblechart("option", "seriesList", data1910);
+
+				});
+				$("#Btn2010").click(function () {
+					$("#wijbubblechart")
+					.wijbubblechart("option", "header", { text: "Wealth & Health of Nations - 2010" })
+					.wijbubblechart("option", "seriesList", data2010);
+
+				});
+			});
+		</script>
+	</div>
+</div>

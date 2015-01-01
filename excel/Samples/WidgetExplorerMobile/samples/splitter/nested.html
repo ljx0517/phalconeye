@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<div data-role="appviewpage">
+    <div data-role="header">
+        <a href="index.html" data-icon="back">Back</a>
+        <h2>
+            Nested Splitter</h2>
+    </div>
+    <div data-role="content">
+        <style type="text/css">
+            #vsplitter
+            {
+                width: 300px;
+                height: 200px;
+            }
+        </style>
+        <div id="vsplitter" data-role="wijsplitter">
+            <div>
+                panel1
+            </div>
+            <div>
+                <div id="hsplitter" data-role="wijsplitter" data-options="{orientation: 'horizontal', fullSplit: true}">
+                    <div>
+                        panel2</div>
+                    <div>
+                        panel3</div>
+                </div>
+            </div>
+        </div>
+        <script id="script1" type="text/javascript">
+            $(document).one('wijappviewpageinit', function () {
+                $("#vsplitter").wijsplitter({ orientation: "vertical", fullSplit: false, expanded: function (e) { $("#hsplitter").wijsplitter("refresh"); }, collapsed: function (e) { $("#hsplitter").wijsplitter("refresh"); }, sized: function (e) { $("#hsplitter").wijsplitter("refresh"); } });
+            });
+        </script>
+    </div>
+</div>

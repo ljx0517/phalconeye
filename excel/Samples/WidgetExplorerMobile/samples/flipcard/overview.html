@@ -1,0 +1,205 @@
+<div data-role="appviewpage" data-title="Overview">
+	<div data-role="header">
+		<a href="index.html" data-icon="back">Back</a>
+		<h2>
+			Overview</h2>
+	</div>
+	<div data-role="content">
+    <style type="text/css">
+        .cardcontainer
+        {
+            padding: 0 80px 40px 80px;
+            float: left;
+        }
+
+        .cardcontainer img
+        {
+            vertical-align: middle;
+            display: block;
+            margin: auto;
+            text-align: center;
+        }
+
+        .wijmo-wijflipcard .wijmo-wijflipcard-panel
+        {
+            padding: 1em;
+        }
+
+        .bignumber
+        {
+            font-size: 3em;
+            font-weight: 100;
+            text-align: center;
+            display: block;
+            color: #999;
+            margin-top: 50px;
+        }
+
+        .details
+        {
+            text-align: center;
+            display: block;
+        }
+
+        .datatable
+        {
+            width: 100%;
+        }
+
+        .datatable th, .datatable td
+        {
+            border-bottom: 1px solid #333;
+        }
+
+        .datatable td
+        {
+            text-align: right;
+            font-weight: 100;
+        }
+
+        .info
+        {
+            font-weight: 100;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .info .ui-icon
+        {
+            display: inline-block;
+        }
+    </style>
+            <div class="cardcontainer" style="padding:  0 80px 40px 80px;float: left;">
+                <div id="clickhflipcard" class="positive" data-role="wijflipcard">
+                    <div>
+                        <!-- Front Panel -->
+                        <div class="bignumber">$593K</div>
+                        <div class="details">Q1 Sales</div>
+                    </div>
+                    <div>
+                        <!-- Back Panel -->
+                        <table class="datatable" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <td></td>
+                                    <th>Sales</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>Jan</th>
+                                    <td>$182,092</td>
+                                </tr>
+                                <tr>
+                                    <th>Feb</th>
+                                    <td>$223,234</td>
+                                </tr>
+                                <tr>
+                                    <th>Mar</th>
+                                    <td>$187,340</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Total</th>
+                                    <td>$592,666</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                        <p class="info">
+                            <span class="ui-icon ui-icon-info"></span> Up 18% ($123K)
+                        </p>
+                    </div>
+                </div>
+               <br /><br /><br /> Horizontal Flip
+            </div>
+            <div class="cardcontainer" style="padding:  0 80px 40px 80px;float: left;">
+                <div id="clickvflipcard" data-role="wijflipcard"  data-options="{animation: { direction: 'vertical' }}">
+                    <div>
+                        <!-- Front Panel -->
+                        <div class="bignumber">$593K</div>
+                        <div class="details">Q1 Sales</div>
+                    </div>
+                    <div>
+                        <!-- Back Panel -->
+                        <table class="datatable" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <td></td>
+                                    <th>Sales</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>Jan</th>
+                                    <td>$182,092</td>
+                                </tr>
+                                <tr>
+                                    <th>Feb</th>
+                                    <td>$223,234</td>
+                                </tr>
+                                <tr>
+                                    <th>Mar</th>
+                                    <td>$187,340</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Total</th>
+                                    <td>$592,666</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                        <p class="info">
+                            <span class="ui-icon ui-icon-info"></span> Up 18% ($123K)
+                        </p>
+                    </div>
+                </div>
+                <br /><br /><br />Vertical Flip
+            </div>
+            <div class="cardcontainer" style="padding:  0 80px 40px 80px;float: left;">
+                <div id="clicknoaniflipcard" data-role="wijflipcard" data-options="{animation: { disabled: true }}">
+                    <div>
+                        <!-- Front Panel -->
+                        <div class="bignumber">$593K</div>
+                        <div class="details">Q1 Sales</div>
+                    </div>
+                    <div>
+                        <!-- Back Panel -->
+                        <table class="datatable" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <td></td>
+                                    <th>Sales</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>Jan</th>
+                                    <td>$182,092</td>
+                                </tr>
+                                <tr>
+                                    <th>Feb</th>
+                                    <td>$223,234</td>
+                                </tr>
+                                <tr>
+                                    <th>Mar</th>
+                                    <td>$187,340</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Total</th>
+                                    <td>$592,666</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                        <p class="info">
+                            <span class="ui-icon ui-icon-info"></span> Up 18% ($123K)
+                        </p>
+                    </div>
+                </div>
+                <br /><br /><br />No Aimation
+            </div>
+	</div>
+</div>

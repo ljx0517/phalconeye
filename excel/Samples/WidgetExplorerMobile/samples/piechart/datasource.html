@@ -1,0 +1,53 @@
+<div data-role="appviewpage" data-title="Array as DataSource">
+	<div data-role="content">
+		<!-- Begin demo markup -->
+		<div id="wijpiechart" data-role="wijpiechart" class="ui-widget ui-widget-content ui-corner-all">
+		</div>
+		<!-- End demo markup -->
+		<div class="footer demo-description">
+			<p>This sample shows how to create a pie chart using an array as the data source for the chart.</p>
+		</div>
+		<script type="text/javascript">
+			$(document).one("wijappviewpageinit", function () {
+				var data = [{
+					Device: 'MacBook Pro',
+					Percent: 46.78,
+					Offset: 15
+				}, {
+					Device: 'iMac',
+					Percent: 23.18
+				}, {
+					Device: 'MacBook',
+					Percent: 20.25
+				}, {
+					Device: 'Mac Pro',
+					Percent: 5.41
+				}, {
+					Device: 'Mac mini',
+					Percent: 3.44
+				}];
+
+				$("#wijpiechart").wijpiechart("beginUpdate");
+				$("#wijpiechart").wijpiechart({
+					dataSource: data,
+					data: {
+						label: { bind: "Device" },
+						value: { bind: "Percent" },
+						offset: { bind: "Offset" }
+					},
+					radius: 140,
+					legend: { visible: true },
+					hint: {
+						content: function () {
+							return this.data.label + " : " + Globalize.format(this.value / this.total, "p2");
+						}
+					},
+					header: {
+						text: "Steam - Mac Hardware"
+					}
+				});
+				$("#wijpiechart").wijpiechart("endUpdate");
+			});
+		</script>
+	</div>
+</div>

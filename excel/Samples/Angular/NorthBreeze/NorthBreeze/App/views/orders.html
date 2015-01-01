@@ -1,0 +1,24 @@
+<div>
+    <h3>Orders</h3>
+    <wij-grid data="orders" columns-autogeneration-mode="none" allow-sorting="true" scroll-mode="auto" allow-virtual-scrolling="true" style="height:500px;width:100%">
+        <columns>
+            <column data-key="OrderID" visible="false"></column>
+            <column data-key="CustomerID" visible="false"></column>
+            <column data-key="EmployeeID" visible="false"></column>
+            <column data-key="Freight" data-type="currency" header-text="Freight"></column>
+            <column data-key="OrderDate" data-type="datetime" header-text="Order Date"></column>
+            <column data-key="RequiredDate" data-type="datetime" visible="false"></column>
+            <column data-key="ShippedDate" data-type="datetime" header-text="Ship Date"></column>
+            <column data-key="ShipName" header-text="Name"></column>
+            <column data-key="ShipAddress" visible="false"></column>
+            <column data-key="ShipCity" header-text="City"></column>
+            <column data-key="ShipRegion" visible="false"></column>
+            <column data-key="ShipPostalCode" visible="false"></column>
+            <column data-key="ShipCountry" header-text="Country"></column>
+            <column data-key="RowVersion" visible="false"></column>
+        </columns>
+    </wij-grid>
+    <p>
+        This view uses a Wijmo Grid bound to a Breeze result set (array). It shows how the Grid can be bound to an array and you can use your own Breeze data model. This sample does not use the Wijmo BreezeDataView.   
+    </p>
+</div>

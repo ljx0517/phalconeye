@@ -1,4 +1,38 @@
+#top-navbar{
+	height:40px!important;
+	min-height: 40px!important;
+}
+#top-navbar  .navbar-inner{
+	min-height: 40px!important;
+	background: none!important;
+}
+#top-navbar  .nav{
+	height:40px!important;
+}
+#top-navbar .nav > li{
+	height:40px!important;
+	line-height: 40px!important;
+	float: left;
+	font-size: 15px;
+}
+#top-navbar .nav>li>a{
+	padding: 0px 15px!important;
+}
+#top-navbar .nav>li>a:hover,
+#top-navbar .nav>li>a:focus {
+	color:#000!important;
+	background-color:none!important;
+}
+#top-navbar .nav>li.active>a{
+	box-shadow: none!important;
+	color: #FFF!important;
+	background-color: #428BCA!important;
+}
+.page-header.position-relative{
+	box-shadow: 0px -4px 6px 5px #666;
+}
 .login-container .loginbox{
 	height: auto!important;
 	padding-bottom: 20px;
 }
+

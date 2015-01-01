@@ -20,27 +20,55 @@
 {% block title %}Admin panel{% endblock %}
 
 {% block head %}
+	{#
     {{ helper('assets').addJs('assets/js/core/admin/dashboard.js') }}
+    #}
+    {{ helper('assets').javascriptInclude('assets/js/core/admin/dashboard.js') }}
 {% endblock %}
-
+{% block header %}
+<h1>Dashboard</h1>
+{% endblock %}
 {% block content %}
-    <div class="dashboard">
+<div class="row">
+	<div class="col-lg-8 col-sm-12 col-xs-12">
+	    <div class="row">
+			<div class="col-lg-12">
+			    <div class="widget">
+				<div class="widget-header bordered-bottom bordered-themesecondary">
+				    <i class="widget-icon fa fa-tags themesecondary"></i>
+				    <span class="widget-caption themesecondary">Ticket Board</span>
+				</div><!--Widget Header-->
+				<div class="widget-body">
+				    <div class="widget-main no-padding">
+						<h1>{{ 'Dashboard' |i18n }}</h1>
+            			Some activity here... imagine it =)... coming soon (maybe in 0.5.0)...
+				    </div>
+				</div>
+			    </div>
 
-        <main>
-            <h1>{{ 'Dashboard' |i18n }}</h1>
-            Some activity here... imagine it =)... coming soon (maybe in 0.5.0)...
-        </main>
+			</div>
+	    </div>
+	</div>
+	<div class="col-lg-4 col-sm-12 col-xs-12">
+	    <div class="widget">
+		<div class="widget-header bordered-bottom bordered-themeprimary">
+		    <i class="widget-icon fa fa-tasks themeprimary"></i>
+		    <span class="widget-caption themeprimary">Task Board</span>
+		</div><!--Widget Header-->
+		<div class="widget-body">
+		    <div class="widget-main no-padding text-center">
+				<div>
+	                <h4>{{ 'Debug mode'|i18n }}</h4>
+	                <input name="debug" type="checkbox" data-href="{{ url(['for':'admin-mode'])}}" {% if debug %}checked{% endif %}>
+	            </div>
+	            <hr>
+	            <div>
+	                <a href="{{ url(['for':'admin-clear'])}}" class="btn btn-primary">{{ 'Clear cache'|i18n }}</a>
+	            </div>
+		    </div><!--Widget Main Container-->
+		</div><!--Widget Body-->
+	    </div>
 
-        <aside>
-            <div>
-                <h4>{{ 'Debug mode'|i18n }}</h4>
-                <input name="debug" type="checkbox" data-href="{{ url(['for':'admin-mode'])}}" {% if debug %}checked{% endif %}>
-            </div>
-            <hr>
-            <div>
-                <a href="{{ url(['for':'admin-clear'])}}" class="btn btn-primary">{{ 'Clear cache'|i18n }}</a>
-            </div>
-        </aside>
-
-    </div>
+	</div>
+</div>
 {% endblock %}

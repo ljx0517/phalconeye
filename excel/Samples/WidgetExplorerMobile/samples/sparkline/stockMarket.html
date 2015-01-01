@@ -1,0 +1,77 @@
+<div data-role="appviewpage" data-title="Stock Market">
+	<div data-role="content">
+		<p>
+            Current trends indicate that the DOW <span id="spkDowInline" style="display:inline-block;height:13px;width:100px"></span> and NASDAQ <span id="spkNasdaqInline" style="display:inline-block;height:13px;width:100px"></span> are both seeing steady growth over the past month.
+        </p>
+
+        <table class="datatable" cellspacing="0">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>History</th>
+                    <th>5 Days</th>
+                    <th>Current</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>NASDAQ</td>
+                    <td><div id="spkNasdaq" style="height:20px;width:200px"></div></td>
+                    <td><div id="spkNasdaq5" style="height:20px;width:200px"></div></td>
+                    <td>4379.76</td>
+                </tr>
+                <tr>
+                    <td>DOW</td>
+                    <td><div id="spkDow" style="height:20px;width:200px"></div></td>
+                    <td><div id="spkDow5" style="height:20px;width:200px"></div></td>
+                    <td>16867.51</td>
+                </tr>
+            </tbody>
+        </table>
+	</div>
+	<style type="text/css">
+        .datatable {
+            width: 100%;
+        }
+        .datatable th, .datatable td {
+            border-bottom: 1px solid #333;
+            padding:5px;
+        }
+        .datatable td {
+            text-align: right;
+            font-weight: 100;
+        }
+        .datatable td div {
+            margin: 0 auto;
+        }
+    </style>
+	<script id="scriptInit" type="text/javascript">
+		$(document).one("wijappviewpageinit", function () {
+			var nasdaq = [4100.63, 4069.29, 4090.59, 4125.82, 4096.89, 4131.54, 4154.34, 4185.81, 4237.07, 4225.07, 4247.95, 4242.62, 4237.20, 4234.08, 4251.64, 4296.23, 4321.40, 4336.24, 4338.00, 4331.93, 4297.63, 4310.65, 4321.11, 4337.23, 4362.84, 4359.33, 4368.04, 4368.68, 4350.36, 4379.76]
+			var dow = [16613.97, 16446.81, 16491.31, 16511.86, 16374.31, 16533.06, 16543.08, 16606.27, 16675.50, 16633.18, 16698.74, 16717.17, 16743.63, 16722.34, 16737.53, 16836.11, 16924.28, 16943.10, 16945.92, 16843.88, 16734.19, 16775.74, 16781.01, 16808.49, 16906.62, 16921.46, 16947.08, 16937.26, 16818.13, 16867.51];
+			var nasdaq5 = [4359.33, 4368.04, 4368.68, 4350.36, 4379.76];
+			var dow5 = [16921.46, 16947.08, 16937.26, 16818.13, 16867.51];
+
+			$("#spkNasdaqInline").wijsparkline({
+				data: nasdaq
+			});
+			$("#spkNasdaq").wijsparkline({
+				data: nasdaq
+			});
+			$("#spkNasdaq5").wijsparkline({
+				data: nasdaq5,
+				type: "column"
+			});
+			$("#spkDowInline").wijsparkline({
+				data: dow
+			});
+			$("#spkDow").wijsparkline({
+				data: dow
+			});
+			$("#spkDow5").wijsparkline({
+				data: dow5,
+				type: "column"
+			});
+		});
+    </script>
+</div>

@@ -1,0 +1,50 @@
+<div data-role="appviewpage">
+    <div data-role="header">
+        <a href="index.html" data-icon="back">Back</a>
+        <h2>
+           Flickr</h2>
+    </div>
+    <div data-role="content">
+        <style type="text/css">
+            #wijcarousel0
+            {
+                width: 700px;
+                height: 150px;	
+            }
+        </style>
+        <div id="wijcarousel0">      
+        </div>
+        <script type="text/javascript">
+            var count = 15;
+            var tags = "Siberian Tiger";
+
+            $(document).one('wijappviewpageinit', function () {
+                $("#wijcarousel0").wijcarousel({
+                    imageSize: {
+                        width: 100,
+                        height: 150
+                    },
+                    display: 3,
+                    step: 1,
+                    showTimer: false,
+                    showPager: false,
+                    loop: true,
+                    loadCallback: function () {
+                        $.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?tags=" + tags + "&tagmode=any&format=json&jsoncallback=?", function (data) {
+                            var images = [];
+                            $.each(data.items, function (idx, item) {
+                                var img = {};
+                                img.imageUrl = item.media.m;
+                                img.caption = item.title;
+                                images.push(img);
+                                if (idx == count - 1) return false;
+                            });
+
+                            $("#wijcarousel0").wijcarousel("option", "data", images);
+                        });
+                    }
+                });
+            });
+    </script>
+    </div>
+</div>

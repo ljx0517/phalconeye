@@ -1,0 +1,52 @@
+<div data-role="appviewpage">
+    <div data-role="header">
+        <a href="index.html" data-icon="back">Back</a>
+        <h2>
+            Animation</h2>
+    </div>
+    <div data-role="content">
+        <!-- Begin demo markup -->
+        <div id="lightbox" data-role="wijlightbox">
+            <a href="http://lorempixel.com/600/400/sports/1" rel="wijlightbox[stock];player=img">
+                <img src="http://lorempixel.com/150/125/sports/1" title="Sports 1" alt="Sports 1" /></a>
+            <a href="http://lorempixel.com/600/400/sports/2" rel="wijlightbox[stock];player=img">
+                <img src="http://lorempixel.com/150/125/sports/2" title="Sports 2" alt="Sports 2" /></a>
+            <a href="http://lorempixel.com/600/400/sports/3" rel="wijlightbox[stock];player=img">
+                <img src="http://lorempixel.com/150/125/sports/3" title="Sports 3" alt="Sports 3" /></a>
+            <a href="http://lorempixel.com/600/400/sports/4" rel="wijlightbox[stock];player=img">
+                <img src="http://lorempixel.com/150/125/sports/4" title="Sports 4" alt="Sports 4" /></a>
+        </div>
+        <script type="text/javascript">
+            $(document).one('wijappviewpageinit', function () {
+                $("#lightbox").wijlightbox({
+                    textPosition: 'titleOverlay'
+                });
+
+
+                $('.option').change(function () {
+                    $("#lightbox").wijlightbox('option', {
+                        transAnimation: { animated: $('#animation').val() },
+                        slideDirection: $('#direction').val()
+                    });
+                });
+            });
+        </script>
+        <div class="demo-options">
+            <!-- Begin options markup -->
+            <label>
+                Animation</label>
+            <select id="animation" class='option'>
+                <option value="fade" selected='true'>fade</option>
+                <option value="slide">slide</option>
+                <option value="none">none</option>
+            </select>
+            <label>
+                Slide Direction</label>
+            <select id="direction" class='option'>
+                <option value="horizontal" selected='true'>horizontal</option>
+                <option value="vertical">vertical</option>
+            </select>
+            <!-- End options markup -->
+        </div>
+    </div>
+</div>

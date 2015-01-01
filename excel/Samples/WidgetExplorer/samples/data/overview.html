@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Data - Overview</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="Wijmo data overview sample" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="ComponentOne" />
+
+    <style type="text/css">
+        table {
+            border-collapse: collapse;
+        }
+        table caption {
+            font-size: 150%;
+        }
+        th, td {
+            border: 1px solid #AAAAAA;
+            text-align: center;
+            padding: 0.5em;
+        }
+        th {
+            background-color: #CCCCCC;
+        }
+    </style> 
+
+    <link href="../../../../Themes/rocket/jquery-wijmo.css" rel="stylesheet" type="text/css" />
+    <link href="../../../../css/jquery.wijmo-pro.all.3.20143.59.min.css" rel="stylesheet" type="text/css" />
+    <script src="../../js/require.js" type="text/javascript"></script>
+    <script src="../../js/require.wijmo.config.js" type="text/javascript"></script>
+
+    <script id="scriptInit" type="text/javascript">
+        var viewModel;
+        require(["wijmo.data", "wijmo.wijgrid", "knockout.wijmo"], function () {
+
+        function ViewModel(sessionId) {
+            var products = new wijmo.data.ArrayDataView([
+                { "Product_ID": 1, "Supplier_ID": 1, "Category_ID": 1, "Product_Name": "Chai", "English_Name": "Dharamsala Tea", "Quantity_Per_Unit": "10 boxes x 20 bags", "Unit_Price": 18.0, "Units_In_Stock": 39, "Units_On_Order": 0, "Reorder_Level": 10, "Discontinued": false }, { "Product_ID": 2, "Supplier_ID": 1, "Category_ID": 1, "Product_Name": "Chang", "English_Name": "Tibetan Barley Beer", "Quantity_Per_Unit": "24 - 12 oz bottles", "Unit_Price": 19.0, "Units_In_Stock": 17, "Units_On_Order": 40, "Reorder_Level": 25, "Discontinued": false }, { "Product_ID": 24, "Supplier_ID": 10, "Category_ID": 1, "Product_Name": "Guaraná Fantástica", "English_Name": "Guaraná Fantástica Soft Drink", "Quantity_Per_Unit": "12 - 355 ml cans", "Unit_Price": 4.5, "Units_In_Stock": 20, "Units_On_Order": 0, "Reorder_Level": 0, "Discontinued": true }, { "Product_ID": 34, "Supplier_ID": 16, "Category_ID": 1, "Product_Name": "Sasquatch Ale", "English_Name": "Sasquatch Ale", "Quantity_Per_Unit": "24 - 12 oz bottles", "Unit_Price": 14.0, "Units_In_Stock": 111, "Units_On_Order": 0, "Reorder_Level": 15, "Discontinued": false }, { "Product_ID": 35, "Supplier_ID": 16, "Category_ID": 1, "Product_Name": "Steeleye Stout", "English_Name": "Steeleye Stout", "Quantity_Per_Unit": "24 - 12 oz bottles", "Unit_Price": 18.0, "Units_In_Stock": 20, "Units_On_Order": 0, "Reorder_Level": 15, "Discontinued": false }, { "Product_ID": 38, "Supplier_ID": 18, "Category_ID": 1, "Product_Name": "Côte de Blaye", "English_Name": "Côte de Blaye (Red Bordeaux wine)", "Quantity_Per_Unit": "12 - 75 cl bottles", "Unit_Price": 263.5, "Units_In_Stock": 17, "Units_On_Order": 0, "Reorder_Level": 15, "Discontinued": false },
+                { "Product_ID": 3, "Supplier_ID": 1, "Category_ID": 2, "Product_Name": "Aniseed Syrup", "English_Name": "Licorice Syrup", "Quantity_Per_Unit": "12 - 550 ml bottles", "Unit_Price": 10.0, "Units_In_Stock": 13, "Units_On_Order": 70, "Reorder_Level": 25, "Discontinued": false }, { "Product_ID": 4, "Supplier_ID": 2, "Category_ID": 2, "Product_Name": "Chef Anton's Cajun Seasoning", "English_Name": "Chef Anton's Cajun Seasoning", "Quantity_Per_Unit": "48 - 6 oz jars", "Unit_Price": 22.0, "Units_In_Stock": 53, "Units_On_Order": 0, "Reorder_Level": 0, "Discontinued": false }, { "Product_ID": 5, "Supplier_ID": 2, "Category_ID": 2, "Product_Name": "Chef Anton's Gumbo Mix", "English_Name": "Chef Anton's Gumbo Mix", "Quantity_Per_Unit": "36 boxes", "Unit_Price": 21.35, "Units_In_Stock": 0, "Units_On_Order": 0, "Reorder_Level": 0, "Discontinued": true }, { "Product_ID": 6, "Supplier_ID": 3, "Category_ID": 2, "Product_Name": "Grandma's Boysenberry Spread", "English_Name": "Grandma's Boysenberry Spread", "Quantity_Per_Unit": "12 - 8 oz jars", "Unit_Price": 25.0, "Units_In_Stock": 120, "Units_On_Order": 0, "Reorder_Level": 25, "Discontinued": false }, { "Product_ID": 8, "Supplier_ID": 3, "Category_ID": 2, "Product_Name": "Northwoods Cranberry Sauce", "English_Name": "Northwoods Cranberry Sauce", "Quantity_Per_Unit": "12 - 12 oz jars", "Unit_Price": 40.0, "Units_In_Stock": 6, "Units_On_Order": 0, "Reorder_Level": 0, "Discontinued": false }, { "Product_ID": 15, "Supplier_ID": 6, "Category_ID": 2, "Product_Name": "Genen Shouyu", "English_Name": "Lite Sodium Soy Sauce", "Quantity_Per_Unit": "24 - 250 ml bottles", "Unit_Price": 15.5, "Units_In_Stock": 39, "Units_On_Order": 0, "Reorder_Level": 5, "Discontinued": false }
+            ]);
+            products.filter({ Category_ID: 2 });
+
+            this.products = products.toObservableArray();
+
+            this.sortId = function () {
+                products.sort("Product_ID");
+            };
+            this.sortPrice = function () {
+                products.sort("Unit_Price desc, Product_Name");
+            };
+        }
+
+        function bind() {
+            $(document).ready(function () {
+                viewModel = new ViewModel();
+                ko.applyBindings(viewModel, $(".container").get(0));
+            });
+        }
+
+        if (ko.dependencyDetection) {
+            ko.dependencyDetection.ignore(bind);
+        } else {
+            bind();
+        }
+        });
+    </script>
+
+</head>
+
+<body class="demo-single">
+<div class="container">
+    <div class="header">
+        <h2>Data - Overview</h2>
+    </div>
+    <div class="main demo">
+        <!-- Begin demo markup -->
+        <div>
+            Sort by:
+            <button data-bind="click:sortId, button: {}" type="button">ID</button>
+            <button data-bind="click:sortPrice, button: {}"type="button">Price, Name</button>
+        </div>
+
+        <table style="margin-top: 10px">
+            <thead>
+                <tr>
+                    <th>Product ID</th>
+                    <th>Product name</th>
+                    <th>Category ID</th>
+                    <th>Unit price</th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: products">
+                <tr>
+                    <td data-bind="text: Product_ID"></td>
+                    <td data-bind="text: Product_Name"></td>
+                    <td data-bind="text: Category_ID"></td>
+                    <td data-bind="text: Unit_Price"></td>
+                </tr>
+            </tbody>
+        </table>
+ 
+        <!-- End demo markup -->
+        <div class="demo-options">
+            <!-- Begin options markup -->
+            <!-- End options markup -->
+        </div>
+    </div>
+    <div class="footer demo-description">
+        <p>
+            The sample shows remote data in a wijmo grid.
+            Data can be modified in the grid or by pressing the buttons (programmatically), and saved back to the server.
+        </p>
+    </div>
+</div>
+
+</body>
+
+</html>

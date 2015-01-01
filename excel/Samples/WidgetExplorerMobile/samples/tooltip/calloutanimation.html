@@ -1,0 +1,58 @@
+<div data-role="appviewpage" data-title="Callout Animation">
+    <div data-role="content">
+            <style type="text/css">
+                .boxes
+                {
+                    width: 500px;
+                    height: 50px;
+                    margin-top: 100px;
+                }
+                .boxes div
+                {
+                    width: 100px;
+                    height: 50px;
+                    float: left;
+                }
+            </style>
+            <!-- Begin demo markup -->
+            <div class="boxes" id="boxes" data-role="wijtooltip" data-options='{
+                    showCallOut: true,
+                    closeBehavior: "none",
+                    position: { my: "center bottom", at: "center top", offset: "50 0" }
+                }'>
+                <div>
+                </div>
+                <div>
+                </div>
+                <div>
+                </div>
+                <div>
+                </div>
+                <div>
+                </div>
+            </div>
+            <!-- End demo markup -->
+        <script id="scriptInit" type="text/javascript">
+            $(document).one('wijappviewpageinit', function () {
+                //the first show is to create the tooltip element.
+                $("#boxes").wijtooltip("show");
+                var tooltip = $("#boxes").wijtooltip("widget");
+                tooltip.width(500);
+                tooltip.height(50);
+                $("#boxes").wijtooltip("show");
+                var colors = ["red", "blue", "yellow", "black", "green"];
+                $("#boxes").wijtooltip("option", "content", colors[2]);
+                $("#boxes>div").each(function (i) {
+                    $(this).css("background-color", colors[i]);
+                    $(this).bind("click", function () {
+                        var value = 50 + 100 * i;
+                        $("#boxes").wijtooltip("option", "content", colors[i]);
+                        $("#boxes").wijtooltip("option", "position", { offset: value + " 0" });
+                    });
+                });
+
+            });
+            
+        </script>
+    </div>
+</div>

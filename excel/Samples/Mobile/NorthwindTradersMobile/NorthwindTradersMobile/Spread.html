@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SpreadJS</title>
+    <!--jQuery References-->
+    <script src="http://code.jquery.com/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.min.js" type="text/javascript"></script>
+
+    <!--Theme-->
+    <link href="http://cdn.wijmo.com/themes/cobalt/jquery-wijmo.css" rel="stylesheet" type="text/css" />
+
+    <!--Wijmo Widgets CSS-->
+    <link href="http://cdn.wijmo.com/jquery.wijmo-pro.all.3.20131.3.min.css" rel="stylesheet" type="text/css" />
+
+    <!--Wijmo Widgets JavaScript-->
+    <script src="http://cdn.wijmo.com/jquery.wijmo-open.all.3.20131.3.min.js" type="text/javascript"></script>
+    <script src="http://cdn.wijmo.com/jquery.wijmo-pro.all.3.20131.3.min.js" type="text/javascript"></script>
+
+    <!-- SpreadJS CSS and script -->
+    <script src="http://cdn.wijmo.com/spreadjs/jquery.wijmo.wijspread.all.1.20131.1.min.js" type="text/javascript"></script>
+    <link href="http://cdn.wijmo.com/spreadjs/jquery.wijmo.wijspread.1.20131.1.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#ss").wijspread({ sheetCount: 2 }); // create wijspread control
+            initSpread();
+        });
+    </script>
+
+</head>
+<body>
+    <div id="ss" style="height: 500px; border: solid gray 1px;" />
+</body>
+</html>

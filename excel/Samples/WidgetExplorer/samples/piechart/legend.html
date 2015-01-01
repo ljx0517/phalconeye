@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Overview</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="%description%" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="ComponentOne" />
+
+    <link href="../../../../Themes/rocket/jquery-wijmo.css" rel="stylesheet" type="text/css" />
+    <link href="../../../../css/jquery.wijmo-pro.all.3.20143.59.min.css" rel="stylesheet" type="text/css" />
+    <script src="../../js/require.js" type="text/javascript"></script>
+    <script src="../../js/require.wijmo.config.js" type="text/javascript"></script>
+
+    <script id="scriptInit" type="text/javascript">
+        require(["wijmo.wijpiechart", "wijmo.wijinputnumber", "wijmo.wijslider", "wijmo.wijcombobox", "wijmo.wijcheckbox"], function () {
+            $(document).ready(function () {
+                $("#wijpiechart").wijpiechart({
+                    // setup legend
+                    legend: {
+                        visible: true, // toggle visiblity (true is default value)
+                        text: "Countries", // legend header
+                        compass: "north", // legend position relative to the chart
+                        orientation: "horizontal", // legend elements orientation
+                        // legend element marker size in pixels
+                        size: {
+                            width: 15,
+                            height: 10
+                        }
+                    },
+                    seriesList: [{
+                        label: "China", // series name, also displayed in the legend
+                        legendEntry: true, // toggle series visibility in the legend
+                        data: 1387,
+                        offset: 15
+                    }, {
+                        label: "India",
+                        legendEntry: true,
+                        data: 1255,
+                        offset: 0
+                    }, {
+                        label: "USA",
+                        legendEntry: true,
+                        data: 320,
+                        offset: 0
+                    }, {
+                        label: "Indonesia",
+                        legendEntry: true,
+                        data: 250,
+                        offset: 0
+                    }, {
+                        label: "Brasil",
+                        legendEntry: true,
+                        data: 200,
+                        offset: 0
+                    }, {
+                        label: "Other world",
+                        legendEntry: true,
+                        data: 3770,
+                        offset: 0
+                    }],
+                    radius: 180,
+                    width: 756,
+                    height: 450,
+
+                    header: {
+                        text: "Top 5 countries with highest population"
+                    },
+                    hint: {
+                        content: function () {
+                            return this.data.label + " : " + Globalize.format(this.value / this.total, "p2");
+                        }
+                    },
+                    animation: { enabled: false }
+                });
+            });
+
+            $(function () {
+                $("select").wijcombobox({
+                    changed: function () { changeProperties() }
+                });
+
+                $("input:checkbox").wijcheckbox({
+                    changed: function () { changeProperties() }
+                });
+            });
+
+            function changeProperties() {
+                var legend = {
+                    compass: $("#selCompass").val(),
+                    orientation: $("#selOrientation").val(),
+                    text: "Years",
+                    visible: $("#chkEnabled").is(":checked")
+                };
+                $("#wijpiechart").wijpiechart("option", "legend", legend);
+            }
+        });
+
+    </script>
+    <style>
+        .demoColumn {
+            display: inline-block;
+            width: 300px;
+        }
+    </style>
+</head>
+<body class="demo-single">
+    <div class="container">
+        <div class="header">
+            <h2>Overview</h2>
+        </div>
+        <div class="main demo">
+            <!-- Begin demo markup -->
+            <div id="wijpiechart" class="ui-widget ui-widget-content ui-corner-all">
+            </div>
+            <!-- End demo markup -->
+            <div class="demo-options">
+                <!-- Begin options markup -->
+                <div>
+                    <div>
+                        <label for="chkEnabled">
+                            Legend enabled 
+                        </label>
+                        <input type="checkbox" id="chkEnabled" checked="checked" />
+                    </div>
+                    <div>
+                        <h3>Legend position:</h3>
+                        <div class="demoColumn">
+                            <label for="selCompass">
+                                Compass
+                            </label>
+                        </div>
+                        <div class="demoColumn">
+                            <select id="selCompass">
+                                <option value="north">north</option>
+                                <option value="east">east</option>
+                                <option value="south">south</option>
+                                <option value="west">west</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="demoColumn">
+                            <label for="selOrientation">
+                                Orientation
+                            </label>
+                        </div>
+                        <div class="demoColumn">
+                            <select id="selOrientation">
+                                <option value="horizontal">horizontal</option>
+                                <option value="easeInCubicvertical">vertical</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End options markup -->
+        </div>
+    </div>
+    <div class="footer demo-description">
+        <h3>Test the features</h3>
+        <ul>
+            <li>Note the legend on the top of the chart</li>
+            <li>Click series items in the legend to toggle their visibility on the chart surface.</li>
+            <li>Play with legend options in the panel below to see its behavior.</li>
+            <li>Go to the 'Sources' tab to see how to setup chart legend through widget initialization </li>
+        </ul>
+    </div>
+    </div>
+</body>
+</html>

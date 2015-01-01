@@ -30,7 +30,7 @@ use User\Form\Admin\RoleCreate as RoleCreateForm;
 use User\Form\Admin\RoleEdit as RoleEditForm;
 use User\Model\Role;
 use User\Model\User;
-
+use Engine\Asset\Manager as AssetManager;
 /**
  * Manage users.
  *
@@ -45,6 +45,22 @@ use User\Model\User;
  */
 class AdminUsersController extends AbstractAdminController
 {
+
+	public function initialize()
+	{
+		parent::initialize();
+	}
+	public function _setupAssets(){
+		parent::_setupAssets();
+		$this->assets->get(
+				AssetManager::DEFAULT_COLLECTION_JS)
+				->addJs('external/handsontable/0.12.2/dist/handsontable.full.js');
+		$this->assets->get(
+				AssetManager::DEFAULT_COLLECTION_CSS)
+				->addCss('external/handsontable/0.12.2/dist/handsontable.full.css')
+				->addCss('external/handsontable/0.12.2/plugins/bootstrap/handsontable.bootstrap.css');
+
+	}
     /**
      * Init navigation.
      *
@@ -96,6 +112,7 @@ class AdminUsersController extends AbstractAdminController
      */
     public function indexAction()
     {
+    	return;
         $grid = new UserGrid($this->view);
         if ($response = $grid->getResponse()) {
             return $response;

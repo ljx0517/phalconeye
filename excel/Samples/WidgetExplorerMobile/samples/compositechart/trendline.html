@@ -1,0 +1,197 @@
+<div data-role="appviewpage" data-title="Trendline">
+    <div data-role="content">
+        <div id="wijcompositechart" data-role="wijcompositechart" style="width: 100%; height: 400px">
+		</div>
+		<div class="demo-options">
+				<!-- Begin options markup -->
+				<div>
+                    <select id="selFitType">
+                        <option value="polynom">polynom</option>
+                        <option value="exponent">exponent</option>
+                        <option value="logarithmic">logarithmic</option>
+                        <option value="power">power</option>
+                        <option value="fourier">fourier</option>
+                        <option value="minX">minX</option>
+                        <option value="minY">minY</option>
+                        <option value="maxX">maxX</option>
+                        <option value="maxY">maxY</option>
+                        <option value="averageX">averageX</option>
+                        <option value="averageY">averageY</option>
+                    </select>
+                    <label for="inpOrder">
+                        Order
+                    </label>
+                    <input id="inpOrder" type="text" value="4" />
+                    <label for="inpSampleCount">
+                        SampleCount
+                    </label>
+                    <input id="inpSampleCount" type="text" value="100" />					
+					<input type="button" value="Apply" onclick="changeProperties()" />
+				</div>
+				<!-- End options markup -->
+			</div>
+
+		<script type="text/javascript">
+		    var data1 = [{
+		        type: "Desktops",
+		        west: 5,
+		        central: 2,
+		        east: 3,
+		        Steam1: 3,
+		        Steam2: 1
+		    }, {
+		        type: "Notebooks",
+		        west: 3,
+		        central: 2,
+		        east: 4,
+		        Steam1: 6,
+		        Steam2: 3
+		    }, {
+		        type: "AIO",
+		        west: 4,
+		        central: 3,
+		        east: 4,
+		        Steam1: 2,
+		        Steam2: 4
+		    }, {
+		        type: "Tablets",
+		        west: 7,
+		        central: 2,
+		        east: 2,
+		        Steam1: 9,
+		        Steam2: 7
+		    }, {
+		        type: "Phones",
+		        west: 2,
+		        central: 1,
+		        east: 5,
+		        Steam1: 5,
+		        Steam2: 2
+		    }], pieData = [{
+		        label: "MacBook Pro",
+		        legendEntry: true,
+		        data: 46.78,
+		        offset: 15
+		    }, {
+		        label: "iMac",
+		        legendEntry: true,
+		        data: 23.18,
+		        offset: 0
+		    }, {
+		        label: "MacBook",
+		        legendEntry: true,
+		        data: 20.25,
+		        offset: 0
+		    }];
+		    $(document).one("wijappviewpageinit", function () {
+		        $("#wijcompositechart").wijcompositechart("beginUpdate");
+		        $("#wijcompositechart").wijcompositechart({
+		            axis: {
+		                y: {
+		                    text: "Total Hardware"
+		                }
+		            },
+		            stacked: false,
+		            hint: {
+		                content: function () {
+		                    return this.label + '\n ' + this.y + '';
+		                }
+		            },
+		            header: {
+		                text: "Hardware Distribution"
+		            },
+		            dataSource: data1,
+		            data: {
+		                x: {
+		                    bind: "type"
+		                }
+		            },
+		            seriesList: [{
+		                type: "column",
+		                label: "West",
+		                legendEntry: true,
+		                data: {
+		                    y: { bind: "west" }
+		                }
+		            }, {
+		                type: "pie",
+		                center: { x: 150, y: 150 },
+		                radius: 60,
+		                dataSource: pieData,
+		                data: {
+		                    label: { bind: "label" },
+		                    value: { bind: "data" },
+		                    offset: { bind: "offset" }
+		                }
+		            }, {
+		                type: "line",
+		                label: "Steam1",
+		                legendEntry: true,
+		                data: {
+		                    y: { bind: "Steam1" }
+		                },
+		                markers: {
+		                    visible: true,
+		                    type: "circle"
+		                }
+		            }, {
+		                label: "Trendline for West",
+		                legendEntry: true,
+		                type: "trendLine",// when adding a trendline, its series type will be fixed to "trendLine". Otherwise, it would be considered as other charts.
+		                order: 4,//it defines the number of terms in polynom equation
+		                data: {
+		                    y: { bind: "west" }// binding 'y' axis to the 'west' property
+		                }
+		            }]
+		        });
+		        $("#wijcompositechart").wijcompositechart("endUpdate");
+		    });
+
+		    function changeProperties() {
+		        var fitType = $("#selFitType").val(),
+                    sampleCount = parseInt($("#inpSampleCount").val()),
+                    order = parseInt($("#inpOrder").val());
+
+		        $("#wijcompositechart").wijcompositechart("option", "seriesList", [{
+		            type: "column",
+		            label: "West",
+		            legendEntry: true,
+		            data: {
+		                y: { bind: "west" }
+		            }
+		        }, {
+		            type: "pie",
+		            center: { x: 150, y: 150 },
+		            radius: 60,
+		            dataSource: pieData,
+		            data: {
+		                label: { bind: "label" },
+		                value: { bind: "data" },
+		                offset: { bind: "offset" }
+		            }
+		        }, {
+		            type: "line",
+		            label: "Steam1",
+		            legendEntry: true,
+		            data: {
+		                y: { bind: "Steam1" }
+		            },
+		            markers: {
+		                visible: true,
+		                type: "circle"
+		            }
+		        }, {
+		            label: "Trendline for West",
+		            legendEntry: true,
+		            type: "trendLine",// when adding a trendline, its series type will be fixed to "trendLine". Otherwise, it would be considered as other charts.
+		            fitType: fitType,//it specifies the fit type of the trendline. There are 11 kinds. Its default value is "polynom".
+		            sampleCount: sampleCount,// it specifies the sample count for function calculation
+		            order: order,//it defines the number of terms in polynom equation
+		            data: {
+		                y: { bind: "west" }// binding 'y' axis to the 'west' property
+		            }
+		        }]);
+		    }
+	</script>
+    </div>
+</div>

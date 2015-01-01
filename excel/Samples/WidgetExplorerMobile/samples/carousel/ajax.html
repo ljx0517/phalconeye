@@ -1,0 +1,81 @@
+<div data-role="appviewpage">
+    <div data-role="header">
+        <a href="index.html" data-icon="back">Back</a>
+        <h2>
+            Ajax Data</h2>
+    </div>
+    <div data-role="content">
+        <style type="text/css">
+            #wijcarousel0
+            {
+                width: 300px;
+                height: 75px;
+            }
+        </style>
+        <div id="wijcarousel0">
+        </div>
+        <script type="text/javascript">
+
+            $(document).one('wijappviewpageinit', function () {
+                var images = [
+            {
+                imageUrl: "http://lorempixel.com/750/300/abstract/1",
+                linkUrl: "http://lorempixel.com/750/300/abstract/1",
+                content: "",
+                caption: "<span>Word Caption 1</span>"
+            },
+            {
+                imageUrl: "http://lorempixel.com/750/300/abstract/2",
+                linkUrl: "http://lorempixel.com/750/300/abstract/2",
+                content: "",
+                caption: "<span>Word Caption 2</span>"
+            },
+            {
+                imageUrl: "http://lorempixel.com/750/300/abstract/3",
+                linkUrl: "http://lorempixel.com/750/300/abstract/3",
+                content: "",
+                caption: "<span>Word Caption 3</span>"
+            },
+            {
+                imageUrl: "http://lorempixel.com/750/300/abstract/4",
+                linkUrl: "http://lorempixel.com/750/300/abstract/4",
+                content: "",
+                caption: "<span>Word Caption 4</span>"
+            },
+            {
+                imageUrl: "http://lorempixel.com/750/300/abstract/5",
+                linkUrl: "http://lorempixel.com/750/300/abstract/5",
+                content: "",
+                caption: "<span>Word Caption 5</span>"
+            }
+            ];
+
+                $("#wijcarousel0").wijcarousel({
+                    display: 4,
+                    step: 3,
+                    showTimer: false,
+                    loadCallback: function () {
+                        $.get("Wijmo-Complete/development-bundle/samples-mobile/carousel/ajax.txt", function (self, status, data) {
+                            ajaxCallback(data.responseText);
+                        });
+                    }
+                });
+
+                function ajaxCallback(images) {
+                    var imgs = images.split('|'), data = [];
+                    for (i = 0; i < imgs.length; i++) {
+                        data[i] = {
+                            imageUrl: imgs[i],
+                            linkUrl: "",
+                            content: "",
+                            caption: "<span>Image " + (i + 1) + "</span>"
+                        }
+                    }
+                    $("#wijcarousel0").wijcarousel("option",
+                    "data",
+                     data);
+                }
+            });
+        </script>
+    </div>
+</div>

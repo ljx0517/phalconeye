@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Sparkline - Inline</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="%description%" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="ComponentOne" />
+
+    <link href="../../../../Themes/rocket/jquery-wijmo.css" rel="stylesheet" type="text/css" />
+    <link href="../../../../css/jquery.wijmo-pro.all.3.20143.59.min.css" rel="stylesheet" type="text/css" />
+    <script src="../../js/require.js" type="text/javascript"></script>
+    <script src="../../js/require.wijmo.config.js" type="text/javascript"></script>
+
+    <script id="scriptInit" type="text/javascript">
+    	require(["wijmo.wijsparkline"], function () {
+    		$(document).ready(function () {
+    			$("#wijsparklineDefault").wijsparkline();
+    			$("#wijsparklineArea").wijsparkline({
+    				type: "area"
+    			});
+    			$("#wijsparklineColumn").wijsparkline({
+    				type: "column"
+    			});
+    		});
+    	});
+    </script>
+</head>
+<body class="demo-single">
+    <div class="container">
+        <div class="header">
+            <h2>Overview</h2>
+        </div>
+        <div class="main demo">
+            <!-- Begin demo markup -->
+            <h3>Line</h3>
+            <div id="wijsparklineDefault" style="height:50px;width:200px">
+                33, 11, 15, 26, 16, 27, 37, -13, 8, -8, -3, 17, 0, 22, -13, -29, 19, 8
+            </div>
+            <h3>Area</h3>
+            <div id="wijsparklineArea" style="height:50px;width:200px">
+                33, 11, 15, 26, 16, 27, 37, -13, 8, -8, -3, 17, 0, 22, -13, -29, 19, 8
+            </div>
+            <h3>column</h3>
+            <div id="wijsparklineColumn" style="height:50px;width:200px">
+                33, 11, 15, 26, 16, 27, 37, -13, 8, -8, -3, 17, 0, 22, -13, -29, 19, 8
+            </div>
+            <!-- End demo markup -->
+            <div class="demo-options">
+                <!-- Begin options markup -->
+                <!-- End options markup -->
+            </div>
+        </div>
+        <div class="footer demo-description">
+            <p>
+                This sample demonstrates the inline sparkline. Inline sparklines allow you to define the data directly in markup. When the wijsparkline is initialized on the element, it will parse inner text as data.
+            </p>
+            <p>
+                Example markup:
+                <pre>
+&lt;div id=&quot;mySparkline&quot;&gt;33, 11, 15, 26&lt;/div&gt;
+                </pre>
+            </p>
+            <h3>Test the features</h3>
+            <ul>
+                <li>Hover over a data point to see the tooltip.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

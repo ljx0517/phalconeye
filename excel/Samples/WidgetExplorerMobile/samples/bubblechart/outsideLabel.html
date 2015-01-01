@@ -1,0 +1,45 @@
+<div data-role="appviewpage" data-title="Outside Label">
+	<div data-role="content">
+		<div id="wijbubblechart" data-role="wijbubblechart" style="width: 100%; height: 400px">
+		</div>
+		<script type="text/javascript">
+			$(document).one("wijappviewpageinit", function () {
+				$("#wijbubblechart").wijbubblechart("beginUpdate").wijbubblechart({
+					minimumSize: 3,
+					MaximumSize: 15,
+					axis: {
+						y: {
+							text: "Total Hardware"
+
+						},
+						x: {
+							text: ""
+						}
+					},
+					hint: {
+						content: function () {
+							return this.data.label + '\n x:' + this.x + ',y:' + this.y + ",y1:" + this.data.y1;
+						}
+					},
+					header: {
+						text: "Hardware Distribution"
+					},
+
+					chartLabel: {
+						position: "outside",
+						compass: $("#dpcompass").val()
+					},
+					seriesList: [{
+						label: "West",
+						legendEntry: true,
+						data: { x: [5, 14, 20, 18, 22], y: [5500, 12200, 60000, 24400, 32000], y1: [3, 12, 33, 10, 42] }
+					}]
+				}).wijbubblechart("endUpdate");
+
+				$("#dpcompass").change(function () {
+					$("#wijbubblechart").wijbubblechart("option", "chartLabel", { compass: $(this).val() });
+				});
+			});
+		</script>
+	</div>
+</div>
